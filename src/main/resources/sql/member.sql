@@ -10,6 +10,7 @@ create table tbl_member(
     member_nickname varchar(255) default '포지셔너',
     member_status int default 1,
     member_type varchar(255) default '포지셔너',
+    member_warning_count int default 0, # 신고 누적 횟수
     created_date datetime default current_timestamp,
     updated_date datetime default  current_timestamp
 );
@@ -18,3 +19,5 @@ select * from tbl_member;
 
 alter table  tbl_member add(created_date datetime default current_timestamp);
 alter table  tbl_member add(updated_date datetime default current_timestamp);
+alter table  tbl_member add(member_warning_count int default 0);
+
