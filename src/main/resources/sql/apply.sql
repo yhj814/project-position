@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 7123daff79602d8defbf0ec225d5ef304d3915aa
 # 지원 테이블
 create table tbl_apply(
         notice_id bigint unsigned not null,
