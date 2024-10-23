@@ -11,3 +11,6 @@ select * from tbl_resume_file;
 
 alter table  tbl_resume_file add(created_date datetime default current_timestamp);
 alter table  tbl_resume_file add(updated_date datetime default current_timestamp);
+
+alter table tbl_resume_file drop column created_date;
+alter table tbl_resume_file drop column updated_date;
