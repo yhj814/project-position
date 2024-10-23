@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7123daff79602d8defbf0ec225d5ef304d3915aa
 # 지원 테이블
 create table tbl_apply(
         notice_id bigint unsigned not null,
@@ -7,7 +11,8 @@ create table tbl_apply(
         constraint fk_apply_notice foreign key (notice_id)
             references tbl_notice(id),
         constraint fk_apply_resume foreign key (resume_id)
-        references tbl_resume(id)
+            references tbl_resume(id)
 );
 select *
 from tbl_apply;
+
