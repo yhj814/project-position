@@ -1,3 +1,4 @@
+# 지원 테이블
 create table tbl_apply(
         notice_id bigint unsigned not null,
         resume_id bigint unsigned not null ,
@@ -10,4 +11,3 @@ create table tbl_apply(
 );
 select *
 from tbl_apply;
-
