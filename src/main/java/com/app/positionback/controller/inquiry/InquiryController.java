@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class InquiryController {
     private InquiryService inquiryService;
 
-    @GetMapping
+    @GetMapping("customer-service-center/inquiry")
     public void goToInquiry() {}
 };

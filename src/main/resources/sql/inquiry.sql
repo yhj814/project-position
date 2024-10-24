@@ -23,3 +23,4 @@ ALTER TABLE tbl_inquiry
 
 ALTER TABLE tbl_inquiry
     MODIFY inquiry_content VARCHAR(255) NOT NULL;
+sfdsaaaFasDSfda\
