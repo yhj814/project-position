@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자소서 작성</title>
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/static/css/cover-letter/write.css" />
+    </head>
+    <body>
+        <div id="next">
+            <div class="personlayout-wrapper">
+                <header class="person-header"></header>
+                <main class="personlayout-main">
+                    <div class="edit-edit">
+                        <div class="edit-edit-wrap">
+                            <div class="title-edit-title">
+                                <div class="title-edit-title-input-wrap">
+                                    <div
+                                        class="input-input input-size title-edit-title-input"
+                                    >
+                                        <input
+                                            type="text"
+                                            id=""
+                                            name=""
+                                            placeholder="제목을 입력해주세요."
+                                            autocomplete="off"
+                                            maxlength="25"
+                                            class="input-input-input"
+                                        />
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="button-button button-button-color-borderless button-button-size-s title-edit-title-delete"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            class="button-button-icon button-button-icon-only"
+                                            aria-hidden="false"
+                                        >
+                                            <use xlink:href="#delete"></use>
+                                        </svg>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="button-button button-button-color-blue button-button-size-s"
+                                    >
+                                        확인
+                                    </button>
+                                </div>
+                                <div class="title-edit-title-tootip-wrap">
+                                    <button
+                                        type="button"
+                                        class="title-edit-title-tootip-btn"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            aria-hidden="false"
+                                        >
+                                            <use
+                                                xlink:href="#information"
+                                            ></use>
+                                        </svg>
+                                    </button>
+                                    <div
+                                        class="tooltip-tooltip tooltip-nomal tooltip-tooltip-toright"
+                                    >
+                                        <span
+                                            class="tooltip-tooltip-tail"
+                                        ></span>
+                                        <div class="tooltip-tooltip-txt">
+                                            <div class="tooltip-tooltip-tit">
+                                                자기소개서 이름 관리
+                                            </div>
+                                            자기소개서 관리를 위한 이름을
+                                            설정해주세요. 설정한 이름은 향후<br />자기소개서를
+                                            수정하거나 조회할 때 필요합니다.
+                                            자기소개서 이름<br />은 본인만
+                                            확인할 수 있으며, 자유롭게 설정하실
+                                            수 있습니다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit-edit-questions">
+                                <div
+                                    class="questionitem-question-item questionitem-question-item-current"
+                                    id="0"
+                                >
+                                    <div class="questionedit-question-edit">
+                                        <h3
+                                            class="questionedit-question-edit-title"
+                                        >
+                                            문항
+                                        </h3>
+                                        <input
+                                            type="checkbox"
+                                            class="questionedit-question-edit-check"
+                                            id="question-on-off"
+                                        />
+                                        <label
+                                            for="question-on-off"
+                                            class="questionedit-question-edit-label"
+                                            >* 문항을 끌 수 있습니다.</label
+                                        >
+                                        <div
+                                            class="input-input-2 input-input-size-i input-input-ea questioninput-question-edit-input"
+                                        >
+                                            <input
+                                                type="text"
+                                                name=""
+                                                id=""
+                                                placeholder="지원 동기, 입사 후 포부와 같은 문항을 입력해 주세요."
+                                                autocomplete="off"
+                                                maxlength="500"
+                                                class="input-input-input"
+                                                value=""
+                                            />
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="button-button button-button-color-ea button-button-size-i questionedit-question-btn"
+                                        >
+                                            문항 예시보기
+                                        </button>
+                                    </div>
+                                    <div class="contentedit-content-edit-wrap">
+                                        <h4
+                                            class="contentedit-content-edit-title"
+                                        >
+                                            내용
+                                        </h4>
+                                        <div class="contentedit-content-edit">
+                                            <textarea
+                                                class="contentedit-content-edit-content"
+                                                contenteditable="true"
+                                            ></textarea>
+                                            <span
+                                                class="contentedit-content-placeholder contentedit-content-placeholder-show"
+                                                >내용을 입력해주세요.</span
+                                            >
+                                        </div>
+                                        <div class="contentcount-content-count">
+                                            <span>0</span>
+                                            / 500자 (공백포함)
+                                        </div>
+                                    </div>
+                                    <!-- 코칭 부분을 '자소서 작성 팁'같은 걸로 변경 -->
+                                    <div
+                                        class="coachingbutton-coaching-btns-wrap"
+                                    >
+                                        <h4
+                                            class="coachingbutton_coaching-btns-title"
+                                        >
+                                            코칭
+                                        </h4>
+                                        <div
+                                            class="coachingbutton-coaching-btns"
+                                        >
+                                            <!-- 버튼들을 div로 변경하고 넣고싶은 문구로 수정 -->
+                                            <div
+                                                class="coachingbutton-coaching-btns-tooltip"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    class="button-button button-button-color-ghost button-button-size-m"
+                                                >
+                                                    맞춤법 검사 받기
+                                                </button>
+                                            </div>
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                aria-hidden="false"
+                                            >
+                                                <use
+                                                    xlink:href="#arrow-next"
+                                                ></use></svg
+                                            ><button
+                                                type="button"
+                                                class="button-button button-button-color-ghost button-button-size-m"
+                                            >
+                                                표절검사 받기</button
+                                            ><svg
+                                                width="16"
+                                                height="16"
+                                                aria-hidden="false"
+                                            >
+                                                <use
+                                                    xlink:href="#arrow-next"
+                                                ></use></svg
+                                            ><button
+                                                type="button"
+                                                class="button-button button-button-color-ghost button-button-size-m"
+                                            >
+                                                Ai 자소서 코칭 받기
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="utilitybar-utility-bar">
+                            <div class="utilitybar-utility-bar-wrap">
+                                <div class="utilitybar-utility-bar-export">
+                                    <button
+                                        type="button"
+                                        class="button-button button-button-color-borderless button-button-size-i"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            class="button-button-icon"
+                                            aria-hidden="true"
+                                        >
+                                            <use xlink:href="#download"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="utilitybar-utility-bar-msg"></div>
+                                <button
+                                    type="button"
+                                    class="button-button button-button-color-blueinvert button-button-size-i button-button-round"
+                                >
+                                    자소서 중간저장
+                                </button>
+                                <button
+                                    type="button"
+                                    class="button-button button-button-color-blue button-button-size-i button-button-round"
+                                >
+                                    작성완료
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer></footer>
+            </div>
+        </div>
+        <div class="modal-modal modal-modal-hidden">
+            <div class="modal-modal-dim"></div>
+            <div
+                class="modal-modal-content modal-modal-content-dimmed questionedit-example-layer"
+            >
+                <h4 class="questionedit-example-layer-title">문항 예시</h4>
+                <div class="example-layer-content">
+                    <div class="questionedit-example-layer-examples">
+                        <div
+                            class="questionedit-example-layer-examples-categories"
+                        >
+                            <ul>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category questionedit-example-layer-examples-category-selected"
+                                    >
+                                        <strong>기본형 1</strong
+                                        ><span>기본항목 위주로 표현할 때</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>기본형 2</strong
+                                        ><span>기본항목 위주로 표현할 때</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>깔끔형</strong
+                                        ><span
+                                            >필수항목 위주 명확하게 표현</span
+                                        >
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 1</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 2</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 3</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 4</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 5</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 6</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 7</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="questionedit-example-layer-examples-category"
+                                    >
+                                        <strong>개성형 8</strong
+                                        ><span>개성만점!! 나만의 표현법</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            class="questionedit-example-layer-examples-results"
+                        >
+                            <div
+                                class="radiogroup-rdogroup radiogroup-rdogroup-vertical"
+                            >
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_0"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="가족소개"
+                                        /><label
+                                            for="result_0"
+                                            class="radio-rdo-lbl"
+                                            >가족소개</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_1"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="성장과정"
+                                        /><label
+                                            for="result_1"
+                                            class="radio-rdo-lbl"
+                                            >성장과정</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_2"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="학창시절"
+                                        /><label
+                                            for="result_2"
+                                            class="radio-rdo-lbl"
+                                            >학창시절</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_3"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="교외활동"
+                                        /><label
+                                            for="result_3"
+                                            class="radio-rdo-lbl"
+                                            >교외활동</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_4"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="전공선택 이유와 적성"
+                                        /><label
+                                            for="result_4"
+                                            class="radio-rdo-lbl"
+                                            >전공선택 이유와 적성</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_5"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="성격의 장단점"
+                                        /><label
+                                            for="result_5"
+                                            class="radio-rdo-lbl"
+                                            >성격의 장단점</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_6"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="생활신조"
+                                        /><label
+                                            for="result_6"
+                                            class="radio-rdo-lbl"
+                                            >생활신조</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_7"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="지원동기"
+                                        /><label
+                                            for="result_7"
+                                            class="radio-rdo-lbl"
+                                            >지원동기</label
+                                        ></span
+                                    >
+                                </div>
+                                <div class="radio-radio">
+                                    <span class="radio-rdo rdi-size-m"
+                                        ><input
+                                            type="radio"
+                                            id="result_8"
+                                            name="resultGroup"
+                                            class="radio-rdo-input"
+                                            value="입사 후 포부"
+                                        /><label
+                                            for="result_8"
+                                            class="radio-rdo-lbl"
+                                            >입사 후 포부</label
+                                        ></span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="questionedit-example-layer-btn">
+                    <button
+                        type="button"
+                        class="button-button button-button-color-grayinvert button-button-size-m"
+                    >
+                        취소
+                    </button>
+                    <button
+                        type="button"
+                        class="button-button button-button-color-blue-insert button-button-size-m"
+                    >
+                        적용
+                    </button>
+                </div>
+                <button
+                    class="modal-modal-close modal-modal-close-dimmed"
+                    type="button"
+                    aria-label="닫기"
+                >
+                    <svg width="24" height="24" aria-hidden="false">
+                        <use xlink:href="#close"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </body>
+    <script src="/static/js/cover-letter/write.js"></script>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        style="position: absolute; width: 0; height: 0"
+        aria-hidden="true"
+        id="__SVG_SPRITE_NODE__"
+    >
+        <symbol
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            id="delete"
+        >
+            <g fill="none">
+                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                <path d="M9 9L15 15" stroke="white"></path>
+                <path d="M15 9L9 15" stroke="white"></path>
+            </g>
+        </symbol>
+        <symbol
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="none"
+            id="information"
+        >
+            <circle
+                cx="8"
+                cy="8"
+                r="7.4"
+                stroke="currentColor"
+                stroke-width="1.2"
+            ></circle>
+            <g fill="currentColor">
+                <path
+                    d="M8 6C8.552 6 9 5.552 9 5C9 4.4475 8.552 4 8 4C7.448 4 7 4.4475 7 5C7 5.552 7.448 6 8 6Z"
+                ></path>
+                <path
+                    d="M8.79462 7.9067C8.74841 7.50883 8.41027 7.2 8 7.2C7.55817 7.2 7.2 7.55817 7.2 8V11.6L7.20538 11.6933C7.25159 12.0912 7.58973 12.4 8 12.4C8.44183 12.4 8.8 12.0418 8.8 11.6V8L8.79462 7.9067Z"
+                ></path>
+            </g>
+        </symbol>
+        <symbol
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            id="close"
+        >
+            <g fill-rule="evenodd" clip-rule="evenodd" fill="currentColor">
+                <path
+                    d="M19.0857 19L5 4.93809L5.91431 4L20 18.0619L19.0857 19Z"
+                ></path>
+                <path
+                    d="M19.0824 4L5 18.0757L5.91759 19L20 4.92435L19.0824 4Z"
+                ></path>
+            </g>
+        </symbol>
+        <symbol
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="none"
+            id="arrow-next"
+        >
+            <path
+                d="M6.29053 12.04L10.3148 8.04004L6.29053 4.04004"
+                stroke="currentColor"
+                stroke-linecap="round"
+            ></path>
+        </symbol>
+    </svg>
+</html>

@@ -1,0 +1,765 @@
+#sri-section {
+    display: table;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#sri-wrap {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 56px auto 80px auto;
+    width: 960px;
+}
+.wrap-interview-part {
+    margin-top: -5px;
+}
+.hidden,
+.blind {
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+}
+.wrap-interview-part .area-intro {
+    overflow: hidden;
+    position: relative;
+    height: 455px;
+}
+.wrap-interview-part .area-intro .mark-img {
+    height: 455px;
+}
+.wrap-interview-part .area-intro .mark-img img {
+    height: auto;
+    min-height: 455px;
+}
+.wrap-interview-part .area-intro .box-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 50px 30px 80px 40px;
+    width: 360px;
+    height: 455px;
+    box-sizing: border-box;
+    background: #514f5e;
+}
+.area-intro .box-info .company-name {
+    color: var(--white);
+}
+.area-intro .box-info .company-name .label-ing {
+    margin-top: -2px;
+    margin-right: 9px;
+    padding: 1px 8px 3px 8px;
+    height: 24px;
+    box-sizing: border-box;
+    color: var(--white);
+    font-size: 13px;
+    vertical-align: middle;
+    background: #f76a6a;
+}
+.area-intro .box-info .company-name .in-name {
+    display: inline-block;
+    overflow: hidden;
+    width: 215px;
+    font-size: 16px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.area-intro .box-info .title {
+    padding-top: 9px;
+    color: var(--white);
+    font-size: 30px;
+    line-height: 42px;
+    word-break: break-all;
+}
+.area-intro .box-info .box-txt {
+    padding-top: 32px;
+    color: #e3e3e5;
+}
+.area-intro .box-info .box-txt .company-part {
+    font-size: 16px;
+}
+.area-intro .box-info .box-txt .day-line {
+    padding-top: 7px;
+}
+.area-intro .box-info .day-line span {
+    height: 12px;
+    color: #e3e3e5;
+    font-size: 14px;
+    line-height: 11px;
+}
+.day-line span.day {
+    display: inline-block;
+    position: relative;
+}
+.area-intro .box-info .day-line span.day:after {
+    top: 1px;
+    right: -12px;
+    width: 1px;
+    height: 10px;
+    background: #97959e;
+}
+.day-line span.day:after {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: -8px;
+    width: 1px;
+    height: 9px;
+    background: #d1d1d1;
+    content: "";
+}
+.area-intro .box-info .day-line span.view-count {
+    padding-left: 37px;
+}
+.day-line span.view-count {
+    display: inline-block;
+    position: relative;
+    padding-left: 34px;
+}
+.area-intro .box-info .day-line span.view-count:after {
+    top: 1px;
+    background-position: 0 -13px;
+}
+.day-line span.view-count:after {
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    width: 15px;
+    height: 10px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) 0
+        0 no-repeat;
+    content: "";
+}
+.area-intro .box-info .day-line .box-sns {
+    display: inline-block;
+    position: relative;
+}
+.area-intro .box-info .day-line .btn-share {
+    position: relative;
+    margin-left: 20px;
+    padding-right: 20px;
+    width: 14px;
+    height: 14px;
+    text-indent: -9999em;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) -111px -7px
+        no-repeat;
+}
+.area-intro .box-info .day-line .list-share {
+    right: -105px;
+    width: auto;
+}
+.share-open .list-share {
+    display: block;
+}
+
+.share .list-share {
+    display: none;
+    position: absolute;
+    top: -3px;
+    right: -135px;
+    padding: 2px;
+    width: 123px;
+    height: 30px;
+    border: 1px solid #eee;
+    background-color: var(--white);
+}
+.share .list-share:before {
+    position: absolute;
+    top: 9px;
+    left: -7px;
+    width: 8px;
+    height: 13px;
+    background-position: -170px 0;
+    content: "";
+}
+.spr-rview:before,
+.spr-rview:after {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/person/jobs_view/spr_rview_180330.png)
+        no-repeat;
+}
+.share .list-share li:first-child {
+    border-left: 0;
+}
+.share .list-share .spr-rview {
+    display: block;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+}
+.share .list-share .facebook:after {
+    background-position: 0 -40px;
+}
+.share .list-share .spr-rview:after {
+    display: block;
+    width: 22px;
+    height: 22px;
+    content: "";
+}
+.spr-rview:before,
+.spr-rview:after {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/person/jobs_view/spr_rview_180330.png)
+        no-repeat;
+}
+.share .list-share li {
+    float: left;
+    border-left: 1px solid #eee;
+}
+.area-intro .box-info .day-line .box-sns:after {
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    width: 1px;
+    height: 10px;
+    background: #97959e;
+    content: "";
+}
+.share .list-share .twitter:after {
+    background-position: -30px -40px;
+}
+.share .list-share .spr-rview:after {
+    display: block;
+    width: 22px;
+    height: 22px;
+    content: "";
+}
+.share .list-share .copy-url:after {
+    background-position: -60px -40px;
+}
+.share .list-share .spr-rview:after {
+    display: block;
+    width: 22px;
+    height: 22px;
+    content: "";
+}
+.list-share.visible {
+    display: block;
+}
+.area-intro .box-info .tag-line {
+    position: absolute;
+    top: 360px;
+    width: 280px;
+}
+.area-intro .box-info .tag-line a {
+    margin-right: 12px;
+    color: var(--white);
+    font-size: 13px;
+}
+.area-intro .box-info .tag-line a:hover {
+    text-decoration: underline;
+    font-weight: 700;
+}
+.area-interview-thebody .top-title {
+    position: relative;
+    margin: 60px 0;
+    padding: 40px 0 50px 0;
+    color: #444;
+    font-size: 30px;
+    line-height: 41px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.area-interview-thebody .ico-quotation-marks.up-mark {
+    top: 0;
+}
+.area-interview-thebody .ico-quotation-marks {
+    display: block;
+    position: absolute;
+    left: 458px;
+    width: 30px;
+    height: 30px;
+    text-indent: -9999em;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) -1px -104px
+        no-repeat;
+}
+.area-interview-thebody .ico-quotation-marks.down-mark {
+    bottom: 0;
+    background-position: -33px -97px;
+}
+.interview-type04 .type-title .ico-quotation-marks.down-mark {
+    height: 23px;
+    background-position: -36px -140px;
+}
+.content-interview:first-child {
+    margin-top: 0;
+}
+.content-interview .sub-title {
+    position: relative;
+    padding-top: 20px;
+    color: #444;
+    font-size: 30px;
+    text-align: center;
+}
+.subtit-type02 .sub-title:after {
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 2px;
+    background-position: -125px -135px;
+}
+.content-interview .sub-title:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) 0
+        0 no-repeat;
+    content: "";
+}
+.interview-type05 .mix-cont {
+    position: relative;
+    padding-top: 58px;
+    height: 500px;
+}
+.interview-type05 .mix-cont .img {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 380px;
+    height: 500px;
+    box-sizing: border-box;
+}
+.interview-type01 img,
+.interview-type03 img,
+.interview-type05 img {
+    width: 100%;
+    height: 100%;
+}
+.interview-type05 .mix-cont .box-question {
+    margin-bottom: 55px;
+    padding: 0 0 0 429px;
+    height: 183px;
+    box-sizing: border-box;
+}
+.box-question .question {
+    color: #444;
+    font-size: 18px;
+    font-weight: bold;
+}
+.box-question .question .q-num {
+    display: block;
+    padding-bottom: 15px;
+    color: #6174d1;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 18px;
+}
+.box-question .answer {
+    padding-top: 22px;
+    color: #666;
+    font-size: 16px;
+    line-height: 26px;
+    word-break: keep-all;
+}
+.interview-type05 .box-inner:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.interview-type05 .inner-position-r {
+    position: absolute;
+    top: 1050px;
+    right: 0;
+    padding-top: 0;
+    width: 531px;
+    height: 183px;
+}
+.interview-type05 .inner-position-r .box-question {
+    padding-top: 0;
+}
+.box-question {
+    padding-top: 56px;
+}
+.content-interview {
+    margin-top: 76px;
+    padding-top: 80px;
+    border-top: 1px solid #ebebeb;
+}
+.subtit-type02 .sub-title:after {
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 2px;
+    background-position: -125px -135px;
+}
+.interview-type01 .box-inner.mix-cont {
+    padding-top: 58px;
+    height: 390px;
+}
+.interview-type01 .box-inner.mix-cont .img {
+    float: left;
+    width: 590px;
+    height: 390px;
+    box-sizing: border-box;
+}
+.interview-type01 .box-inner.mix-cont .box-question {
+    float: left;
+    padding: 0 0 0 50px;
+    width: 370px;
+    height: 392px;
+    box-sizing: border-box;
+}
+.interview-type01 .box-inner:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.interview-type04 .type-title {
+    position: relative;
+    margin: 55px 0 0 0;
+    padding: 37px 0 50px 0;
+    color: #abb4e4;
+    font-size: 40px;
+    line-height: 54px;
+    text-align: center;
+}
+.interview-type04 .type-title .ico-quotation-marks.up-mark {
+    background-position: 0 -140px;
+}
+.box-pagination {
+    position: relative;
+    padding-top: 90px;
+}
+.box-pagination .box-pagetxt {
+    position: relative;
+    padding: 39px 30px;
+    width: 960px;
+    height: auto;
+    min-height: 120px;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    text-align: center;
+}
+.box-pagination .box-pagetxt .txt {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    max-height: 44px;
+    color: #888;
+    font-size: 13px;
+    line-height: 22px;
+}
+.box-pagination .box-pagetxt:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 194px;
+    height: 118px;
+    background: url(//www.saraminimage.co.kr/sri/common/bg/bg_interview01.png) 0
+        0 no-repeat;
+    content: "";
+}
+.box-pagination .box-pagetxt .txt em {
+    font-weight: bold;
+}
+.box-pagination .btn-page.prev-page {
+    border-right: 0;
+}
+.box-pagination .btn-page {
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 95px;
+    border: 1px solid #ebebeb;
+    border-top: 0 none;
+    box-sizing: border-box;
+    background: var(--white);
+}
+.box-pagination .btn-page.nodata-page .text {
+    display: block;
+    padding: 35px 0 0 69px;
+}
+.box-pagination .btn-page.nodata-page.prev-page:after {
+    left: 30px;
+    background-position: -144px -7px;
+}
+.box-pagination .btn-page.nodata-page:after {
+    display: block;
+    position: absolute;
+    top: 32px;
+    width: 20px;
+    height: 32px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) 0
+        0 no-repeat;
+    content: "";
+}
+.box-pagination .btn-page.next-page a {
+    padding: 0 68px 0 40px;
+    border-left: 0 none;
+    text-align: right;
+}
+.box-pagination .btn-page a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.box-pagination .btn-page.next-page em {
+    float: right;
+}
+.box-pagination .btn-page em {
+    display: block;
+    overflow: hidden;
+    padding-top: 23px;
+    width: 100%;
+    height: auto;
+    min-height: 33px;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 16px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box-pagination .btn-page.next-page span {
+    float: right;
+}
+.box-pagination .btn-page span {
+    display: block;
+    overflow: hidden;
+    padding-top: 3px;
+    max-width: 370px;
+    color: #666;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box-pagination .btn-page.next-page a:after {
+    right: 27px;
+    background-position: -180px -7px;
+}
+.box-pagination .btn-page a:after {
+    display: block;
+    position: absolute;
+    top: 32px;
+    width: 20px;
+    height: 32px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) 0
+        0 no-repeat;
+    content: "";
+}
+.box-pagination:after {
+    display: block;
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    width: 194px;
+    height: 118px;
+    background: url(//www.saraminimage.co.kr/sri/common/bg/bg_interview02.png) 0
+        0 no-repeat;
+    content: "";
+}
+.btn-group.al-right {
+    clear: both;
+    margin-bottom: 55px;
+    padding-top: 10px;
+    text-align: right;
+}
+.wrap-interview-part .btn-group .btn-basic-type02 {
+    padding: 5px 19px 9px 19px;
+}
+.btn-basic-type02 {
+    display: inline-block;
+    padding: 5px 13px 9px;
+    height: 32px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 13px;
+    line-height: normal;
+    vertical-align: top;
+    background-color: #fff;
+}
+.more-recuilt-list {
+    margin-bottom: 80px;
+}
+.btn-page:hover {
+    background-color: rgb(249, 249, 249);
+}
+.box-tit-data {
+    position: relative;
+    margin-bottom: 17px;
+}
+.box-tit-data .small-tit {
+    color: var(--black);
+    font-size: 16px;
+}
+.box-tit-data .small-tit em {
+    font-weight: bold;
+}
+.box-tit-data .box-r {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.box-tit-data .link-more {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+    color: #888;
+    font-size: 13px;
+}
+.box-tit-data .link-more:after {
+    display: block;
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: 13px;
+    height: 17px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_viewpage.png) -69px
+        1px no-repeat;
+    content: "";
+}
+.recruilt-list-wrap {
+    margin-bottom: 40px;
+}
+.more-recuilt-list .recruilt-list-wrap .common-recruit-list {
+    border-top: 1px solid #444;
+}
+.recruilt-list-wrap .common-recruit-list {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.more-recuilt-list .common-recruit-list .notification-info {
+    padding: 19px 0 10px 16px;
+}
+.common-recruit-list .notification-info .job-tit {
+    display: inline-block;
+    width: 100%;
+    height: 26px;
+    color: #444;
+    font-size: 15px;
+    line-height: 18px;
+}
+.common-recruit-list .notification-info .job-tit .str-tit {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 90%;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.common-recruit-list .notification-info .btn-scrap {
+    vertical-align: top;
+}
+.common-recruit-list .notification-info .job-sector {
+    color: #666;
+    font-size: 13px;
+}
+.common-recruit-list .notification-info .job-sector span:first-child:before {
+    margin: 0;
+    width: 0;
+}
+.common-recruit-list .notification-info .job-sector span:before {
+    display: inline-block;
+    margin: 0 11px 0 8px;
+    width: 1px;
+    height: 11px;
+    vertical-align: middle;
+    background-color: #e5e5e5;
+    content: "";
+}
+.recruilt-list-wrap .common-recruit-list td {
+    padding: 18px 0 10px;
+    height: 65px;
+    border-bottom: 1px solid #ebebeb;
+    vertical-align: top;
+}
+.common-recruit-list .recruit-condition p:first-child {
+    padding: 0;
+}
+.common-recruit-list .recruit-condition p {
+    margin: 0;
+    padding: 6px 0 0;
+}
+.common-recruit-list .recruit-condition {
+    color: #666;
+    font-size: 12px;
+}
+.common-recruit-list .company-info {
+    color: #888;
+    font-size: 12px;
+}
+.common-recruit-list .company-info p:first-child {
+    margin-top: 0 !important;
+}
+.common-recruit-list .company-info .employment-type {
+    background-position: 0 0;
+}
+.common-recruit-list .company-info p {
+    margin: 7px 0 0;
+    padding: 0 0 0 17px;
+    background: url(//www.saraminimage.co.kr/ui/public_recruit/company_info_icon_20160808.png)
+        0 0 no-repeat;
+}
+.common-recruit-list .company-info .work-place {
+    background-position: 0 -100px;
+}
+.common-recruit-list .support-info {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+}
+.common-recruit-list .support-info p:first-child {
+    margin-top: 0;
+}
+.common-recruit-list .support-info p {
+    margin: 6px 0 0 0;
+    padding: 0;
+}
+.sri-btn-xs {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 18px;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+}
+.sri-btn-xs span.sri-btn-immediately,
+.sri-btn-xs span.sri-btn-recruitin-apply {
+    position: relative;
+    width: 52px;
+    border: 1px solid var(--coral110);
+    color: var(--coral110);
+}
+.sri-btn-xs span {
+    display: inline-block;
+    padding-top: 1px;
+    width: 78px;
+    height: 18px;
+    border: 1px solid #dce2ef;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 12px !important;
+    line-height: 12px;
+    vertical-align: top;
+    background: var(--white);
+}

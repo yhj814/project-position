@@ -1,0 +1,560 @@
+#sri-section {
+    display: grid;
+    grid-template-areas:
+        "gnb main"
+        "gnb footer";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    min-width: 1560px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+#sri-wrap {
+    grid-area: main;
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#content {
+    position: relative;
+    margin: 88px auto 136px;
+    width: 1248px;
+}
+.support-announce {
+    margin: 0 auto;
+    width: 1248px;
+}
+.wrap-title {
+    color: #373f57;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 56px;
+}
+
+.support-announce .TabBox {
+    padding: 50px 0 20px;
+}
+.TabBox {
+    display: flex;
+}
+.TabBox .Select .BtnType {
+    color: var(--gray100);
+}
+.TabBox .BtnType {
+    position: relative;
+    padding: 0 2px 8px;
+    color: var(--gray80);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    border: none;
+    border-radius: 0;
+    background: var(--white);
+}
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--blue90);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--blue90);
+    justify-content: center;
+    align-items: center;
+}
+.TabBox .Select .BtnType .Badge {
+    background: var(--gray100);
+    color: var(--white);
+}
+.TabBox .BtnType .Badge {
+    position: relative;
+    align-self: flex-start;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 2px 0 0 4px;
+    padding: 1px 8px;
+    min-width: 24px;
+    height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    color: var(--gray80);
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 12px;
+    background: var(--gray30);
+}
+.TabBox .Select .BtnType:after {
+    background-color: var(--gray100);
+}
+
+.TabBox .BtnType:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 3px;
+    border-radius: 4px;
+    content: "";
+}
+.support-announce .top-btns {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d7dce5;
+}
+.support-announce .top-btns .align {
+    display: flex;
+    align-items: center;
+}
+.top-btns .align .InpBox,
+.top-btns .align .BtnType {
+    margin-right: 8px;
+}
+.InpBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+[class*="BtnType"].GrayInvert {
+    border-color: var(--gray80);
+    color: var(--gray100);
+    background: var(--white);
+}
+[class*="BtnType"].GrayInvert:hover {
+    background: var(--gray20);
+}
+[class*="BtnType"].SizeM {
+    padding: 6px 11px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 24px;
+}
+.InpBox .Chk {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+.InpBox .Chk input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+}
+.InpBox .Chk .Lbl {
+    display: block;
+    position: relative;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+.InpBox.Line .Chk .Lbl:before {
+    margin-right: 4px;
+    border-color: var(--white);
+}
+.InpBox .Chk input:checked ~ .Lbl:before {
+    border-color: var(--blue90);
+    background: var(--blue90);
+}
+.InpBox .Chk .Lbl:before {
+    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    vertical-align: top;
+    background: #fff;
+    content: "";
+}
+
+.InpBox.Line .Chk .Lbl:after {
+    display: inline-block;
+    border-color: var(--gray80);
+}
+.InpBox.Line span .Lbl:after {
+    top: 5px;
+    left: 5px;
+}
+.InpBox.Line .Chk .Lbl:after {
+    display: inline-block;
+    border-color: var(--gray80);
+}
+.InpBox.Line span .Lbl:after {
+    top: 5px;
+    left: 5px;
+}
+.InpBox .Chk .Lbl:after {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 5px;
+    border-bottom: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+    border-radius: 1px;
+    transform: rotate(-45deg);
+    content: "";
+}
+.InpBox .Chk input:checked ~ .Lbl:after {
+    display: inline-block;
+    border-color: var(--white);
+}
+
+.InpBox.Line {
+    display: inline-flex;
+    padding: 0 12px 0 10px;
+    height: 40px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    vertical-align: top;
+    align-items: center;
+}
+.InpBox select {
+    padding: 0 28px 0 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    background: var(--white)
+        url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.5 0H8.5L4.5 5L0.5 0Z' fill='%2367738E'/%3E%3C/svg%3E")
+        no-repeat right 12px top 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+}
+.hidden,
+.blind {
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+}
+.activity-list ul {
+    display: block;
+}
+.activity-list .row {
+    display: inline-block;
+    position: relative;
+    padding: 32px 0 32px 12px;
+    width: 100%;
+    border-bottom: 1px solid #eaedf4;
+    box-sizing: border-box;
+    color: #383e4f;
+}
+.activity-list .row .scrap-check {
+    position: absolute;
+    top: 42px;
+    left: 4px;
+}
+.InpBox .Chk.Hide .Lbl {
+    visibility: visible;
+    overflow: visible;
+    font-size: 0;
+}
+.activity-list .row .col-corp.type02 {
+    margin-left: 32px;
+}
+.activity-list .row .col-corp {
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+    margin: 0 24px 0 20px;
+    width: 132px;
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activity-list .row .col-corp a {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    color: var(--gray80);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activity-list .row .col-informs {
+    display: inline-block;
+    position: relative;
+    max-width: 545px;
+    font-size: 0;
+}
+.activity-list .row .col-informs .tit {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 4px;
+    padding-right: 18px;
+    max-width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    color: #373f57;
+    font-size: 20px;
+    line-height: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activity-list .row .col-informs .tit a {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    color: var(--gray120);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activity-list .row .like-btn {
+    position: absolute;
+    top: 8px;
+    right: -30px;
+    z-index: 3;
+    width: 24px;
+    height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/person/spr/spr-stars.png)
+        no-repeat -5px -5px;
+}
+
+.activity-list .row .col-informs .inform {
+    display: block;
+    font-size: 0;
+}
+.activity-list .row .col-informs .inform li {
+    display: inline-block;
+    margin-right: 12px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 24px;
+}
+.activity-list .row .col-relation {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 160px;
+    bottom: 0;
+    padding: 40px 56px 0;
+    width: 217px;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+}
+.activity-list .row .col-relation .reason,
+.activity-list .row .col-relation .data {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activity-list .row .col-btns {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    width: 120px;
+    text-align: center;
+}
+.sri-btn-ml {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 120px;
+    height: 40px;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+}
+.sri-btn-ml span.sri-btn-immediately,
+.sri-btn-ml span.sri-btn-recruitin-apply {
+    position: relative;
+    border: 1px solid var(--coral110);
+    color: var(--coral110);
+}
+.sri-btn-ml span {
+    display: inline-block;
+    width: 118px;
+    height: 38px;
+    border: 1px solid var(--gray80);
+    border-radius: 4px;
+    color: var(--gray100);
+    font-size: 14px !important;
+    line-height: 36px;
+    background: var(--white);
+}
+.activity-list .row .col-btns .date {
+    display: block;
+    margin-top: 4px;
+    width: 100%;
+    color: var(--gray100);
+    font-size: 13px;
+    line-height: 24px;
+}
+.img-svg-layout,
+.img-svg-common,
+.img-svg-hidden {
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+.activity-list .row .col-relation .data {
+    display: inline-block;
+    padding: 0 8px;
+    max-width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #5c667b;
+    background-color: #f8fafc;
+}
+.PageBox {
+    display: flex;
+    margin: 40px 0 80px;
+    justify-content: center;
+}
+.PageBox span.BtnType {
+    border: 1px solid var(--gray60);
+    font-weight: bold;
+}
+.PageBox .BtnType {
+    display: flex;
+    position: relative;
+    width: 32px;
+    border: 0;
+    color: var(--gray80);
+    background: none;
+    align-items: center;
+    justify-content: center;
+}
+[class*="BtnType"].SizeS {
+    padding: 4px 7px;
+    height: 32px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.NotiBox {
+    margin-top: 40px;
+    display: flex;
+    position: relative;
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--gray20);
+    align-items: flex-start;
+}
+.NotiBox .NotiTit {
+    display: flex;
+    width: 178px;
+    box-sizing: border-box;
+    color: var(--gray70);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+.NotiBox .NotiTit:before {
+    display: inline-block;
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg transform='translate(-488 -2372) translate(456 1409) translate(32 963)' fill='none' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='9.1' stroke='%239AA0AA' stroke-width='1.8'/%3E%3Cpath fill='%239AA0AA' fill-rule='nonzero' d='M10 5c.69 0 1.25.56 1.25 1.25S10.69 7.5 10 7.5s-1.25-.56-1.25-1.25S9.31 5 10 5'/%3E%3Cpath stroke='%239AA0AA' stroke-width='2' d='M10 9.2L10 15'/%3E%3C/g%3E%3C/svg%3E%0A")
+        0 0 no-repeat;
+    content: "";
+}
+#content:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.NotiBox .NotiCont .list > li:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    line-height: 22px;
+    content: "·";
+}
+.NotiBox .NotiCont .list > li {
+    display: block;
+    position: relative;
+    padding-left: 8px;
+    color: var(--gray70);
+    font-size: 13px;
+    line-height: 22px;
+}
+.TabBox li + li {
+    margin-left: 32px;
+}
+.wrap-list .no-row {
+    padding: 72px 0 79px;
+    border-bottom: 1px solid #eaedf4;
+    text-align: center;
+}
+.wrap-list .no-row .txt {
+    padding: 163px 0 14px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/person/resume/img-empty-announce.png)
+        50% 0 no-repeat;
+}
+.wrap-list .no-row .txt b {
+    display: block;
+    padding-bottom: 4px;
+    color: var(--gray90);
+    font-size: 18px;
+    line-height: 32px;
+}
+.wrap-list .no-row .link-go {
+    display: inline-block;
+    position: relative;
+    padding: 10px 14px 10px 0;
+    color: #4876ef;
+    font-size: 14px;
+    vertical-align: top;
+}
+.wrap-list .no-row .link-go:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-left: -2px;
+    width: 5px;
+    height: 5px;
+    border: solid currentColor;
+    border-width: 1px 1px 0 0;
+    -webkit-transform: translate(-50%, -50%) scale(1.1428571429, 1)
+        rotate(45deg);
+    -ms-transform: translate(-50%, -50%) scale(1.1428571429, 1) rotate(45deg);
+    transform: translate(-50%, -50%) scale(1.1428571429, 1) rotate(45deg);
+    content: "";
+}

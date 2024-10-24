@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../static/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="../../static/css/my-page/my-employment-status.css"
+        />
+        <title>나의 지원 현황</title>
+    </head>
+    <body>
+        <div id="position-section">
+            <div id="position-wrap">
+                <div id="content">
+                    <div class="wrap-my-apply" id="apply-status-div">
+                        <h1 class="wrap-title">나의 지원 현황</h1>
+                        <div class="tab-inc-btn">
+                            <ul class="TabBox">
+                                <li class="Select">
+                                    <p class="BtnType">
+                                        지원내역<span class="Badge">0</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="BtnType">
+                                        이수 내역<span class="Badge">0</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="BtnType">
+                                        면접 내역<span class="Badge">0</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="wrap-list" id="apply-status-list-div">
+                            <div class="status-board">
+                                <div class="item -dashboardDiv">
+                                    <button
+                                        type="button"
+                                        class="dash-tab -dashboardBtn"
+                                    >
+                                        <em>지원완료</em>
+                                        <span class="num">0</span>
+                                    </button>
+                                </div>
+                                <div class="item -dashboardDiv">
+                                    <button
+                                        type="button"
+                                        class="dash-tab -dashboardBtn"
+                                    >
+                                        <em>전형 진행중</em>
+                                        <span class="num">0</span>
+                                    </button>
+                                </div>
+                                <div class="item -dashboardDiv">
+                                    <button
+                                        type="button"
+                                        class="dash-tab -dashboardBtn"
+                                    >
+                                        <em>최종발표</em>
+                                        <span class="num">0</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <form
+                                name="list-search-form"
+                                id="list-search-form"
+                                action="/zf-user/persons/apply-status-list"
+                            >
+                                <input type="hidden" name="status-type" />
+                                <div
+                                    class="top-btns"
+                                    id="apply-status-list-search"
+                                >
+                                    <div class="align">
+                                        <div class="InpBox topCheckBox">
+                                            <span class="Chk Hide">
+                                                <input
+                                                    type="checkbox"
+                                                    id="selectAll"
+                                                />
+                                                <label
+                                                    class="Lbl"
+                                                    for="selectAll"
+                                                    >전체선택</label
+                                                >
+                                            </span>
+                                        </div>
+                                        <div class="TipBox">
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM btn-invert GrayInvert"
+                                                id="list-hide-btn"
+                                            >
+                                                삭제하기
+                                            </button>
+                                            <!-- <div class="TipCont TopLeft">
+                                                <span class="Tail"></span>
+                                                <div class="TipTxt">
+                                                    <dl class="del-apply-row">
+                                                        <dt>
+                                                            잠깐! 내역 숨기기는
+                                                            [지원취소]와
+                                                            다른기능입니다.
+                                                        </dt>
+                                                        <dd>
+                                                            내역을 숨기면
+                                                            <b>[지원취소]</b>를
+                                                            할 수 없으며<br />
+                                                            취소하지 않은
+                                                            상태에서는 해당
+                                                            공고에 재지원이
+                                                            <b>불가능</b
+                                                            >합니다.<br />
+                                                            숨기기 전 반드시
+                                                            지원취소를
+                                                            해주세요.<br /><br />
+                                                            내역을 숨기시려면
+                                                            리스트에서 선택한 후
+                                                            다시 버튼을
+                                                            눌러주세요.
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="align">
+                                        <div class="period">
+                                            <div class="TypoBox TypeBtn">
+                                                <input
+                                                    type="text"
+                                                    id="start-date"
+                                                    name="start-date"
+                                                    class="Typo DatePic type-calendar hasDatepicker"
+                                                    maxlength="10"
+                                                    value="2024-09-17"
+                                                    placeholder="YYYY-MM-DD"
+                                                /><button
+                                                    type="button"
+                                                    class="ui-datepicker-trigger"
+                                                >
+                                                    Calendar
+                                                </button>
+                                            </div>
+                                            <span>~</span>
+                                            <div class="TypoBox TypeBtn">
+                                                <input
+                                                    type="text"
+                                                    id="end-date"
+                                                    name="end-date"
+                                                    class="Typo DatePic type-calendar hasDatepicker"
+                                                    maxlength="10"
+                                                    value="2024-10-17"
+                                                    placeholder="YYYY-MM-DD"
+                                                /><button
+                                                    type="button"
+                                                    class="ui-datepicker-trigger"
+                                                >
+                                                    Calendar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="InpBox">
+                                            <select
+                                                name="search-period"
+                                                id="search-period"
+                                                title="기간 설정"
+                                            >
+                                                <option value="week">
+                                                    지난 1주일
+                                                </option>
+                                                <option value="1" selected="">
+                                                    지난 1개월
+                                                </option>
+                                                <option value="2">
+                                                    지난 2개월
+                                                </option>
+                                                <option value="3">
+                                                    지난 3개월
+                                                </option>
+                                                <option value="6">
+                                                    지난 6개월
+                                                </option>
+                                                <option value="12">
+                                                    지난 1년
+                                                </option>
+                                                <!-- <option value="period">
+                                                    기간 설정
+                                                </option> -->
+                                            </select>
+                                        </div>
+                                        <!-- <div class="InpBox">
+                                            <select
+                                                name="read-status"
+                                                id="status-02"
+                                                title="열람여부"
+                                                class="-auto-search"
+                                            >
+                                                <option value="tot" selected="">
+                                                    열람여부 전체
+                                                </option>
+                                                <option value="read">
+                                                    열람
+                                                </option>
+                                                <option value="noread">
+                                                    미열람
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="InpBox">
+                                            <select
+                                                name="recruit-status"
+                                                id="status-01"
+                                                title="마감여부"
+                                                class="-auto-search"
+                                            >
+                                                <option value="tot">
+                                                    마감여부 전체
+                                                </option>
+                                                <option value="opening">
+                                                    진행중
+                                                </option>
+                                                <option value="closing">
+                                                    마감
+                                                </option>
+                                            </select>
+                                        </div> -->
+                                        <div class="InpBox">
+                                            <select
+                                                name="order-type"
+                                                id="order-type"
+                                                title="업데이트순"
+                                                class="-auto-search"
+                                            >
+                                                <option value="apply-reg">
+                                                    입사지원순
+                                                </option>
+                                                <option
+                                                    value="update"
+                                                    selected=""
+                                                >
+                                                    업데이트순
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="TypoBox search-area">
+                                            <input
+                                                type="text"
+                                                class="Typo search"
+                                                id="keyword"
+                                                name="keyword"
+                                                value=""
+                                                placeholder="키워드 입력"
+                                            />
+                                            <button
+                                                type="button"
+                                                id="keyword-search"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24"
+                                                    width="24"
+                                                    height="24"
+                                                    class="icon-search"
+                                                >
+                                                    <path
+                                                        fill="currentColor"
+                                                        d="M7 0c3.866 0 7 3.134 7 7 0 1.756-.647 3.36-1.714 4.59l.068.056 3.394 3.395c.195.195.195.511 0 .707-.174.173-.443.193-.638.058l-.07-.058-3.394-3.394-.056-.068C10.36 13.353 8.756 14 7 14c-3.866 0-7-3.134-7-7s3.134-7 7-7zm0 1C3.686 1 1 3.686 1 7s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z"
+                                                        transform="translate(-1125 -399) translate(447 335) translate(678 64) translate(4 4)"
+                                                    />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form name="list-form" id="list-form">
+                                <div class="list-status"></div>
+                            </form>
+
+                            <!-- <div class="bottom-btns">
+                                <div class="align">
+                                    <button
+                                        type="button"
+                                        class="BtnType SizeS GrayInvert"
+                                        id="certificate-btn"
+                                    >
+                                        구직활동 확인서 발급하기
+                                    </button>
+                                </div>
+                            </div> -->
+                            <div class="PageBox">
+                                <span class="BtnType SizeS">1</span>
+                            </div>
+                        </div>
+                        <div class="NotiBox">
+                            <strong class="NotiTit"
+                                >입사지원현황<br />유의사항</strong
+                            >
+                            <div class="NotiCont">
+                                <ul class="list">
+                                    <li>
+                                        최근 2년간의 지원내역에 대한 확인이
+                                        가능합니다. 단, 지원서류는 최근 60일동안
+                                        확인 가능합니다
+                                    </li>
+                                    <li>
+                                        지원취소는 최근 1년간의 지원에 대해서만
+                                        가능하며, 공고가 삭제된 경우 지원취소를
+                                        제공하지 않습니다.
+                                    </li>
+                                    <li>
+                                        지원하신 기업에서 '사람인 결과발표'를
+                                        이용할 경우 지원 현황에서 결과를
+                                        확인하실 수 있으나, 사람인을 통해
+                                        발표하지 않는 경우 지원 현황에 표기되지
+                                        않습니다.<br />
+                                        정확한 발표 방식 및 일정에 대해서는
+                                        지원하신 기업에 문의해주세요.
+                                    </li>
+                                    <li>
+                                        기업이 이미 이력서를 열람한 경우, 채용
+                                        서류는 별도로 반환하지 아니하며 채용
+                                        종료 시 개인정보보호법을 준수하여 채용
+                                        서류를 즉시 파기합니다.
+                                    </li>
+                                </ul>
+                                <div class="question">
+                                    <button type="button" class="btn">
+                                        입사지원현황 관련 자주찾는 질문 Q&amp;A
+                                    </button>
+                                    <dl class="qa">
+                                        <dt>
+                                            입사지원 후 이력서 관리에서 이력서를
+                                            수정하면, 지원했던 이력서도 함께
+                                            수정되나요?
+                                        </dt>
+                                        <dd>
+                                            아니오, 그렇지 않습니다.<br />입사지원
+                                            완료 후에는 이력서관리 내에서
+                                            이력서를 수정하셔도 수정내용이
+                                            반영되지 않습니다.
+                                        </dd>
+                                        <dt>
+                                            입사지원 후 지원한 이력서를
+                                            수정하려면 어떻게 해야 하나요?
+                                        </dt>
+                                        <dd>
+                                            입사지원을 완료한 후에는 지원한
+                                            이력서를 수정할 수 없습니다.<br />이력서
+                                            수정이 필요할 경우, 입사지원 취소 후
+                                            수정한 이력서로 재지원 해주시기
+                                            바랍니다.
+                                        </dd>
+                                        <dt>
+                                            입사지원 내역을 삭제할 경우 입사지원
+                                            취소가 되나요?
+                                        </dt>
+                                        <dd>
+                                            입사지원 내역 삭제는 입사지원 현황
+                                            리스트 내역만 삭제됩니다.
+                                            <br />입사지원 내역 삭제 시
+                                            지원취소, 열람여부 확인, 서류발표
+                                            요청이 불가능합니다.
+                                        </dd>
+                                        <dt>
+                                            입사지원 취소 시 지원한 기업에서
+                                            이력서를 열람할 수 없나요?
+                                        </dt>
+                                        <dd>
+                                            미열람 상태의 입사지원을 취소할 경우
+                                            지원한 기업에서 이력서를 열람 할 수
+                                            없습니다. <br />다만, 이미 이력서가
+                                            열람된 상태에서 입사지원을 취소할
+                                            경우 면접제의 등의 연락을 받을 수
+                                            있습니다.
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../../static/js/my-page/my-employment-status.js"></script>
+</html>

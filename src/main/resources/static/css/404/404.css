@@ -1,0 +1,155 @@
+html {
+    font-family: "Malgun Gothic", arial, sans-serif;
+}
+
+body,
+div,
+fieldset,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    text-align: center;
+    width: 100%;
+}
+
+.wrap {
+    display: inline-block;
+    margin-top: 113px;
+    width: 944px;
+    height: 448px;
+    text-align: left;
+}
+
+.blind {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.logo {
+    display: inline-block;
+    width: 121px;
+    height: 88px;
+    background: url(/static/images/404/position-logo-small.svg)
+        center center no-repeat;
+}
+
+.con {
+    position: relative;
+}
+
+.con .con-top {
+    padding-top: 15px;
+    height: 304px;
+    background: url(/static/images/404/img_exc.png) no-repeat
+        top right 80px;
+    box-sizing: border-box;
+}
+
+.con .con-top .tit {
+    font-size: 36px;
+    color: #373f57;
+    letter-spacing: -4px;
+    line-height: 50px;
+}
+
+.con .con-top .tit span {
+    letter-spacing: -2px;
+}
+
+.con .con-top .txt {
+    color: #6b768b;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 24px;
+    letter-spacing: -2px;
+    margin: 24px 0 32px 0;
+}
+
+.con .con-top .btn-back {
+    display: inline-block;
+    padding: 12px 0;
+    width: 140px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #373f57;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #373f57;
+}
+
+.con .con-top .btn-back.btn-pre {
+    margin-left: 5px;
+    color: #5c667b;
+    border: 1px solid #d7dce5;
+    background: #fff;
+}
+
+.con .con-btm {
+    margin-top: 20px;
+    padding: 24px 0;
+    width: 100%;
+    background: #f4f6fa;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.con .con-btm .con-btm-img {
+    display: inline-block;
+    margin-left: 40px;
+    width: 247px;
+    height: 88px;
+    vertical-align: top;
+    background: url(/static/images/404/img_suri.png) no-repeat;
+}
+
+.con .con-btm .con-btm-txt {
+    display: inline-block;
+    margin-left: 60px;
+    padding: 10px 0;
+}
+
+.con .con-btm .con-btm-txt .btm-txt {
+    margin-bottom: 16px;
+    color: #6b768b;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -2px;
+}
+
+.con .con-btm .con-btm-txt a {
+    display: inline-block;
+    padding: 5px 0;
+    width: 110px;
+    color: #4876ef;
+    font-size: 13px;
+    text-align: center;
+    line-height: 20px;
+    letter-spacing: -1px;
+    border: 1px solid #4876ef;
+    border-radius: 4px;
+    background: #f4f6fa;
+}

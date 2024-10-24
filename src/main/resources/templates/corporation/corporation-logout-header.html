@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>기업 로그아웃 헤더</title>
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="/static/css/corporation/corporation-logout-header.css"
+        />
+    </head>
+    <body id="main" class="vsc-initialized">
+        <header id="header" class="main bubble">
+            <div class="wrap_header">
+                <h1>
+                    <a
+                        href="/"
+                        class="bi"
+                        aria-label="사람인"
+                        data-nav-track="ga_lead|main-gnb|global_menu|ci"
+                    >
+                        <span class="frame"> </span>
+                    </a>
+                </h1>
+
+                <!-- header 로그인 -->
+                <div class="utility">
+                    <div class="sign">
+                        <a
+                            href="/zf_user/auth"
+                            data-nav-track="ga_lead|main-gnb|layer_sign|signin"
+                            class="btn_sign signin"
+                            >로그인</a
+                        >
+                        <hr />
+                        <a
+                            href="/zf_user/member/registration/join"
+                            data-nav-track="ga_lead|main-gnb|layer_sign|join"
+                            class="btn_sign signup"
+                            >회원가입</a
+                        >
+                    </div>
+                    <div class="wrap_service">
+                        <button
+                            class="btn_service"
+                            type="button"
+                            aria-expanded="false"
+                        >
+                            기업서비스
+                            <svg aria-hidden="true" focusable="false">
+                                <use
+                                    xlink:href="#svg_gnb_profile_bracket"
+                                ></use>
+                            </svg>
+                        </button>
+                        <div class="layer_member">
+                            <ul class="services">
+                                <li class="half_col">
+                                    <a
+                                        href="/zf_user/auth?ut=c"
+                                        data-nav-track="ga_lead|main-gnb|layer_comp_service|signin_comp"
+                                        >로그인</a
+                                    >
+                                    <a
+                                        href="/zf_user/member/registration/join?ut=c"
+                                        data-nav-track="ga_lead|main-gnb|layer_comp_service|company_join"
+                                        >회원가입</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/zf_user/memcom/index/main"
+                                        data-nav-track="ga_lead|main-gnb|layer_comp_service|musthome"
+                                        >기업 홈</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/zf_user/memcom/recruit/select-recruit-type"
+                                        data-nav-track="ga_lead|main-gnb|layer_comp_service|recruit-add"
+                                        >공고 등록</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/zf_user/company/recruit-manage?gnb_main=y"
+                                        data-nav-track="ga_lead|main-gnb|layer_comp_service|recruit-manage"
+                                        >공고·지원자 관리</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/zf_user/memcom/talent-pool/main/search"
+                                        data-nav-track="ga_lead|main-gnb|layer_comp_service|talent_matching"
+                                        >문의하기</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="img_svg_layout">
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <symbol id="svg_gnb_profile_bracket" viewBox="0 0 10 6">
+                    <path
+                        d="M1 1L5 5L9 1"
+                        stroke="currentColor"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        fill="none"
+                    />
+                </symbol>
+                <symbol id="svg_gnb_profile_arrow" viewBox="0 0 16 16">
+                    <path
+                        fill="currentColor"
+                        d="M92 18L100 18 96 23z"
+                        transform="translate(-1976 -481) translate(120 445) translate(1768 24)"
+                    />
+                </symbol>
+            </svg>
+        </div>
+    </body>
+    <script src="/static/js/corporation/corporation-logout-header.js"></script>
+</html>

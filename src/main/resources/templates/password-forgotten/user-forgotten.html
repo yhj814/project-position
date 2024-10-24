@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="/static/css/password-forgotten/user-forgotten.css"
+        />
+        <title>비밀번호 변경</title>
+    </head>
+    <body>
+        <div id="sri_section" class="has_banner">
+            <div id="sri_wrap">
+                <div id="content">
+                    <div class="wrap_title_recruit">
+                        <h1 class="title_common">비밀번호 변경</h1>
+                    </div>
+                    <div class="help_find" id="password_reset">
+                        <form action="" id="reset_form" method="post">
+                            <fieldset>
+                                <p class="desc_find">
+                                    새로운 비밀번호를 입력하고, 변경 버튼을
+                                    눌러주세요.
+                                </p>
+                                <ul class="list_find">
+                                    <li>
+                                        <div class="wrap_lab">
+                                            <label
+                                                for="new_password"
+                                                class="lab_find"
+                                                >새 비밀번호</label
+                                            >
+                                        </div>
+                                        <div class="wrap_input">
+                                            <span class="box_input">
+                                                <input
+                                                    type="password"
+                                                    name="new_password"
+                                                    id="new_password"
+                                                    class="inp_find"
+                                                    maxlength="20"
+                                                />
+                                            </span>
+                                            <p
+                                                class="message_find"
+                                                id="msg_new_password"
+                                                style="display: none"
+                                            >
+                                                8~20자의 영문, 숫자, 특수문자를
+                                                사용하여 입력해주세요.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wrap_lab">
+                                            <label
+                                                for="confirm_password"
+                                                class="lab_find"
+                                                >새 비밀번호 확인</label
+                                            >
+                                        </div>
+                                        <div class="wrap_input">
+                                            <span class="box_input">
+                                                <input
+                                                    type="password"
+                                                    name="confirm_password"
+                                                    id="confirm_password"
+                                                    class="inp_find"
+                                                    maxlength="20"
+                                                />
+                                            </span>
+                                            <p
+                                                class="message_find"
+                                                id="msg_confirm_password"
+                                                style="display: none"
+                                            >
+                                                비밀번호가 일치하지 않습니다.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="wrap_link">
+                                    <button
+                                        type="submit"
+                                        class="btn_biggest_type01"
+                                        id="btn_password_reset"
+                                    >
+                                        비밀번호 변경
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="find_method">
+                        <a
+                            href="/login"
+                            class="btn_basic_type01 btn_login"
+                            title="로그인 바로가기"
+                            >로그인</a
+                        >
+                        <p class="desc_method">
+                            비밀번호 변경이 완료되면, 다시 로그인해 주세요.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/static/js/password-forgotten/user-forgotten.js"></script>
+</html>
