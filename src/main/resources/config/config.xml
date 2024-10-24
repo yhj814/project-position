@@ -5,4 +5,8 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
 <!--        <setting name="jdbcTypeForNull" value="NULL" />-->
     </settings>
+    <typeAliases>
+        <typeAlias type="com.app.positionback.domain.member.MemberVO" alias="memberVO"/>
+        <typeAlias type="com.app.positionback.domain.member.MemberDTO" alias="memberDTO"/>
+    </typeAliases>
 </configuration>
