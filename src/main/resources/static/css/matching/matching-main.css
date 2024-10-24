@@ -1,0 +1,1396 @@
+#position-section.layout-wide.has-banner {
+    min-width: 1280px;
+}
+#position-section.has-banner {
+    min-width: 980px;
+}
+#position-section {
+    display: table;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#position-wrap {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#position-section.has-banner #content {
+    min-height: 960px;
+}
+#position-section.layout-wide #content {
+    width: 1260px;
+}
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 56px auto 80px auto;
+    width: 960px;
+}
+.wrap-section-contents .select-keyword .wrap-result {
+    /* display: none; */
+    position: absolute;
+    top: 39px;
+    left: 0;
+    z-index: 10;
+    width: 464px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    background: #fff;
+}
+.select-keyword .wrap-auto-keyword .wrap-result.no-result .go-link {
+    display: block;
+    color: #444;
+    font-size: 13px;
+    line-height: 28px;
+    text-decoration: underline;
+}
+/* 검색 키워드쪽 파랑색 */
+.select-keyword .wrap-auto-keyword .wrap-result.no-result .go-link .txt-point {
+    color: #4876ef;
+}
+.wrap-section-contents .select-keyword .area-btn {
+    position: relative;
+    padding: 0 15px;
+    height: 39px;
+    line-height: 39px;
+    background: #fcfcfc;
+}
+.wrap-section-contents .select-keyword .area-btn .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    color: #888;
+    font-size: 13px;
+    line-height: 18px;
+}
+.wrap-section-contents .select-keyword .area-btn .btn-close:after {
+    display: inline-block;
+    margin-left: 5px;
+    width: 9px;
+    height: 9px;
+    vertical-align: -1px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/spr_search_panel.png)
+        no-repeat 0 -191px;
+    content: "";
+}
+.wrap-section-contents .select-keyword .wrap-result.no-result p {
+    padding-top: 85px;
+    height: 183px;
+    box-sizing: border-box;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+.wrap-section-contents .select-keyword .wrap-result.no-result p {
+    padding-top: 85px;
+    height: 183px;
+    box-sizing: border-box;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+/* 제목 */
+.wrap-title-recruit {
+    position: relative;
+    padding: 0 0 50px;
+}
+.wrap-title-recruit .title-common {
+    display: inline-block;
+    color: #444;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 36px;
+    vertical-align: top;
+}
+/* 옵션 선택 박스 */
+.recruit-search-panel {
+    position: relative;
+    z-index: 100;
+    margin-bottom: 50px;
+}
+/* 메인 옵션 */
+.wrap-main-panel .main-option {
+    position: relative;
+    z-index: 5;
+}
+.wrap-section-contents {
+    position: relative;
+    top: -1px;
+    z-index: 1;
+}
+.wrap-main-panel .tab-section li.on {
+    z-index: 1;
+    border-color: #444;
+}
+.wrap-main-panel .tab-section li.on button:after {
+    background-position: 100% 100%;
+}
+.wrap-main-panel .tab-section li:first-child {
+    margin-left: 0;
+}
+.wrap-main-panel .tab-section li {
+    float: left;
+    position: relative;
+    z-index: 0;
+    margin-left: -1px;
+    border: 1px solid #ddd;
+}
+.wrap-main-panel .tab-section li.on button {
+    color: #222;
+    font-weight: bold;
+}
+.wrap-main-panel .tab-section li:first-child button {
+    width: 423px;
+}
+.wrap-main-panel .tab-section button {
+    position: relative;
+    padding: 0 15px 0 45px;
+    width: 423px;
+    height: 48px;
+    color: #666;
+    font-size: 15px;
+    text-align: left;
+}
+.wrap-main-panel .tab-section li.on button:before {
+    background-position-x: 100%;
+}
+.wrap-main-panel .tab-section button:before {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 20px;
+    height: 18px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/ico_main_search_panel.png)
+        no-repeat 0 0;
+    content: "";
+}
+.wrap-main-panel .tab-section button span {
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 2px;
+    padding-right: 1px;
+    max-width: 91%;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    vertical-align: -1px;
+    white-space: nowrap;
+}
+.wrap-main-panel .tab-section button:after {
+    display: block;
+    position: absolute;
+    top: 21px;
+    right: 15px;
+    width: 11px;
+    height: 6px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/arr_search_panel.png)
+        no-repeat 100% 0;
+    content: "";
+}
+.wrap-main-panel .tab-section button.btn-area:before {
+    width: 16px;
+    height: 20px;
+    background-position: 0 -33px;
+}
+.wrap-main-panel .tab-section button.btn-keyword:before {
+    width: 18px;
+    height: 19px;
+    background-position: 0 -69px;
+}
+.wrap-main-panel .tab-section button.btn-keyword {
+    width: 410px;
+}
+/* box-detail-jobs */
+.option-content.job-category-section.on .box-detail-jobs {
+    border-top: 1px solid #e6e9ea;
+}
+.option-content.job-category-section .details .box-onedepth {
+    float: left;
+    width: 204px;
+    height: 200px;
+    box-sizing: border-box;
+}
+.option-content.job-category-section .details .wrap-scroll {
+    width: 100%;
+    height: 100%;
+}
+.wrap-scroll {
+    position: relative;
+}
+.wrap-scroll .scrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 6px;
+    transition: opacity 0.5s linear;
+}
+.wrap-scroll .track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fcfcfc;
+}
+.wrap-scroll .thumb {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 20px;
+    background: #f2f2f3;
+    cursor: pointer;
+}
+.wrap-scroll .end {
+    overflow: hidden;
+    width: 100%;
+    height: 5px;
+    background: #f2f2f3;
+}
+.option-content.job-category-section .wrap-scroll .viewport {
+    height: 100%;
+}
+.wrap-scroll .viewport {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.wrap-scroll .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+.option-content.job-category-section .details .box-onedepth .item-job {
+    height: 40px;
+}
+.details .box-onedepth .item-job .first-depth {
+    position: relative;
+    margin-right: 4px;
+    padding: 0 0 0 24px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+    text-align: left;
+}
+.details .box-onedepth .item-job .first-depth .count {
+    margin-left: 5px;
+    color: #888;
+}
+.wrap-main-panel .tab-section:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.wrap-section-contents .select-keyword {
+    border-bottom: 0;
+}
+.option-content.job-category-section.on {
+    min-height: auto;
+}
+
+/* 아래 옵션 선택 */
+.option-content.job-category-section.on {
+    min-height: auto;
+}
+.wrap-section-contents .option-content.on {
+    display: block;
+}
+.wrap-section-contents .option-content {
+    display: none;
+    border: 1px solid #444;
+    box-sizing: border-box;
+}
+.blind {
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    top: -2000px;
+    left: -2000px;
+    width: 1px;
+    height: 1px;
+    color: #fff;
+    font-size: 1px;
+}
+.hidden,
+.blind {
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+}
+.wrap-section-contents .select-keyword {
+    border-bottom: 0;
+    /* margin-top: 50px; */
+}
+.wrap-section-contents .select-keyword {
+    padding: 12px 0 0 15px;
+}
+.wrap-section-contents .select-keyword {
+    height: 65px;
+    border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;
+}
+.wrap-section-contents .select-keyword .wrap-auto-keyword {
+    float: left;
+    position: relative;
+}
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+}
+.wrap-section-contents .select-keyword .ipt-keyword {
+    display: block;
+    position: relative;
+    width: 464px;
+    height: 40px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+}
+.wrap-section-contents .select-keyword .ipt-keyword:before {
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    width: 13px;
+    height: 13px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/spr_search_panel.png)
+        no-repeat 0 -133px;
+    content: "";
+}
+.wrap-section-contents .select-keyword .ipt-keyword input {
+    padding: 0 40px 0 34px;
+    width: 462px;
+    height: 38px;
+    border: 0;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+    line-height: 38px;
+    background: transparent;
+}
+.wrap-section-contents .select-keyword .ipt-keyword .btn-delete {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+    color: rgba(0, 0, 0, 0);
+    font-size: 1px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/spr_search_panel.png)
+        no-repeat 0 -160px;
+}
+.wrap-section-contents .select-keyword .wrap-result {
+    display: none;
+    position: absolute;
+    top: 39px;
+    left: 0;
+    z-index: 10;
+    width: 464px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    background: #fff;
+}
+.wrap-scroll {
+    height: 183px;
+    position: relative;
+}
+.wrap-scroll .track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fcfcfc;
+}
+.wrap-scroll .thumb {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 20px;
+    background: #f2f2f3;
+    cursor: pointer;
+}
+.wrap-scroll .end {
+    overflow: hidden;
+    width: 100%;
+    height: 5px;
+    background: #f2f2f3;
+}
+.wrap-section-contents .select-keyword .wrap-result.has-result .viewport {
+    height: 183px;
+}
+.option-content.job-category-section .wrap-scroll .viewport {
+    height: 100%;
+}
+.wrap-scroll .viewport {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.wrap-scroll .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+.wrap-section-contents .select-keyword .list-keyword {
+    padding: 9px 0 10px;
+}
+.wrap-section-contents .select-keyword .area-btn {
+    position: relative;
+    padding: 0 15px;
+    height: 39px;
+    line-height: 39px;
+    background: #fcfcfc;
+}
+.wrap-section-contents .select-keyword .area-btn .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    color: #888;
+    font-size: 13px;
+    line-height: 18px;
+}
+.wrap-section-contents .select-keyword .wrap-result.no-result p {
+    padding-top: 85px;
+    height: 183px;
+    box-sizing: border-box;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+.wrap-section-contents .select-keyword:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.option-content.job-category-section .details {
+    max-height: 243px;
+    overflow: hidden;
+    height: initial;
+}
+.option-content.job-category-section .details .box-jobs {
+    font-size: 0;
+}
+.option-content.job-category-section .details .box-jobs .btn-job:nth-of-type(1),
+.option-content.job-category-section .details .box-jobs .btn-job:nth-of-type(2),
+.option-content.job-category-section .details .box-jobs .btn-job:nth-of-type(3),
+.option-content.job-category-section .details .box-jobs .btn-job:nth-of-type(4),
+.option-content.job-category-section .details .box-jobs .btn-job:nth-of-type(5),
+.option-content.job-category-section .details .box-jobs .btn-job:nth-of-type(6),
+.option-content.job-category-section
+    .details
+    .box-jobs
+    .btn-job:nth-of-type(7) {
+    border-top: 1px solid #e6e9ea;
+}
+.option-content.job-category-section .details .box-jobs .btn-job {
+    width: 179.7px;
+    height: 50px;
+    border-right: 1px solid #e6e9ea;
+    border-bottom: 1px solid #e6e9ea;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+    z-index: -90;
+}
+.option-content.job-category-section.on .box-detail-jobs {
+    border-top: 1px solid #e6e9ea;
+}
+.option-content.job-category-section .details .box-onedepth {
+    float: left;
+    width: 204px;
+    height: 200px;
+    box-sizing: border-box;
+}
+.option-content.job-category-section .details .wrap-scroll {
+    width: 100%;
+    height: 100%;
+}
+.wrap-scroll .scrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 6px;
+    transition: opacity 0.5s linear;
+}
+.wrap-scroll .track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fcfcfc;
+}
+.wrap-scroll .thumb {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 20px;
+    background: #f2f2f3;
+    cursor: pointer;
+}
+.option-content.job-category-section .details .box-onedepth .item-job {
+    height: 40px;
+}
+.details .box-onedepth .item-job .first-depth {
+    position: relative;
+    margin-right: 4px;
+    padding: 0 0 0 24px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+    text-align: left;
+}
+.details .box-onedepth .item-job .first-depth .count {
+    margin-left: 5px;
+    color: #888;
+}
+.option-content.job-category-section .details .box-detail-depth {
+    float: left;
+    width: 1053px;
+    border-left: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+.box-detail-depth .row-all-select {
+    position: relative;
+    padding: 11px 0 0 23px;
+    height: 40px;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+}
+.box-detail-depth .row {
+    box-sizing: border-box;
+}
+.box-detail-depth .row > input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+}
+.box-detail-depth .row > input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 0 1px 0 24px;
+    height: 22px;
+    box-sizing: border-box;
+    line-height: 22px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/main/img_main_spr_200710.png) 0 -598px
+        no-repeat;
+    cursor: pointer;
+    user-select: none;
+}
+/* .box_detail_depth .row_all_select .inpSel {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    width: 110px;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.inpSel {
+    display: inline-block;
+    height: 32px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background: #fff;
+}
+.inpSel select {
+    padding: 0 29px 1px 11px;
+    width: 100%;
+    height: 30px;
+    border: none;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 13px;
+    line-height: 29px;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_select_arr.png)
+        no-repeat 100% 0;
+}
+.inpSel select option {
+    height: 32px;
+    font-size: 13px;
+    color: #444;
+    line-height: 16px;
+}
+
+.inpSel select option:hover {
+    background: #d0d0d0;
+    cursor: pointer;
+} */
+/* 직무.직업/전문분야 */
+.box-detail-depth .row.list {
+    height: 200px;
+}
+.box-detail-depth .row {
+    box-sizing: border-box;
+}
+.option-content.job-category-section .details .wrap-scroll {
+    width: 100%;
+    height: 100%;
+}
+.wrap-scroll {
+    position: relative;
+}
+.wrap-scroll .disable {
+    display: none;
+}
+.wrap-scroll .scrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 6px;
+    transition: opacity 0.5s linear;
+}
+.wrap-scroll .track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fcfcfc;
+}
+.wrap-scroll .thumb {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 20px;
+    background: #f2f2f3;
+    cursor: pointer;
+}
+.wrap-scroll .end {
+    overflow: hidden;
+    width: 100%;
+    height: 5px;
+    background: #f2f2f3;
+}
+.option-content.job-category-section .wrap-scroll .viewport {
+    height: 100%;
+}
+.wrap-scroll .viewport {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.wrap-scroll .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+.box-detail-depth .list .row-item {
+    position: relative;
+    padding-left: 172px;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+.box-detail-depth .list dt {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 172px;
+    height: 100%;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+}
+.box-detail-depth .list dt .btn-expand {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    font-size: inherit;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.box-detail-depth .list dt .btn-expand .txt {
+    position: absolute;
+    top: 12px;
+    left: 23px;
+}
+.box-detail-depth .list dt .btn-expand:after {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    width: 17px;
+    height: 16px;
+    background: url(//www.saraminimage.co.kr/sri/common/spr_panel_expand.png) -5px -5px
+        no-repeat;
+    content: "";
+}
+/* 직무 직업 상세 카테고리 */
+.box-detail-depth .list .area-list {
+    overflow: hidden;
+    padding-left: 21px;
+    width: 100%;
+    max-height: 80px;
+    border-left: 1px solid #eaeaea;
+    box-sizing: border-box;
+    font-size: 0;
+    background-color: #fff;
+}
+.box-detail-depth .list .area-list .btn-three-depth {
+    margin: 8px 8px 8px 0;
+    padding: 0 6px;
+    height: 24px;
+    border-radius: 4px;
+    color: #5c667b;
+    font-size: 13px;
+}
+/* 소카 선택되면 스타일 들어감 */
+.box-detail-depth .list .area-list .btn-three-depth.on {
+    color: #4876ef;
+    background-color: #eff5ff;
+}
+.box-detail-depth .list .area-list .btn-three-depth .count {
+    margin-left: 3px;
+    color: #999;
+}
+.option-content.job-category-section .details::after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+/*  */
+.option-content.job-category-section .details .box-detail-depth {
+    float: left;
+    width: 1053px;
+    border-left: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+.box-detail-depth .row-all-select {
+    position: relative;
+    padding: 11px 0 0 23px;
+    height: 40px;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 13px;
+}
+.box-detail-depth .row > input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+}
+.box-detail-depth .row > input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 0 1px 0 24px;
+    height: 22px;
+    box-sizing: border-box;
+    line-height: 22px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/main/img_main_spr_200710.png) 0 -598px
+        no-repeat;
+    cursor: pointer;
+}
+.wrap-search-result {
+    position: relative;
+    padding: 13px 15px 20px;
+    width: 100%;
+    height: 109px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    box-sizing: border-box;
+    background: #fcfcfc;
+}
+.wrap-search-result .add-keyword {
+    overflow: hidden;
+    margin-bottom: 12px;
+    width: 973px;
+    height: 47px;
+    box-sizing: border-box;
+}
+.wrap-search-result .result-txt,
+.wrap-search-result .reset-txt {
+    display: none;
+    padding-top: 7px;
+    color: #888;
+    font-size: 13px;
+    line-height: 62px;
+    text-align: center;
+}
+.wrap-search-result .add-keyword .selected-keyword {
+    display: inline-block;
+    margin: 6px 11px 0 0;
+    height: 18px;
+    color: #444;
+    font-size: 13px;
+    line-height: 18px;
+}
+.wrap-search-result .add-keyword .selected-keyword .btn-del {
+    overflow: hidden;
+    margin-left: 4px;
+    width: 13px;
+    height: 17px;
+    color: rgba(0, 0, 0, 0);
+    font-size: 0;
+    vertical-align: bottom;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/spr_search_panel.png)
+        no-repeat 2px -186px;
+}
+.wrap-search-result .area-btn {
+    padding-right: 179px;
+    line-height: 15px;
+    text-align: right;
+}
+.wrap-search-result .area-btn button {
+    overflow: hidden;
+    position: relative;
+    padding-right: 14px;
+    color: #666;
+    font-size: 12px;
+    line-height: 16px;
+}
+.wrap-search-result .area-btn .btn-reset {
+    padding-right: 18px;
+}
+.wrap-search-result .area-btn .btn-reset:after {
+    top: 4px;
+    right: 2px;
+    width: 11px;
+    height: 10px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/spr_search_panel.png)
+        no-repeat 0 -106px;
+}
+.wrap-search-result .area-btn button:after {
+    display: block;
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    width: 7px;
+    height: 4px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/arr_search_panel.png)
+        no-repeat -17px 0;
+    content: "";
+}
+.wrap-search-result .btn-search.active {
+    border-color: #222;
+    color: #fff;
+    background: #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
+}
+.wrap-search-result .btn-search {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 140px;
+    height: 69px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #949494;
+    font-size: 15px;
+    line-height: normal;
+    text-align: center;
+    vertical-align: top;
+    background: #fff;
+    transition: all 0.2s linear;
+}
+.box-detail-depth .list dt .btn-expand:hover {
+    color: inherit;
+    background-color: #f4f6fa;
+}
+/* 만약 체크되면 */
+.box-detail-depth .row > input[type="checkbox"]:checked + label {
+    background-position: 0 -698px;
+}
+.box-detail-depth .row > input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 0 1px 0 24px;
+    height: 22px;
+    box-sizing: border-box;
+    line-height: 22px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/main/img_main_spr_200710.png) 0 -598px
+        no-repeat;
+    cursor: pointer;
+    user-select: none;
+}
+/* 지역 선택 */
+.wrap-main-panel .area-section .wrap-depth-category,
+.wrap-main-panel .subway-section .wrap-depth-category,
+.wrap-main-panel .industry-section .wrap-depth-category {
+    border-top: 1px solid #e5e5e5;
+}
+.wrap-main-panel .wrap-depth-category {
+    height: 245px;
+}
+.option-content.area-section .wrap-depth-category .wrap-scroll.depth1 {
+    width: 318px;
+}
+.wrap-depth-category .wrap-scroll {
+    float: left;
+    box-sizing: border-box;
+}
+.wrap-depth-category .wrap-scroll {
+    float: left;
+    box-sizing: border-box;
+}
+.wrap-scroll .viewport {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.wrap-depth-category .wrap-scroll .overview {
+    padding: 10px 0;
+}
+.wrap-scroll .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+.option-content.area-section
+    .wrap-depth-category
+    .wrap-scroll.depth1
+    .overview
+    li {
+    float: left;
+    width: 50%;
+}
+.wrap-depth-category .wrap-scroll.depth1 li,
+.wrap-depth-category .wrap-scroll.depth2 li {
+    padding: 1px;
+    box-sizing: border-box;
+}
+.wrap-depth-category .wrap-scroll li.on {
+    background: #f7f9ff;
+}
+.wrap-depth-category .wrap-scroll li.on button {
+    position: relative;
+    background: #f7f9ff;
+}
+.wrap-depth-category .wrap-scroll li button {
+    position: relative;
+    padding-left: 14px;
+    width: 100%;
+    height: 30px;
+    color: #222;
+    font-size: 13px;
+    line-height: 30px;
+    text-align: left;
+}
+.wrap-depth-category .wrap-scroll li.on button .txt,
+.wrap-depth-category .wrap-scroll li.selected button .txt {
+    color: #566feb;
+    font-weight: bold;
+}
+.wrap-depth-category .wrap-scroll li .count {
+    color: #888;
+}
+.wrap-depth-category .wrap-scroll li.on button:after {
+    display: block;
+    position: absolute;
+    top: 11px;
+    right: 16px;
+    width: 6px;
+    height: 11px;
+    background: url(//www.saraminimage.co.kr/sri/person/search_panel/spr_search_panel.png)
+        no-repeat 0 0;
+    content: "";
+}
+.option-content.area-section .wrap-depth-category .wrap-scroll.depth1 ul:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.option-content.area-section .wrap-depth-category .wrap-scroll.depth-check {
+    width: 940px;
+}
+.wrap-depth-category .wrap-scroll.depth-check {
+    width: 801px;
+    border-left: 1px solid #e5e5e5;
+    background: #fff;
+}
+.wrap-scroll .viewport {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.wrap-depth-category .wrap-scroll.depth-check .overview {
+    padding: 0;
+}
+.wrap-scroll .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+.wrap-depth-category .wrap-scroll .wrap-list-check {
+    background: #fff;
+}
+.wrap-depth-category .wrap-scroll.depth-check .list-check {
+    position: relative;
+    padding-top: 47px;
+}
+.option-content.area-section .wrap-depth-category .wrap-scroll.depth-check li,
+.option-content.subway-section
+    .wrap-depth-category
+    .wrap-scroll.depth-check
+    li {
+    width: 33.33%;
+}
+.wrap-depth-category .wrap-scroll.depth-check li {
+    float: left;
+    padding-left: 15px;
+    width: 200px;
+    box-sizing: border-box;
+}
+.wrap-depth-category .list-check li {
+    height: 32px;
+    line-height: 32px;
+}
+.wrap-depth-category .list-check .inpChk {
+    display: block;
+}
+.inpChk {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    vertical-align: top;
+}
+.inpChk > input[type="checkbox"] {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+.inpChk > input[type="checkbox"]:checked + .lbl {
+    background-position: 0 -48px;
+}
+.wrap-depth-category .list-check li:first-child label {
+    font-weight: bold;
+}
+.wrap-depth-category .list-check li:first-child label {
+    font-weight: bold;
+}
+.wrap-depth-category .list-check label {
+    overflow: hidden;
+    max-width: 98%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.inpChk .lbl {
+    display: block;
+    padding-left: 29px;
+    height: 22px;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 13px;
+    line-height: 22px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/sri_ico_checkbox03.png)
+        0 2px no-repeat;
+
+    user-select: none;
+}
+.inpChk > input[type="checkbox"]:checked + .lbl {
+    background-position: 0 -48px;
+}
+.wrap-depth-category .list-check li:first-child label {
+    font-weight: bold;
+}
+*:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid var(--blue100);
+    outline-offset: 2px;
+}
+/*  */
+.wrap-search-result .btn-search > span {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+.wrap-search-result .btn-search .count {
+    display: block;
+    font-size: 13px;
+    line-height: 15px;
+}
+/* 배너 목록 */
+.wrap-list-banner {
+    margin-top: 48px;
+    width: 100%;
+}
+.wrap-list-banner .area-title {
+    display: flex;
+    position: relative;
+    margin-bottom: 24px;
+    color: #292e41;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.wrap-list-banner .area-title .tit-banner {
+    display: inline-block;
+    margin-right: 4px;
+    height: auto;
+    color: #292e41;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    vertical-align: top;
+}
+.list-product {
+    display: grid;
+    padding-bottom: 32px;
+    background-color: transparent;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 208px;
+    gap: 24px;
+    grid-auto-flow: row;
+}
+.list-product.list-grand .item {
+    width: 404px;
+}
+.list-product > .item,
+.list-product > .empty {
+    position: relative;
+    height: 208px;
+    border: none;
+    border-radius: 16px;
+}
+.list-product > .item > a {
+    display: block;
+    padding: 24px 24px 20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gray40);
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+.list-product > .item > a .logo {
+    display: block;
+    width: 110px;
+    height: 38px;
+    overflow: hidden;
+}
+.list-product > .item > a .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    object-position: left;
+}
+.list-product > .item > a .tit {
+    display: block;
+    overflow: hidden;
+    margin-top: 12px;
+    max-width: 362px;
+    color: var(--gray120);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-product > .item > a .corp {
+    display: block;
+    overflow: hidden;
+    margin-top: 4px;
+    max-width: 252px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-product > .item > a .desc {
+    display: flex;
+    margin-top: 8px;
+    color: var(--gray100);
+    font-size: 12px;
+    line-height: 16px;
+}
+.list-product > .item > a .desc .company-local {
+    position: relative;
+    padding-left: 18px;
+    box-sizing: border-box;
+}
+.list-product > .item > a .desc > li {
+    overflow: hidden;
+    position: relative;
+    max-width: 174px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-product > .item .btn-scrap {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.list-product > .item > a .desc .company-local:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url(https://www.saraminimage.co.kr/sri/recruit/icon_location.png);
+    background-size: cover;
+    content: "";
+}
+.list-product > .item .date {
+    position: absolute;
+    right: 46px;
+    bottom: 24px;
+    color: var(--gray80);
+    font-size: 12px;
+}
+.list-product > .item .badge {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    padding: 0 6px;
+    border-radius: 4px;
+    color: var(--gray100);
+    font-size: 12px;
+    line-height: 24px;
+    background-color: var(--gray20);
+    max-width: 258px;
+    box-sizing: border-box;
+}
+.list-product > .item .badge svg {
+    width: 14px;
+    height: 14px;
+    vertical-align: text-top;
+    margin-right: 2px;
+}
+.banner-list .wrap-list-banner .area-title .tit-banner.tit-premium {
+    position: relative;
+    padding-right: 40px;
+}
+.wrap-list-banner .area-title .tit-banner {
+    display: inline-block;
+    margin-right: 4px;
+    height: auto;
+    color: #292e41;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    vertical-align: top;
+}
+.banner-list .wrap-list-banner .area-title .tit-banner.tit-premium:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background-image: url(https://www.saraminimage.co.kr/sri/recruit/icon_title_star.png);
+    background-size: cover;
+    transform: translateY(-50%);
+    content: "";
+}
+.list-product.list-premium {
+    padding-bottom: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 230px;
+    gap: 20px;
+    grid-auto-flow: row;
+}
+.list-product.list-premium > li {
+    width: 300px;
+    height: 230px;
+}
+.list-product > .item,
+.list-product > .empty {
+    position: relative;
+    height: 208px;
+    border: none;
+    border-radius: 16px;
+}
+.banner-list .wrap-list-banner .area-title .tit-banner.tit-premium {
+    position: relative;
+    padding-right: 40px;
+}
+.list-product.list-premium > li {
+    width: 300px;
+    height: 230px;
+}
+.list-product > .item,
+.list-product > .empty {
+    position: relative;
+    height: 208px;
+    border: none;
+    border-radius: 16px;
+}
+/* .wrap-list-banner .area-title {
+    display: flex;
+    position: relative;
+    margin-bottom: 24px;
+    color: #292e41;
+    justify-content: space-between;
+    align-items: flex-end;
+} */
+.list-product.list-grand .item {
+    width: 404px;
+}

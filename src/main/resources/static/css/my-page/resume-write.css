@@ -1,0 +1,2184 @@
+#container {
+    position: relative;
+}
+
+body.no-gnb {
+    min-width: 1280px;
+}
+.no-gnb #position-section {
+    min-width: 1260px;
+    grid-template-areas:
+        "main"
+        "footer";
+    grid-template-columns: auto;
+}
+
+#position-section {
+    display: grid;
+    grid-template-areas:
+        "gnb main"
+        "gnb footer";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    min-width: 1560px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+#position-wrap {
+    grid-area: main;
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+
+#content {
+    position: relative;
+    margin: 88px auto 0px;
+    width: 1248px;
+}
+
+/* 왼쪽 사이드바 */
+.resume-wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    padding-top: 20px;
+    justify-content: space-between;
+}
+
+.resume-snb {
+    position: relative;
+    width: 294px;
+}
+
+.resume-snb .snb-box {
+    padding: 24px 16px 24px;
+    width: 294px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(21, 39, 111, 0.08);
+}
+
+.resume-snb .snb-box .snb-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.resume-snb .snb-box .snb-top .tit {
+    color: var(--gray120);
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.resume-snb .snb-box .snb-top .tit, .resume-snb .snb-box .snb-top .persent {
+    color: var(--gray120);
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.resume-snb .snb-box .progress-bar {
+    position: relative;
+    margin: 16px 0;
+}
+
+.resume-snb .snb-box .progress-bar:before {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 8px;
+    border-radius: 8px;
+    background: var(--gray30);
+    content: "";
+}
+
+.resume-snb .snb-box .progress-bar.per100:after {
+    width: 100%;
+}
+
+.resume-snb .snb-box .progress-bar:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    border-radius: 100px;
+    background: linear-gradient(270deg, #5189fa 0%, #bcd1fc 100%);
+    transition: transform 0.5s ease;
+    transform-origin: left center;
+    content: "";
+}
+.resume-snb .snb-box .txt {
+    color: var(--gray100);
+    font-size: 13px;
+    line-height: 20px;
+}
+.resume-snb .snb-box .txt em {
+    color: var(--blue90);
+}
+.resume-snb .item-list {
+    margin-top: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--gray40);
+}
+.resume-snb .item-list .item.active {
+    border-radius: 4px;
+    background: var(--gray20);
+}
+
+.resume-snb .item-list .item {
+    display: flex;
+    padding: 5px 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resume-snb .item-list .item .con-link {
+    border: none;
+    color: var(--gray80);
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+    background: none;
+}
+
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--blue90);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--blue90);
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-snb .item-list .item.essential:after {
+    color: var(--gray80);
+    font-size: 12px;
+    line-height: 20px;
+    content: "필수";
+}
+
+.resume-snb .item-list .item.add .con-link {
+    color: var(--blue90);
+    font-weight: bold;
+}
+
+.resume-snb .resume-snb-guide {
+    display: flex;
+    margin-top: 16px;
+    padding: 0 20px;
+    width: 294px;
+    height: 64px;
+    border: 1px solid #eff5ff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #475067;
+    font-size: 14px;
+    line-height: 20px;
+    background: #eff5ff;
+    align-items: center;
+}
+
+.resume-snb .resume-snb-guide:before {
+    display: inline-block;
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+    background: url('/static/images/my-page/electric-bulb.svg') no-repeat;
+    content: "";
+}
+
+.resume-snb .resume-snb-guide:after {
+    display: inline-block;
+    margin-left: auto;
+    width: 16px;
+    height: 16px;
+    background: url('/static/images/my-page/next-arrow-resume.svg') no-repeat;
+    content: "";
+}
+
+/* 이력서 작성 바디 */
+.resume-con {
+    width: 930px;
+}
+
+
+
+.resume-view {
+    position: relative;
+}
+
+.resume-view .resume-top {
+    display: flex;
+    align-items: center;
+}
+
+.resume-view .resume-top .user-name {
+    overflow: hidden;
+    max-width: 460px;
+    color: var(--gray120);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resume-view .resume-top .user-career {
+    margin-left: 8px;
+    width: 128px;
+}
+
+.InpBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.resume-view .resume-top .user-career select {
+    border-color: var(--gray40);
+}
+
+.InpBox.SizeS select {
+    height: 32px;
+    font-size: 13px;
+}
+
+.InpBox select {
+    padding: 0 28px 0 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    background: var(--white) url('/static/images/my-page/drop-down-resume.svg') no-repeat right 12px top 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.InpBox select:hover {
+    background-color: var(--gray20);
+}
+
+.resume-view .user-desc {
+    margin: 8px 0 20px;
+    color: var(--gray80);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.user-hide {
+    display: flex;
+    margin-bottom: 8px;
+    color: var(--gray80);
+    font-size: 13px;
+    line-height: 20px;
+    align-items: center;
+}
+
+.user-hide span {
+    display: flex;
+    margin-right: 8px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: var(--gray100);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    border: 1px solid var(--gray20);
+    background: var(--gray20);
+    align-items: center;
+    cursor: pointer;
+}
+.user-hide span:hover {
+    border-color: var(--gray40);
+}
+
+.user-hide.on span:before {
+    background: url('/static/images/my-page/hide-resume.svg') no-repeat;
+}
+
+.user-hide span:before {
+    display: block;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    background: url('/static/images/my-page/hide-on-resume.svg') no-repeat;
+    content: "";
+}
+
+.resume-view .user-info li {
+    display: inline-flex;
+    color: var(--gray120);
+    font-size: 15px;
+    line-height: 22px;
+    align-items: center;
+}
+
+.resume-view .user-info li.user-email:before {
+    background: url('/static/images/my-page/resume-mail.svg') no-repeat;
+}
+
+.resume-view .user-info li:before {
+    display: inline-block;
+    margin-right: 12px;
+    width: 16px;
+    height: 16px;
+    content: "";
+    flex-shrink: 0;
+}
+
+.resume-view .user-info li.user-phone:before {
+    background: url('/static/images/my-page/resume-phone.svg') no-repeat;
+}
+
+.resume-view .user-info li.user-address {
+    display: block;
+    margin: 8px 0 0 0;
+}
+
+.resume-view .user-address {
+    display: flex;
+    align-items: center;
+    margin: 0 0 16px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.resume-view .user-info li.user-address:before {
+    background: url('/static/images/my-page/resume-home.svg') no-repeat;
+}
+
+.resume-view .picture-box {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 64px;
+    width: 100px;
+    min-height: 100px;
+    max-height: 140px;
+    border: 1px solid var(--gray30);
+    border-radius: 4px;
+}
+
+.resume-view .picture-box .picture {
+    overflow: hidden;
+    position: relative;
+    width: 100px;
+    min-height: 100px;
+    max-height: 140px;
+}
+
+.resume-view .picture-box .picture img {
+    vertical-align: top;
+}
+.resume-view .picture-box .picture.none {
+    height: 140px;
+    border: none;
+    background: var(--gray20) url(https://www.saraminimage.co.kr/sri/resume/img_picture_none5.png) center / 100% no-repeat;
+}
+
+
+.resume-view .user-modify {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-color: var(--white);
+    background: url('/static/images/my-page/resume-picture.svg') center no-repeat;
+}
+.resume-view .user-modify:hover {
+    background-color: var(--gray20);
+}
+.resume-view .user-info li+li {
+    margin-left: 60px;
+}
+.resume-con .resume-tit .box-tit .must {
+    margin-left: 8px;
+    color: var(--coral90);
+    font-size: 12px;
+    line-height: 20px;
+}
+.resume-con .resume-tit .box-tit .tit {
+    display: flex;
+    color: var(--gray120);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    align-items: center;
+}
+
+/* 학력 */
+.resume-con section+section {
+    padding-top: 60px;
+}
+.resume-con .resume-tit {
+    display: flex;
+    margin-bottom: 9px;
+    padding: 0 12px 0 20px;
+    height: 40px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.resume-con .resume-tit .box-tit {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+}
+.resume-con .resume-tit .box-tit .career-txt {
+    display: flex;
+    align-items: center;
+}
+.career-txt {
+    margin-top: 8px;
+    color: var(--gray80);
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.resume-con .resume-tit .box-tit .career-txt span {
+    display: flex;
+    margin-left: 20px;
+    padding: 0 8px;
+    height: 24px;
+    border-radius: 4px;
+    color: var(--gray100);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    background: var(--gray20);
+    align-items: center;
+}
+
+.resume-con .resume-tit .box-tit .career-txt button {
+    display: flex;
+    margin-left: 5px;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-con .resume-tit button {
+    display: flex;
+    padding: 6px 11px;
+    height: 40px;
+    border-color: var(--white);
+    border-radius: 4px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: var(--white);
+    align-items: center;
+}
+
+.resume-con .resume-tit .box-tit .career-txt button svg {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--blue80);
+    flex-shrink: 0;
+}
+
+.resume-con .resume-tit button svg {
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    fill: var(--gray100);
+}
+
+.resume-con .resume-none {
+    padding: 40px 0;
+    border-top: 1px solid var(--gray40);
+    color: var(--gray80);
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.resume-list {
+    border-top: 1px solid var(--gray40);
+}
+.resume-list .list {
+    display: flex;
+    position: relative;
+    margin: 0 28px;
+    padding: 28px 0;
+    line-height: 26px;
+    align-items: flex-start;
+}
+
+.resume-list .contents {
+    display: flex;
+    width: calc(100% - 40px);
+    flex-wrap: wrap;
+}
+
+.resume-list .contents .school-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 24px;
+    margin-bottom: 4px;
+    padding: 0 8px;
+    color: var(--gray100);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    border-radius: 4px;
+    background: var(--gray20);
+}
+
+.resume-school .resume-list .contents .tit {
+    display: block;
+}
+
+.resume-list .contents .tit {
+    width: 100%;
+    color: var(--gray120);
+    font-size: 18px;
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.resume-school .resume-list .contents .tit span {
+    max-width: calc(100% - 60px);
+}
+
+.resume-school .resume-list .contents .tit span {
+    max-width: calc(100% - 60px);
+}
+
+.resume-list .contents .date {
+    display: inline-block;
+    color: var(--gray80);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.resume-list .contents .date:before {
+    display: inline-block;
+    margin: 0 8px;
+    width: 1px;
+    height: 12px;
+    background: var(--gray40);
+    content: "";
+}
+
+.resume-list .contents .desc {
+    margin-top: 8px;
+    width: 100%;
+    color: var(--gray120);
+    font-size: 16px;
+    line-height: 24px;
+    word-break: break-all;
+}
+
+.resume-list .faculty {
+    display: flex;
+    margin-top: 16px;
+    width: 100%;
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 20px;
+    flex-wrap: wrap;
+    gap: 4px 0;
+}
+
+.resume-list .contents-edit {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 12px;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.resume-list .contents-edit button {
+    min-width: 32px;
+    height: 32px;
+    border-color: var(--white);
+    background: var(--white);
+}
+
+.resume-list .contents-edit button svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    color: var(--gray80);
+}
+
+.resume-list .contents-edit button:hover {
+    background: var(--gray20);
+}
+
+.resume-con .resume-tit button:hover {
+    background: var(--gray20);
+}
+
+/* 학력 구분 선택 */
+.resume-edit {
+    position: relative;
+    padding: 32px 40px;
+    border-top: 2px solid var(--blue80);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(17, 42, 128, 0.08);
+}
+
+.resume-edit .item-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.resume-edit .item-m {
+    width: 278px;
+    flex-shrink: 0;
+}
+
+.InpBox.SizeL select {
+    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.resume-edit .resume-save {
+    display: flex;
+    margin-top: 24px;
+    justify-content: flex-end;
+}
+
+.resume-edit .resume-save button {
+    width: 80px;
+}
+
+[class*="BtnType"].BlueInvert {
+    border-color: var(--blue90);
+    color: var(--blue90);
+    background: var(--white);
+}
+
+[class*="BtnType"].SizeL {
+    padding: 10px 15px 12px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.resume-edit .resume-save button+button {
+    margin-left: 8px;
+}
+
+/* 초등학교 졸업 */
+.resume-edit .item-row.item-career {
+    margin-bottom: 16px;
+}
+
+.resume-edit .item-row.item-center {
+    align-items: center;
+}
+
+.resume-edit .item-row .item-check {
+    margin-left: 4px;
+}
+
+.InpBox .Chk {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.InpBox .Chk input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+}
+.InpBox .Chk.SizeL .Lbl {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.InpBox .Chk .Lbl {
+    display: block;
+    position: relative;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.InpBox .Chk.SizeL .Lbl:before {
+    width: 22px;
+    height: 22px;
+}
+
+.InpBox .Chk .Lbl:before {
+    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    vertical-align: top;
+    background: #fff;
+    content: '';
+}
+
+.resume-edit .item-row+.item-row {
+    margin-top: 20px;
+}
+
+.TypoBox.TypeBtn {
+    display: flex;
+    align-items: center;
+}
+
+.TypoBox.LblTop:has(.Typo.SizeXL)>.Lbl, .TypoBox.LblTop:has(.Typo.SizeML)>.Lbl, .TypoBox.LblTop:has(.Typo.SizeL)>.Lbl {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.TypoBox.LblTop .Lbl {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    color: var(--gray80);
+    font-size: 14px;
+    line-height: 20px;
+    transition: all 300ms ease;
+    transform: translateY(-50%);
+    background-color: var(--white); /* 배경으로 레이블이 가리지 않게 함 */
+    padding: 0 10px;
+}
+
+
+.TypoBox label {
+    cursor: unset;
+}
+
+.TypoBox {
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+.resume-edit .ability-box .TypoBox, .resume-edit .TypoBox .Typo {
+    width: 100%;
+}
+
+.TypoBox .Typo.SizeL {
+    padding: 12px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.TypoBox .Typo {
+    padding: 8px 12px;
+    width: 100%;
+    height: 38px;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: none;
+}
+
+
+.resume-edit .item-s {
+    width: 135px;
+    flex-shrink: 0;
+}
+
+.blind {
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+}
+
+.TypoBox.LblTop:has(.Typo.DatePic) .Lbl {
+    position: absolute;
+    left: 36px;
+}
+
+.TypoBox .Typo.DatePic {
+    padding-left: 36px;
+    background: url('/static/images/my-page/resume-date.svg') left 13px center no-repeat;
+}
+
+.TypoBox.LblTop:has(.Typo.DatePic:focus) .Lbl, .TypoBox.LblTop:has(.Typo.DatePic:-webkit-autofill) .Lbl, .TypoBox.LblTop:has(.Typo.DatePic:read-only) .Lbl, .TypoBox.LblTop:has(.Typo.DatePic:disabled) .Lbl, .TypoBox.LblTop:has(.Typo.DatePic:valid) .Lbl, .TypoBox.LblTop:has(.Typo.DatePic.Invalid) .Lbl {
+    left: 12px;
+}
+
+.TypoBox.LblTop:has(.Typo:focus) .Lbl, .TypoBox.LblTop:has(.Typo:-webkit-autofill) .Lbl, .TypoBox.LblTop:has(.Typo:read-only) .Lbl, .TypoBox.LblTop:has(.Typo:disabled) .Lbl, .TypoBox.LblTop:has(.Typo:valid) .Lbl, .TypoBox.LblTop:has(.Typo.Invalid) .Lbl {
+    top: -10px;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: var(--white) !important;
+    transform: none;
+}
+
+.TypoBox:hover {
+    background: var(--gray20);
+
+}
+.TypoBox.LblTop:hover .Lbl {
+    background-color: var(--gray20); /* 레이블의 배경을 hover 색상으로 변경 */
+
+}
+
+/* 초등 검정고시 */
+.resume-edit .item-close+.item-row {
+    margin-top: 0;
+}
+
+.InpBox .Chk input:checked~.Lbl:before {
+    border-color: var(--blue90);
+    background: var(--blue90);
+}
+
+.InpBox .Chk input:checked~.Lbl:after {
+    display: inline-block;
+    border-color: var(--white);
+}
+
+.InpBox .Chk.SizeL .Lbl:after {
+    top: 7px;
+    left: 6px;
+    width: 10px;
+    height: 5px;
+}
+
+.InpBox .Chk .Lbl:after {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 5px;
+    border-bottom: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+    border-radius: 1px;
+    transform: rotate(-45deg);
+    content: '';
+}
+
+/* 유효성 */
+.TypoBox:has(.Typo.Invalid) {
+    border-color: var(--coral110);
+}
+.InpBox.Invalid select {
+    border-color: var(--coral110);
+}
+
+/* 스킬 */
+.resume-con .resume-tit .TipBox {
+    display:none;
+    margin-left: 8px;
+}
+
+.TipBox {
+    position: relative;
+}
+
+.resume-con .resume-tit .TipBox svg {
+    width: 16px;
+    height: 16px;
+    color: var(--gray80);
+}
+
+.skill-box.view {
+    width: 100%;
+}
+
+.skill-box {
+    display: flex;
+    margin-top: 12px;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px 4px;
+}
+
+.skill-box.view .skill-item {
+    border-color: var(--blue40);
+}.skill-box .skill-item {
+    display: inline-flex;
+    position: relative;
+    padding: 7px 11px;
+    height: 36px;
+    border: 1px solid var(--gray40);
+    border-radius: 32px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: var(--white);
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-box.view .skill-item.skill-hide-add {
+    border: 1px dashed var(--gray40);
+    padding: 7px 6px 7px 12px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--gray120);
+}
+.skill-box.view .skill-item.skill-hide-add:hover {
+    color: var(--blue90);
+}
+.skill-box.view .skill-item.skill-hide-add:before {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    background-image: url('/static/images/my-page/resume-plus.svg');
+    content: '';
+}
+.skill-box.view .skill-item.skill-hide-add:after {
+    padding: 1px 8px;
+    font-size: 12px;
+    line-height: 22px;
+    color: var(--blue90);
+    font-weight: bold;
+    border-radius: 54px;
+    box-sizing: border-box;
+    background-color: var(--blue20);
+    margin-left: 8px;
+    content: '서류합격률 UP';
+}
+.resume-edit .item-full {
+    width: 100%;
+}
+
+.resume-con .btn-delete {
+    flex-shrink: 0;
+}
+
+.resume-con .btn-delete svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: var(--gray70);
+    fill: var(--gray70);
+}
+
+.resume-con .btn-search {
+    margin: 0 12px 0 8px;
+    flex-shrink: 0;
+}
+
+.resume-con .btn-search svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+button:disabled svg {
+    color: var(--gray50);
+}
+
+.area-auto-search {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 49px;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 2px 6px 16px rgba(17, 42, 128, 0.08);
+}
+
+
+
+.area-auto-search .auto-search {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 222px;
+}
+
+.area-auto-search .area-scroll {
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.area-auto-search.company-search .list-auto-search .area-link {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.area-auto-search .auto-search .list-auto-search .area-link {
+    display: block;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #373f57;
+    font-size: 13px;
+}
+
+.area-auto-search.company-search .list-auto-search .area-link div, .area-auto-search.company-search .list-auto-search .area-link div span {
+    width: 100%;
+}
+
+.area-auto-search .auto-search .list-auto-search .area-link:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+
+
+
+
+.resume-edit .box-tit {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.resume-edit .tit-sub:first-child {
+    margin-top: 0;
+}
+
+.resume-edit .box-tit .tit-sub {
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+
+.resume-edit .tit-sub {
+    display: flex;
+    margin: 32px 0 12px;
+    color: var(--gray100);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    align-items: center;
+}
+
+.resume-edit .box-tit .progress-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    border: 1px solid #DEEBFF;
+    border-radius: 50%;
+    background-color: white;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.resume-edit .box-tit .progress-circle .svg.step5.reverse {
+    animation: restore 1s ease-in-out both;
+}
+
+.resume-edit .box-tit .progress-circle svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.resume-edit .box-tit .progress-circle .border {
+    fill: none;
+    stroke: #D7DCE5;
+    stroke-width: 3;
+}
+
+
+
+.resume-edit .box-tit .progress-circle .progress, .progress-second {
+    fill: none;
+    stroke: #94B5FC;
+    stroke-width: 3;
+    stroke-dasharray: 37.68;
+    stroke-dashoffset: 37.68;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    animation: progress 2s ease-in-out both;
+}
+.resume-edit .box-tit .progress-circle .svg .progress-second {
+    stroke: #3769ED;
+    animation: step0 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step1 .progress {
+    animation: step1 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step2 .progress {
+    animation: step2 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step3 .progress {
+    animation: step3 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step4 .progress {
+    animation: stepmaintain ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step4 .progress-second {
+    animation: step4 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step5 .progress {
+    animation: stepmaintain ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step5 .progress-second {
+    animation: step5 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step5 {
+    animation: complete 3s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step5 .border {
+    animation: step-set 3s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.reverse.step5 .border {
+    animation: restep-set 3s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.step1.reverse .progress {
+    animation-name: step1reverse;
+    animation-duration: 1s
+}
+
+.resume-edit .box-tit .progress-circle .svg.reverse.step2 .progress {
+    animation-name: step2reverse;
+    animation-duration: 1s;
+}
+
+.resume-edit .box-tit .progress-circle .svg.reverse.step3 .progress {
+    animation-name: step3reverse;
+    animation-duration: 1s
+}
+
+.resume-edit .box-tit .progress-circle .svg.reverse.step4 .progress-second {
+    animation-name: step4reverse;
+    animation-duration: 1s
+}
+
+.resume-edit .box-tit .progress-circle .svg.reverse.step5 {
+    animation: restore 1s ease-in-out both
+}
+
+.resume-edit .box-tit .progress-circle .svg.reverse.step5 .progress-second {
+    animation-name: step5reverse;
+    animation-duration: 1s
+}
+
+@keyframes step1 {
+    0% {
+        stroke-dashoffset: 37.68
+    }
+
+    100% {
+        stroke-dashoffset: 25.12
+    }
+}
+
+@keyframes step1reverse {
+    0% {
+        stroke-dashoffset: 25.12;
+    }
+
+    100% {
+        stroke-dashoffset: 37.68;
+    }
+}
+
+@keyframes step2 {
+    0% {
+        stroke-dashoffset: 25.12;
+    }
+
+    100% {
+        stroke-dashoffset: 12.56;
+    }
+}
+
+@keyframes step2reverse {
+    0% {
+        stroke-dashoffset: 12.56;
+    }
+
+    100% {
+        stroke-dashoffset: 25.12;
+    }
+}
+
+@keyframes step3 {
+    0% {
+        stroke-dashoffset: 12.56;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes step3reverse {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 12.56;
+    }
+}
+
+@keyframes step4 {
+    0% {
+        stroke-dashoffset: 37.68;
+    }
+
+    100% {
+        stroke-dashoffset: 19.84;
+    }
+}
+
+@keyframes step4reverse {
+    0% {
+        stroke-dashoffset: 19.84;
+    }
+
+    100% {
+        stroke-dashoffset: 37.68;
+    }
+}
+
+@keyframes step5 {
+    0% {
+        stroke-dashoffset: 18.84;
+    }
+
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+@keyframes step5reverse {
+    0% {
+        stroke-dashoffset: 0
+    }
+
+    100% {
+        stroke-dashoffset: 18.84
+    }
+}
+
+@keyframes stepmaintain {
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+.resume-edit .box-tit .txt {
+    font-size: 13px;
+    color: var(--gray80);
+}
+
+.resume-edit .box-tit .txt strong {
+    color: var(--blue90);
+}
+
+.skill-box.soft-add .skill-item .skill-modify {
+    color: var(--blue80);
+    display: flex;
+    align-items: center;
+}
+
+.skill-box.soft-add .skill-item .skill-modify em {
+    margin-right: 4px;
+}.skill-box .skill-item em {
+    color: var(--gray100);
+}
+.skill-box.soft-add .skill-item .skill-modify svg {
+    color: var(--gray80);
+}
+.skill-box svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+.skill-box.soft-add .skill-delete {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: var(--gray70);
+}
+
+.skill-box.soft-add .skill-delete:before {
+    display: block;
+    width: 1px;
+    height: 16px;
+    background-color: var(--blue30);
+    position: absolute;
+    left: -4px;
+    content: '';
+}
+
+.skill-box.soft-add .skill-delete svg {
+    color: var(--gray80);
+    width: 20px;
+    height: 20px;
+}
+
+.skill-box.soft-add .skill-item {
+    border-color: var(--blue40);
+    padding: 8px 12px 8px 16px;
+}
+
+.area-auto-search .auto-search .list-auto-search .area-link:hover, .area-auto-search .auto-search .list-auto-search .area-link:focus {
+    background-color: #f8fafc;
+}
+
+
+/* 기업으로 부터 제안(만족도 조사?) */
+.resume-con section+.resume-open {
+    position: relative;
+    padding-top: 0;
+}
+
+.resume-open .offer-setting {
+    margin-top: 56px;
+    padding: 32px;
+    border: 1px solid #eaedf4;
+    border-radius: 16px;
+    background: #f8fafc;
+}
+
+.resume-open .offer-setting .tit-setting {
+    color: #373f57;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 32px;
+}
+
+.resume-open .offer-setting .txt-setting {
+    display: flex;
+    margin: 24px 0;
+    color: #292e41;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.resume-open .offer-setting .txt-setting.resume-contact-close:before {
+    background-position: 1px 0;
+}
+
+.resume-open .offer-setting .txt-setting:before {
+    display: block;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/person/ico/ico-offer.png) no-repeat;
+    content: "";
+}
+
+.resume-open .offer-setting .txt-setting strong {
+    color: #2d65f2;
+    font-weight: bold;
+}
+
+.resume-open .offer-setting .resume-open-option {
+    display: flex;
+    align-items: center;
+}
+
+.resume-open .offer-setting .resume-open-option li {
+    width: 100%;
+}
+
+.resume-open .offer-setting .resume-open-option li .InpBox {
+    width: 100%;
+}
+
+.InpBox .Rdo {
+    position: relative;
+}
+
+.InpBox .Rdo input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+}
+.InpBox.Bg:has(input:checked) {
+    border-color: var(--blue90);
+}
+.InpBox.Bg:has(input:checked) .Lbl {
+    padding: 15px 15px 15px 47px;
+    border: 2px solid var(--blue90);
+}
+.InpBox.Bg.White>span .Lbl, .InpBox.Bg.White>span:hover .Lbl {
+    background: var(--white);
+}
+.InpBox .Rdo input:checked~.Lbl:before {
+    border-color: var(--blue90);
+    background: var(--blue90);
+}
+
+.InpBox .Rdo input:checked~.Lbl:after {
+    background: var(--white);
+}
+
+.InpBox.Bg .Lbl {
+    display: block;
+    position: relative;
+    padding: 16px 16px 16px 48px;
+    border: 1px solid var(--gray30);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: var(--white);
+}
+
+.InpBox .Rdo .Lbl {
+    display: block;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.InpBox.Bg>span .Lbl:before {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.InpBox .Rdo .Lbl:before {
+    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--gray70);
+    border-radius: 50%;
+    vertical-align: top;
+    background: var(--white);
+    content: '';
+}
+
+.InpBox.Bg>span .Lbl:after {
+    top: 21px;
+    left: 21px;
+    border-color: var(--blue10);
+}
+
+.InpBox .Rdo .Lbl:after {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: '';
+}
+
+.resume-open .offer-setting .resume-open-option li+li {
+    margin-left: 8px;
+}
+
+.resume-open .offer-setting .tooltip-area {
+    margin-top: 24px;
+    display: flex;
+}
+
+.resume-open .offer-setting .tooltip-area button {
+    display: flex;
+    align-items: center;
+}
+
+.resume-open .offer-setting .tooltip-area button>svg {
+    width: 16px;
+    height: 16px;
+}
+
+.resume-open .offer-setting .tooltip-area button>span {
+    margin-left: 8px;
+    color: var(--gray80);
+    font-size: 14px;
+}
+
+.resume-open .resume-open-notice {
+    margin-top: 24px;
+}
+
+.resume-open .resume-open-notice .list-square {
+    color: #888;
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.resume-open .resume-open-notice .list-square>li {
+    position: relative;
+    padding-left: 10px;
+}
+.resume-open .resume-open-notice .list-square>li:before {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #888;
+    content: "";
+}
+
+.resume-open .resume-open-notice .list-square>li+li {
+    margin-top: 8px;
+}
+
+.resume-open .resume-open-notice .list-square>li {
+    position: relative;
+    padding-left: 10px;
+}
+
+/* 아래 이력서 제목 및 작성버튼 */
+.resume-btm {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    padding: 8px 0;
+    width: 100%;
+    border-top: 1px solid var(--gray40);
+    background: #fff;
+}
+
+.resume-btm .inner {
+    display: flex;
+    margin: 0 auto;
+    width: 1248px;
+    align-items: center;
+}
+
+.resume-btm .inner .tit-resume {
+    flex-shrink: 0;
+    display: block;
+    margin-right: 8px;
+    color: var(--gray120);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.resume-btm .inner input {
+    width: 724px;
+    color: var(--gray110);
+    font-size: 20px;
+    line-height: 28px;
+    border: 2px solid var(--blue100);
+    border-radius: 8px;
+}.resume-btm .inner .BtnType.btn-preview {
+    margin: 0 12px 0 20px;
+    border-color: var(--blue90);
+    color: var(--blue90);
+    background: var(--white);
+}
+.resume-btm .inner .BtnType {
+    width: 180px;
+}
+[class*="BtnType"].BtnTypeRd {
+    border-radius: 35px;
+}
+
+
+[class*="BtnType"].SizeML {
+    padding: 13px 15px 15px;
+    height: 56px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.resume-btm .inner .tip-recommend {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    background: url('/static/images/my-page/resume-write-info.svg') no-repeat;
+    cursor: pointer;
+}
+
+.resume-btm .tit-recommend .TipCont {
+    width: 566px;
+}
+
+.TipBox.Click .TipCont {
+    padding-right: 44px;
+}
+
+.TipBox .TipCont.BottomLeft {
+    bottom: calc(100% + 17px);
+    left: 50%;
+}
+
+.TipCont {
+    display: none;
+    position: absolute;
+    padding: 12px 16px 14px;
+    white-space: nowrap;
+    border: 1px solid var(--gray70);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: var(--white);
+    box-shadow: 2px 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.TipCont.BottomLeft .Tail {
+    bottom: -19px;
+    left: -1px;
+    transform: rotate(180deg);
+}
+
+.TipCont.BottomLeft .Tail:has(>svg.icon-tail) {
+    background: none;
+}
+
+
+.TipCont .Tail {
+    position: absolute;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+}
+
+.TipCont.TopRight .Tail:has(>svg.icon-tail) svg.icon-tail, .TipCont.RightBottom .Tail:has(>svg.icon-tail) svg.icon-tail, .TipCont.BottomLeft .Tail:has(>svg.icon-tail) svg.icon-tail, .TipCont.LeftTop .Tail:has(>svg.icon-tail) svg.icon-tail {
+    width: 32px;
+    height: 32px;
+}
+
+.TipCont .Tail:has(>svg.icon-tail) svg.icon-tail {
+    color: var(--gray70);
+    fill: var(--white);
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+.TipCont .TipTxt {
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.resume-btm .tit-recommend .tit {
+    margin-bottom: 4px;
+    color: var(--gray100);
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.resume-btm .tit-recommend .txt {
+    display: block;
+    overflow: hidden;
+    width: calc(100% - 100px);
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: underline;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resume-btm .tit-recommend .txt+.txt {
+    margin-top: 8px;
+}
+
+.resume-btm .tit-recommend .btn-refresh {
+    display: block;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: -32px;
+    padding: 0 8px;
+    text-align: right;
+    height: 32px;
+    color: var(--blue90);
+    font-size: 13px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+
+.TipBox.Click .BtnClose {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+}
+
+.TipBox.Click .BtnClose:after {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('/static/images/my-page/resume-tip-close.svg') no-repeat;
+    content: "";
+}
+
+/* 이력서 파일 등록 */
+.resume-edit.add-file-area{
+    display:block;
+    border-top: 1px solid var(--gray40);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    box-shadow: none;
+}
+
+.resume-con .btn-file-add {
+    width: 100%;
+    border-color: var(--gray40);
+    color: var(--blue90);
+    background: var(--white);
+}
+
+.resume-con .btn-file-add svg {
+    display: block;
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.resume-edit .item-txt-sub {
+    display: block;
+    margin-top: 12px;
+    color: var(--gray80);
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.resume-file .file-preview {
+    overflow: hidden;
+    position: relative;
+    width: 421px;
+    height: 236px;
+    border: 1px solid var(--gray40);
+    border-radius: 8px;
+}
+
+.resume-file .file-preview .txt-no-preview {
+    color: var(--gray80);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.resume-file .resume-edit .file-box {
+    margin-top: 0;
+}
+
+.resume-edit .file-box {
+    margin-top: 16px;
+    width: 100%;
+}
+
+.resume-edit .file-box .list {
+    display: flex;
+    padding: 12px 16px;
+    width: 100%;
+    border: 1px solid var(--gray30);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-all;
+    background: var(--gray20);
+    flex-wrap: wrap;
+    align-items: center;
+}
+.resume-edit .file-box .list.file:before {
+    background: url('/static/images/my-page/resume-write-image-upload.svg') no-repeat;
+}
+.resume-edit .file-box .list:before {
+    display: inline-block;
+    margin-right: 12px;
+    width: 16px;
+    height: 16px;
+    content: "";
+}
+.resume-edit .file-box .list .tit {
+    color: var(--gray100);
+}
+.resume-edit .file-box .list .tit span {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 610px;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.resume-edit .file-box .list .data {
+    display: flex;
+    margin-left: 8px;
+    color: var(--gray80);
+    align-items: center;
+}
+.resume-edit .file-box .list button {
+    margin-left: auto;
+}
+.resume-file .item-row .btn-delete {
+    margin-right: 12px;
+}
+.InpBox textarea {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 24px;
+    width: 100%;
+    height: calc(100% - 25px);
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 21px;
+    background-color: var(--white);
+    resize: none;
+}
+
+.resume-edit .letter-box .txt-count {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+    justify-content: end;
+}
+
+.resume-edit .letter-box .txt-count .count {
+    color: var(--gray80);
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.resume-edit .letter-box .txt-count .count em {
+    font-weight: bold;
+}
+
+/* 파일 업로드 중 */
+.layer-uploaded {
+    width: 560px;
+}
+.ModalBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 110;
+    padding: 40px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) translateX(-50%) translateZ(0);
+}
+
+.ModalBox .Tit {
+    margin-bottom: 24px;
+    color: var(--gray120);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+.layer-uploaded.ing .uploaded-box {
+    height: 468px;
+}
+
+.layer-uploaded .uploaded-box {
+    display: flex;
+    height: 404px;
+    align-items: center;
+    justify-content: center;
+}
+
+.ModalBox .ModalCont {
+    color: var(--gray90);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.layer-uploaded .uploaded-txt {
+    color: var(--gray80);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}.layer-uploaded.ing .uploaded-txt .LoadingImg {
+    margin-bottom: 8px;
+}
+
+.LoadingImg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin: 0 auto;
+    width: 54px;
+    height: 54px;
+}
+
+.LoadingImg .LoadingCircle.LoadingCircleC1 {
+    animation-delay: 0s;
+}
+
+.LoadingImg .LoadingCircle {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background-color: var(--blue80);
+    transform: translateY(2px);
+    animation: LoadingAni 1.1s ease-in-out infinite;
+}
+
+.LoadingImg .LoadingCircle.LoadingCircleC2 {
+    animation-delay: .2s;
+}
+
+.LoadingImg .LoadingCircle.LoadingCircleC3 {
+    animation-delay: .4s;
+}
+
+.layer-uploaded.ing .uploaded-txt strong {
+    font-size: 16px;
+}
+
+.layer-uploaded .uploaded-txt strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 업로드 완료 */
+.ModalBox .BtmArea {
+    display: flex;
+    margin-top: 24px;
+    justify-content: center;
+}
+
+.ModalBox .BtmArea .BtnType {
+    min-width: 100px;
+}
+
+.ModalBox .BtnClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+}
+.layer-uploaded .uploaded-txt strong:before {
+    display: block;
+    margin: 0 auto 16px;
+    width: 80px;
+    height: 80px;
+    background: url('/static/images/my-page/resume-write-upload-sucess.svg') no-repeat;
+    content: "";
+}
+
+/* 파일 등록 모달 창 */
+
+#wrapResumeNudge{
+    display:none;
+}
+.resume-file-manage {
+    width: 560px;
+    height: 600px;
+    display:block;
+}
+
+.ModalBox .Tit .Txt {
+    display: block;
+    margin-top: 8px;
+    color: var(--gray100);
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.resume-file-manage .ModalCont {
+    overflow: auto;
+    height: 375px;
+}
+
+.resume-file-manage .file-tab {
+    display: flex;
+    margin-bottom: 24px;
+    align-items: center;
+    gap: 0 20px;
+}
+
+.InpBox .Rdo {
+    position: relative;
+}
+
+.resume-file-manage .file-box {
+    position: relative;
+}
+
+.resume-file-manage .file-box:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 387px;
+    height: 40px;
+    border: 1px solid var(--gray30);
+    border-radius: 4px;
+    background: var(--gray20) url('/static/images/my-page/resume-write-file.svg') center left 22px no-repeat;
+    content: "";
+}
+
+.resume-file-manage .file-box input[type=file] {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.resume-file-manage .desc {
+    margin-top: 8px;
+    color: var(--gray80);
+}
+
+.resume-file-manage .notice {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray40);
+    color: var(--gray80);
+}
+
+.resume-file-manage .bottom-btn {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+[class*="BtnType"].GrayInvert {
+    border-color: var(--gray80);
+    color: var(--gray100);
+    background: var(--white);
+}
+
+.ModalBox .BtmArea .BtnType+.BtnType {
+    margin-left: 8px;
+}
+
+[class*="BtnType"]:disabled, [class*="BtnType"].disabled {
+    cursor: default;
+}
+
+[class*="BtnType"].disabled, [class*="BtnType"].disabled:hover, [class*="BtnType"]:disabled, [class*="BtnType"]:disabled:hover {
+    border-color: var(--gray40) !important;
+    color: var(--gray50) !important;
+    background-color: var(--gray20) !important;
+}
+
+[class*="BtnType"].SizeM {
+    padding: 6px 11px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.ModalBox .BtnClose:after {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('/static/images/my-page/resume-tip-close.svg') no-repeat;
+    content: "";
+}
+
+.position-dimmed {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 105;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+#dimmed{
+    display:none;
+}
+
+.resume-file-manage .file-box input[type=file]::file-selector-button {
+    margin-right: 55px;
+    width: 85px;
+    height: 40px;
+    border: 1px solid var(--gray40);
+    border-radius: 4px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: var(--white);
+    cursor: pointer;
+}
+.resume-file .file-preview img {
+    width: 100%;
+}
+
+#file-res,
+.resume-edit.preview-file-area,
+#resume-file-uploading-layer,
+#resume-file-uploaded-layer,
+#resumeSkill,
+.btn-delete{
+    display: none;
+}
+
+.btn-add.evtWriteItem{
+    display: flex;
+}
+
+.evtDeleteResFile{
+    display:block;
+}

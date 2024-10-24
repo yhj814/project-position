@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>내 게시글 & 댓글</title>
+        <link rel="stylesheet" href="../../static/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="../../static/css/my-page/my-post-reply.css"
+        />
+    </head>
+    <body>
+        <div id="sri-section">
+            <div id="sri-wrap">
+                <div id="content">
+                    <div class="wrapper-narrow support-announce">
+                        <h1 class="wrap-title">내 활동</h1>
+                        <ul class="TabBox">
+                            <li class="Select">
+                                <a href="#" class="BtnType" id="postTab">
+                                    내 게시글<span
+                                        id="readJobTotalCount"
+                                        class="Badge"
+                                        >20</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="BtnType" id="replyTab">
+                                    내 댓글<span
+                                        id="suitedTotalCount"
+                                        class="Badge"
+                                        >389</span
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="top-btns">
+                            <div class="align">
+                                <div class="InpBox topCheckBox">
+                                    <span class="Chk Hide">
+                                        <input type="checkbox" id="selectAll" />
+                                        <label class="Lbl" for="selectAll"
+                                            >전체선택</label
+                                        >
+                                    </span>
+                                </div>
+                                <!-- <button
+                                    type="button"
+                                    class="BtnType SizeM GrayInvert btn-invert select-scrap-btn"
+                                >
+                                    스크랩
+                                </button> -->
+                                <button
+                                    type="button"
+                                    id="selectDelete"
+                                    class="BtnType SizeM GrayInvert btn-invert"
+                                >
+                                    삭제
+                                </button>
+                            </div>
+                            <div class="align">
+                                <!-- <div class="InpBox Line filter">
+                                    <span class="Chk">
+                                        <input
+                                            type="checkbox"
+                                            id="quick-apply"
+                                            value="y"
+                                        />
+                                        <label class="Lbl" for="quick-apply"
+                                            >입사지원만 보기</label
+                                        >
+                                    </span>
+                                    <span class="Chk">
+                                        <input
+                                            type="checkbox"
+                                            id="ai-head-hunting"
+                                            value="y"
+                                        />
+                                        <label class="Lbl" for="ai-head-hunting"
+                                            >취업축하금만 보기</label
+                                        >
+                                    </span>
+                                </div> -->
+
+                                <div class="InpBox filter">
+                                    <select
+                                        name="sort"
+                                        id="sort"
+                                        class="sorting"
+                                    >
+                                        <option
+                                            value="rd"
+                                            label="최근 조회순"
+                                            selected="selected"
+                                        >
+                                            최근 조회순
+                                        </option>
+                                        <option value="ed" label="마감일순">
+                                            마감일순
+                                        </option>
+                                        <option value="rod" label="등록일순">
+                                            등록일순
+                                        </option>
+                                        <option value="md" label="수정일순">
+                                            수정일순
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-list">
+                            <span class="blind">공고 리스트</span>
+                            <div class="list-recruit">
+                                <ul class="wrap-list" id="jobList"></ul>
+                            </div>
+                        </div>
+                        <div class="PageBox">
+                            <span class="BtnType SizeS">1</span>
+                        </div>
+                    </div>
+                    <div class="NotiBox">
+                        <h5 class="NotiTit">최근 본 공고<br />유의사항</h5>
+                        <div class="NotiCont">
+                            <ul class="list">
+                                <li>
+                                    최근 본 공고는 최대 200건까지 노출됩니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="../../static/js/my-page/my-post-reply.js"></script>
+</html>

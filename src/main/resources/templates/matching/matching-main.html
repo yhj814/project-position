@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/matching/matching-main.css" />
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <title>매칭 페이지</title>
+    </head>
+    <body>
+        <div id="position-section" class="layout-wide has-banner">
+            <div id="position-wrap">
+                <div id="content">
+                    <div class="wrap-title-recruit">
+                        <h1 class="title-common">직업별(직무)</h1>
+                    </div>
+                    <div
+                        id="search-panel-wrapper"
+                        class="recruit-search-panel job-category"
+                    >
+                        <form
+                            action=""
+                            id="search-panel-form"
+                            name="serch-panel-form"
+                        >
+                            <!-- 좀만 있다가 -->
+                            <fieldset>
+                                <div
+                                    id="sp-main-wrapper"
+                                    class="wrap-main-panel"
+                                >
+                                    <div class="main-option">
+                                        <ul class="tab-section">
+                                            <!-- 직무 선택 -->
+                                            <!-- on되면 검은색 테두리 생김 -->
+                                            <li class="job-category-section">
+                                                <button
+                                                    type="button"
+                                                    class="btn-job-category btn-open-layer"
+                                                >
+                                                    <span
+                                                        class="input-placeholder"
+                                                        >직업 선택</span
+                                                    >
+                                                    <span
+                                                        class="input-text"
+                                                    ></span>
+                                                </button>
+                                            </li>
+                                            <!-- 지역 선택 -->
+                                            <li class="area-section on">
+                                                <button
+                                                    type="button"
+                                                    class="btn-area btn-open-layer"
+                                                >
+                                                    <span
+                                                        class="input-placeholder"
+                                                        >지역 선택</span
+                                                    >
+                                                    <span
+                                                        class="input-text"
+                                                    ></span>
+                                                </button>
+                                            </li>
+                                            <li class="keyword-section">
+                                                <button
+                                                    type="button"
+                                                    class="btn-keyword btn-open-layer keyword"
+                                                >
+                                                    <span
+                                                        class="input-placeholder"
+                                                        >검색어 입력</span
+                                                    >
+                                                    <span
+                                                        class="input-text"
+                                                    ></span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <!-- 직무 카테고리 -->
+                                        <div class="wrap-section-contents">
+                                            <!-- on 되면 직무 카테고리 열림 -->
+                                            <div
+                                                class="option-content job-category-section"
+                                            >
+                                                <h2 class="blind">직업 선택</h2>
+                                                <div class="select-keyword">
+                                                    <div
+                                                        class="wrap-auto-keyword"
+                                                    >
+                                                        <span
+                                                            class="ipt-keyword"
+                                                        >
+                                                            <label
+                                                                for="job-category-ipt-keyword"
+                                                                class="blind"
+                                                                >직업(직무) 또는
+                                                                전문분야
+                                                                입력</label
+                                                            >
+                                                            <input
+                                                                type="text"
+                                                                name="cat"
+                                                                id="job-category-ipt-keyword"
+                                                                placeholder="직업(직무) 또는 전문분야 입력"
+                                                                autocomplete="off"
+                                                            />
+                                                            <button
+                                                                type="button"
+                                                                class="btn-delete"
+                                                            >
+                                                                삭제
+                                                            </button>
+                                                        </span>
+                                                        <!-- 검색창 누르면 block 돼서 연관 검색어 뜸-->
+                                                        <div
+                                                            class="wrap-result has-result"
+                                                            id="autocomplete-has-result"
+                                                            style="
+                                                                display: none;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="wrap-scroll"
+                                                                style="
+                                                                    height: 183px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="ScrollBar"
+                                                                >
+                                                                    <div
+                                                                        class="track"
+                                                                    >
+                                                                        <div
+                                                                            class="thumb"
+                                                                        >
+                                                                            <div
+                                                                                class="end"
+                                                                            ></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="viewport"
+                                                                >
+                                                                    <div
+                                                                        class="overview"
+                                                                        style="
+                                                                            top: 0px;
+                                                                        "
+                                                                    >
+                                                                        <!-- keyword 꽂혀야됨 -->
+                                                                        <ul
+                                                                            class="list-keyword"
+                                                                        ></ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="area-btn"
+                                                            >
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-close"
+                                                                >
+                                                                    닫기
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 검색어가 없을때, display:none 시켜야됨 -->
+                                                        <div
+                                                            class="wrap-result no-result"
+                                                            id="autocomplete-no-result"
+                                                            style="
+                                                                display: none;
+                                                            "
+                                                        >
+                                                            <p class="empty">
+                                                                검색결과가
+                                                                없습니다.
+                                                                <a
+                                                                    href="javascript:void(0)"
+                                                                    class="go-link"
+                                                                    ><span
+                                                                        class="txt-point"
+                                                                        >ㅇㄴㄹ</span
+                                                                    >
+                                                                    키워드
+                                                                    검색어로
+                                                                    추가</a
+                                                                >
+                                                            </p>
+                                                            <div
+                                                                class="area-btn"
+                                                            >
+                                                                <!-- 버튼 누르면  wrap-result no-result 부분 display:none-->
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-close"
+                                                                >
+                                                                    닫기
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 카테고리 depth -->
+                                                <!-- 위에 직업 카테고리가 선택 되면 style="max-height: 202px;" -->
+                                                <div
+                                                    class="details"
+                                                    style="max-height: 202px"
+                                                >
+                                                    <h4 class="blind">
+                                                        카테고리 선택
+                                                    </h4>
+                                                    <!-- 카테고리 선택되면 style="display:none" -->
+                                                    <div
+                                                        class="box-jobs"
+                                                        style="display: none"
+                                                    >
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            기획·전략
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            마케팅·홍보·조사
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            회계·세무·재무
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            인사·노무·HRD
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            총무·법무·사무
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            IT개발·데이터
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            디자인
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            영업·판매·무역
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            고객상담·TM
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            구매·자재·물류
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            상품기획·MD
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            운전·운송·배송
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            서비스
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            생산
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            건설·건축
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            의료
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            연구·R&D
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            교육
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            미디어·문화·스포츠
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            금융·보험
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn-job"
+                                                        >
+                                                            공공·복지
+                                                        </button>
+                                                    </div>
+                                                    <!-- 큰 옵션 선택 시 -->
+                                                    <div
+                                                        class="box-detail-jobs"
+                                                        style="display: block"
+                                                    >
+                                                        <div
+                                                            class="box-onedepth"
+                                                            style="
+                                                                height: 202px;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="wrap-scroll"
+                                                            >
+                                                                <div
+                                                                    class="scrollbar"
+                                                                    style="
+                                                                        height: 202px;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        class="track"
+                                                                        style="
+                                                                            height: 202px;
+                                                                        "
+                                                                    >
+                                                                        <div
+                                                                            class="thumb"
+                                                                            style="
+                                                                                top: 0px;
+                                                                                height: 48.5762px;
+                                                                            "
+                                                                        >
+                                                                            <div
+                                                                                class="end"
+                                                                            ></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="viewport"
+                                                                >
+                                                                    <ul
+                                                                        class="list overview"
+                                                                        style="
+                                                                            top: 0px;
+                                                                        "
+                                                                    >
+                                                                        <!-- list 예시 forEach로? -->
+                                                                        <li
+                                                                            class="item-job depth1-btn-wrapper on"
+                                                                        >
+                                                                            <button
+                                                                                type="button"
+                                                                                class="first-depth"
+                                                                            >
+                                                                                <span
+                                                                                    class="txt"
+                                                                                    >기획·전략
+                                                                                </span>
+                                                                                <span
+                                                                                    class="count"
+                                                                                    >(10,857)</span
+                                                                                >
+                                                                            </button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 선택되면 display: block -->
+                                                        <div
+                                                            class="box-detail-depth on"
+                                                            id="sp-job-category-subDepth-16"
+                                                            style="
+                                                                display: block;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="row row-all-select"
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    id="all-check-onedepth-16"
+                                                                    name="기획·전략"
+                                                                    class="select-all"
+                                                                    data-code="16"
+                                                                />
+                                                                <label
+                                                                    for="all-check-onedepth-16"
+                                                                >
+                                                                    <span
+                                                                        >기획·전략
+                                                                        전체선택</span
+                                                                    >
+                                                                </label>
+                                                            </div>
+                                                            <div
+                                                                class="row list"
+                                                                style="
+                                                                    height: 162px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="wrap-scroll"
+                                                                >
+                                                                    <div
+                                                                        class="scrollbar disable"
+                                                                        style="
+                                                                            height: 162px;
+                                                                        "
+                                                                    >
+                                                                        <div
+                                                                            class="track"
+                                                                            style="
+                                                                                height: 162px;
+                                                                            "
+                                                                        >
+                                                                            <div
+                                                                                class="thumb"
+                                                                                style="
+                                                                                    height: 162px;
+                                                                                "
+                                                                            >
+                                                                                <div
+                                                                                    class="end"
+                                                                                ></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="viewport"
+                                                                    >
+                                                                        <div
+                                                                            class="overview"
+                                                                            style="
+                                                                                top: 0px;
+                                                                            "
+                                                                        >
+                                                                            <dl
+                                                                                class="row-item"
+                                                                            >
+                                                                                <dt>
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        class="btn-expand"
+                                                                                    >
+                                                                                        <span
+                                                                                            class="txt"
+                                                                                            >직무·직업</span
+                                                                                        >
+                                                                                        <!-- after -->
+                                                                                    </button>
+                                                                                </dt>
+                                                                                <dd
+                                                                                    class="area-list"
+                                                                                >
+                                                                                    <!-- 직무.직업 버튼 예시 -->
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        class="btn-three-depth"
+                                                                                    >
+                                                                                        광고PD
+                                                                                        <span
+                                                                                            class="count"
+                                                                                            >(361)</span
+                                                                                        >
+                                                                                    </button>
+                                                                                </dd>
+                                                                            </dl>
+                                                                            <dl
+                                                                                class="row-item"
+                                                                            >
+                                                                                <dt>
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        class="btn-expand"
+                                                                                    >
+                                                                                        <span
+                                                                                            class="txt"
+                                                                                            >전문분야</span
+                                                                                        >
+                                                                                        <!-- after -->
+                                                                                    </button>
+                                                                                </dt>
+                                                                                <dd
+                                                                                    class="area-list"
+                                                                                >
+                                                                                    <!-- 직무.직업 버튼 예시 -->
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        class="btn-three-depth"
+                                                                                    >
+                                                                                        검색
+                                                                                        광고
+                                                                                        <span
+                                                                                            class="count"
+                                                                                            >(361)</span
+                                                                                        >
+                                                                                    </button>
+                                                                                </dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- after -->
+                                                </div>
+                                            </div>
+                                            <!-- 지역 카테고리 -->
+                                            <div
+                                                class="option-content area-section on"
+                                            >
+                                                <h2 class="blind">지역 선택</h2>
+                                                <div class="select-keyword">
+                                                    <div
+                                                        class="wrap-auto-keyword"
+                                                    >
+                                                        <span
+                                                            class="ipt-keyword"
+                                                        >
+                                                            <label
+                                                                for="area-ipt-keyword"
+                                                                class="blind"
+                                                                >지역명
+                                                                입력</label
+                                                            >
+                                                            <input
+                                                                type="text"
+                                                                name="loc"
+                                                                id="area-ipt-keyword"
+                                                                placeholder="지역명 입력"
+                                                                autocomplete="off"
+                                                            />
+                                                            <button
+                                                                type="button"
+                                                                class="btn-delete"
+                                                            >
+                                                                삭제
+                                                            </button>
+                                                        </span>
+                                                        <div
+                                                            class="wrap-result has-result"
+                                                            id="autocomplete-has-result"
+                                                            style="
+                                                                display: none;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="wrap-scroll"
+                                                                style="
+                                                                    height: 183px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="ScrollBar"
+                                                                >
+                                                                    <div
+                                                                        class="track"
+                                                                    >
+                                                                        <div
+                                                                            class="thumb"
+                                                                        >
+                                                                            <div
+                                                                                class="end"
+                                                                            ></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="viewport"
+                                                                >
+                                                                    <div
+                                                                        class="overview"
+                                                                        style="
+                                                                            top: 0px;
+                                                                        "
+                                                                    >
+                                                                        <ul
+                                                                            class="list-keyword"
+                                                                        ></ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="area-btn"
+                                                            >
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-close"
+                                                                >
+                                                                    닫기
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="wrap-result no-result"
+                                                            id="autocomplete-no-result"
+                                                            style="
+                                                                display: none;
+                                                            "
+                                                        >
+                                                            <p class="empty">
+                                                                검색결과가
+                                                                없습니다.
+                                                            </p>
+                                                            <div
+                                                                class="area-btn"
+                                                            >
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-close"
+                                                                >
+                                                                    닫기
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 지역 카테고리 depth -->
+                                                <div
+                                                    class="wrap-depth-category"
+                                                >
+                                                    <h4 class="blind">
+                                                        카테고리 선택
+                                                    </h4>
+                                                    <div
+                                                        class="wrap-scroll depth1"
+                                                        style="height: 245px"
+                                                    >
+                                                        <div
+                                                            class="scrollbar"
+                                                            style="
+                                                                height: 245px;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="track"
+                                                                style="
+                                                                    height: 245px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="thumb"
+                                                                    style="
+                                                                        top: 4.23225px;
+                                                                        height: 115.211px;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        class="end"
+                                                                    ></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="viewport">
+                                                            <div
+                                                                class="overview"
+                                                                style="
+                                                                    top: -9px;
+                                                                "
+                                                            >
+                                                                <ul>
+                                                                    <li
+                                                                        class="depth1-btn-wrapper on"
+                                                                    >
+                                                                        <!-- 클래스명 바꿔야됨 -->
+                                                                        <button
+                                                                            type="button"
+                                                                            class="depth1-btn-101000"
+                                                                        >
+                                                                            <span
+                                                                                class="txt"
+                                                                                >서울
+                                                                            </span>
+                                                                            <span
+                                                                                class="count"
+                                                                                >(55,015)</span
+                                                                            >
+                                                                        </button>
+                                                                    </li>
+                                                                    <!-- 마지막 li 뒤에 after -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="wrap-scroll depth-check"
+                                                        style="height: 245px"
+                                                    >
+                                                        <div
+                                                            class="scrollbar"
+                                                            style="
+                                                                height: 245px;
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="track"
+                                                                style="
+                                                                    height: 245px;
+                                                                "
+                                                            >
+                                                                <div
+                                                                    class="thumb"
+                                                                    style="
+                                                                        top: 0px;
+                                                                        height: 179.179px;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        class="end"
+                                                                    ></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="viewport">
+                                                            <div
+                                                                class="overview"
+                                                                style="top: 0px"
+                                                            >
+                                                                <div
+                                                                    class="wrap-list-check"
+                                                                >
+                                                                    <ul
+                                                                        class="list-check"
+                                                                    >
+                                                                        <li>
+                                                                            <div
+                                                                                class="inpChk"
+                                                                            >
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                />
+                                                                                <label
+                                                                                    class="lbl"
+                                                                                >
+                                                                                    <span
+                                                                                        class="txt"
+                                                                                        >서울전체</span
+                                                                                    >
+                                                                                </label>
+                                                                                <!-- 여기서부터 -->
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="option-content keyword-section"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg"></div>
+                                    <div
+                                        id="sp-preview"
+                                        class="wrap-search-result preview-v2 resetting"
+                                    >
+                                        <div class="add-keyword">
+                                            <div
+                                                id="sp-preview-selected"
+                                                class="keywords"
+                                            >
+                                                <span class="selected-keyword">
+                                                    마케팅·홍보·조사 &gt; 광고PD
+                                                    <button
+                                                        type="button"
+                                                        id="sp-preview-job-category"
+                                                        class="btn-del remove-btn"
+                                                    >
+                                                        삭제
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <p class="result-txt">
+                                                채용공고를 찾고 있습니다. 잠시만
+                                                기다려주세요.
+                                            </p>
+                                            <p class="reset-txt">
+                                                검색조건을 설정해 주세요.
+                                            </p>
+                                        </div>
+                                        <div class="area-btn">
+                                            <button
+                                                type="button"
+                                                class="btn-reset"
+                                            >
+                                                선택초기화
+                                            </button>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            id="search-btn"
+                                            class="btn-search active"
+                                        >
+                                            <span>
+                                                <span class="count"
+                                                    ><span id="search-count-txt"
+                                                        >선택된 </span
+                                                    ><b
+                                                        id="sp-preview-total-cnt"
+                                                        >362</b
+                                                    >건</span
+                                                >
+                                                <span id="search-btn-txt"
+                                                    >검색하기</span
+                                                >
+                                            </span>
+                                            <span class="ripple drop"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- 공고 리스트 -->
+                    <div id="banner-list" class="banner-list">
+                        <div class="wrap-list-banner">
+                            <div class="area-title">
+                                <h2 class="tit-banner">
+                                    이 공고, 놓치지 마세요!
+                                    <!-- after -->
+                                </h2>
+                            </div>
+                            <ul class="list-product list-premium">
+                                <!-- 공고 썸네일 3X10-->
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        target="-blank"
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company_local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="wrap-list-banner">
+                            <div class="area-title">
+                                <h2 class="tit-banner tit-premium">
+                                    요즘 뜨는 공고
+                                    <!-- after -->
+                                </h2>
+                            </div>
+                            <ul class="list-product list-premium">
+                                <!-- 공고 썸네일 4X12-->
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <!-- 즐겨 찾기 별 star뒤에 on 붙이면 됨 -->
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                                <li class="item">
+                                    <a
+                                        href=""
+                                        title="신입/경력직 모집(개발,인사,급여,영업,사내변호사 등)"
+                                    >
+                                        <span class="logo">
+                                            <img
+                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/14002_logo_7.jpg"
+                                                alt="웹케시(주)"
+                                        /></span>
+                                        <strong class="tit"
+                                            >신입/경력직
+                                            모집(개발,인사,급여,영업,사내변호사
+                                            등)</strong
+                                        >
+                                        <span class="corp">웹케시(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                서울전체
+                                            </li>
+                                            <li>신입/경력</li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-2</span>
+                                        <span class="badge">
+                                            <svg>
+                                                <use
+                                                    xlink:href="#rec_title_tag_emoji_mActive"
+                                                ></use>
+                                            </svg>
+                                            <span>기획·전략 지원 TOP100</span>
+                                        </span>
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        class="btn-scrap scrap-49129663"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="wrap-list-banner">
+                            <div class="area-title">
+                                <h2 class="tit-banner tit-focus">
+                                    지금 눈여겨볼 공고
+                                </h2>
+                            </div>
+                            <ul class="list-product list-focus">
+                                <!-- 공고 목록 2 X 4 -->
+                                <li class="item">
+                                    <a href="">
+                                        <span class="logo">
+                                            <img
+                                                src="https://pds.saramin.co.kr/company/logo/202211/01/rknn6e_mvva-1oqmsxp_logo.png/sri/resize/92"
+                                                border="0"
+                                                loading="lazy"
+                                                alt="동원산업(주)"
+                                            />
+                                        </span>
+                                        <strong class="tit"
+                                            >[동원에프앤비]식품영업 경력직
+                                            채용(제주)</strong
+                                        >
+                                        <span class="corp">동원산업(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                제주전체
+                                            </li>
+                                            <li>
+                                                5년
+                                                <span class="above">이상</span>
+                                            </li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-4</span>
+                                    </a>
+                                    <button
+                                        type="button"
+                                        class="btn-scrap"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                                <li class="item">
+                                    <a href="">
+                                        <span class="logo">
+                                            <img
+                                                src="https://pds.saramin.co.kr/company/logo/202211/01/rknn6e_mvva-1oqmsxp_logo.png/sri/resize/92"
+                                                alt="동원산업(주)"
+                                            />
+                                        </span>
+                                        <strong class="tit"
+                                            >[동원에프앤비]식품영업 경력직
+                                            채용(제주)</strong
+                                        >
+                                        <span class="corp">동원산업(주)</span>
+                                        <ul class="desc">
+                                            <li class="company-local ellipsis">
+                                                제주전체
+                                            </li>
+                                            <li>
+                                                5년
+                                                <span class="above">이상</span>
+                                            </li>
+                                            <li>
+                                                대졸
+                                                <span class="above">이상</span>
+                                            </li>
+                                        </ul>
+                                        <span class="date">D-4</span>
+                                    </a>
+                                    <button
+                                        type="button"
+                                        class="btn-scrap"
+                                        title="스크랩"
+                                    >
+                                        <img
+                                            src="//www.saraminimage.co.kr/common/bul_sri_star.png"
+                                            alt="스크랩"
+                                        />
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- svg 닫기 -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+            <!-- 취업축하금 -->
+            <symbol
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                id="rec-title_tag_emoji_reward"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 6.99974C0 10.8668 3.13431 14 7.00051 14C10.8662 14 14 10.8668 14 6.99974C14 3.13318 10.8662 0 7.00051 0C3.13431 0 0 3.13318 0 6.99974Z"
+                    fill="#FFCC48"
+                ></path>
+                <path
+                    d="M4.37372 4.375L5.68622 9.625L6.99999 4.375L8.31122 9.625L9.62372 4.375"
+                    stroke="white"
+                    stroke-width="0.875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                ></path>
+                <path
+                    d="M10.9375 6.5625H3.0625"
+                    stroke="white"
+                    stroke-width="0.875"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                ></path>
+            </symbol>
+
+            <!-- 기업정보 -->
+            <symbol
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                id="rec_title_tag_emoji_comInfo"
+            >
+                <path
+                    d="M12.0889 9.14732C11.5331 6.9873 10.4974 4.30948 8.66578 3.29897L9.84046 2.14948C10.2699 1.73265 9.97941 1 9.37312 1L4.81317 1.00009C4.20689 1.00009 3.9163 1.73271 4.34583 2.14957L5.52051 3.29905C3.68897 4.30959 2.65317 6.98743 2.09739 9.14741C1.64266 10.9032 2.83001 12.6589 4.62368 12.8611C5.33102 12.9368 6.15213 13 7.08681 13C8.02156 13 8.84258 12.9495 9.54994 12.8611C11.3564 12.6715 12.531 10.9031 12.0891 9.14741L12.0889 9.14732ZM9.18367 8.0863H8.69104L8.60258 8.43998H8.94365C9.13309 8.43998 9.29733 8.59153 9.29733 8.79366C9.29733 8.9831 9.14578 9.14734 8.94365 9.14734H8.43844L8.22372 10.0189C8.18583 10.1705 8.04688 10.2842 7.88265 10.2842C7.7311 10.2842 7.59215 10.1832 7.54158 10.0316L7.08684 8.44003L6.6447 10.0316C6.60681 10.1831 6.46786 10.2842 6.30363 10.2842C6.13939 10.2842 6.00045 10.1705 5.96256 10.0189L5.74792 9.14737H5.24271C5.05327 9.14737 4.88903 8.99582 4.88903 8.79369C4.88903 8.60425 5.04058 8.44001 5.24271 8.44001H5.5711L5.48264 8.08632H4.99001C4.80058 8.08632 4.63633 7.93477 4.63633 7.73264C4.63633 7.54321 4.78788 7.37896 4.99001 7.37896H5.31848L5.17953 6.81057C5.12904 6.62114 5.2427 6.43161 5.43213 6.38113C5.62156 6.33065 5.8111 6.4569 5.86158 6.63373L6.32892 8.55364L6.74576 7.05048C6.78364 6.89893 6.92259 6.79787 7.08683 6.79787C7.25106 6.79787 7.37733 6.89894 7.4279 7.05048L7.84474 8.55364L8.31208 6.64632C8.36257 6.45688 8.5521 6.34314 8.74152 6.39371C8.93096 6.4442 9.0447 6.63373 8.99413 6.82316L8.85518 7.37896H9.17097C9.3604 7.37896 9.52465 7.53051 9.52465 7.73264C9.52465 7.92208 9.3731 8.08632 9.18366 8.08632L9.18367 8.0863Z"
+                    fill="#00D3AB"
+                ></path>
+            </symbol>
+
+            <!-- 투자정보 -->
+            <symbol
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                id="rec_title_tag_emoji_invest"
+            >
+                <path
+                    d="M11.3556 5.52199C11.3556 5.82253 11.1117 6.06644 10.8112 6.06644H9.17786C8.87733 6.06644 8.63342 5.82253 8.63342 5.52199V4.97755C8.63342 4.67702 8.87733 4.43311 9.17786 4.43311H10.8112C11.1117 4.43311 11.3556 4.67702 11.3556 4.97755V5.52199ZM5.36675 5.52199C5.36675 5.82253 5.12284 6.06644 4.82231 6.06644H3.18898C2.88844 6.06644 2.64453 5.82253 2.64453 5.52199V4.97755C2.64453 4.67702 2.88844 4.43311 3.18898 4.43311H4.82231C5.12284 4.43311 5.36675 4.67702 5.36675 4.97755V5.52199Z"
+                    fill="#DAC8B1"
+                ></path>
+                <path
+                    d="M11.8996 11.2387C11.8996 11.5392 11.6557 11.7831 11.3552 11.7831H2.64405C2.34352 11.7831 2.09961 11.5392 2.09961 11.2387V5.52198C2.09961 5.22145 2.34352 4.97754 2.64405 4.97754H11.3552C11.6557 4.97754 11.8996 5.22145 11.8996 5.52198V11.2387Z"
+                    fill="#F1DCC1"
+                ></path>
+                <path
+                    d="M8.08867 4.43314V3.88869C8.08867 3.68779 7.97869 3.51412 7.81645 3.41965V3.34425C7.81645 3.04372 7.57254 2.7998 7.27201 2.7998H6.72756C6.42703 2.7998 6.18312 3.04372 6.18312 3.34425V3.41965C6.02114 3.51412 5.91089 3.68779 5.91089 3.88869V4.43314H5.63867V11.7831H8.36089V4.43314H8.08867Z"
+                    fill="#DAC8B1"
+                ></path>
+                <path
+                    d="M5.91016 3.88867H6.4546V4.43312H5.91016V3.88867ZM7.54349 3.88867H8.08793V4.43312H7.54349V3.88867ZM6.72682 3.88867H7.27127V4.43312H6.72682V3.88867Z"
+                    fill="#55ACEE"
+                ></path>
+                <path
+                    d="M6.18359 6.06689H6.72804V9.87801H6.18359V6.06689ZM7.27248 6.06689H7.81693V9.87801H7.27248V6.06689Z"
+                    fill="#3B88C3"
+                ></path>
+                <path
+                    d="M8.63342 6.61133H9.17786V9.87799H8.63342V6.61133ZM9.72231 6.61133H10.2668V9.87799H9.72231V6.61133ZM10.8112 6.61133H11.3556V9.87799H10.8112V6.61133ZM2.64453 6.61133H3.18898V9.87799H2.64453V6.61133ZM3.73342 6.61133H4.27786V9.87799H3.73342V6.61133ZM4.82231 6.61133H5.36675V9.87799H4.82231V6.61133ZM2.64453 10.1502H3.18898V10.6947H2.64453V10.1502ZM3.73342 10.1502H4.27786V10.6947H3.73342V10.1502ZM4.82231 10.1502H5.36675V10.6947H4.82231V10.1502Z"
+                    fill="#55ACEE"
+                ></path>
+                <path
+                    d="M6.18359 10.1499H6.72804V10.6943H6.18359V10.1499ZM7.27248 10.1499H7.81693V10.6943H7.27248V10.1499Z"
+                    fill="#3B88C3"
+                ></path>
+                <path
+                    d="M8.63281 10.1499H9.17726V10.6943H8.63281V10.1499ZM9.7217 10.1499H10.2661V10.6943H9.7217V10.1499ZM10.8106 10.1499H11.355V10.6943H10.8106V10.1499Z"
+                    fill="#55ACEE"
+                ></path>
+                <path
+                    d="M2.64453 10.9668H3.18898V11.7835H2.64453V10.9668ZM3.73342 10.9668H4.27786V11.7835H3.73342V10.9668ZM4.82231 10.9668H5.36675V11.7835H4.82231V10.9668ZM6.18342 10.9668H6.72786V11.7835H6.18342V10.9668ZM7.27231 10.9668H7.81675V11.7835H7.27231V10.9668ZM8.63342 10.9668H9.17786V11.7835H8.63342V10.9668ZM9.72231 10.9668H10.2668V11.7835H9.72231V10.9668ZM10.8112 10.9668H11.3556V11.7835H10.8112V10.9668Z"
+                    fill="#66757F"
+                ></path>
+            </symbol>
+
+            <!-- 구직자 행동 데이터 -->
+            <symbol
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                id="rec_title_tag_emoji_mActive"
+            >
+                <g clip-path="url(#clip0_5376_4332)">
+                    <path
+                        d="M10.3036 4.52267C10.3036 5.50082 9.97758 6.80503 8.41253 7.32671C8.869 6.21814 8.93421 5.10956 8.60816 4.0662C8.15169 2.69678 6.65185 1.65342 5.60849 1.06653C5.34765 0.870896 4.89118 1.13174 4.95639 1.523C4.95639 2.24031 4.76076 3.28367 3.65218 4.39225C2.21756 5.82687 1.50024 7.32671 1.50024 8.76133C1.50024 10.6524 2.80445 13 5.41286 13C2.80445 10.3916 4.76076 8.10923 4.76076 8.10923C5.28244 11.9566 8.02127 13 9.32547 13C10.434 13 12.586 12.2175 12.586 8.82654C12.586 6.80503 11.7383 5.23998 11.0209 4.32704C10.8253 4.00099 10.3688 4.19662 10.3036 4.52267Z"
+                        fill="#FF7A72"
+                    ></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_5376_4332">
+                        <rect width="14" height="14" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </symbol>
+
+            <!-- HOT -->
+            <symbol
+                viewBox="0 0 14 14"
+                fill="none"
+                id="rec_title_tag_emoji_hot"
+            >
+                <path
+                    d="M11.7639 6.61947L8.54689 5.48716L7.3456 1.74337C7.29933 1.599 7.1587 1.5 7 1.5C6.8413 1.5 6.70067 1.599 6.6544 1.74337L5.45347 5.48716L2.23606 6.61947C2.09399 6.66966 2 6.79787 2 6.94191C2 7.08559 2.09399 7.2145 2.23606 7.26434L5.45167 8.39631L6.65332 12.2542C6.69886 12.4 6.83985 12.5 7 12.5C7.15979 12.5 7.30114 12.4 7.34669 12.2539L8.54833 8.39597L11.7643 7.264C11.9056 7.2145 12 7.08594 12 6.94191C12 6.79822 11.9056 6.66966 11.7639 6.61947Z"
+                    fill="#FFAC33"
+                ></path>
+                <path
+                    d="M3.95451 2.88768L4.64984 3.14504C4.76543 3.18798 4.84191 3.29799 4.84191 3.42093C4.84191 3.54388 4.76543 3.65388 4.64984 3.69683L3.95421 3.95419L3.69685 4.6498C3.65391 4.76539 3.5439 4.84187 3.42095 4.84187C3.29801 4.84187 3.188 4.76539 3.14506 4.6498L2.88769 3.95419L2.19207 3.69683C2.07647 3.65418 2 3.54388 2 3.42093C2 3.29799 2.07647 3.18798 2.19207 3.14504L2.88769 2.88768L3.14506 2.19207C3.188 2.07647 3.29801 2 3.42095 2C3.54419 2 3.6542 2.07647 3.69685 2.19207L3.95451 2.88768Z"
+                    fill="#FFCC4D"
+                ></path>
+            </symbol>
+
+            <!-- 복리후생 -->
+            <symbol
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                id="rec_title_tag_emoji_welfare"
+            >
+                <path
+                    d="M11.5168 6.91163C11.5168 6.7747 11.4841 6.64621 11.4294 6.52943C11.0644 5.35179 9.35535 5.43781 6.9244 5.38038C6.51798 5.37085 6.75045 4.89092 6.8931 3.83742C6.98593 3.15224 6.54411 2.1001 5.80149 2.1001C4.57703 2.1001 5.75494 3.06594 4.67231 5.45442C4.09384 6.7306 2.80078 6.01574 2.80078 7.29764V10.2156C2.80078 10.7146 2.84978 11.1942 3.55157 11.2732C4.23185 11.3497 4.07886 11.8345 5.06023 11.8345H9.9722C10.4725 11.8345 10.8795 11.4272 10.8795 10.9269C10.8795 10.7195 10.8068 10.5305 10.6895 10.3776C10.9672 10.2221 11.1577 9.92866 11.1577 9.58839C11.1577 9.3815 11.0853 9.19258 10.9683 9.03986C11.2467 8.88469 11.4378 8.59096 11.4378 8.25014C11.4378 8.00269 11.3377 7.77838 11.1762 7.61423C11.3823 7.4479 11.5168 7.19637 11.5168 6.91163Z"
+                    fill="#FFDB5E"
+                ></path>
+                <path
+                    d="M8.26667 7.81903H10.6089C10.9274 7.81903 11.2263 7.64862 11.3891 7.37449C11.456 7.26152 11.4187 7.11533 11.3055 7.04809C11.1925 6.98086 11.0463 7.01869 10.9791 7.13167C10.9021 7.26206 10.7597 7.34264 10.6086 7.34264H8.21032C7.97267 7.34264 7.7794 7.14936 7.7794 6.91171C7.7794 6.67406 7.97267 6.48078 8.21032 6.48078H9.8129C9.94438 6.48078 10.0511 6.37407 10.0511 6.24259C10.0511 6.11111 9.94438 6.00439 9.8129 6.00439H8.21005C7.70971 6.00439 7.30273 6.41137 7.30273 6.91171C7.30273 7.19074 7.43204 7.43764 7.63076 7.60424C7.46335 7.76894 7.35908 7.99761 7.35908 8.25023C7.35908 8.53007 7.48921 8.77779 7.68902 8.94412C7.52269 9.10854 7.41952 9.33639 7.41952 9.58847C7.41952 9.89336 7.57169 10.1623 7.80308 10.327C7.66043 10.4873 7.57115 10.6961 7.57115 10.927C7.57115 11.4273 7.97812 11.8343 8.47846 11.8343H9.97133C10.2898 11.8343 10.589 11.6642 10.7518 11.39C10.819 11.2771 10.7817 11.1309 10.6688 11.0636C10.5555 10.9969 10.4093 11.0337 10.3424 11.1467C10.2648 11.2771 10.1224 11.3579 9.97133 11.3579H8.47846C8.24081 11.3579 8.04753 11.1646 8.04753 10.927C8.04753 10.6893 8.24081 10.4961 8.47846 10.4961H10.2495C10.568 10.4961 10.8675 10.3257 11.03 10.0515C11.0972 9.93828 11.0599 9.79209 10.947 9.72513C10.8329 9.6568 10.6873 9.69518 10.6206 9.80816C10.5419 9.94073 10.4031 10.0197 10.2495 10.0197H8.32683C8.08918 10.0197 7.89591 9.82612 7.89591 9.58847C7.89591 9.35082 8.08918 9.15754 8.32683 9.15754H10.5294C10.8479 9.15754 11.1471 8.98741 11.3098 8.71328C11.3771 8.60031 11.3398 8.45412 11.2268 8.38688C11.1133 8.31992 10.9674 8.35694 10.9004 8.46991C10.8218 8.60221 10.6829 8.68116 10.5294 8.68116H8.26667C8.02902 8.68116 7.83575 8.48788 7.83575 8.25023C7.83575 8.01258 8.02875 7.81903 8.26667 7.81903Z"
+                    fill="#EE9547"
+                ></path>
+            </symbol>
+
+            <!--    개인화 이력서 관련-->
+            <symbol id="search_tag_svg_scale" viewBox="0 0 16 16">
+                <g clip-path="url(#clip0_136_7455)">
+                    <path
+                        d="M15.1109 5.77778C15.1109 6.01353 15.0172 6.23962 14.8505 6.40632C14.6838 6.57302 14.4578 6.66667 14.222 6.66667H11.5553C11.3196 6.66667 11.0935 6.57302 10.9268 6.40632C10.7601 6.23962 10.6664 6.01353 10.6664 5.77778V4.88889C10.6664 4.65314 10.7601 4.42705 10.9268 4.26035C11.0935 4.09365 11.3196 4 11.5553 4H14.222C14.4578 4 14.6838 4.09365 14.8505 4.26035C15.0172 4.42705 15.1109 4.65314 15.1109 4.88889V5.77778ZM5.33312 5.77778C5.33312 6.01353 5.23947 6.23962 5.07277 6.40632C4.90607 6.57302 4.67998 6.66667 4.44423 6.66667H1.77756C1.54181 6.66667 1.31572 6.57302 1.14902 6.40632C0.982322 6.23962 0.888672 6.01353 0.888672 5.77778V4.88889C0.888672 4.65314 0.982322 4.42705 1.14902 4.26035C1.31572 4.09365 1.54181 4 1.77756 4H4.44423C4.67998 4 4.90607 4.09365 5.07277 4.26035C5.23947 4.42705 5.33312 4.65314 5.33312 4.88889V5.77778Z"
+                        fill="#DAC8B1"
+                    ></path>
+                    <path
+                        d="M16 15.1109C16 15.3466 15.9064 15.5727 15.7397 15.7394C15.573 15.9061 15.3469 15.9998 15.1111 15.9998H0.888889C0.653141 15.9998 0.427049 15.9061 0.26035 15.7394C0.0936505 15.5727 0 15.3466 0 15.1109V5.77756C0 5.54181 0.0936505 5.31572 0.26035 5.14902C0.427049 4.98232 0.653141 4.88867 0.888889 4.88867H15.1111C15.3469 4.88867 15.573 4.98232 15.7397 5.14902C15.9064 5.31572 16 5.54181 16 5.77756V15.1109Z"
+                        fill="#F1DCC1"
+                    ></path>
+                    <path
+                        d="M9.77734 4.00016V3.11127C9.77734 2.78327 9.59779 2.49972 9.3329 2.3455V2.22238C9.3329 1.98664 9.23925 1.76054 9.07255 1.59385C8.90585 1.42715 8.67976 1.3335 8.44401 1.3335H7.55512C7.31937 1.3335 7.09328 1.42715 6.92658 1.59385C6.75988 1.76054 6.66623 1.98664 6.66623 2.22238V2.3455C6.40179 2.49972 6.22179 2.78327 6.22179 3.11127V4.00016H5.77734V16.0002H10.2218V4.00016H9.77734Z"
+                        fill="#DAC8B1"
+                    ></path>
+                    <path
+                        d="M6.22266 3.11133H7.11155V4.00022H6.22266V3.11133ZM8.88932 3.11133H9.77821V4.00022H8.88932V3.11133ZM7.55599 3.11133H8.44488V4.00022H7.55599V3.11133Z"
+                        fill="#55ACEE"
+                    ></path>
+                    <path
+                        d="M6.66699 6.6665H7.55588V12.8887H6.66699V6.6665ZM8.44477 6.6665H9.33366V12.8887H8.44477V6.6665Z"
+                        fill="#3B88C3"
+                    ></path>
+                    <path
+                        d="M10.6664 7.55566H11.5553V12.889H10.6664V7.55566ZM12.4442 7.55566H13.3331V12.889H12.4442V7.55566ZM14.222 7.55566H15.1109V12.889H14.222V7.55566ZM0.888672 7.55566H1.77756V12.889H0.888672V7.55566ZM2.66645 7.55566H3.55534V12.889H2.66645V7.55566ZM4.44423 7.55566H5.33312V12.889H4.44423V7.55566ZM0.888672 13.3334H1.77756V14.2223H0.888672V13.3334ZM2.66645 13.3334H3.55534V14.2223H2.66645V13.3334ZM4.44423 13.3334H5.33312V14.2223H4.44423V13.3334Z"
+                        fill="#55ACEE"
+                    ></path>
+                    <path
+                        d="M6.66699 13.3335H7.55588V14.2224H6.66699V13.3335ZM8.44477 13.3335H9.33366V14.2224H8.44477V13.3335Z"
+                        fill="#3B88C3"
+                    ></path>
+                    <path
+                        d="M10.667 13.3335H11.5559V14.2224H10.667V13.3335ZM12.4448 13.3335H13.3337V14.2224H12.4448V13.3335ZM14.2225 13.3335H15.1114V14.2224H14.2225V13.3335Z"
+                        fill="#55ACEE"
+                    ></path>
+                    <path
+                        d="M0.888672 14.6665H1.77756V15.9998H0.888672V14.6665ZM2.66645 14.6665H3.55534V15.9998H2.66645V14.6665ZM4.44423 14.6665H5.33312V15.9998H4.44423V14.6665ZM6.66645 14.6665H7.55534V15.9998H6.66645V14.6665ZM8.44423 14.6665H9.33312V15.9998H8.44423V14.6665ZM10.6664 14.6665H11.5553V15.9998H10.6664V14.6665ZM12.4442 14.6665H13.3331V15.9998H12.4442V14.6665ZM14.222 14.6665H15.1109V15.9998H14.222V14.6665Z"
+                        fill="#66757F"
+                    ></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_136_7455">
+                        <rect width="16" height="16" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </symbol>
+            <symbol id="search_tag_svg_unicorn" viewBox="0 0 16 16">
+                <g clip-path="url(#clip0_136_7444)">
+                    <path
+                        d="M16.0001 8.82383C14.897 4.41005 11.1139 0.848277 7.12502 3.03628C7.12502 3.03628 5.11524 2.37139 4.82546 2.1705C4.54324 1.97494 4.0988 1.76872 4.42013 2.36428C4.60813 2.71183 4.80902 3.10739 5.48813 3.8385C3.55569 5.75894 4.12413 8.11628 3.44146 9.6665C2.86191 10.9829 2.29613 11.7701 2.85924 12.7669C3.44458 13.8025 4.96102 14.3056 5.97835 13.2381C6.53124 12.6572 6.18769 12.3772 7.37035 11.3705C8.58057 11.1292 9.32324 10.5745 9.32324 9.42605C9.32324 9.42605 9.67657 9.25628 10.1348 12.0967C10.3375 13.3492 10.065 14.5998 10.1175 16.0003H16.0001V8.82383Z"
+                        fill="#BCD1FC"
+                    ></path>
+                    <path
+                        d="M14.18 2.69421C14.416 3.27732 14.5569 4.3431 14.4445 5.05776C14.3778 3.31421 13.0276 2.13287 12.4996 1.86087C11.5209 1.35554 10.5565 1.42576 9.47779 1.51776C9.52712 1.59243 9.6569 1.87954 9.62001 2.20532C9.40712 1.81643 8.90712 1.57421 8.58312 1.64043C7.97868 1.76354 7.4449 1.94132 7.03868 2.15421C6.81468 2.19954 6.48357 2.33776 5.98446 2.64354C5.13512 3.16398 4.1289 4.57154 2.99023 4.20398C3.45335 5.31509 4.60401 5.02398 4.60401 5.02398C5.14046 4.15732 6.41157 3.34443 7.34535 3.04532C10.7316 2.26976 12.9516 4.57376 14.2036 7.22221C14.5449 7.94443 15.364 10.392 15.9996 11.7964V4.86932C15.6667 4.40798 15.4302 3.52798 14.18 2.69421Z"
+                        fill="#60379A"
+                    ></path>
+                    <path
+                        d="M6.12861 1.62745C6.38328 1.97767 7.56683 1.98034 8.17128 3.32523C8.77528 4.67011 7.30772 4.49411 6.77572 3.87189C6.18283 3.17811 5.9175 2.59945 5.8135 2.09767C5.75839 1.83278 5.61305 0.920337 6.12861 1.62745Z"
+                        fill="#C1CDD5"
+                    ></path>
+                    <path
+                        d="M6.31511 2.20557C6.74 2.46023 7.27689 2.8789 7.43378 3.35934C7.58978 3.83979 7.11955 3.75534 6.83422 3.34068C6.54933 2.92557 6.41644 2.4629 6.26311 2.3349C6.10933 2.20646 6.31511 2.20557 6.31511 2.20557Z"
+                        fill="#758795"
+                    ></path>
+                    <path
+                        d="M6.77982 6.89362C7.01202 6.89362 7.20026 6.70538 7.20026 6.47318C7.20026 6.24097 7.01202 6.05273 6.77982 6.05273C6.54761 6.05273 6.35938 6.24097 6.35938 6.47318C6.35938 6.70538 6.54761 6.89362 6.77982 6.89362Z"
+                        fill="#292F33"
+                    ></path>
+                    <path
+                        d="M3.83515 11.9453C3.88804 12.2378 3.75471 12.5067 3.53737 12.5458C3.3196 12.5853 3.10004 12.3805 3.04671 12.088C2.99382 11.7951 3.1276 11.5258 3.34493 11.4862C3.56271 11.4471 3.78226 11.652 3.83515 11.9453Z"
+                        fill="#53626C"
+                    ></path>
+                    <path
+                        d="M6.15306 3.61057L6.15439 3.60968L6.15217 3.60657L6.14506 3.60035C6.14151 3.59724 6.14017 3.59191 6.13662 3.58924C6.13262 3.58613 6.12728 3.58435 6.12284 3.58124C5.60951 3.14568 0.414839 -0.220094 0.0975052 0.0972397C-0.226495 0.42124 4.64151 4.32968 4.95528 4.5688L4.96017 4.57146L5.20062 4.76657C5.20417 4.76968 5.20506 4.77457 5.20862 4.77724C5.21439 4.78168 5.22106 4.78391 5.22728 4.78791L5.24817 4.8048L5.24417 4.79768C5.49528 4.95813 5.87839 4.84835 6.12373 4.53457C6.37217 4.2168 6.38017 3.81235 6.15306 3.61057Z"
+                        fill="#EE7C0E"
+                    ></path>
+                    <path
+                        d="M2.07822 0.999935L2.08222 0.988824C1.95265 0.913858 1.82258 0.839782 1.692 0.766602C1.68488 0.78349 1.68222 0.797268 1.67377 0.81549C1.62145 0.927901 1.55755 1.03455 1.48311 1.13371C1.4122 1.22984 1.33163 1.31845 1.24266 1.39816C1.23377 1.40616 1.22666 1.40971 1.21777 1.41727C1.32355 1.51505 1.43511 1.61549 1.54888 1.71771C1.77197 1.51663 1.95203 1.27247 2.07822 0.999935ZM3.08933 2.30882C3.22533 2.1266 3.32088 1.94349 3.38266 1.77016C3.25288 1.68971 3.12311 1.61016 2.99333 1.53105C2.95955 1.66349 2.88355 1.84171 2.73288 2.04305C2.62798 2.18985 2.49798 2.31699 2.34888 2.4186C2.464 2.51771 2.58 2.61638 2.69511 2.71416C2.83466 2.60571 2.97022 2.46882 3.08933 2.30882ZM4.38622 3.25327C4.54844 3.03549 4.65688 2.81638 4.71244 2.6146L4.30977 2.35416C4.29955 2.48571 4.23333 2.71416 4.02933 2.98749C3.84622 3.23371 3.66444 3.36393 3.54044 3.42216L3.90222 3.72038C4.08858 3.59289 4.25219 3.43498 4.38622 3.25327Z"
+                        fill="#C43512"
+                    ></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_136_7444">
+                        <rect width="16" height="16" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </symbol>
+            <symbol id="search_tag_svg_edu" viewBox="0 0 16 16">
+                <g clip-path="url(#clip0_136_7453)">
+                    <path
+                        d="M10.6669 6.22217H5.33355C5.33355 6.22217 3.11133 8.88883 3.11133 10.6666C3.11133 12.4444 8.00022 15.5555 8.00022 15.5555C8.00022 15.5555 12.8891 12.4444 12.8891 10.6666C12.8891 8.88883 10.6669 6.22217 10.6669 6.22217Z"
+                        fill="#31373D"
+                    ></path>
+                    <path
+                        d="M8.72851 0.568651C8.32807 0.255762 7.67207 0.255762 7.27162 0.568651L0.728068 5.67798C0.327623 5.99087 0.327623 6.50287 0.728068 6.81576L7.27118 11.9247C7.67207 12.2375 8.32762 12.2375 8.72807 11.9247L15.2712 6.81576C15.6721 6.50287 15.6721 5.99087 15.2712 5.67798L8.72851 0.568651Z"
+                        fill="#292F33"
+                    ></path>
+                    <path
+                        d="M8.72851 0.568651C8.32807 0.255762 7.67207 0.255762 7.27162 0.568651L0.728068 5.67798C0.327623 5.99087 0.327623 6.50287 0.728068 6.81576L7.27118 11.9247C7.67162 12.2375 8.32762 12.2375 8.72807 11.9247L15.2716 6.81576C15.6721 6.50287 15.6721 5.99087 15.2716 5.67798L8.72851 0.568651Z"
+                        fill="#394146"
+                    ></path>
+                    <path
+                        d="M3.55588 11.1113C3.55588 11.1113 2.66699 12.0002 2.66699 12.4447V15.1113C2.66699 15.1113 2.66699 16.0002 3.55588 16.0002C4.44477 16.0002 4.44477 15.1113 4.44477 15.1113V12.4447C4.44477 12.0002 3.55588 11.1113 3.55588 11.1113Z"
+                        fill="#FCAB40"
+                    ></path>
+                    <path
+                        d="M3.55599 12.8888C4.29237 12.8888 4.88932 12.2919 4.88932 11.5555C4.88932 10.8191 4.29237 10.2222 3.55599 10.2222C2.81961 10.2222 2.22266 10.8191 2.22266 11.5555C2.22266 12.2919 2.81961 12.8888 3.55599 12.8888Z"
+                        fill="#FDD888"
+                    ></path>
+                    <path
+                        d="M3.55587 11.9999C3.438 11.9999 3.32495 11.9531 3.2416 11.8697C3.15825 11.7864 3.11143 11.6733 3.11143 11.5554V9.79633C3.09276 9.51455 3.19454 8.89144 3.69676 8.51455L7.70654 4.99899C7.79546 4.92335 7.91058 4.88572 8.02701 4.89426C8.14344 4.90279 8.25184 4.95679 8.32879 5.04459C8.40573 5.13239 8.44504 5.24694 8.43821 5.36349C8.43139 5.48004 8.37898 5.58922 8.29232 5.66744L4.25676 9.20433C3.98832 9.40699 3.99987 9.76966 3.99987 9.77322L4.00076 11.5554C4.00076 11.6138 3.98925 11.6717 3.96689 11.7256C3.94453 11.7796 3.91175 11.8286 3.87043 11.8699C3.82911 11.9111 3.78007 11.9439 3.72609 11.9662C3.67212 11.9885 3.61428 11.9999 3.55587 11.9999Z"
+                        fill="#FCAB40"
+                    ></path>
+                    <path
+                        d="M8.00033 7.111C8.73671 7.111 9.33366 6.51405 9.33366 5.77767C9.33366 5.04129 8.73671 4.44434 8.00033 4.44434C7.26395 4.44434 6.66699 5.04129 6.66699 5.77767C6.66699 6.51405 7.26395 7.111 8.00033 7.111Z"
+                        fill="#31373D"
+                    ></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_136_7453">
+                        <rect width="16" height="16" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </symbol>
+        </svg>
+    </body>
+    <script src="/static/js/matching/matching-main.js"></script>
+</html>

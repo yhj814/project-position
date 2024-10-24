@@ -1,0 +1,461 @@
+@charset "utf-8";
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 700;
+    font-display: swap;
+    src: local("Pretendard Bold"),
+        url(https://www.saraminimage.co.kr/position/font/Pretendard-Bold.subset.woff2)
+            format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 600;
+    font-display: swap;
+    src: local("Pretendard SemiBold"),
+        url(https://www.saraminimage.co.kr/position/font/Pretendard-SemiBold.subset.woff2)
+            format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-weight: 400;
+    font-display: swap;
+    src: local("Pretendard Regular"),
+        url(https://www.saraminimage.co.kr/position/font/Pretendard-Regular.subset.woff2)
+            format("woff");
+}
+body {
+    position: relative;
+    padding-top: 0;
+    min-width: 1280px;
+    box-sizing: border-box;
+}
+#position-section.has-banner {
+    min-width: 980px;
+}
+#position-section {
+    display: table;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#position-wrap {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#position-section.has-banner #content {
+    min-height: 960px;
+}
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 56px auto 80px auto;
+    width: 960px;
+}
+.wrap-title-recruit {
+    position: relative;
+    padding: 0 0 50px;
+}
+.wrap-title-recruit .title-common {
+    display: inline-block;
+    color: #444;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 36px;
+    vertical-align: top;
+}
+.help-find.help-lost {
+    position: relative;
+}
+.help-find.help-lost .cont-find {
+    padding: 79px 99px 80px 99px;
+}
+.help-find .cont-find {
+    position: relative;
+    z-index: 1;
+    margin-top: -1px;
+    width: 100%;
+    padding: 124px 99px 125px 99px;
+    border: 1px solid #666;
+}
+.help-find * {
+    box-sizing: border-box;
+}
+fieldset {
+    border: 0;
+}
+.help-find.help-lost .desc-find-type2 {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.help-find .desc-find-type2 {
+    margin-bottom: 55px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666;
+}
+.help-find .list-find {
+    border-top: 1px solid #eaeaea;
+}
+.help-find .list-find li {
+    border-bottom: 1px solid #eaeaea;
+    font-size: 0;
+    background: #f7f7f7;
+}
+.help-find.help-lost .wrap-lab {
+    position: relative;
+}
+.help-find .wrap-lab {
+    display: table-cell;
+    position: relative;
+    padding: 26px 0 0 39px;
+    width: 185px;
+    vertical-align: top;
+}
+.help-find .ico-required:after {
+    position: absolute;
+    left: 21px;
+    top: 25px;
+    font-size: 15px;
+    color: #ff0000;
+    content: "*";
+}
+.help-find.help-lost .lab-find {
+    color: #444;
+}
+.help-find .lab-find {
+    display: block;
+    font-size: 15px;
+    line-height: 15px;
+    color: #666;
+}
+label {
+    cursor: pointer;
+}
+.help-find .wrap-input {
+    display: table-cell;
+    position: relative;
+    padding: 12px 20px;
+    width: 575px;
+    background: #fff;
+    vertical-align: top;
+}
+.help-find .box-input {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #dbdbdb;
+    vertical-align: top;
+}
+.help-find .inp-find:read-only {
+    background-color: #f7f7f7;
+}
+.help-find .inp-find {
+    display: block;
+    padding: 0 18px 1px 18px;
+    width: 336px;
+    height: 38px;
+    border: 0;
+    font-size: 15px;
+    line-height: 40px;
+    color: #444;
+    vertical-align: middle;
+}
+.help-find .choice-input {
+    display: block;
+    padding: 10px 0 12px;
+}
+.help-find .choice-input {
+    display: block;
+    padding: 10px 0 12px;
+}
+.help-find .choice-input .inp-rdo {
+    margin-right: 40px;
+}
+.inp-rdo {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    vertical-align: top;
+}
+.inp-rdo > input[type="radio"] {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+.inp-rdo > input[type="radio"]:checked + .lbl {
+    background-position: 0 -250px;
+}
+.inp-rdo .lbl {
+    display: block;
+    padding-left: 29px;
+    height: 24px;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 13px;
+    line-height: 17px;
+    background: url(/static/images/interview-review/sri_ico_checkbox03.png)
+        0 -200px no-repeat;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.inp-rdo > input[type="radio"]:disabled + .lbl {
+    background-position: 0 -450px;
+}
+.position-input2 {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    vertical-align: top;
+}
+.help-find.wrap-help .position-input2 > select {
+    border-color: #dadada;
+    font-weight: normal;
+}
+.position-input2 > select {
+    padding: 6px 30px 8px 14px;
+    height: 40px;
+    border: 1px solid #555;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: normal;
+    background: #fff
+        url(/static/images/customer-service-center/ico_position_input2.png)
+        100% -600px no-repeat;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.help-find.wrap-help .inp-find.textarea {
+    padding: 15px 18px;
+    line-height: 24px;
+    text-align: left;
+    resize: vertical;
+}
+.help-find.wrap-help .uploads {
+    margin: 9px 0 15px;
+}
+.help-find.wrap-help .wrap-file {
+    position: relative;
+    height: 40px;
+}
+.help-find.wrap-help .inp-upload {
+    left: 0;
+    top: 0;
+    width: 128px;
+    z-index: 1;
+}
+.help-find .inp-upload {
+    position: absolute;
+    left: 20px;
+    top: 11px;
+    z-index: 1;
+    width: 440px;
+    height: 40px;
+    filter: alpha(Opacity = 0);
+    opacity: 0;
+    cursor: pointer;
+}
+.help-find.wrap-help .btn-basic2 {
+    left: 0;
+    top: 0;
+    width: 128px;
+    z-index: 2;
+    padding: 8px 0 6px;
+    text-align: center;
+}
+.help-find .btn-basic2 {
+    position: absolute;
+    left: 367px;
+    top: 57px;
+    min-width: 94px;
+    padding: 6px 18px 8px;
+}
+.btn-basic2.type03 {
+    border: 1px solid #8f8f8f;
+    color: #fff;
+    background-color: #9c9c9c;
+}
+.btn-basic2 {
+    display: inline-block;
+    padding: 6px 14px 8px;
+    height: 40px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 15px;
+    line-height: normal;
+    vertical-align: top;
+    background-color: #fff;
+}
+.help-find.wrap-help .wrap-input .noti-inp {
+    margin-top: 8px;
+}
+.help-find .wrap-input .noti-inp {
+    margin-top: 52px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #888;
+}
+.help-find .noti-find {
+    padding: 34px 40px 40px;
+    border-bottom: 1px solid #eaeaea;
+    background: #f7f7f7;
+}
+.noti-find .noti-title {
+    margin-bottom: 20px;
+}
+.help-find.help-0lost .desc-find-type2 {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.help-find .desc-find-type2 {
+    margin-bottom: 55px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666;
+}
+.noti-find .list-noti {
+    margin-bottom: 20px;
+}
+.help-find .noti-find .list-noti li {
+    padding: 3px 0;
+    font-size: 14px;
+    line-height: 18px;
+    color: #8f8f8f;
+}
+.help-find .noti-find .list-noti li strong {
+    font-size: 16px;
+}
+.help-find .check-agree {
+    display: inline-block;
+    width: 100%;
+    margin-top: 35px;
+    text-align: center;
+}
+.position-input3 {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    vertical-align: top;
+}
+.position-input3 > input[type="checkbox"] {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+.help-find .check-agree .position-input3 > input[type="checkbox"] + label {
+    font-size: 15px;
+}
+.position-input3 > input[type="checkbox"] + label {
+    display: block;
+    padding-left: 29px;
+    height: 22px;
+    box-sizing: border-box;
+    color: #444;
+    color: #444;
+    font-size: 13px;
+    line-height: 22px;
+    background: url(/static/images/customer-service-center/ico_checkbox.png)
+        0 2px no-repeat;
+}
+.help-find .wrap-link {
+    display: block;
+    margin: 40px auto 0;
+    font-size: 0;
+    text-align: center;
+}
+a {
+    color: #444;
+    text-decoration: none;
+}
+.help-find .wrap-link .btn-biggest-type03 {
+    margin: 0 5px;
+    padding: 11px 8px 14px;
+    width: 212px;
+    height: 60px;
+    font-size: 20px;
+}
+.btn-biggest-type03 {
+    display: inline-block;
+    padding: 13px 10px 14px;
+    height: 50px;
+    border: 1px solid #ababab;
+    box-sizing: border-box;
+    color: #fff;
+    color: #666;
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+    vertical-align: top;
+    background-color: #fff;
+}
+.btn-biggest-type01 {
+    display: inline-block;
+    padding: 13px 8px 14px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #5f75eb;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+    vertical-align: top;
+    background-color: #6b80f1;
+}
+.help-find .wrap-link .btn-biggest-type01 {
+    margin: 0 5px;
+    padding: 11px 8px 14px;
+    width: 212px;
+    height: 60px;
+    font-size: 20px;
+}
+.help-find.wrap-help .info-upload {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    line-height: 25px;
+}
+.help-find .info-upload {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin: 0 -18px;
+    padding: 0 38px 0 18px;
+    white-space: nowrap;
+    line-height: 38px;
+}
+.help-find .txt-upload {
+    display: none;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+.help-find.wrap-help .btn-delete {
+    margin: 7px 0 0 8px;
+}
+.help-find .btn-delete {
+    display: none;
+    margin-top: 14px;
+    width: 13px;
+    height: 13px;
+    vertical-align: top;
+    background: url(/static/images/customer-service-center/btn_find_delete.png)
+        no-repeat 0 0;
+}

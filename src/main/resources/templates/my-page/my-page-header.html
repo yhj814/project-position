@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Page</title>
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/static/css/my-page/my-page-header.css" />
+    </head>
+    <body id="container" class="layout-home vsc-initialized">
+        <header id="position-header" class="position-header">
+            <div class="wrap-top-btns">
+                <!-- <div class="rewards-point">
+                    <a
+                        href="/zf-user/member/career-mileage"
+                        onmousedown="try{dataLayer.push({'event': 'ga-lead','category': 'career-mileage','event-flow': 'icon','event-label': ''});}catch(e){}"
+                    >
+                        <svg><use xlink:href="#svg-top-rewards"></use></svg>
+                        <span id="my-career-mileage">0</span>
+                    </a>
+                </div> -->
+                <div
+                    id="message-badge"
+                    class="wrap-messenger"
+                    data-el="chat-beta"
+                >
+                    <button type="button" class="btn-messenger">메신저</button>
+                    <span id="unread-message-count" class="push-num">0</span>
+                </div>
+                <div class="wrap-my-layer">
+                    <button type="button" class="top-btn btn-record">
+                        <span class="blind">내저장 레이어 버튼</span>
+                        <svg class="img-record top-btn-icon">
+                            <use
+                                xlink:href="#svg-top-flag"
+                                class="top-layer-icon"
+                            ></use>
+                        </svg>
+                    </button>
+                    <div class="top-layer-assist record-layer-content">
+                        <strong class="title">내 저장</strong>
+                        <span class="view-status"
+                            >최근 30일간 저장내역 노출</span
+                        >
+                        <ul class="tab-btns">
+                            <li class="selected">
+                                <button
+                                    type="button"
+                                    class="BtnType SizeM save-layer-tab"
+                                    data-tab-type="scrap"
+                                    onclick="showTab('scrap')"
+                                >
+                                    <span class="blind">스크랩 버튼</span>
+                                    <svg class="icon-menu layer-tab-btn">
+                                        <use xlink:href="#svg-my-48"></use>
+                                    </svg>
+                                </button>
+                                <p class="txt">스크랩</p>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    class="BtnType SizeM save-layer-tab"
+                                    data-tab-type="suited"
+                                    onclick="showTab('suited')"
+                                >
+                                    <span class="blind">나의 검색 버튼</span>
+                                    <svg class="icon-menu layer-tab-btn">
+                                        <use xlink:href="#svg-my-52"></use>
+                                    </svg>
+                                </button>
+                                <p class="txt">나의 검색</p>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    class="BtnType SizeM save-layer-tab"
+                                    data-tab-type="favor-company"
+                                    onclick="showTab('favor-company')"
+                                >
+                                    <span class="blind">관심기업 버튼</span>
+                                    <svg class="icon-menu layer-tab-btn">
+                                        <use xlink:href="#svg-my-49"></use>
+                                    </svg>
+                                </button>
+                                <p class="txt">관심기업</p>
+                            </li>
+                        </ul>
+                        <a
+                            href="/zf-user/persons/scrap-recruit"
+                            class="BtnType SizeM page-link scrap-recruit-view"
+                            >전체 스크랩 공고 보기</a
+                        >
+                        <a
+                            href="/zf-user/member/suited-recruit-mail/list"
+                            class="BtnType SizeM page-link suited-recruit-view"
+                            >전체 나의검색 공고 보기</a
+                        >
+                        <a
+                            href="/zf-user/member/favor-company/list"
+                            class="BtnType SizeM page-link favor-recruit-view"
+                            >전체 관심기업 공고 보기</a
+                        >
+                        <div
+                            class="save-list-area ScrollBar"
+                            id="scrap-list-area"
+                        >
+                            <input
+                                type="hidden"
+                                name="scrap-request-page"
+                                value="1"
+                                id="scrap-request-page"
+                            />
+                            <input
+                                type="hidden"
+                                name="scrap-list-total-cnt"
+                                value="1"
+                                id="scrap-list-total-cnt"
+                            />
+                            <div class="save-list">
+                                <span class="date">2024.10.13</span>
+                                <ul>
+                                    <li>
+                                        <span class="corp">테크젠(주)</span>
+                                        <strong class="name"
+                                            >[현대자동차 그룹사] 2025년 대졸
+                                            신입 채용 모집</strong
+                                        >
+                                        <ul class="inform-list">
+                                            <li>
+                                                신입&nbsp;&nbsp;대학교(4년)↑&nbsp;&nbsp;경기전체
+                                            </li>
+                                        </ul>
+                                        <div class="position-btn-area">
+                                            <span class="deadline">D-1</span>
+                                            <a
+                                                class="position-btn-sm"
+                                                href="/zf-user/jobs/relay/view?view-type=list&amp;rec-idx=49104681"
+                                                target="-blank"
+                                                title="홈페이지 지원"
+                                                ><span
+                                                    class="position-btn-homepage-apply"
+                                                    >홈페이지 지원</span
+                                                ></a
+                                            >
+                                        </div>
+                                        <a
+                                            href="/zf-user/jobs/relay/view?view-type=list&amp;rec-idx=49104681"
+                                            class="page-link-btn"
+                                            target="-blank"
+                                        >
+                                            <span class="blind"
+                                                >공고뷰 링크버튼</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div
+                            class="save-list-area ScrollBar"
+                            id="suited-list-area"
+                        >
+                            <div class="save-list">
+                                <span class="date">2024.10.08</span>
+                                <ul>
+                                    <li>
+                                        <strong class="search-title">
+                                            저장된 나의 검색1
+                                            <span class="new-count"
+                                                >전체 <b>400</b>건</span
+                                            >
+                                        </strong>
+                                        <dl class="search-inform">
+                                            <dt>경력</dt>
+                                            <dd>신입</dd>
+                                            <dt>지역</dt>
+                                            <dd>전국</dd>
+                                        </dl>
+                                        <button
+                                            type="button"
+                                            class="more-btn layer-more-btn"
+                                        >
+                                            <span class="blind"
+                                                >추가기능 메뉴 펼치기 버튼</span
+                                            >
+                                        </button>
+                                        <ul class="more-list">
+                                            <li class="alarm-on">
+                                                <button
+                                                    type="button"
+                                                    class="menu-option alarm"
+                                                    value="25392959"
+                                                >
+                                                    채용 알림 끄기
+                                                </button>
+                                            </li>
+                                            <li class="modify">
+                                                <button
+                                                    type="button"
+                                                    onclick="location.href='/zf-user/search?search-area=main&amp;search-history-layer=y'"
+                                                >
+                                                    조건 수정
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <a
+                                            href="/zf-user/member/suited-recruit-mail/list?mail-seq=25392959"
+                                            class="page-link-btn"
+                                        >
+                                            <span class="blind"
+                                                >검색 링크버튼</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div
+                            class="save-list-area ScrollBar"
+                            id="favor-list-area"
+                        >
+                            <input
+                                type="hidden"
+                                name="favor-request-page"
+                                value="1"
+                                id="favor-request-page"
+                            />
+                            <input
+                                type="hidden"
+                                name="favor-list-total-cnt"
+                                value="0"
+                                id="favor-list-total-cnt"
+                            />
+                            <div class="save-list">
+                                <span class="date"> 2024.10.16 </span>
+                                <ul>
+                                    <li class="favor-company">
+                                        <div class="image">
+                                            <span class="blind"
+                                                >기업로고 이미지 영역</span
+                                            >
+                                            <img
+                                                src="https://pds.saramin.co.kr/company/logo/202110/18/r162u8_sjm3-ayg4bn_logo.jpg"
+                                                alt="기업로고"
+                                            />
+                                        </div>
+                                        <strong class="name"
+                                            >쿠팡로지스틱스서비스(유)</strong
+                                        >
+                                        <span class="recruit-count"
+                                            >채용중 <b>16</b>건</span
+                                        >
+                                        <a
+                                            href="/zf_user/company-info/view?csn=UHFGUDJkaVM2WjF1dVA4WUVkZTMxdz09"
+                                            class="page-link-btn"
+                                        >
+                                            <span class="blind"
+                                                >공고 링크버튼</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="empty-list">
+                                <img
+                                    src="//www.saraminimage.co.kr/sri/person/resume/img_empty_announce.png"
+                                />
+                                <div class="empty-txt">
+                                    <strong
+                                        >최근 30일간 저장된 관심기업이
+                                        없습니다.</strong
+                                    >
+                                    <span
+                                        >관심기업 설정하고 최신 공고 소식
+                                        받아보세요!</span
+                                    >
+                                    <a
+                                        href="/zf-user/persons/scrap-recruit"
+                                        class="btnText"
+                                    >
+                                        <span>지원할만한 공고 보기</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 비어있을때 -->
+                        <!-- <div class="empty-list">
+                            <img
+                                src="//www.saraminimage.co.kr/sri/person/resume/img-empty-announce.png"
+                            />
+                            <div class="empty-txt">
+                                <strong
+                                    >최근 30일간 스크랩 공고가 없습니다.</strong
+                                >
+                                <span
+                                    >공고를 스크랩하고, 공고의 최신 소식을
+                                    받아보세요!</span
+                                >
+                                <a
+                                    href="/zf-user/persons/scrap-recruit"
+                                    class="btnText"
+                                >
+                                    <span>스크랩하러 가기</span>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="wrap-my-layer">
+                    <button
+                        type="button"
+                        class="top-btn btn-alarm"
+                        id="myAlarmBlt"
+                    >
+                        <span class="blind">내알림 레이어 버튼</span
+                        ><svg class="img-alarm top-btn-icon">
+                            <use
+                                xlink:href="#svg-top-alarm-off"
+                                class="top-layer-icon"
+                            ></use>
+                        </svg>
+                    </button>
+                    <div class="top-layer-assist alarm-layer-content">
+                        <strong class="title">알림</strong>
+                        <span class="view-status"
+                            >최근 30일간 저장내역 노출</span
+                        >
+                        <div class="save-list-area alarm-area ScrollBar">
+                            <strong class="sub-title">TODAY</strong>
+                            <div class="alarm-list" id="today-list-content">
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="/zf-user/persons/scrap-recruit?sort=PC"
+                                            target=""
+                                        >
+                                            <div class="header">
+                                                <span class="status"
+                                                    >공고 마감</span
+                                                >
+                                                <span class="time">23:59</span>
+                                            </div>
+                                            <strong class="tit">
+                                                <span class="corp"
+                                                    >에이케이플라자(주)</span
+                                                >
+                                                <span class="sub">
+                                                    외 5건 마감</span
+                                                >
+                                            </strong>
+                                        </a>
+                                        <ul class="btn-list">
+                                            <a
+                                                href="/zf-user/persons/scrap-recruit?sort=PC"
+                                                target=""
+                                            >
+                                            </a>
+                                            <li>
+                                                <a
+                                                    href="/zf-user/persons/scrap-recruit?sort=PC"
+                                                    target=""
+                                                ></a
+                                                ><a
+                                                    href="/zf-user/company-review-qst-and-ans"
+                                                    class="link-btn"
+                                                    target="-blank"
+                                                    >커뮤니티</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/zf-user/career-information/senior-list"
+                                                    class="link-btn"
+                                                    target="-blank"
+                                                    >현직자 인터뷰</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <button
+                                    type="button"
+                                    class="more today-more-button"
+                                >
+                                    더보기<svg>
+                                        <use xlink:href="#svg-gnb-arrow"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- 비어있을 때 -->
+                            <div
+                                class="empty-list alarm-area"
+                                id="empty-today-list-content"
+                            >
+                                <img
+                                    src="//www.saraminimage.co.kr/sri/person/resume/img_empty_announce.png"
+                                />
+                                <div class="empty-txt">
+                                    <strong>주요 일정이 없습니다</strong>
+                                </div>
+                            </div>
+                            <div class="my-activity" id="my-activity">
+                                <strong class="sub-title">나의 활동</strong>
+
+                                <div class="alarm-list">
+                                    <div class="save-list">
+                                        <span class="date"
+                                            >10/09(수) 00:20</span
+                                        >
+                                        <ul>
+                                            <li class="activity">
+                                                <a
+                                                    href="/zf-user/persons/apply-status-list"
+                                                >
+                                                    <span class="activity-name">
+                                                        <b
+                                                            >(주)다원씨아이에스</b
+                                                        >
+                                                        지원취소
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="save-list">
+                                        <span class="date"
+                                            >10/09(수) 00:17</span
+                                        >
+                                        <ul>
+                                            <li class="activity">
+                                                <a
+                                                    href="/zf-user/persons/apply-status-list"
+                                                >
+                                                    <span class="activity-name">
+                                                        <b
+                                                            >(주)다원씨아이에스</b
+                                                        >
+                                                        지원완료
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="save-list">
+                                        <span class="date"
+                                            >10/09(수) 00:08</span
+                                        >
+                                        <ul>
+                                            <li class="activity">
+                                                <a
+                                                    href="/zf-user/resume/resume-manage"
+                                                >
+                                                    <span class="activity-name">
+                                                        이력서 수정 완료
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="save-list">
+                                        <span class="date"
+                                            >10/09(수) 00:08</span
+                                        >
+                                        <ul>
+                                            <li class="activity">
+                                                <a
+                                                    href="/zf-user/member/resume-manage/block-setting"
+                                                >
+                                                    <span class="activity-name">
+                                                        <b
+                                                            >수락한 기업에게만
+                                                            연락처 공개</b
+                                                        >
+                                                        설정 완료
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="save-list">
+                                        <span class="date"
+                                            >10/07(월) 00:00</span
+                                        >
+                                        <ul>
+                                            <li class="activity">
+                                                <button
+                                                    type="button"
+                                                    class="activity-name off"
+                                                >
+                                                    <b>10월 첫째주</b> 활동
+                                                    리포트 도착
+                                                    <svg>
+                                                        <use
+                                                            xlink:href="#svg-gnb-arrow"
+                                                        ></use>
+                                                    </svg>
+                                                </button>
+                                                <div class="activity-detail">
+                                                    <strong class="tit">
+                                                        석상훈님은 전주와<br />
+                                                        비슷하게 활동했어요 </strong
+                                                    >]
+                                                    <ul class="record-list">
+                                                        <li>
+                                                            <span class="name"
+                                                                >방문</span
+                                                            >
+                                                            <div class="record">
+                                                                0회<span
+                                                                    class="fluctuation"
+                                                                    ><svg>
+                                                                        <use
+                                                                            xlink:href="#svg-fluctuation-up"
+                                                                        ></use>
+                                                                    </svg>
+                                                                    0</span
+                                                                >
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <span class="name"
+                                                                >입사지원</span
+                                                            >
+                                                            <div class="record">
+                                                                0회<span
+                                                                    class="fluctuation"
+                                                                    ><svg>
+                                                                        <use
+                                                                            xlink:href="#svg-fluctuation-up"
+                                                                        ></use>
+                                                                    </svg>
+
+                                                                    0</span
+                                                                >
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <span class="name"
+                                                                >이력서
+                                                                등록/수정</span
+                                                            >
+                                                            <div class="record">
+                                                                0회<span
+                                                                    class="fluctuation"
+                                                                    ><svg>
+                                                                        <use
+                                                                            xlink:href="#svg-fluctuation-up"
+                                                                        ></use></svg
+                                                                    >0</span
+                                                                >
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <span class="name"
+                                                                >연락처공개요청
+                                                                답변</span
+                                                            >
+                                                            <div class="record">
+                                                                0회<span
+                                                                    class="fluctuation"
+                                                                    ><svg>
+                                                                        <use
+                                                                            xlink:href="#svg-fluctuation-up"
+                                                                        ></use></svg
+                                                                    >0</span
+                                                                >
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <span class="name"
+                                                                >관심/스크랩</span
+                                                            >
+                                                            <div class="record">
+                                                                0회<span
+                                                                    class="fluctuation"
+                                                                    ><svg>
+                                                                        <use
+                                                                            xlink:href="#svg-fluctuation-up"
+                                                                        ></use></svg
+                                                                    >0</span
+                                                                >
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="link-list">
+                                                        <strong class="tit"
+                                                            >더 달려보고
+                                                            싶다면?</strong
+                                                        >
+                                                        <a
+                                                            href="/zf-user/persons/scrap-recruit"
+                                                            >지원할만한 공고</a
+                                                        >
+                                                        <a
+                                                            href="/zf-user/member/persons/get-know-company"
+                                                            >기업알아보기</a
+                                                        >
+                                                        <a
+                                                            href="/zf-user/interview-review"
+                                                            target="-blank"
+                                                            >면접후기</a
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        class="more btn-more-activity"
+                                        data-page="2"
+                                    >
+                                        더보기<svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap-member">
+                <button type="button" class="btn-member">
+                    <span class="user-photo">
+                        <svg class="img-default">
+                            <use xlink:href="#svg-default-profile"></use>
+                        </svg>
+                        <span
+                            id="gnb-personnal-photo-area-span"
+                            class="img"
+                        ></span>
+                    </span>
+                    <span class="user-name"> 석상훈 </span>
+                    <svg class="img-social">
+                        <use xlink:href="#svg-social-04"></use>
+                    </svg>
+                    <svg class="img-arrow">
+                        <use xlink:href="#svg-profile-arrow"></use>
+                    </svg>
+                </button>
+                <div class="layer-member">
+                    <ul>
+                        <li>
+                            <a
+                                href="/zf-user/persons/person-update"
+                                target="-blank"
+                            >
+                                <svg><use xlink:href="#svg-my-10"></use></svg>
+                                <span class="txt">계정정보 설정</span>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="/zf-user/member/set-incoming-email">
+                                <svg><use xlink:href="#svg-my-11"></use></svg>
+                                <span class="txt">메일 수신 설정</span>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="/zf-user/member/my-logins" target="-blank">
+                                <svg><use xlink:href="#svg-my-12"></use></svg>
+                                <span class="txt">비밀번호 변경</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/zf-user/auth/logout?redirect=%2Fzf-user%2Fauth%3Fut%3Dp"
+                            >
+                                <svg><use xlink:href="#svg-my-55"></use></svg>
+                                <span class="txt">로그아웃</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- 바디 -->
+        <div id="position-section">
+            <!-- 사이드 바 -->
+            <div id="position-gnb-wrap">
+                <div id="position-gnb-wrap">
+                    <div class="gnb-inner">
+                        <a href="/" class="ci">
+                            <svg class="img-ci">
+                                <!-- <use xlink:href="#svg-saramin-ci"></use> -->
+                            </svg>
+                            <svg class="img-ci-icon">
+                                <use xlink:href="#svg-saramin-ci-icon"></use>
+                            </svg>
+                        </a>
+
+                        <button type="button" class="btn-toggle-gnb">
+                            <span class="blind"
+                                >GNB 메뉴 열기/닫기 기능 버튼</span
+                            >
+                            <svg class="svg-icon-close">
+                                <use xlink:href="#svg-gnb-close"></use>
+                            </svg>
+                            <svg class="svg-icon-open">
+                                <use xlink:href="#svg-gnb-open"></use>
+                            </svg>
+                        </button>
+                        <ul class="gnb">
+                            <li class="only selected">
+                                <a href="/zf-user/member/persons/main">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-home"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">MY홈</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="/zf-user/resume/resume-manage">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-resume"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">이력서/자소서</span>
+                                    <button type="button" class="btn-expand">
+                                        <svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use></svg
+                                        ><span class="blind">더보기</span>
+                                    </button>
+                                </a>
+                                <ul class="depth2">
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/member/resume-manage/write?template-cd=1"
+                                        >
+                                            <span class="txt">이력서 등록</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/zf-user/resume/resume-manage">
+                                            <span class="txt">이력서 관리</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a
+                                            href="https://cover-letter.saramin.co.kr/list/1?ref=my"
+                                        >
+                                            <span class="txt">자소서 관리</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="only">
+                                <a href="/zf-user/persons/scrap-recruit">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-scrap"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">스크랩/관심기업</span>
+                                </a>
+                            </li>
+                            <!-- <li class="">
+                                <a href="/zf-user/member/avatar/list">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-jobs"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">지원할 만한 공고</span>
+                                    <button type="button" class="btn-expand">
+                                        <svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use></svg
+                                        ><span class="blind">더보기</span>
+                                    </button>
+                                </a>
+                                <ul class="depth2">
+                                    <li class="">
+                                        <a href="/zf-user/member/avatar/list">
+                                            <span class="txt">Ai매치</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/zf-user/jobs/read-jobs">
+                                            <span class="txt"
+                                                >내 공고 활동</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="/zf-user/member/suggest/status-list">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-suggestion"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">받은 제안</span>
+                                    <button type="button" class="btn-expand">
+                                        <svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use></svg
+                                        ><span class="blind">더보기</span>
+                                    </button>
+                                </a>
+                                <ul class="depth2">
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/member/suggest/status-list"
+                                        >
+                                            <span class="txt"
+                                                >포지션 제안 현황</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/member/resume-manage/lookup-status"
+                                        >
+                                            <span class="txt"
+                                                >이력서 열람 현황</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li> -->
+                            <li class="only">
+                                <a href="/zf-user/persons/apply-status-list">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-apply"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">지원내역</span>
+                                    <!-- <button type="button" class="btn-expand">
+                                        <svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use></svg
+                                        ><span class="blind">더보기</span>
+                                    </button> -->
+                                </a>
+                                <!-- <ul class="depth2">
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/persons/apply-status-list"
+                                        >
+                                            <span class="txt"
+                                                >입사지원 현황</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/zf-user/persons/certificate">
+                                            <span class="txt"
+                                                >구직활동 확인서</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul> -->
+                            </li>
+
+                            <!-- <li class="">
+                                <a href="/zf-user/member/my-siat">
+                                    <svg>
+                                        <use xlink:href="#svg-gnb-my-svq"></use>
+                                    </svg>
+                                    <span class="txt">진단/검사</span>
+                                    <button type="button" class="btn-expand">
+                                        <svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use></svg
+                                        ><span class="blind">더보기</span>
+                                    </button>
+                                </a>
+                                <ul class="depth2">
+                                    <li class="">
+                                        <a href="/zf-user/member/my-siat">
+                                            <span class="txt"
+                                                >진단/검사 현황</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/member/my-siat/request-exam"
+                                        >
+                                            <span class="txt"
+                                                >요청 받은 검사</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li> -->
+                            <li class="only">
+                                <a href="/zf-user/member/mock-exam">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-mockexam"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">후기내역</span>
+                                </a>
+                            </li>
+                            <li class="only">
+                                <a href="/zf-user/member/interview-schedule">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-interview"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">게시글</span>
+                                </a>
+                            </li>
+                            <li class="only">
+                                <a href="/zf-user/member/payment/history">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-payment"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">결제 내역</span>
+                                </a>
+                            </li>
+                            <!-- <li class="">
+                                <a href="/zf-user/member/career-mileage">
+                                    <svg>
+                                        <use
+                                            xlink:href="#svg-gnb-my-mileage"
+                                        ></use>
+                                    </svg>
+                                    <span class="txt">커리어 마일리지</span>
+                                    <button type="button" class="btn-expand">
+                                        <svg>
+                                            <use
+                                                xlink:href="#svg-gnb-arrow"
+                                            ></use></svg
+                                        ><span class="blind">더보기</span>
+                                    </button>
+                                </a>
+                                <ul class="depth2">
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/member/career-mileage"
+                                        >
+                                            <span class="txt"
+                                                >커리어 마일리지 현황</span
+                                            >
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a
+                                            href="/zf-user/member/career-mileage/intro"
+                                            target="-blank"
+                                        >
+                                            <span class="txt"
+                                                >커리어 마일리지 소개</span
+                                            >
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- svg -->
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <symbol id="svg-my-10" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M8.947 0c.66 0 1.243.432 1.435 1.063l.357 1.177.022.008c.184.067.366.143.547.228l.03.015 1.09-.58c.537-.287 1.19-.218 1.654.161l.112.101.633.633c.467.467.573 1.184.263 1.767l-.581 1.087.136.304.114.295 1.178.36c.586.178 1 .693 1.056 1.294l.007.14v.894c0 .66-.432 1.243-1.063 1.435l-1.178.358-.115.298-.12.272-.016.028.582 1.09c.287.537.218 1.19-.162 1.654l-.101.112-.633.633c-.467.467-1.184.573-1.767.263l-1.089-.582-.028.015c-.18.085-.363.162-.547.229l-.024.007-.357 1.178c-.179.586-.694 1-1.295 1.056l-.14.007h-.894c-.66 0-1.243-.431-1.435-1.063L6.26 14.76l-.295-.114-.304-.136-1.087.58c-.538.288-1.19.219-1.655-.161l-.112-.101-.633-.633c-.466-.467-.573-1.184-.262-1.766l.58-1.09-.136-.301-.107-.274-.008-.023-1.177-.357c-.586-.179-1-.694-1.056-1.295L0 8.948v-.895c0-.66.431-1.243 1.063-1.435l1.177-.359.115-.294.12-.272.016-.032-.58-1.089c-.287-.537-.218-1.19.161-1.654l.102-.112.632-.632c.467-.467 1.184-.574 1.766-.263l1.089.58.303-.136.295-.114.36-1.178c.178-.586.693-1 1.294-1.056L8.053 0zm0 1h-.894c-.22 0-.414.144-.478.354L7.14 2.778c-.048.158-.171.282-.329.331-.31.097-.618.227-.928.388-.146.076-.32.075-.466-.002l-1.316-.702c-.194-.103-.433-.068-.589.088l-.632.632c-.156.156-.191.395-.088.589l.702 1.316c.077.145.078.32.002.466-.162.311-.292.619-.389.928-.049.158-.173.28-.331.329l-1.423.434c-.21.064-.354.258-.354.478v.895c0 .22.144.414.354.478l1.423.433c.158.048.282.171.331.329.098.31.228.62.389.926.076.147.076.322-.002.467l-.702 1.317c-.104.194-.068.433.088.589l.632.633c.156.155.395.19.589.087l1.316-.702c.146-.078.32-.078.467-.002.309.162.616.291.926.388.158.049.282.173.33.331l.434 1.424c.064.21.258.354.478.354h.894c.22 0 .414-.144.478-.354l.433-1.423c.049-.159.172-.283.33-.332.312-.097.62-.227.926-.387.146-.077.321-.077.468.001l1.316.702c.194.104.433.068.589-.087l.633-.633c.155-.156.191-.395.087-.589l-.702-1.316c-.078-.147-.078-.322-.001-.468.16-.305.29-.614.387-.925.049-.158.173-.282.332-.33l1.423-.433c.21-.064.354-.258.354-.479v-.894c0-.22-.144-.414-.354-.478l-1.424-.434c-.158-.048-.282-.172-.331-.33-.097-.31-.226-.617-.388-.926-.076-.146-.076-.321.002-.467l.702-1.316c.104-.194.068-.433-.087-.589l-.633-.632c-.156-.156-.395-.192-.589-.088l-1.317.702c-.145.078-.32.078-.467.002-.307-.162-.616-.291-.926-.388-.158-.049-.281-.173-.33-.332l-.433-1.423C9.361 1.144 9.167 1 8.947 1zM8.5 6C9.88 6 11 7.119 11 8.5S9.881 11 8.5 11 6 9.881 6 8.5 7.12 6 8.5 6zm0 1C7.671 7 7 7.671 7 8.5S7.671 10 8.5 10 10 9.329 10 8.5 9.329 7 8.5 7z"
+                    transform="translate(-446 -645) translate(446 645) translate(4 3)"
+                ></path>
+            </symbol>
+            <symbol id="svg-my-10" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M8.947 0c.66 0 1.243.432 1.435 1.063l.357 1.177.022.008c.184.067.366.143.547.228l.03.015 1.09-.58c.537-.287 1.19-.218 1.654.161l.112.101.633.633c.467.467.573 1.184.263 1.767l-.581 1.087.136.304.114.295 1.178.36c.586.178 1 .693 1.056 1.294l.007.14v.894c0 .66-.432 1.243-1.063 1.435l-1.178.358-.115.298-.12.272-.016.028.582 1.09c.287.537.218 1.19-.162 1.654l-.101.112-.633.633c-.467.467-1.184.573-1.767.263l-1.089-.582-.028.015c-.18.085-.363.162-.547.229l-.024.007-.357 1.178c-.179.586-.694 1-1.295 1.056l-.14.007h-.894c-.66 0-1.243-.431-1.435-1.063L6.26 14.76l-.295-.114-.304-.136-1.087.58c-.538.288-1.19.219-1.655-.161l-.112-.101-.633-.633c-.466-.467-.573-1.184-.262-1.766l.58-1.09-.136-.301-.107-.274-.008-.023-1.177-.357c-.586-.179-1-.694-1.056-1.295L0 8.948v-.895c0-.66.431-1.243 1.063-1.435l1.177-.359.115-.294.12-.272.016-.032-.58-1.089c-.287-.537-.218-1.19.161-1.654l.102-.112.632-.632c.467-.467 1.184-.574 1.766-.263l1.089.58.303-.136.295-.114.36-1.178c.178-.586.693-1 1.294-1.056L8.053 0zm0 1h-.894c-.22 0-.414.144-.478.354L7.14 2.778c-.048.158-.171.282-.329.331-.31.097-.618.227-.928.388-.146.076-.32.075-.466-.002l-1.316-.702c-.194-.103-.433-.068-.589.088l-.632.632c-.156.156-.191.395-.088.589l.702 1.316c.077.145.078.32.002.466-.162.311-.292.619-.45.929z"
+                />
+            </symbol>
+            <symbol id="svg-my-11" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M15 0c1.105 0 2 .895 2 2v9c0 1.105-.895 2-2 2H2c-1.105 0-2-.895-2-2V2C0 .895.895 0 2 0zm-4.512 7.528l-.727.592c-.689.56-1.657.594-2.38.104l-.142-.104-.728-.592-4.67 4.338c-.041.038-.087.068-.134.09.092.029.19.044.293.044h13c.102 0 .201-.015.294-.044-.022-.01-.043-.021-.063-.034l-.071-.056-4.672-4.338zM1 3.051V11c0 .103.015.202.044.295.015-.034.033-.065.055-.094l.06-.067L5.728 6.89 1 3.051zm15-.001l-4.728 3.842 4.568 4.242c.05.046.09.101.116.16.029-.092.044-.191.044-.294V3.05zM15 1H2c-.477 0-.876.334-.976.781l6.845 5.562c.334.272.8.296 1.158.074l.104-.074 6.845-5.562C15.876 1.334 15.477 1 15 1z"
+                    transform="translate(-678 -645) translate(446 645) translate(232) translate(4 5)"
+                ></path>
+            </symbol>
+            <symbol id="svg-my-12" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M18,15 C19.6491029,15 20.984644,16.3436645 20.984644,17.9998621 C20.984644,19.6560954 19.6490678,21 18,21 L18,21 L5.96928795,21 C4.32022012,21 2.98464398,19.6560954 2.98464398,17.9998621 C2.98464398,16.3436645 4.32018501,15 5.96928795,15 L5.96928795,15 Z M18,16 L5.96928795,16 C4.87383179,16 3.98464398,16.8945963 3.98464398,17.9998621 C3.98464398,19.1051974 4.87390125,20 5.96928795,20 L5.96928795,20 L18,20 C19.0953867,20 19.984644,19.1051974 19.984644,17.9998621 C19.984644,16.8945963 19.0954562,16 18,16 L18,16 Z M8.2302033,17.4998621 L8.2302033,18.4998621 L6.98464398,18.4998621 L6.98464398,17.4998621 L8.2302033,17.4998621 Z M11.1360474,17.4998621 L11.1360474,18.4998621 L9.89075923,18.4998621 L9.89075923,17.4998621 L11.1360474,17.4998621 Z M14.0422982,17.4998621 L14.0422982,18.4998621 L12.7967389,18.4998621 L12.7967389,17.4998621 L14.0422982,17.4998621 Z M16.9484406,17.4998621 L16.9484406,18.4998621 L15.7028813,18.4998621 L15.7028813,17.4998621 L16.9484406,17.4998621 Z M12,3 C13.1147755,3 14,3.96568558 14,5.13634009 L14,5.13634009 L14,6 C15.1045695,6 16,6.8954305 16,8 L16,8 L16,11 C16,12.1045695 15.1045695,13 14,13 L14,13 L10,13 C8.8954305,13 8,12.1045695 8,11 L8,11 L8,8 C8,6.8954305 8.8954305,6 10,6 L10,6 L10,5.13634009 C10,3.96568558 10.8852245,3 12,3 Z M14,7 L10,7 C9.44771525,7 9,7.44771525 9,8 L9,8 L9,11 C9,11.5522847 9.44771525,12 10,12 L10,12 L14,12 C14.5522847,12 15,11.5522847 15,11 L15,11 L15,8 C15,7.44771525 14.5522847,7 14,7 L14,7 Z M12.5,8.9 L12.5,10.1 L11.5,10.1 L11.5,8.9 L12.5,8.9 Z M12,4 C11.4578677,4 11,4.4994849 11,5.13634009 L11,5.13634009 L11,6 L13,6 L13,5.13634009 C13,4.54194191 12.6011463,4.06720852 12.1071922,4.00655251 L12.1071922,4.00655251 Z"
+                ></path>
+            </symbol>
+            <symbol id="svg-my-13" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M7.5 0c1.707 0 3.071 1.489 3.071 3.305V5H13c1.054 0 1.918.816 1.995 1.85L15 7v8c0 1.105-.895 2-2 2H2c-1.105 0-2-.895-2-2V7c0-1.105.895-2 2-2h2.428V3.305c0-1.753 1.273-3.202 2.897-3.3zM13 6H2c-.552 0-1 .448-1 1v8c0 .552.448 1 1 1h11c.552 0 1-.448 1-1V7c0-.552-.448-1-1-1zM7.5 8.5c.829 0 1.5.671 1.5 1.5 0 .653-.417 1.208-1 1.414V13.5c0 .276-.224.5-.5.5-.245 0-.45-.177-.492-.41L7 13.5v-2.085c-.583-.206-1-.762-1-1.415 0-.829.671-1.5 1.5-1.5zm0-7.5C6.366 1 5.429 2.023 5.429 3.305L5.428 5h4.143V3.305c0-1.226-.857-2.216-1.924-2.3z"
+                    transform="translate(-1123 -645) translate(446 645) translate(677) translate(5 3)"
+                ></path>
+            </symbol>
+
+            <symbol id="svg-my-48" viewBox="0 0 24 24">
+                <g
+                    fill="currentColor"
+                    transform="translate(-679 -2085) translate(390 900) translate(289 1185)"
+                >
+                    <circle cx="5.5" cy="18.5" r="5.5" opacity=".24"></circle>
+                    <path
+                        d="M8.482 2.394L6.915 5.567l-3.501.51c-.49.07-.942.3-1.288.655l-.118.13c-.746.894-.689 2.226.159 3.052L4.7 12.383l-.597 3.49c-.084.487-.004.989.226 1.427l.08.14c.616.994 1.906 1.357 2.958.804l3.133-1.647 3.133 1.647c.438.23.94.31 1.427.226l.157-.032c1.137-.279 1.881-1.394 1.68-2.566l-.598-3.489 2.534-2.47c.355-.345.585-.797.656-1.287l.018-.16c.086-1.167-.745-2.219-1.92-2.39l-3.503-.509-1.566-3.173c-.22-.444-.578-.803-1.022-1.022-1.115-.55-2.464-.093-3.014 1.022zm2.35.323c.148.073.268.192.34.34l1.741 3.528c.11.22.32.374.565.41l3.893.565c.41.06.693.44.634.85-.024.164-.1.315-.219.43l-2.816 2.745c-.177.173-.258.42-.216.664l.665 3.877c.07.408-.204.796-.613.866-.162.028-.33.001-.475-.075l-3.482-1.83c-.218-.116-.48-.116-.698 0l-3.482 1.83c-.366.192-.82.051-1.012-.315-.077-.146-.104-.314-.076-.476l.665-3.877c.042-.243-.039-.491-.216-.664L3.214 8.84c-.297-.29-.303-.764-.014-1.06.115-.119.266-.196.43-.22l3.892-.565c.244-.036.455-.19.565-.41l1.74-3.528c.168-.34.56-.497.91-.38l.095.04z"
+                        transform="translate(.5 1.5)"
+                    ></path>
+                </g>
+            </symbol>
+            <symbol id="svg-my-49" viewBox="0 0 24 24">
+                <g
+                    fill="currentColor"
+                    transform="translate(-900 -2085) translate(390 900) translate(510 1185)"
+                >
+                    <circle cx="18.5" cy="5.5" r="5.5" opacity=".24"></circle>
+                    <path
+                        d="M9.41.568l-.909.842-.909-.842C5.617-1.262 2.585-1.177.706.766-1.14 2.676-1.242 5.73.468 7.76l6.773 7.017c.671.695 1.78.715 2.475.043l6.782-7.021c1.745-2.068 1.644-5.118-.205-7.034-1.875-1.94-4.913-2.026-6.883-.196zm-2.837 1.1l1.42 1.316c.287.266.732.266 1.02 0l1.418-1.317c1.371-1.273 3.475-1.215 4.783.14 1.315 1.361 1.387 3.544.171 4.987L8.674 13.74c-.1.096-.258.093-.354-.006l-6.74-6.98C.4 5.352.473 3.166 1.785 1.81 3.097.452 5.196.393 6.573 1.669z"
+                        transform="translate(3.5 5)"
+                    ></path>
+                </g>
+            </symbol>
+
+            <symbol id="svg-my-52" viewBox="0 0 24 24">
+                <g
+                    fill="currentColor"
+                    transform="translate(-681 -2190) translate(390 900) translate(289 1289)"
+                >
+                    <circle cx="7.5" cy="6.5" r="5.5" opacity=".24"></circle>
+                    <path
+                        d="M7.211.287L7.34.29l1.214.087C9.932.475 11 1.622 11 3.004V6.25h3.476c.522 0 1.014.233 1.345.63l.094.124 1.682 2.43c.299.431.388.973.244 1.477L16 17.354V20.5c0 .918-.707 1.671-1.606 1.744l-.144.006h-6.5c-.966 0-1.75-.784-1.75-1.75v-3.008l-5.361-7.46C.309 9.575.33 8.957.677 8.524L.77 8.42l.7-.7c.841-.841 2.19-.89 3.09-.11L6 8.858l.001-7.379.018-.158C6.127.697 6.693.244 7.339.29zM14.5 18.75h-7v1.75c0 .118.082.217.193.243l.057.007h6.5c.138 0 .25-.112.25-.25v-1.75zm-7-16.945V10.5c0 .643-.756.988-1.241.567L3.578 8.743c-.305-.264-.762-.248-1.048.037l-.55.549 5.379 7.483c.069.096.114.206.132.321l.009.117h7l.029-.206 1.87-6.545c.02-.072.008-.15-.035-.211l-1.682-2.43c-.047-.068-.124-.108-.206-.108H10.25c-.414 0-.75-.336-.75-.75V3.004c0-.595-.46-1.089-1.053-1.13L7.5 1.804z"
+                        transform="rotate(-30 17.132 3.545)"
+                    ></path>
+                </g>
+            </symbol>
+
+            <symbol id="svg-my-55" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M16 0c1.134 0 1.78.72 1.953 1.847.032.15.047.304.047.458v10.133c0 1.148-.78 2.148-1.894 2.426l-4.62 1.155c-.918.23-1.845-.214-2.261-1.018L6.5 15c-1.325 0-2.41-1.032-2.495-2.336L4 12.5v-3c0-.276.224-.5.5-.5.245 0 .45.177.492.41L5 9.5v3c0 .78.595 1.42 1.356 1.493L6.5 14H9V3.562c0-1.09.705-2.047 1.73-2.379l.164-.047.543-.136H6.5c-.78 0-1.42.595-1.493 1.356L5 2.5v3c0 .276-.224.5-.5.5-.245 0-.45-.177-.492-.41L4 5.5v-3C4 1.175 5.032.09 6.336.005L6.5 0H16zm.922 1.863c-.223-.62-.884-.982-1.537-.819l-4.249 1.062C10.468 2.273 10 2.873 10 3.562v10.517c0 .082.01.163.03.242.134.536.677.862 1.213.728l4.62-1.155c.669-.167 1.137-.767 1.137-1.456V2.492l-.004-.175c-.004-.097-.012-.189-.023-.275l-.012-.052zM2.854 5.146c.173.174.192.443.057.638l-.057.07L1.706 7H6.5c.276 0 .5.224.5.5 0 .245-.177.45-.41.492L6.5 8H1.706l1.148 1.146c.173.174.192.443.057.638l-.057.07c-.174.173-.443.192-.638.057l-.07-.057-2-2C-.027 7.68-.046 7.41.09 7.216l.057-.07 2-2c.196-.195.512-.195.708 0z"
+                    transform="translate(-450 -2320) translate(450 2320) translate(3 4)"
+                ></path>
+            </symbol>
+
+            <symbol id="svg-saramin-ci" viewBox="0 0 93 24">
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M22.029 19.4292L21.9921 19.4515C21.7166 19.619 20.8772 20.1291 19.3524 20.1291C17.7711 20.1291 16.8636 19.4762 16.8636 18.3375C16.8636 17.2963 17.8317 16.5964 19.2721 16.5964C20.2976 16.5964 21.0649 16.7544 21.972 17.0097L22.029 17.0254V19.4292ZM14.4526 11.0892C14.4526 11.5633 14.6485 11.9621 15.0043 12.2119C15.4437 12.5193 16.0856 12.5683 16.8119 12.3484C17.4661 12.1484 18.4474 11.9096 19.4065 11.9096C21.2445 11.9096 22.029 12.5295 22.029 13.9832V14.771L21.931 14.7486C20.944 14.5251 20.1542 14.3667 18.9782 14.3667C13.9341 14.3667 13.5422 17.5042 13.5422 18.4653C13.5422 20.6079 15.0055 22.8972 19.1118 22.8972C22.3171 22.8972 24.2116 21.8291 24.7158 21.5016C25.1761 21.2079 25.3237 20.9307 25.3237 20.3605V14.0859C25.3237 10.6861 23.3599 8.96265 19.4864 8.96265C17.8678 8.96265 16.3278 9.29087 15.5823 9.59673C14.8326 9.89201 14.4526 10.3943 14.4526 11.0892Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M61.4628 10.4574L61.4132 10.4066C60.4479 9.42161 59.2326 8.96265 57.5883 8.96265C55.8181 8.96265 54.0272 9.5056 52.7964 10.4153C52.3022 10.7607 52.1365 11.0631 52.1365 11.6163V21.1966C52.1365 22.1185 52.9157 22.8972 53.8387 22.8972C54.8096 22.8972 55.5416 22.1662 55.5416 21.1966V12.8359L55.6292 12.7822C55.891 12.6186 56.5871 12.1833 57.7474 12.1833C59.229 12.1833 59.9805 12.9892 59.9805 14.5779V21.1966C59.9805 22.1185 60.7601 22.8972 61.6831 22.8972C62.6378 22.8972 63.3857 22.15 63.3857 21.1966V12.8359L63.4736 12.7822C63.7354 12.6186 64.4312 12.1833 65.5923 12.1833C67.053 12.1833 67.8249 13.02 67.8249 14.6035V21.1966C67.8249 22.1185 68.5924 22.8972 69.5003 22.8972C70.4704 22.8972 71.2305 22.15 71.2305 21.1966V14.5266C71.2305 10.7827 69.4469 8.96265 65.7779 8.96265C64.2321 8.96265 62.7595 9.46499 61.519 10.4141L61.4628 10.4574Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M45.998 19.4292L45.9611 19.4515C45.6861 19.619 44.8474 20.1291 43.3218 20.1291C41.7401 20.1291 40.833 19.4762 40.833 18.3375C40.833 17.2963 41.8007 16.5964 43.2415 16.5964C44.2666 16.5964 45.0343 16.7544 45.941 17.0097L45.998 17.0254V19.4292ZM38.4216 11.0892C38.4216 11.5633 38.6179 11.9617 38.9733 12.2119C39.4131 12.5193 40.0546 12.5683 40.7809 12.3484C41.4351 12.1484 42.4164 11.9096 43.3755 11.9096C45.2135 11.9096 45.998 12.5295 45.998 13.9832V14.771L45.9 14.7486C44.913 14.5251 44.1231 14.3667 42.9472 14.3667C37.9031 14.3667 37.5112 17.5042 37.5112 18.4653C37.5112 20.6079 38.9745 22.8972 43.0808 22.8972C46.2861 22.8972 48.1806 21.8291 48.6852 21.5016C49.1451 21.2083 49.2927 20.9311 49.2927 20.3605V14.0859C49.2927 10.6861 47.3289 8.96265 43.4558 8.96265C41.8364 8.96265 40.2968 9.29087 39.5517 9.59673C38.8016 9.89201 38.4216 10.3939 38.4216 11.0892Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M35.0952 9.1665C34.5716 9.04111 33.6952 8.96265 32.8085 8.96265C29.8591 8.96265 28.1675 10.5398 28.1675 13.2905V21.3129C28.1675 22.1867 28.9079 22.8972 29.8176 22.8972C29.8328 22.8953 29.8406 22.8941 29.8492 22.8937L29.8779 22.8961H29.8796C30.8488 22.8961 31.6024 22.1611 31.6024 21.2222V13.9344C31.6024 12.7854 32.0837 12.2129 33.0742 12.1837C33.5264 12.1683 33.9054 12.2413 34.2701 12.311C34.5531 12.3647 34.8204 12.4155 35.0886 12.4155C36.1872 12.4155 36.6989 11.4929 36.6989 10.8695C36.6989 10.0379 36.1297 9.43305 35.0952 9.1665Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.00732 14.8648L5.90069 14.4435C4.72159 14.1864 4.21924 13.8077 4.21924 13.1769C4.21924 12.8116 4.41375 11.962 6.21335 11.962C6.95963 11.962 8.03867 12.2151 8.72346 12.5502C9.57665 12.9817 10.4564 12.9057 10.9643 12.3576C11.248 12.0399 11.3975 11.5934 11.3622 11.1651C11.3389 10.8777 11.2239 10.4643 10.8112 10.13C9.95119 9.43156 8.15762 8.96265 6.34758 8.96265C3.04416 8.96265 0.909398 10.658 0.909398 13.2821C0.909398 15.742 3.02929 16.7901 4.80759 17.2357C5.41724 17.3889 5.72186 17.4424 6.0747 17.5046C6.32748 17.5491 6.5891 17.5956 6.99419 17.6834C8.11904 17.9456 8.61978 18.3523 8.61978 19.0023C8.61978 19.4744 8.34811 20.2661 6.5248 20.2661C5.26211 20.2661 3.89694 19.9189 3.04697 19.3815C2.70377 19.1673 2.35213 19.0622 2.02058 19.0622C1.5536 19.0622 1.12681 19.2704 0.818976 19.6779C0.348781 20.2831 0.493858 21.2681 1.12802 21.7859C1.681 22.2398 3.30297 23.2954 6.41107 23.2954C9.70444 23.2954 11.9172 21.4855 11.9172 18.7913C11.9172 16.7424 10.638 15.4577 8.00732 14.8648Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M75.6993 7.37012C74.7734 7.37012 74.0745 8.09688 74.0745 9.06081V18.0219C74.0745 18.9384 74.8185 19.7122 75.6993 19.7122C76.6104 19.7122 77.3245 18.9697 77.3245 18.0219V9.06081C77.3245 8.11295 76.6104 7.37012 75.6993 7.37012Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M75.6995 1C74.3098 1 73.262 2.01245 73.262 3.35478C73.262 4.71362 74.3326 5.77757 75.6995 5.77757C77.0209 5.77757 78.137 4.6684 78.137 3.35478C78.137 2.03407 77.0664 1 75.6995 1Z"
+                    fill="#4876EF"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M86.3652 8.96265C82.9666 8.96265 81.1196 10.131 80.7765 10.3652C80.3217 10.6743 80.1682 10.9763 80.1682 11.565V21.1962C80.1682 22.1181 80.9522 22.8972 81.8802 22.8972C82.8565 22.8972 83.5926 22.1658 83.5926 21.1962V12.8359L83.629 12.8134C84.128 12.5098 85.1404 12.1833 86.2588 12.1833C87.5507 12.1833 88.9315 12.8394 88.9315 14.6808V21.1962C88.9315 22.1181 89.7159 22.8972 90.6435 22.8972C91.6199 22.8972 92.3559 22.1658 92.3559 21.1962V14.5262C92.3559 10.8864 90.2845 8.96265 86.3652 8.96265Z"
+                    fill="#4876EF"
+                ></path>
+            </symbol>
+            <symbol id="svg-saramin-ci-icon" viewBox="0 0 24 25">
+                <g fill="none" fill-rule="evenodd">
+                    <path
+                        clip-rule="evenodd"
+                        d="M10.9127 3.36861L2.80531 9.22921C2.29955 9.59482 2 10.181 2 10.805V20.2372C2 21.6179 3.11929 22.7372 4.5 22.7372H19.5C20.8807 22.7372 22 21.6179 22 20.2372V10.801C22 10.1809 21.7042 9.59797 21.2038 9.23178L13.2 3.37523C12.5196 2.87737 11.5959 2.8747 10.9127 3.36861ZM12.2072 5.31513L19.8908 10.9374C19.9594 10.9876 20 11.0676 20 11.1526V20.2114C20 20.6532 19.6418 21.0114 19.2 21.0114H13.1667V14.9607L13.1575 14.8476C13.0913 14.4409 12.9167 13.8485 12.1667 13.8485C11.4167 13.8485 11.1667 14.5005 11.1667 14.9607V21.0114H4.8C4.35817 21.0114 4 20.6532 4 20.2114V11.1565C4 11.0709 4.04108 10.9905 4.11044 10.9404L11.8935 5.31422C11.9872 5.24649 12.1139 5.24685 12.2072 5.31513Z"
+                        fill="#AFBAC8"
+                    ></path>
+                </g>
+            </symbol>
+            <symbol id="svg-profile-arrow" viewBox="0 0 16 16">
+                <path
+                    fill="#D7DCE5"
+                    d="M92 18L100 18 96 23z"
+                    transform="translate(-1976 -481) translate(120 445) translate(1768 24)"
+                ></path>
+            </symbol>
+
+            <symbol id="svg-default-profile" viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="16" fill="#ccd0d6"></circle>
+                <path
+                    stroke="#FFF"
+                    fill="#ccd0d6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M25 24c0-2.21-2.015-4-4.5-4h-9C9.015 20 7 21.79 7 24"
+                ></path>
+                <path
+                    stroke="#FFF"
+                    fill="#ccd0d6"
+                    stroke-width="1.5"
+                    d="M16 8h3.5c.276 0 .5.224.5.5V12c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4z"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-arrow" viewBox="0 0 10 7">
+                <g fill="none">
+                    <path
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        d="M0 0L4.125 4 8.25 0"
+                    ></path>
+                </g>
+            </symbol>
+            <symbol id="svg-top-flag" viewBox="0 0 24 24">
+                <g fill="none" fill-rule="evenodd">
+                    <g
+                        transform="translate(-1672 -201) translate(0 169) translate(1664 24)"
+                    >
+                        <g fill="currentColor" fill-rule="nonzero">
+                            <path
+                                d="M4.75 10.5C5.993 10.5 7 11.507 7 12.75l.007.102c.05.366.363.648.743.648h5.5c.414 0 .75-.336.75-.75 0-1.243 1.008-2.25 2.25-2.25H19c.967 0 1.75.784 1.75 1.75v5c0 .966-.783 1.75-1.75 1.75H1.75C.784 19 0 18.216 0 17.25v-5c0-.966.784-1.75 1.75-1.75zm0 1.5h-3c-.138 0-.25.112-.25.25v5c0 .138.112.25.25.25H19c.138 0 .25-.112.25-.25v-5c0-.138-.112-.25-.25-.25h-2.75c-.414 0-.75.336-.75.75l-.005.154C15.415 14.074 14.441 15 13.25 15h-5.5c-1.242 0-2.25-1.007-2.25-2.25 0-.414-.336-.75-.75-.75zm1-4.75H15c.414 0 .75.336.75.75s-.336.75-.75.75H5.75C5.336 8.75 5 8.414 5 8s.336-.75.75-.75zm.75-3.5h7.75c.414 0 .75.336.75.75s-.336.75-.75.75H6.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75zM15.69 0c1.201 0 2.256.779 2.618 1.91l.05.173 2.37 9.485c.101.402-.143.81-.545.91-.368.092-.741-.106-.878-.449l-.031-.097L16.9 2.447c-.128-.514-.564-.886-1.081-.94l-.131-.007H4.847c-.54 0-1.012.344-1.183.845l-.036.128-2.146 9.443c-.092.404-.494.657-.898.565-.37-.084-.614-.428-.581-.796l.016-.101L2.165 2.14C2.437.945 3.463.08 4.673.005L4.847 0h10.842z"
+                                transform="translate(9.5 11)"
+                            ></path>
+                        </g>
+                    </g>
+                </g>
+            </symbol>
+            <symbol id="svg-top-alarm-off" viewBox="0 0 24 24">
+                <g fill="none" fill-rule="evenodd">
+                    <g fill="currentColor" fill-rule="nonzero">
+                        <path
+                            d="M9.222 0c.38 0 .694.282.744.648l.006.102v1.535c3.87.368 6.264 3.586 6.265 7.506v.59c0 1.695.635 3.494 1.927 5.4.196.29.3.632.3.982 0 .967-.783 1.75-1.75 1.75h-3.742l-.005.168c-.109 1.74-1.768 3.069-3.745 3.069-1.975 0-3.635-1.328-3.744-3.068l-.006-.169H1.75c-.295 0-.585-.075-.842-.216l-.15-.092c-.796-.548-.997-1.638-.45-2.434 1.311-1.904 1.955-3.699 1.954-5.39v-.59c0-3.989 2.334-7.147 6.21-7.507V.75c0-.414.336-.75.75-.75zm2.249 18.513H6.973l.005.114c.084.879 1.033 1.623 2.244 1.623 1.213 0 2.16-.744 2.244-1.624l.005-.113zM9.222 3.75c-3.411 0-5.46 2.565-5.46 6.041v.59c0 2.02-.746 4.102-2.218 6.24-.078.114-.05.27.064.348.042.029.092.044.142.044h14.965c.138 0 .25-.112.25-.25 0-.05-.015-.099-.043-.14-1.45-2.14-2.185-4.222-2.185-6.241v-.59c-.001-3.403-2.118-6.042-5.515-6.042z"
+                            transform="translate(-1720 -265) translate(0 233) translate(1720 32) translate(2.75 1.25)"
+                        ></path>
+                    </g>
+                </g>
+            </symbol>
+            <symbol id="svg-top-alarm-on" viewBox="0 0 24 24">
+                <g fill="none" fill-rule="evenodd">
+                    <g fill-rule="nonzero">
+                        <g>
+                            <path
+                                fill="currentColor"
+                                d="M6.972 19.509c0 .932.98 1.749 2.25 1.749 1.213 0 2.16-.744 2.244-1.624l.006-.126h1.5c0 1.828-1.705 3.25-3.75 3.25-1.975 0-3.635-1.328-3.744-3.068l-.006-.181h1.5zm2.25-16.251c4.307 0 7.014 3.374 7.015 7.541v.59c0 1.695.635 3.494 1.927 5.4.196.29.3.632.3.982 0 .967-.783 1.75-1.75 1.75H1.75c-.354 0-.7-.108-.992-.308-.796-.548-.997-1.638-.45-2.434 1.311-1.904 1.955-3.699 1.954-5.39v-.59c0-4.24 2.637-7.541 6.96-7.541zm0 1.5c-3.411 0-5.46 2.565-5.46 6.041v.59c0 2.02-.746 4.102-2.218 6.24-.078.114-.05.27.064.348.042.029.092.044.142.044h14.965c.138 0 .25-.112.25-.25 0-.05-.015-.099-.043-.14-1.45-2.14-2.185-4.222-2.185-6.242v-.59c-.001-3.402-2.118-6.041-5.515-6.041zm0-3.75c.38 0 .694.282.744.648l.006.102v2c0 .414-.335.75-.75.75-.38 0-.693-.282-.743-.648l-.007-.102v-2c0-.414.336-.75.75-.75z"
+                                transform="translate(-1720 -467) translate(0 435) translate(1720 32) translate(2.75 .242)"
+                            ></path>
+                            <path
+                                fill="#4876EF"
+                                d="M15.193 2.723c1.389.86 2.503 2.124 3.197 3.626.162.35.01.767-.342.929-.35.162-.766.01-.929-.342-.579-1.254-1.508-2.308-2.663-3.023-.329-.203-.43-.635-.227-.963.203-.33.635-.43.964-.227zm.93-2.524c2.046 1.09 3.712 2.83 4.734 4.942.168.348.022.766-.326.935-.348.168-.766.023-.935-.325-.893-1.846-2.348-3.366-4.131-4.317-.342-.181-.47-.605-.289-.947.182-.34.606-.47.947-.288z"
+                                transform="translate(-1720 -467) translate(0 435) translate(1720 32) translate(2.75 .242) rotate(2 17.525 3.73)"
+                            ></path>
+                        </g>
+                    </g>
+                </g>
+            </symbol>
+            <symbol id="svg-fluctuation-down" viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                    <path
+                        fill="currentColor"
+                        d="M209 8L217 8 213 13z"
+                        transform="translate(-1592 -2611) translate(1309 2012) translate(32 454) translate(14 28) translate(32 115)"
+                    ></path>
+                </g>
+            </symbol>
+            <symbol id="svg-fluctuation-up" viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                    <path
+                        fill="currentColor"
+                        d="M209 8L217 8 213 13z"
+                        transform="translate(-1592 -2651) translate(1309 2012) translate(32 454) translate(14 28) translate(32 155) rotate(180 213 10.5)"
+                    ></path>
+                </g>
+            </symbol>
+            <symbol id="svg-gnb-close" viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                    <g fill="currentColor" fill-rule="nonzero">
+                        <path
+                            d="M7.25 11.5c.414 0 .75.336.75.75 0 .38-.282.693-.648.743L7.25 13H.75c-.414 0-.75-.336-.75-.75 0-.38.282-.693.648-.743L.75 11.5h6.5zm4.196-9.603l.084.073 4 4c.267.266.29.683.073.976l-.073.084-4 4c-.293.293-.767.293-1.06 0-.267-.266-.29-.683-.073-.976l.073-.084 2.719-2.72H.75C.336 7.25 0 6.914 0 6.5c0-.38.282-.693.648-.743L.75 5.75h12.439l-2.72-2.72c-.266-.266-.29-.683-.072-.976l.073-.084c.266-.267.683-.29.976-.073zM7.25 0c.414 0 .75.336.75.75 0 .38-.282.693-.648.743L7.25 1.5H.75C.336 1.5 0 1.164 0 .75 0 .37.282.057.648.007L.75 0h6.5z"
+                            transform="translate(-224 -36) translate(224 36) rotate(-180 8 7.5)"
+                        ></path>
+                    </g>
+                </g>
+            </symbol>
+            <symbol id="svg-gnb-open" viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                    <g fill="currentColor" fill-rule="nonzero">
+                        <path
+                            d="M7.25 11.5c.414 0 .75.336.75.75 0 .38-.282.693-.648.743L7.25 13H.75c-.414 0-.75-.336-.75-.75 0-.38.282-.693.648-.743L.75 11.5h6.5zm4.196-9.603l.084.073 4 4c.267.266.29.683.073.976l-.073.084-4 4c-.293.293-.767.293-1.06 0-.267-.266-.29-.683-.073-.976l.073-.084 2.719-2.72H.75C.336 7.25 0 6.914 0 6.5c0-.38.282-.693.648-.743L.75 5.75h12.439l-2.72-2.72c-.266-.266-.29-.683-.072-.976l.073-.084c.266-.267.683-.29.976-.073zM7.25 0c.414 0 .75.336.75.75 0 .38-.282.693-.648.743L7.25 1.5H.75C.336 1.5 0 1.164 0 .75 0 .37.282.057.648.007L.75 0h6.5z"
+                            transform="translate(-65 -37) matrix(-1 0 0 1 81 37) rotate(-180 8 7.5)"
+                        ></path>
+                    </g>
+                </g>
+            </symbol>
+
+            <symbol id="svg-gnb-my-home" viewBox="0 0 24 24">
+                <path
+                    d="M4 20C4.89057 16.5541 8.13453 14 12 14C15.8655 14 19.1094 16.5541 20 20"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    fill="transparent"
+                ></path>
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="3.25"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="transparent"
+                ></circle>
+            </symbol>
+            <symbol id="svg-gnb-my-resume" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M13.018 1.158c.685-.672 1.784-.667 2.463.012l2.347 2.348c.677.69.667 1.798-.023 2.474L5.567 18c-.327.321-.767.501-1.226.501H1.2c-.525 0-.95-.425-.95-.95v-3.13c0-.47.189-.92.524-1.25zm-1.802 3.869L1.825 14.24c-.048.047-.075.112-.075.179V17h2.591c.044 0 .086-.011.124-.033l.051-.039 9.39-9.211-2.69-2.69zM14.42 2.23c-.097-.097-.254-.098-.352-.002l-1.781 1.748 2.689 2.689 1.778-1.744c.082-.08.097-.204.047-.297l-.039-.052z"
+                    transform="translate(-676 -899) translate(447 895) translate(229 4) translate(2.75 2.5)"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-scrap" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M10.74 1.32c1.034-.69 2.43-.413 3.12.62.276.412.407.903.375 1.397l-.209 3.2 2.518 1.986c.933.736 1.127 2.063.468 3.03l-.095.13c-.306.389-.732.665-1.212.787l-3.108.79-1.11 3.01c-.413 1.114-1.614 1.708-2.738 1.38l-.153-.05c-.464-.17-.859-.49-1.123-.909l-1.01-1.602-3.53 4.867c-.243.336-.712.41-1.047.167-.305-.22-.394-.629-.225-.953l.058-.094 3.706-5.11-2.869-.114c-1.133-.045-2.038-.92-2.15-2.018l-.01-.158.001-.16c.02-.495.202-.97.518-1.35l2.05-2.468-.87-3.085c-.32-1.14.296-2.32 1.388-2.722l.168-.054c.476-.134.983-.108 1.443.076l2.978 1.186zm1.873 1.454c-.23-.345-.695-.437-1.04-.207l-2.995 2c-.205.137-.465.164-.694.072L4.539 3.306c-.154-.061-.323-.07-.481-.025-.4.112-.631.526-.519.925l.977 3.466c.066.238.012.493-.146.683l-2.302 2.77c-.105.127-.166.285-.172.45-.017.413.306.762.72.779l3.598.142c.247.01.473.14.605.35L8.74 15.89c.088.14.22.246.375.303.388.144.82-.055.963-.443l1.247-3.379c.086-.231.28-.406.52-.467l3.49-.887c.16-.041.301-.133.403-.263.257-.325.201-.797-.124-1.053l-2.827-2.23c-.194-.153-.3-.392-.284-.638l.234-3.594c.01-.164-.033-.328-.125-.465z"
+                    transform="translate(-901 -899) translate(447 895) translate(454 4) translate(4.5 1.5)"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-jobs" viewBox="0 0 24 24">
+                <path
+                    d="M9.35 1.037c.357-.589 1.123-.778 1.713-.424l.823.494c1.033.62 1.49 1.879 1.093 3.016L11.804 7.5H17.5c.918 0 1.671.707 1.744 1.606l.006.144v2.28c0 .254-.056.505-.163.736l-2.35 5.063c-.615 1.324-1.942 2.171-3.402 2.171H2c-.966 0-1.75-.784-1.75-1.75v-7.5c0-.966.784-1.75 1.75-1.75h2.827zM4.25 10H2c-.138 0-.25.112-.25.25v7.5c0 .138.112.25.25.25h2.25v-8zm6.254-7.973L5.891 9.639c-.038.064-.086.12-.14.17l-.001 8.19 7.585.001c.818 0 1.566-.443 1.962-1.148l.08-.154 2.35-5.064c.015-.033.023-.068.023-.105V9.25c0-.138-.112-.25-.25-.25h-6.75c-.516 0-.878-.509-.708-.996l1.52-4.374c.163-.466-.024-.983-.448-1.237l-.61-.366z"
+                    transform="translate(1.75 1.5)"
+                    fill="currentColor"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-suggestion" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M14.5.25c.918 0 1.671.707 1.744 1.606L16.25 2v3.25h.25c.918 0 1.671.707 1.744 1.606L18.25 7v9c0 1.19-.925 2.166-2.096 2.245L16 18.25H2.5c-1.19 0-2.166-.925-2.245-2.096L.25 16V7c0-.918.707-1.671 1.606-1.744L2 5.25h.25V2c0-.918.707-1.671 1.606-1.744L4 .25h10.5zM9.249 11.246l-6.29 5.504h12.58l-6.29-5.504zm7.501-1.684l-3.849 2.886 3.849 3.368V9.562zm-15 .001v6.252l3.848-3.367L1.75 9.563zM14.5 1.75H4c-.118 0-.217.082-.243.193L3.75 2v7.188l3.002 2.251 2.004-1.753c.255-.223.622-.245.9-.067l.088.067 2.003 1.753 3.003-2.252V2c0-.118-.082-.217-.193-.243L14.5 1.75zm-12.25 5H2c-.118 0-.217.082-.243.193L1.75 7v.688l.5.375V6.75zm14.25 0h-.25v1.312l.5-.375V7c0-.118-.082-.217-.193-.243L16.5 6.75zm-7.51-2.5c.415 0 .75.336.75.75 0 .38-.281.693-.647.743l-.102.007h-3c-.414 0-.75-.336-.75-.75 0-.38.282-.693.648-.743l.102-.007h3z"
+                    transform="translate(-1122 -899) translate(447 895) translate(675 4) translate(2.75 2.75)"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-apply" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M14.833-.421L1.166 3.849c-.368.116-.662.394-.798.755l-.039.122c-.16.613.165 1.26.77 1.487l6.295 2.361 1.936 6.195c.118.38.41.68.786.81.653.224 1.364-.124 1.589-.777l4.683-13.624c.087-.252.09-.525.011-.779-.206-.659-.907-1.026-1.566-.82zm-.025 1.578l-4.274 12.437-1.818-5.818-.043-.106c-.083-.17-.23-.305-.41-.372L2.308 5.064l12.5-3.907z"
+                    transform="translate(-448 -964) translate(447 895) translate(1 69) translate(3 4)"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-svq" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M11.289 2.37c1.97-1.816 3.914-2.605 5.29-1.81 1.391.803 1.671 2.92 1.056 5.575 2.501.8 4.115 2.077 4.115 3.645 0 1.576-1.63 2.859-4.154 3.658.665 2.732.403 4.921-1.017 5.74-1.396.807-3.377-.017-5.375-1.889-1.998 1.872-3.98 2.696-5.375 1.89-1.4-.808-1.675-2.948-1.045-5.627C2.045 12.765.25 11.434.25 9.78c0-1.646 1.778-2.972 4.495-3.76-.58-2.601-.287-4.67 1.084-5.46l.135-.073c1.386-.68 3.305.15 5.24 1.961zM6.25 13.902l-.061.258-.09.448c-.308 1.68-.152 2.907.48 3.272.712.411 2.07-.25 3.575-1.67-.531-.594-1.057-1.256-1.565-1.975-.866-.079-1.69-.198-2.462-.356l.123.023zm9.89-.08l-.267.057c-.64.131-1.317.235-2.023.311-.518.738-1.054 1.414-1.596 2.02 1.505 1.42 2.862 2.081 3.575 1.67.727-.42.824-1.98.31-4.058zm-4.27.503l-.29.009-.58.006c-.152 0-.303-.001-.453-.004.218.274.438.536.657.784l.029-.033c.212-.241.424-.495.636-.762zM11 6.721c-.535 0-1.059.017-1.568.049l.113-.008c-.34.498-.672 1.025-.99 1.577-.297.513-.568 1.025-.814 1.53.245.505.517 1.017.813 1.53.28.484.569.948.865 1.39.512.034 1.041.05 1.581.05.692 0 1.365-.028 2.012-.08.287-.435.569-.888.842-1.36.296-.513.567-1.025.814-1.53-.247-.505-.518-1.017-.814-1.53-.313-.541-.639-1.058-.971-1.547l-.315-.022c-.51-.032-1.033-.05-1.568-.05zm-4.033 4.917l-.112.295-.184.515c.273.052.553.1.842.142l-.258-.441c-.098-.17-.194-.341-.288-.511zm8.474-.002l-.123.223-.165.29c-.072.125-.145.248-.218.37l.28-.05.466-.09.029-.006c-.083-.242-.173-.488-.27-.737zM5.143 7.473l-.191.055C2.987 8.121 1.75 8.962 1.75 9.78c0 .746 1.029 1.511 2.7 2.09l.43.14c.148.046.3.09.456.132l-.14-.039.086-.254.199-.55c.209-.553.449-1.119.717-1.69l-.12.261c-.374-.82-.687-1.624-.935-2.397zm12.086.112l-.012.033c-.24.728-.537 1.483-.887 2.251.33.723.612 1.435.845 2.124l.376-.123c1.67-.579 2.699-1.344 2.699-2.09 0-.793-1.161-1.607-3.02-2.195zm-2.412-.562c.113.186.225.375.336.566.098.171.195.342.289.513l.011-.032.195-.526c.04-.116.08-.23.118-.344-.199-.042-.402-.082-.61-.12zm-7.183-.07l-.107.015-.139.021-.544.091-.226.042.053.163.184.52.111.294.017-.027.272-.483c.125-.215.251-.428.38-.636zm8.195-5.095c-.605-.349-1.675.074-2.905 1.08l-.34.288c-.108.096-.218.196-.329.3.494.556.984 1.168 1.46 1.83l.133.014c.82.088 1.603.215 2.333.376.466-1.992.355-3.48-.352-3.888zm-6.345 1.08c-1.23-1.006-2.3-1.429-2.905-1.08-.632.366-.788 1.593-.48 3.272l.09.449.02.085c.617-.122 1.267-.221 1.943-.294l.571-.055c.466-.646.946-1.244 1.43-1.786-.11-.106-.22-.207-.33-.303zm1.72 1.681l-.208.239c-.102.119-.203.24-.305.365L11 5.221c.243 0 .483.003.722.009l-.13-.159-.36-.42-.027-.032z"
+                    transform="translate(-900 -964) translate(447 895) translate(453 69) translate(1 1.78)"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-mockexam" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M16.295 17L22.9001 10.4022C23.0333 10.2686 23.0333 10.0528 22.9001 9.91921L21.0866 8.1002C20.9534 7.9666 20.7383 7.9666 20.6051 8.1002L14 14.698V17H16.295Z"
+                    fill="currentColor"
+                ></path>
+                <path
+                    d="M6.499 3V18.1563C6.499 18.1563 6.60987 20 4.5 20"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                ></path>
+                <path
+                    d="M9 6H15"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                ></path>
+                <path
+                    d="M9 9H12"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                ></path>
+                <path
+                    d="M18 9V3H6.5V14.3H3V17.747C3 19.427 3.33558 20 4.96827 20H15.0317C16.6644 20 18 18.827 18 17.147V17"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-interview" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M13.5.25c.38 0 .693.282.743.648L14.25 1v1h2.25c1.463 0 2.658 1.142 2.745 2.582l.005.168v11.5c0 1.519-1.231 2.75-2.75 2.75H3C1.481 19 .25 17.769.25 16.25V4.75C.25 3.231 1.481 2 3 2h2.25V1c0-.414.336-.75.75-.75.38 0 .693.282.743.648L6.75 1v1h6V1c0-.414.336-.75.75-.75zm4.25 8.25h-16v7.75c0 .647.492 1.18 1.122 1.244L3 17.5h13.5c.69 0 1.25-.56 1.25-1.25V8.5zM7.5 13c.414 0 .75.336.75.75 0 .38-.282.693-.648.743L7.5 14.5H5c-.414 0-.75-.336-.75-.75 0-.38.282-.693.648-.743L5 13h2.5zM5.25 3.5H3c-.69 0-1.25.56-1.25 1.25V7h16V4.75c0-.647-.492-1.18-1.122-1.244L16.5 3.5h-2.25V4c0 .414-.336.75-.75.75-.38 0-.693-.282-.743-.648L12.75 4v-.5h-6V4c0 .414-.336.75-.75.75-.38 0-.693-.282-.743-.648L5.25 4v-.5z"
+                    transform="translate(-1122 -964) translate(447 895) translate(675 69) translate(1.75 2)"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-portfolio" viewBox="0 0 24 24">
+                <g
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    fill="none"
+                    fill-rule="evenodd"
+                >
+                    <path
+                        d="M12.229 5.809c-.557.368-1.094.795-1.589 1.291-.73.73-.71.77-1.363 1.517m2.952-2.808C15.717 3.5 20 3.5 20 3.5s0 4.283-2.309 7.771M12.23 5.81l5.462 5.462m0 0A10.202 10.202 0 0 1 16.4 12.86c-.73.73-.77.71-1.517 1.363M5.47 13.45c-.379.533-.59.85-.59.85l4.32 4.32s.317-.211.85-.59m-4.58-4.58L2 9.98 7.76 7.1l1.517 1.517M5.47 13.45a63.643 63.643 0 0 1 3.807-4.833m.773 9.413 3.47 3.47 2.88-5.76-1.517-1.517M10.05 18.03a63.666 63.666 0 0 0 4.833-3.807M4.335 19.123c.356-1.443 1.018-2.036 1.527-1.527.51.509-.084 1.17-1.527 1.527z"
+                    ></path>
+                </g>
+            </symbol>
+            <symbol id="svg-gnb-my-payment" viewBox="0 0 24 24" fill="none">
+                <circle
+                    cx="15.75"
+                    cy="16.5254"
+                    r="5.25"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                ></circle>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.28172 1.33965C8.84781 0.886783 9.65219 0.886782 10.2183 1.33965L11.7617 2.57442C11.7787 2.58802 11.8026 2.58905 11.8207 2.57698L13.0902 1.73064C14.1203 1.04393 15.5 1.78234 15.5 3.02031V9.0255C15.5 9.43971 15.1642 9.7755 14.75 9.7755C14.3358 9.7755 14 9.43971 14 9.0255V3.02031C14 3.00354 13.9963 2.99737 13.9945 2.99456C13.9913 2.98948 13.9847 2.98216 13.9736 2.97623C13.9625 2.9703 13.9527 2.96881 13.9467 2.96898C13.9434 2.96908 13.9362 2.96941 13.9223 2.97871L12.6528 3.82505C12.0911 4.19947 11.3518 4.16738 10.8247 3.74572L9.28123 2.51096C9.26297 2.49635 9.23703 2.49635 9.21876 2.51096L7.67531 3.74572C7.14823 4.16738 6.40887 4.19947 5.84725 3.82505L4.57773 2.97871C4.56378 2.96941 4.55658 2.96908 4.55327 2.96898C4.54728 2.96881 4.53749 2.9703 4.52641 2.97623C4.51533 2.98216 4.50865 2.98948 4.50548 2.99456C4.50372 2.99737 4.5 3.00354 4.5 3.02031V17.0307C4.5 17.0475 4.50372 17.0536 4.50548 17.0564C4.50865 17.0615 4.51533 17.0688 4.52641 17.0748C4.53749 17.0807 4.54728 17.0822 4.55327 17.082C4.55658 17.0819 4.56378 17.0816 4.57773 17.0723L5.86302 16.2154C6.40983 15.8509 7.12707 15.8708 7.65281 16.2651L9.2 17.4255C9.53137 17.674 9.59853 18.1441 9.35 18.4755C9.10147 18.8069 8.63137 18.874 8.3 18.6255L6.75281 17.4651C6.73585 17.4524 6.71271 17.4517 6.69507 17.4635L5.40978 18.3204C4.37972 19.0071 3 18.2687 3 17.0307V3.02031C3 1.78234 4.37973 1.04393 5.40979 1.73064L6.6793 2.57698C6.69741 2.58905 6.72126 2.58802 6.73827 2.57442L8.28172 1.33965Z"
+                    fill="currentColor"
+                ></path>
+                <path
+                    d="M6.75 7.52539H11.75"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                ></path>
+                <path
+                    d="M6.75 10.0254H11.75"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                ></path>
+                <path
+                    d="M6.75 12.5254H9.25"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M13.0683 13.7726C13.4701 13.6721 13.8773 13.9164 13.9778 14.3183L14.3936 15.9816L15.0479 14.2368C15.1577 13.9441 15.4375 13.7502 15.7502 13.7502C16.0628 13.7502 16.3427 13.9441 16.4524 14.2368L17.1067 15.9816L17.5226 14.3183C17.623 13.9164 18.0302 13.6721 18.4321 13.7726C18.8339 13.873 19.0782 14.2802 18.9778 14.6821L17.9778 18.6821C17.8982 19.0006 17.6206 19.2303 17.2928 19.249C16.965 19.2676 16.6632 19.0709 16.5479 18.7635L15.7502 16.6362L14.9524 18.7635C14.8371 19.0709 14.5353 19.2676 14.2075 19.249C13.8797 19.2303 13.6022 19.0006 13.5226 18.6821L12.5226 14.6821C12.4221 14.2802 12.6664 13.873 13.0683 13.7726Z"
+                    fill="currentColor"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11.9502 16.0002C11.9502 15.586 12.286 15.2502 12.7002 15.2502H18.7002C19.1144 15.2502 19.4502 15.586 19.4502 16.0002C19.4502 16.4145 19.1144 16.7502 18.7002 16.7502H12.7002C12.286 16.7502 11.9502 16.4145 11.9502 16.0002Z"
+                    fill="currentColor"
+                ></path>
+            </symbol>
+            <symbol id="svg-gnb-my-mileage" viewBox="0 0 24 24">
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5.67237 5.80404C4.78765 6.00035 4.08679 6.71938 3.93893 7.64619L2.68299 15.5188C2.56185 16.2781 3.14847 16.9657 3.91738 16.9657H9.68695C10.1012 16.9657 10.437 17.3015 10.437 17.7157C10.437 18.1299 10.1012 18.4657 9.68695 18.4657H3.91738C2.22577 18.4657 0.93522 16.9529 1.20172 15.2824L2.45766 7.40988C2.72403 5.74022 4.06723 4.47518 5.7103 4.27759C5.97901 2.33915 7.6428 0.84668 9.65517 0.84668C11.6651 0.84668 13.3272 2.33546 13.599 4.27039C15.2714 4.44219 16.6464 5.7184 16.9162 7.40988L17.0202 8.06126L17.2737 9.65064C17.339 10.0597 17.0603 10.4442 16.6512 10.5094C16.2422 10.5747 15.8577 10.296 15.7925 9.88695L15.5389 8.29758L15.435 7.64619C15.2836 6.69729 14.5525 5.9662 13.638 5.7909V7.25408C13.638 7.66829 13.3022 8.00408 12.888 8.00408C12.4738 8.00408 12.138 7.66829 12.138 7.25408V5.75066H7.17237V7.25408C7.17237 7.66829 6.83659 8.00408 6.42237 8.00408C6.00816 8.00408 5.67237 7.66829 5.67237 7.25408V5.80404ZM7.2402 4.25066H12.0701C11.8094 3.15863 10.8271 2.34668 9.65517 2.34668C8.48326 2.34668 7.50098 3.15863 7.2402 4.25066Z"
+                    fill="currentColor"
+                ></path>
+                <circle
+                    cx="17"
+                    cy="17"
+                    r="5.25"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                ></circle>
+                <path
+                    d="M18.0592 15.1422C18.1192 14.9502 18.2092 14.8182 18.3292 14.7462C18.4532 14.6742 18.6112 14.6382 18.8032 14.6382C19.0272 14.6382 19.1972 14.6922 19.3132 14.8002C19.4292 14.9082 19.4872 15.0762 19.4872 15.3042V18.6762C19.4872 18.8162 19.4472 18.9302 19.3672 19.0182C19.2872 19.1102 19.1772 19.1562 19.0372 19.1562C18.8972 19.1562 18.7872 19.1102 18.7072 19.0182C18.6272 18.9302 18.5872 18.8162 18.5872 18.6762V16.1202H18.5752L17.6572 18.8022C17.6252 18.9062 17.5672 18.9862 17.4832 19.0422C17.3992 19.0982 17.2992 19.1262 17.1832 19.1262C17.0672 19.1262 16.9672 19.0982 16.8832 19.0422C16.7992 18.9862 16.7412 18.9062 16.7092 18.8022L15.7912 16.1202H15.7792V18.6762C15.7792 18.8162 15.7392 18.9302 15.6592 19.0182C15.5792 19.1102 15.4692 19.1562 15.3292 19.1562C15.1892 19.1562 15.0792 19.1102 14.9992 19.0182C14.9192 18.9302 14.8792 18.8162 14.8792 18.6762V15.3042C14.8792 15.0762 14.9372 14.9082 15.0532 14.8002C15.1692 14.6922 15.3392 14.6382 15.5632 14.6382C15.7552 14.6382 15.9112 14.6742 16.0312 14.7462C16.1552 14.8182 16.2472 14.9502 16.3072 15.1422L17.1772 17.8962H17.1892L18.0592 15.1422Z"
+                    fill="currentColor"
+                ></path>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M18.2288 14.573C18.3919 14.4783 18.5875 14.438 18.8032 14.438C19.0569 14.438 19.2836 14.4991 19.4495 14.6536C19.6212 14.8135 19.6872 15.0452 19.6872 15.304V18.676C19.6872 18.8556 19.6349 19.02 19.5167 19.1509C19.393 19.2921 19.2248 19.356 19.0372 19.356C18.8496 19.356 18.6814 19.2921 18.5577 19.1509C18.4395 19.02 18.3872 18.8556 18.3872 18.676V17.2868L17.8474 18.864C17.8027 19.0069 17.7186 19.1254 17.5941 19.2084C17.4726 19.2894 17.3326 19.326 17.1832 19.326C17.0338 19.326 16.8938 19.2894 16.7723 19.2084C16.6478 19.1254 16.5637 19.0069 16.519 18.864L15.9792 17.2868V18.676C15.9792 18.8556 15.9269 19.02 15.8087 19.1509C15.685 19.2921 15.5168 19.356 15.3292 19.356C15.1416 19.356 14.9734 19.2921 14.8497 19.1509C14.7315 19.02 14.6792 18.8556 14.6792 18.676V15.304C14.6792 15.0452 14.7452 14.8135 14.9169 14.6536C15.0828 14.4991 15.3095 14.438 15.5632 14.438C15.7779 14.438 15.9725 14.4779 16.1329 14.5738C16.3141 14.6795 16.4292 14.8622 16.498 15.082C16.498 15.0821 16.498 15.0819 16.498 15.082L17.1832 17.251L17.8683 15.0823C17.8683 15.0822 17.8683 15.0824 17.8683 15.0823C17.9366 14.8639 18.0492 14.6808 18.2263 14.5745L18.2288 14.573ZM18.0592 15.142C18.1192 14.95 18.2092 14.818 18.3292 14.746C18.4532 14.674 18.6112 14.638 18.8032 14.638C19.0272 14.638 19.1972 14.692 19.3132 14.8C19.4292 14.908 19.4872 15.076 19.4872 15.304V18.676C19.4872 18.816 19.4472 18.93 19.3672 19.018C19.2872 19.11 19.1772 19.156 19.0372 19.156C18.8972 19.156 18.7872 19.11 18.7072 19.018C18.6272 18.93 18.5872 18.816 18.5872 18.676V16.12H18.5752L17.6572 18.802C17.6252 18.906 17.5672 18.986 17.4832 19.042C17.3992 19.098 17.2992 19.126 17.1832 19.126C17.0672 19.126 16.9672 19.098 16.8832 19.042C16.7992 18.986 16.7412 18.906 16.7092 18.802L15.7912 16.12H15.7792V18.676C15.7792 18.816 15.7392 18.93 15.6592 19.018C15.5792 19.11 15.4692 19.156 15.3292 19.156C15.1892 19.156 15.0792 19.11 14.9992 19.018C14.9192 18.93 14.8792 18.816 14.8792 18.676V15.304C14.8792 15.076 14.9372 14.908 15.0532 14.8C15.1692 14.692 15.3392 14.638 15.5632 14.638C15.7552 14.638 15.9112 14.674 16.0312 14.746C16.1552 14.818 16.2472 14.95 16.3072 15.142L17.1772 17.896H17.1892L18.0592 15.142Z"
+                    fill="currentColor"
+                ></path>
+            </symbol>
+        </svg>
+    </body>
+    <script src="/static/js/my-page/my-page-header.js"></script>
+</html>

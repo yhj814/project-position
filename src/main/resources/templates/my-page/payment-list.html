@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>payment-list</title>
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/static/css/my-page/payment-list.css" />
+    </head>
+    <body id="container" class="vsc-initialized">
+        <header></header>
+        <div id="position-section">
+            <div id="position-gnb-wrap"></div>
+            <div id="position-wrap">
+                <div id="content">
+                    <div class="wrap-pay" id="paymentHistoryArea">
+                        <h1 class="wrap-title">결제내역</h1>
+                        <strong class="list-title"
+                            >서비스 결제 내역을 확인할 수 있습니다.</strong
+                        >
+                        <div class="top-filter">
+                            <div class="total">
+                                총 <span class="count">1</span>건
+                            </div>
+                            <div class="search-interview -searchHistoryForm">
+                                <form id="form-search" name="form-search">
+                                    <div class="InpBox">
+                                        <select
+                                            name="searchPeriod"
+                                            id="searchPeriod"
+                                            title="기간 설정"
+                                        >
+                                            <option value="1">
+                                                지난 1개월
+                                            </option>
+                                            <option value="3" selected="">
+                                                지난 3개월
+                                            </option>
+                                            <option value="6">
+                                                지난 6개월
+                                            </option>
+                                            <option value="12">지난 1년</option>
+                                            <!-- <option value="period">
+                                                기간 설정
+                                            </option> -->
+                                        </select>
+                                    </div>
+
+                                    <div class="TypoBox search-area">
+                                        <input
+                                            type="text"
+                                            class="Typo search"
+                                            id="searchKeyword"
+                                            name="searchKeyword"
+                                            value=""
+                                            placeholder="키워드 입력"
+                                        />
+                                        <button
+                                            type="button"
+                                            id="keywordSearch"
+                                        >
+                                            <svg class="icon-search">
+                                                <use
+                                                    xlink:href="#svg-my-8"
+                                                ></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- 내용 있을때 -->
+                        <div class="list-rewards list-balance">
+                            <ul>
+                                <li class="item">
+                                    <div class="info-status">
+                                        <span class="order-num">217174070</span>
+                                        <span class="date"
+                                            >24.10.18(금) 00:46</span
+                                        >
+                                        <span class="status">구매완료</span>
+                                    </div>
+                                    <span class="title">포지션 인성검사</span>
+                                    <span class="price"> 4,900원 </span>
+                                    <span class="info">
+                                        <strong class="info-card"
+                                            >이니페이 카카오 머니</strong
+                                        >
+                                    </span>
+                                    <!-- <div class="wrap-btn">
+                                        <button
+                                            type="button"
+                                            class="BtnType SizeM GrayInvert -showReceipt"
+                                            data-pay-idx="314641837"
+                                            data-pay-method="kg-kp-pnt"
+                                            data-tid="StdpayCARDsaramin00020241018004609288421"
+                                            data-server-env="production"
+                                        >
+                                            영수증 보기
+                                        </button>
+                                        <a
+                                            href="javascript:;"
+                                            type="button"
+                                            class="BtnType SizeM GrayInvert -setInquiry"
+                                            data-order-idx="217174070"
+                                            data-payment-product-name="사람인 인성검사"
+                                            >결제 문의</a
+                                        >
+                                    </div> -->
+                                </li>
+                                <li class="item">
+                                    <div class="info-status">
+                                        <span class="order-num">217174070</span>
+                                        <span class="date"
+                                            >24.10.18(금) 00:46</span
+                                        >
+                                        <span class="status">구매완료</span>
+                                    </div>
+                                    <span class="title">포지션 인성검사</span>
+                                    <span class="price"> 4,900원 </span>
+                                    <span class="info">
+                                        <strong class="info-card"
+                                            >이니페이 카카오 머니</strong
+                                        >
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="PageBox">
+                            <p class="BtnType SizeS BtnPrev">이전</p>
+                            <p class="BtnType SizeS select">1</p>
+                            <p class="BtnType SizeS">2</p>
+                            <p class="BtnType SizeS">3</p>
+                            <p class="BtnType SizeS BtnNext">다음</p>
+                        </div>
+                        <div class="NotiBox">
+                            <h4 class="NotiTit">결제내역<br />유의사항</h4>
+                            <div class="NotiCont">
+                                <ul class="list">
+                                    <li>결제내역은 최대 3년까지 보관됩니다.</li>
+                                    <li>
+                                        결제 취소 및 환불, 궁금하신 점은
+                                        결제문의 버튼을 통해 문의해주세요.
+                                    </li>
+                                    <li>
+                                        인적성검사 상품의 경우 응시중, 응시완료
+                                        시 결제취소가 불가합니다.
+                                    </li>
+                                    <li>
+                                        공기업 모의고사 상품은 아래와 같은 경우
+                                        결제취소가 불가합니다.<br />
+                                        -
+                                        기출·실전·NCS모의고사/기출해설강의/패키지/프리패스
+                                        상품 구매 후 모의고사를 1회라도 응시한
+                                        경우<br />
+                                        - 해설강의를 시청한 경우<br />
+                                        - 무료로 구매한 상품의 경우<br />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <symbol id="svg-my-8" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M7 0c3.866 0 7 3.134 7 7 0 1.756-.647 3.36-1.714 4.59l.068.056 3.394 3.395c.195.195.195.511 0 .707-.174.173-.443.193-.638.058l-.07-.058-3.394-3.394-.056-.068C10.36 13.353 8.756 14 7 14c-3.866 0-7-3.134-7-7s3.134-7 7-7zm0 1C3.686 1 1 3.686 1 7s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z"
+                    transform="translate(-1125 -399) translate(447 335) translate(678 64) translate(4 4)"
+                ></path>
+            </symbol>
+        </svg>
+    </body>
+    <script src="/static/js/my-page/payment-list.js"></script>
+</html>

@@ -1,0 +1,285 @@
+#sri_wrap {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+
+#sri_section.has_banner {
+    min-width: 980px;
+}
+
+#sri_section {
+    display: table;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#sri_section.has_banner #content {
+    min-height: 960px;
+}
+
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 56px auto 80px auto;
+    width: 960px;
+}
+
+.wrap_title_recruit .title_common {
+    display: inline-block;
+    color: #444;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 36px;
+    vertical-align: top;
+}
+
+.help_find .cont_find {
+    position: relative;
+    z-index: 1;
+    margin-top: -1px;
+    width: 100%;
+    padding: 124px 99px 125px 99px;
+    border: 1px solid #bebebe;
+}
+
+.help_find * {
+    box-sizing: border-box;
+}
+
+.help_find .desc_find {
+    margin-bottom: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 15px;
+    color: #444;
+}
+
+.help_find .list_find {
+    border-top: 1px solid #eaeaea;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+.help_find .wrap_lab {
+    display: table-cell;
+    position: relative;
+    padding: 26px 0 0 39px;
+    width: 185px;
+    vertical-align: top;
+}
+
+.help_find .lab_find {
+    display: block;
+    font-size: 15px;
+    line-height: 15px;
+    color: #666;
+}
+
+.help_find .wrap_input {
+    display: table-cell;
+    position: relative;
+    padding: 12px 20px;
+    width: 575px;
+    background: #fff;
+    vertical-align: top;
+}
+
+.help_find .box_input {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #dbdbdb;
+    vertical-align: top;
+}
+
+.help_find .inp_find {
+    display: block;
+    padding: 0 18px 1px 18px;
+    width: 336px;
+    height: 38px;
+    border: 0;
+    font-size: 15px;
+    line-height: 40px;
+    color: #444;
+    vertical-align: middle;
+}
+
+.help_find .message_find {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ff0000;
+}
+
+.help_find .wrap_link {
+    display: block;
+    margin: 40px auto 0;
+    font-size: 0;
+    text-align: center;
+}
+
+.btn_biggest_type01 {
+    display: inline-block;
+    padding: 13px 8px 14px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #5f75eb;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+    vertical-align: top;
+    background-color: #6b80f1;
+}
+
+
+.help_find .wrap_link .btn_biggest_type01, .help_find .wrap_link .btn_biggest_type03, .help_find .wrap_link .btn_biggest_type04 {
+    margin: 0 5px;
+    padding: 11px 8px 14px;
+    width: 212px;
+    height: 60px;
+    font-size: 20px;
+}
+
+button, label {
+    cursor: pointer;
+}
+
+*:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid var(--blue100);
+    outline-offset: 2px;
+}
+
+.help_find .list_find li {
+    border-bottom: 1px solid #eaeaea;
+    font-size: 0;
+    background: #f7f7f7;
+}
+
+.wrap_title_recruit {
+    position: relative;
+    padding: 0 0 50px;
+}
+
+.wrap_title_recruit .title_common {
+    display: inline-block;
+    color: #444;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 36px;
+    vertical-align: top;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, b, strong, input, textarea, button, select {
+    margin: 0;
+    padding: 0;
+    font-family: "Pretendard", "Malgun Gothic", dotum, gulim, sans-serif;
+}
+.help_find .find_method {
+    margin-top: -1px;
+    padding: 40px 40px 39px 40px;
+    border: 1px solid #e4e5e7;
+    font-size: 0;
+    background: #f8f8f8;
+}
+
+.help_find .find_method {
+    margin-top: -1px;
+    padding: 40px 40px 39px 40px;
+    border: 1px solid #e4e5e7;
+    font-size: 0;
+    background: #f8f8f8;
+}
+
+.btn_basic_type01 {
+    display: inline-block;
+    padding: 5px 13px 9px;
+    height: 32px;
+    border: 1px solid #ababab;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 13px;
+    line-height: normal;
+    vertical-align: top;
+    background-color: #fff;
+}
+
+a {
+    color: #444;
+    text-decoration: none;
+}
+
+.help_find .find_method .btn_basic_type04, .help_find .find_method .btn_basic_type01, .help_find .find_method .btn_basic_type02 {
+    margin-right: 7px;
+}
+
+.help_find .find_method .btn_login:before {
+    display: inline-block;
+    margin: 3px 9px 0 0;
+    width: 16px;
+    height: 16px;
+    background: url(/static/images/login/ico_find_login.png) no-repeat 0 0;
+    vertical-align: top;
+    content: "";
+}
+
+.help_find .find_method .btn_sns:before {
+    display: inline-block;
+    margin: 3px 9px 0 0;
+    width: 16px;
+    height: 13px;
+    background: url(/static/images/login/ico_find_login.png) no-repeat 0 -40px;
+    vertical-align: top;
+    content: "";
+}
+
+.help_find .find_method .btn_basic_type04 {
+    padding-left: 13px;
+}
+
+.btn_basic_type04 {
+    display: inline-block;
+    padding: 5px 13px 9px;
+    height: 32px;
+    border: 1px solid #8f8f8f;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 13px;
+    line-height: normal;
+    vertical-align: top;
+    background-color: #9c9c9c;
+}
+
+.help_find .find_method .btn_basic_type04 {
+    padding-left: 13px;
+}
+
+.help_find .desc_method {
+    margin-top: 18px;
+    font-size: 13px;
+    line-height: 14px;
+    color: #666;
+}
+
+.help_find .desc_method:before {
+    display: inline-block;
+    margin: 1px 6px 0 0;
+    width: 14px;
+    height: 14px;
+    background: url(/static/images/login/ico_find_notice.png) no-repeat 0 0;
+    vertical-align: top;
+    content: "";
+}
+
+.help_find .link_ask {
+    color: #444;
+    text-decoration: underline;
+}

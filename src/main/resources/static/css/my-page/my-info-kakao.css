@@ -1,0 +1,427 @@
+#container {
+    position: relative;
+}
+
+body {
+    min-width: 1580px;
+}
+
+/*헤더*/
+#position-header.integrated-header {
+    padding: 18px 40px 0 0;
+    border-bottom: 1px solid #eaedf4;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white);
+    min-width: 700px;
+}
+
+#position-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    padding: 24px 40px 0 0;
+    height: 64px;
+    box-sizing: border-box;
+    font-size: 0;
+    text-align: right;
+}
+
+#position-header:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 272px;
+    z-index: 1;
+    background: #fff;
+    content: "";
+    opacity: 0.95;
+}
+
+#position-header.integrated-header .area-logo {
+    margin-left: 64px;
+    padding-top: 4px;
+}
+
+#position-header.integrated-header .area-logo .link-position-logo {
+    margin-right: 6px;
+}
+.area-logo .link-position-logo svg{
+    width:82px;
+    height:21px;
+    background: url('/static/images/my-page/position-logo-small.svg') no-repeat;
+}
+#position-section {
+    display: grid;
+    grid-template-areas:
+        "gnb main"
+        "gnb footer";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    min-width: 1560px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.position-gnb-section #position-gnb-wrap.position-gnb-wrap {
+    margin-top: 64px;
+    padding-top: 36px;
+}
+
+.position-gnb-section #position-gnb-wrap {
+    padding-top: 96px;
+}
+
+#position-gnb-wrap {
+    grid-area: gnb;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    width: 271px;
+    border-right: 1px solid #f0f0f0;
+    background: #fff;
+    transition: width 0.5s;
+}
+
+#position-gnb-wrap .gnb {
+    margin: 0 auto;
+    width: 240px;
+}
+
+#position-gnb-wrap .gnb>li {
+    position: relative;
+}
+
+#position-gnb-wrap .gnb>li>a {
+    display: block;
+    position: relative;
+    padding: 10px 0 14px 56px;
+    height: 44px;
+    box-sizing: border-box;
+}
+
+#position-gnb-wrap .gnb>li.only.selected>a:before {
+    opacity: 1;
+}
+
+#position-gnb-wrap .gnb>li.selected>a:before {
+    background: #eff5ff;
+}
+
+#position-gnb-wrap .gnb>li>a:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 240px;
+    height: 44px;
+    border-radius: 5px;
+    background: #f4f6fa;
+    transition: opacity 0.5s;
+    content: "";
+    opacity: 0;
+}
+
+#position-gnb-wrap .gnb>li>a>svg {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    z-index: 3;
+    width: 24px;
+    height: 24px;
+}
+
+#position-gnb-wrap .gnb>li.selected>a svg use {
+    color: #4876ef;
+}
+
+#position-gnb-wrap .gnb>li>a>svg use {
+    color: #afbac8;
+}
+
+#position-gnb-wrap .gnb>li.selected>a>.txt {
+    color: #4876ef;
+    font-weight: bold;
+}
+
+#position-gnb-wrap .gnb>li>a>.txt {
+    display: block;
+    position: relative;
+    z-index: 2;
+    color: #5c667b;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+#position-gnb-wrap .gnb>li+li {
+    margin-top: 8px;
+}
+
+#position-gnb-wrap .gnb>li {
+    position: relative;
+}
+
+/* 바디 */
+#position-wrap {
+    grid-area: main;
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#content {
+    position: relative;
+    margin: 88px auto 136px;
+    width: 1248px;
+}
+
+.wrapper-narrow .wrap-title {
+    margin-bottom: 45px;
+}
+.wrap-title {
+    color: #373f57;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 56px;
+}
+.password-confirm-wrap {
+    margin-top: 56px;
+}
+.password-confirm-desc {
+    color: var(--gray90);
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+}
+
+.password-confirm-field {
+    margin: 40px auto 64px;
+    width: 500px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.password-confirm-field.social-join .social-check .InpBox {
+    padding: 22px 0;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid var(--gray30);
+}
+
+.InpBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.InpBox .Rdo {
+    position: relative;
+}
+
+.InpBox .Rdo input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.InpBox .Rdo .Lbl {
+    display: block;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.InpBox .Rdo .Lbl:before {
+    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--gray70);
+    border-radius: 50%;
+    vertical-align: top;
+    background: var(--white);
+    content: '';
+}
+
+.InpBox .Rdo .Lbl:after {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: '';
+}
+
+.password-confirm-field.social-join .social-check ul {
+    padding: 16px 0;
+}
+
+.password-confirm-field.social-join .social-check ul li:first-child {
+    margin-bottom: 8px;
+}
+
+.password-confirm-field.social-join .social-check ul li {
+    display: flex;
+    flex-direction: row;
+}
+
+.password-confirm-field.social-join .social-check .wrap-lab {
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: var(--gray90);
+    width: 25%;
+}
+
+.password-confirm-field.social-join .social-check .wrap-input .box-input {
+    display: flex;
+    align-items: center;
+    width: 337px;
+}
+
+.TypoBox {
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+.TypoBox .Typo.SizeL {
+    padding: 12px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.TypoBox .Typo {
+    padding: 8px 12px;
+    width: 100%;
+    height: 38px;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: none;
+}
+
+.password-confirm-field.social-join .social-check .wrap-input .box-input .BtnType {
+    flex-shrink: 0;
+    margin-right: 4px;
+    width: 80px;
+}
+
+[class*="BtnType"].SizeM {
+    padding: 6px 11px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--blue90);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--blue90);
+    justify-content: center;
+    align-items: center;
+}
+
+.MsgTxt.Invalid {
+    color: var(--coral110);
+    display:none;
+}
+.TypoBox:has(.Typo.Invalid) {
+    border-color: var(--coral110);
+}
+
+.MsgTxt {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--gray80);
+    font-size: 13px;
+    line-height: 20px;
+}
+
+[class*="BtnType"]:disabled, [class*="BtnType"].disabled {
+    cursor: default;
+}
+[class*="BtnType"].disabled, [class*="BtnType"].disabled:hover, [class*="BtnType"]:disabled, [class*="BtnType"]:disabled:hover {
+    border-color: var(--gray40) !important;
+    color: var(--gray50) !important;
+    background-color: var(--gray20) !important;
+}
+
+
+.password-confirm-field.social-join .social-check .wrap-input .box-input .expiredin {
+    position: absolute;
+    right: 100px;
+    display: inline-block;
+    font-size: 13px;
+    color: var(--coral110);
+    line-height: 48px;
+    height: 48px;
+}
+
+.password-confirm-field.social-join .social-check.line-bottom {
+    border-bottom: 1px solid var(--gray30);
+}
+.password-confirm-field.social-join .social-check.line {
+    border-top: 1px solid var(--gray30);
+}
+.InpBox .Rdo input:checked~.Lbl:before {
+    border-color: var(--blue90);
+    background: var(--blue90);
+}
+
+.InpBox .Rdo input:checked~.Lbl:after {
+    background: var(--white);
+}
+
+.TypoBox:hover {
+    background: var(--gray20);
+}
+
+#sms-confirm-form{
+    display:none;
+}
+#cell-message{
+    display:none;
+}
+#sms-code-message{
+    display:none;
+}
+
+
+#email-confirm-form{
+    display:none;
+}
+
+.svg-pattern{
+    display:none;
+}
+
+#email-code-message{
+    display: none;
+}
+#email-message{
+    display: none;
+}
