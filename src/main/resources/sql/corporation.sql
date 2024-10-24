@@ -20,3 +20,31 @@ alter table  tbl_corporation add(created_date datetime default current_timestamp
 alter table  tbl_corporation add(updated_date datetime default current_timestamp);
 
 select * from  tbl_corporation;
+
+INSERT INTO tbl_corporation (
+    corporation_name,
+    corporation_address,
+    corporation_address_detail,
+    corporation_business,
+    corporation_type,
+    corporation_employees_number,
+    corporation_sales,
+    corporation_owner,
+    corporation_email,
+    corporation_password,
+    corporation_homepage,
+    corporation_read_count
+) VALUES (
+             'ABC 유통',
+             '서울특별시 강남구 테헤란로',
+             '123-45',
+             '유통업',
+             '대기업',
+             500,
+             100000000,
+             '김철수',
+             'abc@company.com',
+             'password123',
+             'www.abccorporation.com',
+             0
+         );
