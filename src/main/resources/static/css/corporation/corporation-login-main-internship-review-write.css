@@ -1,0 +1,235 @@
+#sri-section.layout-full {
+    margin: 0;
+    width: 100%;
+}
+#sri-section {
+    display: table;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#sri-wrap {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#sri-section.layout-full #content {
+    margin: 0;
+    margin-bottom: 80px;
+    width: 100%;
+}
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 56px auto 80px auto;
+    width: 960px;
+}
+.company-honest-qna .contents-container {
+    margin: 0 auto;
+    width: 1260px;
+    min-height: 700px;
+}
+.contents-container.qna-write-wrap {
+    width: 960px;
+}
+.qna-write-wrap .qna-write-selection {
+    display: flex;
+    padding: 73px 0 22px;
+    font-size: 24px;
+    line-height: 24px;
+    align-items: center;
+}
+.qna-write-wrap .qna-category-tit {
+    color: #5c667b;
+    font-weight: 900;
+}
+.qna-subject-input {
+    display: block;
+    padding: 13px 24px;
+    width: 100%;
+    height: 48px;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #373f57;
+    font-size: 15px;
+    line-height: 22px;
+}
+.qna-write-post {
+    position: relative;
+    margin-top: 32px;
+    min-height: 240px;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+}
+.editor-wrap.h-max {
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 20px 24px;
+    height: 497px;
+    border-bottom: 1px solid #d7dce5;
+}
+.editor-wrap {
+    position: relative;
+    padding: 20px 24px;
+    width: 100%;
+    height: 162px;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #373f57;
+    font-size: 14px;
+    line-height: 24px;
+}
+.editor-wrap:empty:not(:focus)::before {
+    display: inline-block;
+    color: #8491a7;
+    white-space: pre;
+    content: attr(data-ph);
+    pointer-events: none;
+}
+.qna-write-post .qna-input-bottom {
+    position: relative;
+    padding: 20px 150px 20px 20px;
+    min-height: 58px;
+    box-sizing: border-box;
+}
+.qna-write-post .qna-input-bottom .btn-image-add {
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    padding-left: 32px;
+    height: 24px;
+    color: #373f57;
+    font-size: 14px;
+}
+.qna-write-post .qna-input-bottom .btn-image-add:before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/company_review/icons.png)
+        no-repeat 0 -200px;
+    content: "";
+}
+.qna-write-post .qna-input-bottom .post-count {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: #5c667b;
+    font-size: 13px;
+    text-align: right;
+}
+.qna-write-post .qna-input-bottom .post-count em {
+    color: #4876ef;
+}
+.qna-write-foot {
+    margin-top: 60px;
+    text-align: center;
+}
+[class*="BtnType"].SizeXL {
+    padding: 17px 19px 19px;
+    height: 64px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+}
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--blue90);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--blue90);
+    justify-content: center;
+    align-items: center;
+}
+.btn-qna-write {
+    width: 320px;
+}
+button,
+label {
+    cursor: pointer;
+}
+.ModalBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 110;
+    padding: 40px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) translateX(-50%) translateZ(0);
+}
+.layer-qna-alert {
+    display: none;
+    width: 390px;
+}
+.layer-qna-alert.ModalBox .ModalCont {
+    color: var(--gray110);
+}
+.ModalBox .ModalCont {
+    color: var(--gray90);
+    font-size: 14px;
+    line-height: 20px;
+}
+.ModalBox .BtmArea {
+    display: flex;
+    margin-top: 24px;
+    justify-content: center;
+}
+.ModalBox .BtmArea .BtnType {
+    min-width: 100px;
+}
+[class*="BtnType"].SizeM {
+    padding: 6px 11px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 24px;
+}
+.layer-qna-alert .btn-confirm {
+    width: 266px;
+}
+.ModalBox .BtnClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+}
+.hidden,
+.blind {
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+}
+.ModalBox .BtnClose:after {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(/static/images/corporation/x.svg);
+    content: "";
+}
+.sri-dimmed {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 105;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}

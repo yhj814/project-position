@@ -1,0 +1,162 @@
+body {
+    position: relative;
+    padding-top: 0;
+    min-width: 1280px;
+    box-sizing: border-box;
+}
+#sri_footer {
+    /*display: table-row;*/
+    width: 100%;
+    height: 1px;
+}
+
+.sri_footer {
+    display: block;
+    clear: both;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-width: 960px;
+}
+
+.sri_footer .wrap_footer {
+    min-width: 960px;
+    border: solid #d7dce5;
+    border-width: 1px 0;
+    background: #f8fafc;
+}
+
+.sri_footer .links ul {
+    display: flex;
+    margin: 24px auto 0;
+    width: 960px;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.sri_footer .links ul li a {
+    display: inline-flex;
+    color: var(--color_secondary);
+    font-size: 14px;
+    line-height: 24px;
+}
+.sri_footer .links ul li a:hover {
+    color: var(--common_blue90);
+}
+
+.sri_footer .links ul li.bold a {
+    font-weight: bold;
+}
+
+.sri_footer .copyright {
+    display: flex;
+    margin: 23px auto 0;
+    padding-bottom: 38px;
+    width: 960px;
+    color: var(--color_secondary);
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    flex-flow: column nowrap;
+}
+
+.sri_footer .copyright .help_list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.sri_footer .copyright .help_list dl {
+    display: inline-flex;
+    align-items: center;
+}
+
+.sri_footer .copyright .help_list dl dt {
+    margin-right: 5px;
+}
+
+.sri_footer .copyright dl:before {
+    display: inline-flex;
+    margin: 0 8px;
+    width: 1px;
+    height: 14px;
+    background-color: #ddd;
+    content: "";
+}
+
+.sri_footer .copyright .help_list dl dt {
+    margin-right: 5px;
+}
+
+.sri_footer .copyright a {
+    color: var(--color_secondary);
+}
+
+.sri_footer .copyright .link_channel {
+    margin-top: 10px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.sri_footer .copyright .link_channel .link_cont {
+    display: inline-flex;
+    line-height: 24px;
+    align-items: center;
+}
+
+.sri_footer .copyright .link_channel .link_cont:after {
+    display: inline-block;
+    margin-left: 3px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/common/layout/footer/spr_ico_2212.png) -90px -10px no-repeat;
+    content: "";
+}
+.sri_footer .copyright .link_channel dl {
+    display: inline-flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+.sri_footer .copyright .link_channel dl dt {
+    margin-right: 10px;
+}
+
+.sri_footer .copyright .link_channel dl dd {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+}
+.sri_footer .copyright .link_channel dl dd a {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.sri_footer .copyright .link_channel dl dd:nth-of-type(1) a:after {
+    background-position: -50px -10px;
+}
+
+.sri_footer .copyright .link_channel dl dd a:after {
+    width: 20px;
+    height: 20px;
+    background: url(//www.saraminimage.co.kr/sri/common/layout/footer/spr_ico_2212.png) -90px -10px no-repeat;
+    background-size: 120px auto;
+    content: "";
+}
+.sri_footer .copyright .link_channel dl dd:nth-of-type(2) a:after {
+    background-position: -10px -10px;
+}
+.sri_footer .copyright .link_channel dl dd:nth-of-type(3) a:after {
+    background-position: -50px -50px;
+}
+.sri_footer .copyright .link_channel dl dd:nth-of-type(4) a:after {
+    background-position: -10px -50px;
+}
+.sri_footer .copyright .link_channel dl dd:nth-of-type(5) a:after {
+    background-position: -90px -50px;
+}

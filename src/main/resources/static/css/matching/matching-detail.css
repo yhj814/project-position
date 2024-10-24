@@ -1,0 +1,1992 @@
+/* main */
+#position-header.simple ~ #srch-wrap,
+#position-header.simple.fixed ~ #srch-wrap {
+    height: 72px;
+}
+#position-header ~ #srch-wrap {
+    height: 96px;
+}
+#position-header.simple ~ #position-section {
+    margin-top: 0;
+}
+#position-header.simple ~ #srch-wrap .quick-search,
+#position-header.simple.fixed ~ #srch-wrap .quick-search {
+    top: 59px;
+}
+
+#position-section {
+    display: table;
+    overflow: hidden;
+
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#position-wrap {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 39px 0 40px;
+    width: 100%;
+    min-height: 2000px;
+    background: #f1f3f9;
+}
+#content {
+    position: relative;
+    z-index: 1;
+    margin: 56px auto 80px auto;
+    /* width: 960px; */
+}
+.wrap-jview {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 960px;
+}
+.jview {
+    position: relative;
+    /* background-color: #fff; */
+}
+.jview > .wrap-jv-cont {
+    position: relative;
+    padding: 40px 44px 100px;
+    border: 1px solid #e5e6eb;
+    background: #fff;
+}
+/* header */
+.wrap-jv-header {
+    padding-bottom: 30px;
+    min-height: 75px;
+}
+a {
+    color: #444;
+    text-decoration: none;
+}
+.jv-header {
+    position: relative;
+    padding-right: 270px;
+    color: #222;
+    min-height: 74px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+.jv-header .title-inner {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: 28px;
+}
+.jv-header .company {
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 8px;
+    padding-right: 2px;
+    max-width: 380px;
+    height: 28px;
+    color: #222;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 28px;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.jview .title-inner .btn-jview {
+    border-color: #e4e4e4;
+}
+.jview .btn-interest {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.jview .btn-jview {
+    display: inline-block;
+    padding: 0 9px 3px;
+    height: 28px;
+    border: 1px solid #8491a7;
+    box-sizing: border-box;
+    font-size: 0;
+    vertical-align: top;
+    background-color: #fff;
+}
+.jview .btn-interest svg {
+    margin-right: 2px;
+}
+.jv-header .tit-job {
+    flex: 0 0 100%;
+    margin-top: 4px;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 39px;
+}
+.jv-header .btn-scrap {
+    position: absolute;
+    top: 14px;
+    right: 195px;
+}
+.jview .btn-scrap {
+    display: block;
+    padding: 11px 0 7px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #8491a7;
+}
+.jview .btn-scrap .txt-scrap {
+    display: block;
+    padding-top: 24px;
+    width: 100%;
+    height: 100%;
+    color: #5c667b;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 14px;
+}
+.jview .btn-scrap .txt-scrap:before {
+    position: absolute;
+    left: 50%;
+    top: 11px;
+    margin-left: -10px;
+    width: 19px;
+    height: 19px;
+    background-position: -60px 0;
+}
+.btn-scrap .txt-scrap:before {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/common/spr/spr_scrap.png)
+        no-repeat 0 0;
+    content: "";
+}
+.jv-header .btn-apply {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    width: 185px;
+    text-align: center;
+}
+.jv-header .btn-apply .dday {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    padding: 0 8px;
+    height: 21px;
+    border: 1px solid #ff6d6a;
+    border-radius: 21px;
+    color: #d63131;
+    font-size: 12px;
+    line-height: 18px;
+    background: #fff;
+}
+.jv-header .btn-apply .position-btn-lg {
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+}
+.jview .position-btn-lg {
+    display: block;
+    width: 185px;
+}
+.position-btn-lg {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 212px;
+    height: 60px;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+}
+.jv-header .btn-apply .position-btn-lg span.position-btn-recruitin-apply,
+.jv-howto .cont.box .position-btn-lg span.position-btn-recruitin-apply,
+.jv-header .btn-apply .position-btn-lg span.position-btn-immediately,
+.jv-howto .cont.box .position-btn-lg span.position-btn-immediately {
+    border: 1px solid #ff5656;
+    color: #fff;
+    background: #ff5656;
+}
+.jv-header .btn-apply .position-btn-lg span,
+.jv-howto .cont.box .position-btn-lg span {
+    border: 1px solid #8491a7;
+    color: #666;
+    background: #fff;
+}
+.jview .position-btn-lg span {
+    width: 183px;
+}
+.position-btn-lg span.position-btn-immediately,
+.position-btn-lg span.position-btn-recruitin-apply {
+    position: relative;
+    border: 1px solid var(--coral110);
+    color: var(--coral110);
+}
+.position-btn-lg span {
+    display: inline-block;
+    width: 210px;
+    height: 58px;
+    border: 1px solid var(--gray80);
+    color: var(--gray100);
+    font-size: 20px !important;
+    font-weight: bold;
+    line-height: 54px;
+    background: var(--white);
+}
+
+.jview .title-inner .btn-jview {
+    border-color: #e4e4e4;
+}
+.jview .btn-interest {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.jview .btn-jview {
+    display: inline-block;
+    padding: 0 9px 3px;
+    height: 28px;
+    border: 1px solid #8491a7;
+    box-sizing: border-box;
+    font-size: 0;
+    vertical-align: top;
+    background-color: #fff;
+}
+.jview .btn-interest svg {
+    margin-right: 2px;
+}
+.jview .title-inner .btn-jview {
+    border-color: #e4e4e4;
+}
+.jview .btn-interest.on svg path {
+    fill: #ff6f6c;
+    stroke: #f75855;
+}
+.jview .title-inner .btn-jview {
+    border-color: #e4e4e4;
+}
+.jview .btn-interest {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.jview .btn-jview {
+    /* display: inline-block; */
+    padding: 0 9px 3px;
+    height: 28px;
+    border: 1px solid #8491a7;
+    box-sizing: border-box;
+    font-size: 0;
+    vertical-align: top;
+    background-color: #fff;
+}
+.jview .btn-interest svg {
+    margin-right: 2px;
+}
+.jview .btn-jview span {
+    color: var(--color-secondary);
+    font-size: 13px;
+    font-weight: normal;
+}
+.jview .position-btn-lg span {
+    width: 183px;
+}
+/* summary */
+.wrap-jv-header + .jv-cont {
+    margin-top: 0;
+}
+.jv-cont {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+}
+.jv-cont > .cont {
+    position: relative;
+}
+.jv-summary .col {
+    float: left;
+    padding: 24px 0;
+    width: 420px;
+    border-top: 1px solid #e5e6eb;
+    font-size: 14px;
+}
+.jv-summary .col > dl:first-child {
+    margin-top: 0;
+}
+.jv-summary .col > dl {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    margin-top: 5px;
+    min-height: 24px;
+}
+.jv-summary .col > dl > dt {
+    width: 86px;
+    color: #5c667b;
+    line-height: 24px;
+}
+.jv-summary .col > dl > dd {
+    width: calc(100% - 86px);
+    color: #373f57;
+    line-height: 24px;
+}
+.jv-summary .col > dl > dd strong {
+    color: #2d65f2;
+    font-weight: normal;
+}
+.jv-summary .col > dl > dd {
+    width: calc(100% - 86px);
+    color: #373f57;
+    line-height: 24px;
+}
+.jv-summary .col > dl > dd .etc {
+    color: #888;
+    font-size: 13px;
+}
+.jv-summary .col + .col {
+    margin-left: 30px;
+}
+.jv-summary .col {
+    float: left;
+    padding: 24px 0;
+    width: 420px;
+    border-top: 1px solid #e5e6eb;
+    font-size: 14px;
+}
+.jv-summary .col > dl:first-child {
+    margin-top: 0;
+}
+.jv-summary .col > dl {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    margin-top: 5px;
+    min-height: 24px;
+}
+.jv-summary .col > dl > dt {
+    width: 86px;
+    color: #5c667b;
+    line-height: 24px;
+}
+.jv-summary .col > dl > dd {
+    width: calc(100% - 86px);
+    color: #373f57;
+    line-height: 24px;
+}
+.jv-summary .meta {
+    clear: both;
+    position: relative;
+    padding-top: 12px;
+    border-top: 1px solid #e5e6eb;
+    font-size: 0;
+    line-height: 18px;
+    text-align: right;
+}
+.jv-summary .meta:before {
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 420px;
+    width: 30px;
+    height: 1px;
+    background: #fff;
+    content: "";
+}
+.jv-summary .meta .salary-desc {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    color: #666;
+    font-size: 13px;
+    line-height: 20px;
+}
+.jv-summary .meta .salary-desc strong {
+    color: var(--common-blue90);
+    font-weight: normal;
+}
+.jv-summary .meta .list-meta {
+    margin-top: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+.jv-summary .meta .list-meta > li {
+    position: relative;
+    color: #666;
+    font-size: 13px;
+    line-height: 20px;
+}
+.jv-summary .meta .list-meta > li strong {
+    color: #666;
+    font-weight: bold;
+}
+.jv-summary .meta .list-meta > li + li {
+    margin-left: 8px;
+    padding-left: 10px;
+}
+.jv-summary .meta .list-meta > li {
+    position: relative;
+    color: #666;
+    font-size: 13px;
+    line-height: 20px;
+}
+.jv-summary .meta .list-meta > li + li:before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    width: 2px;
+    height: 2px;
+    background: #bebfc3;
+    content: "";
+}
+.jv-summary .meta .share {
+    margin-left: 0;
+    vertical-align: top;
+}
+.jv-summary .meta .share .btn-share {
+    padding: 0;
+    height: 18px;
+    border: 0;
+    color: #666;
+}
+.jview .btn-share .ic {
+    margin-right: 5px;
+    width: 12px;
+    height: 13px;
+    vertical-align: -1px;
+}
+.jv-summary .meta .share .list-share {
+    top: 28px;
+}
+.jview .share .list-share {
+    display: none;
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    margin-left: -62px;
+    padding: 2px;
+    width: 123px;
+    height: 30px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+.jview .share .list-share li:first-child {
+    border-left: 0;
+}
+.jview .share .list-share li {
+    float: left;
+    border-left: 1px solid #eee;
+}
+.jview .share .list-share .spr-jview {
+    display: block;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+}
+.jv-summary .meta .list-meta > li + li {
+    margin-left: 8px;
+    padding-left: 10px;
+}
+.jv-summary .meta .list-meta > li {
+    position: relative;
+    color: #666;
+    font-size: 13px;
+    line-height: 20px;
+}
+.jv-summary .meta .list-meta > li + li:before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    width: 2px;
+    height: 2px;
+    background: #bebfc3;
+    content: "";
+}
+.jv-summary .meta .btn-report {
+    color: #666;
+}
+.jview .btn-report .ic {
+    margin-right: 5px;
+    width: 12px;
+    height: 13px;
+    vertical-align: -1px;
+}
+.toolTipWrap {
+    display: inline-block;
+    position: relative;
+}
+.jv-summary .col .btn-tooltip {
+    padding: 0;
+    font-size: 12px;
+    height: 24px;
+}
+.jv-summary .col .btn-jview {
+    padding: 0 8px 3px;
+    height: 23px;
+    border: 0;
+}
+.jv-summary .col .btn-jview span {
+    color: #666;
+    font-size: 12px;
+}
+.jview .btn-jview span {
+    color: var(--color-secondary);
+    font-size: 13px;
+    font-weight: normal;
+}
+.jv-summary .col .btn-jview span {
+    color: #666;
+    font-size: 12px;
+}
+.jview .btn-jview span {
+    color: var(--color-secondary);
+    font-size: 13px;
+    font-weight: normal;
+}
+.jv-summary .col .btn-tooltip .ic {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3px;
+}
+.jv-summary .col .btn-move-map {
+    margin-left: 13px;
+    padding: 0;
+    height: 24px;
+    text-decoration: underline;
+}
+.toolTip {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    padding: 18px 22px 20px 22px;
+    min-width: 33px;
+    border: 1px solid #444;
+    border-radius: 2px;
+    color: #222;
+    font-size: 13px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px #d8d8d8;
+}
+.jv-summary .toolTip {
+    margin: 10px 0 0 -118px;
+    width: 262px;
+}
+.jv-summary .preferred .toolTip {
+    margin: 10px 0 0 0;
+}
+.jview .toolTipWrap.opened .toolTip {
+    display: block;
+}
+.toolTip .tail.tail-top-left {
+    top: -7px;
+    left: 25px;
+    width: 11px;
+    height: 7px;
+    background-position: 0 -7px;
+}
+.toolTip .tail {
+    position: absolute;
+    background: url(//www.saraminimage.co.kr/sri/common/tooltip_tail.png)
+        no-repeat;
+}
+.jview .toolTip .toolTipCont {
+    font-size: 12px;
+}
+.toolTip .toolTipCont.txtLeft {
+    text-align: left;
+}
+.toolTip .toolTipCont {
+    line-height: 20px;
+}
+.toolTip .toolTipCont .toolTipTxt {
+    margin-right: 12px;
+}
+.jview .toolTip ul {
+    display: block;
+    font-size: 12px;
+}
+.jview .toolTip ul > li:first-child {
+    margin-top: 0;
+}
+.jview .toolTip ul > li {
+    position: relative;
+    margin-top: 6px;
+    padding-left: 66px;
+    min-height: 20px;
+    color: #444;
+    line-height: 20px;
+}
+.jview .toolTip ul > li > span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 66px;
+    color: #5c667b;
+    line-height: 20px;
+}
+.jview .toolTip .txt-noti {
+    margin-top: 10px;
+    padding: 8px 15px 10px;
+    color: #5c667b;
+    font-size: 11px;
+    line-height: 17px;
+    background-color: #f9f9f9;
+}
+.jview .toolTip .toolTipTit,
+.jview .toolTip p {
+    color: #666;
+    word-break: break-all;
+}
+.toolTip .btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 15px 10px 10px;
+    border: 0;
+    background: none;
+}
+.toolTip .btnClose:after {
+    display: block;
+    width: 13px;
+    height: 13px;
+    background: url(//www.saraminimage.co.kr/ui/layer/button/spr_lefttop_arrow.png)
+        0 0 no-repeat;
+    content: "";
+}
+.spr-jview:before,
+.spr-jview:after {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/person/jobs_view/spr_jview_220126.png)
+        no-repeat;
+}
+/* 지역 */
+.jv-cont > .box {
+    padding: 29px 29px 0;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+}
+.jv-cont > .cont {
+    position: relative;
+}
+.jv-location .address {
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 23px;
+    color: #444;
+}
+.jv-location .address .spr-jview:last-of-type {
+    margin-bottom: 0;
+}
+.jv-location .address .spr-jview {
+    margin-bottom: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+}
+.jv-location .address .spr-jview .wrap-ic {
+    margin-right: 6px;
+    width: 20px;
+    height: 23px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+.jv-location .btn-mapview {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-top: 1px solid #ebebeb;
+    color: #666;
+    font-size: 15px;
+    background-color: #fff;
+}
+.jv-location .layer-map {
+    display: none;
+    top: -1px;
+    z-index: 20;
+    margin-left: -435px;
+    padding: 35px 29px 30px;
+}
+.layer-pop-manage {
+    position: absolute;
+    border: 1px solid #444;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+}
+.jv-location .layer-map .container-map {
+    width: 810px;
+    height: 300px;
+}
+.jv-location .wrap-mapapi {
+    margin: 0 0 59px;
+    height: 300px;
+}
+.map-view-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.map-view-wrap .map-view {
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #b8b8b8;
+    box-sizing: border-box;
+}
+.map-view-wrap .map-view .view {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.map-view-wrap .btn-map-switch {
+    position: absolute;
+    left: 1px;
+    top: 0;
+    z-index: 20;
+    width: 170px;
+}
+.map-view-wrap .btn-map-switch .on {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    background: #6887f1;
+    border: 1px solid #506fda;
+}
+.map-view-wrap .btn-map-switch .btn-mapview {
+    width: 45px;
+    margin: 0;
+}
+.map-view-wrap .btn-map-switch button {
+    display: block;
+    position: relative;
+    float: left;
+    height: 25px;
+    margin-left: -1px;
+    padding: 0 11px 2px 10px;
+    font-size: 12px;
+    color: #808080;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    cursor: pointer;
+}
+.jv-location .btn-mapview {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-top: 1px solid #ebebeb;
+    color: #666;
+    font-size: 15px;
+    background-color: #fff;
+}
+.map-view-wrap .btn-map-switch .btn-skyview {
+    width: 67px;
+}
+.map-view-wrap .desc {
+    width: 100%;
+    height: 30px;
+}
+.map-view-wrap .desc .btns {
+    float: right;
+}
+.map-view-wrap .desc .btns button.reset {
+    width: 96px;
+    background-position: 10px 8px;
+    border-left: 1px solid #b8b8b8;
+    padding-left: 28px;
+}
+.map-view-wrap .desc .btns button {
+    display: block;
+    float: left;
+    height: 30px;
+    padding: 0 0 2px 26px;
+    text-align: left;
+    font-size: 12px;
+    color: #313131;
+    border: solid #b8b8b8;
+    border-width: 0 1px 1px 0;
+    background: url(//www.saraminimage.co.kr/ui/mapapi/ico_map_btn.png)
+        no-repeat 10px 0;
+    box-sizing: border-box;
+}
+.map-view-wrap .desc .btns button.big-map {
+    width: 82px;
+    background-position: 10px -35px;
+    padding-left: 28px;
+}
+.map-view-wrap .desc .btns button.route {
+    width: 69px;
+    background-position: 10px -79px;
+}
+.layer-pop-manage .btn-layer-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 17px;
+    height: 17px;
+    border: 0 none;
+    background: url(//www.saraminimage.co.kr/ui/layout/person_mypage_2017/btn_layer_close.png)
+        no-repeat 50% 50%;
+}
+.layer-pop-manage .btn-layer-close span {
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -100%;
+    white-space: nowrap;
+}
+/* 접수방법 */
+.jv-howto {
+    padding-bottom: 28px;
+}
+.jv-howto .cont.box {
+    display: table;
+    padding: 0;
+}
+.jv-cont > .box {
+    padding: 29px 29px 0;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+}
+.jv-cont > .cont {
+    position: relative;
+}
+.jv-howto .status {
+    display: table-cell;
+    position: relative;
+    z-index: 2;
+    padding: 22px 0 30px;
+    width: 289px;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+}
+.jv-howto .info-timer {
+    padding-top: 5px;
+    color: var(--common-blue90);
+    font-size: 0;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+}
+.jv-howto .info-timer .txt {
+    display: block;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 30px;
+}
+.jv-howto .info-timer .day,
+.jv-howto .info-timer .time {
+    display: inline-block;
+    font-size: 28px;
+    line-height: 30px;
+    vertical-align: bottom;
+}
+.jv-howto .info-timer .day + .txt-day {
+    display: inline-block;
+}
+.jv-howto .info-timer .txt-day {
+    display: none;
+    margin-right: 8px;
+    font-size: 20px;
+    vertical-align: bottom;
+}
+.jv-howto .info-period {
+    padding: 13px 40px 0;
+    text-align: left;
+}
+.jv-howto .info-period dt {
+    float: left;
+    width: 73px;
+    height: 26px;
+    border: 1px solid #cdcdcd;
+    border-radius: 26px;
+    box-sizing: border-box;
+    color: #5c667b;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+.jv-howto .info-period dd {
+    float: right;
+    padding: 1px 0;
+    width: 130px;
+    height: 26px;
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+}
+.jv-howto .info-period dt.end,
+.jv-howto .info-period dt.end + dd {
+    margin-top: 6px;
+    border-color: #2d65f2;
+    color: #2d65f2;
+}
+.jv-howto .info-period:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.jv-howto .guide {
+    display: table-cell;
+    position: relative;
+    z-index: 2;
+    padding: 22px 30px;
+    width: 580px;
+    box-sizing: border-box;
+    border-radius: 0 12px 12px 0;
+    font-size: 14px;
+    background: #f8f9fa;
+}
+.jv-howto .guide > dt:first-of-type {
+    margin-top: 0;
+}
+.jv-howto .guide > dt {
+    display: block;
+    float: left;
+    margin-top: 4px;
+    width: 88px;
+    color: #5c667b;
+    line-height: 28px;
+}
+.jv-howto .guide > dd.method > button,
+.jv-howto .guide > dd.method > a {
+    display: inline-block;
+    overflow: visible;
+    line-height: inherit;
+}
+.jv-howto .guide > dd.method > button,
+.jv-howto .guide > dd.method > a,
+.jv-howto .guide > dd.method > span {
+    color: #444;
+}
+.jv-howto .guide > dd.template {
+    color: #444;
+}
+.jv-howto .guide > dd {
+    display: block;
+    float: left;
+    margin-top: 4px;
+    width: 430px;
+    min-height: 28px;
+    color: #666;
+    line-height: 28px;
+}
+.jv-howto .guide > dd.template .toolTipWrap {
+    vertical-align: top;
+}
+.toolTipWrap {
+    display: inline-block;
+    position: relative;
+}
+.jv-howto .toolTipWrap .btn-jview {
+    padding: 0;
+    border: 0;
+    background: none;
+}
+.jview .btn-jview span {
+    color: var(--color-secondary);
+    font-size: 13px;
+    font-weight: normal;
+}
+.jv-howto .toolTipWrap .btn-tooltip .ic {
+    width: 16px;
+    height: 17px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3px;
+}
+.jv-title {
+    margin-bottom: 14px;
+    color: #222;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 22px;
+}
+.jv-howto .toolTip {
+    margin: 10px 0 0 -84px;
+    width: 222px;
+}
+.toolTip {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    padding: 18px 22px 20px 22px;
+    min-width: 33px;
+    border: 1px solid #444;
+    border-radius: 2px;
+    color: #222;
+    font-size: 13px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px #d8d8d8;
+}
+.toolTip .tail.tail-top-center {
+    top: -7px;
+    left: 50%;
+    margin-left: -6px;
+    width: 11px;
+    height: 7px;
+    background-position: 0 -7px;
+}
+.toolTip .tail {
+    position: absolute;
+    background: url(//www.saraminimage.co.kr/sri/common/tooltip_tail.png)
+        no-repeat;
+}
+.jview .toolTip .toolTipCont {
+    font-size: 12px;
+}
+.toolTip .toolTipCont.txtLeft {
+    text-align: left;
+}
+.toolTip .toolTipCont {
+    line-height: 20px;
+}
+.jview .toolTip .toolTipTit,
+.jview .toolTip p {
+    color: #666;
+    word-break: break-all;
+}
+.toolTip .toolTipCont .toolTipTit {
+    display: block;
+    margin-bottom: 10px;
+    color: #222;
+    font-weight: bold;
+}
+.jview .toolTip .toolTipTit,
+.jview .toolTip p {
+    color: #666;
+    word-break: break-all;
+}
+.toolTip .btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 15px 10px 10px;
+    border: 0;
+    background: none;
+}
+.jv-howto .guide:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed;
+}
+.jv-howto .noti {
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    padding-left: 20px;
+    color: var(--color-secondary);
+    font-size: 13px;
+    line-height: 20px;
+}
+.jv-howto .noti .ic {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    content: "";
+}
+/* 기업정보 */
+.jv-title-heading {
+    display: inline;
+    font-size: inherit;
+    font-weight: inherit;
+}
+.jv-title .link-txt {
+    float: right;
+    margin: 2px 11px 0 0;
+    border-bottom: 1px solid #4876ef;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    color: #2d65f2;
+}
+.jv-title .link-txt:after {
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 6px;
+    height: 9px;
+    background-position: 0 -170px;
+    content: "";
+}
+.spr-jview:before,
+.spr-jview:after {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/person/jobs_view/spr_jview_220126.png)
+        no-repeat;
+}
+.jv-company > .box {
+    padding: 0;
+}
+.jv-cont > .box {
+    padding: 29px 29px 0;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+}
+.jv-cont > .cont {
+    position: relative;
+}
+.jv-company .wrap-info {
+    box-sizing: border-box;
+    padding: 29px 29px 24px;
+    min-height: 175px;
+}
+.jv-company .tit-area {
+    position: relative;
+}
+.jv-company .tit-area .basic-info {
+    width: 616px;
+}
+.jv-company .tit-area h3 {
+    display: flex;
+    align-items: center;
+    width: 616px;
+}
+.jv-company .tit-area h3 .company-name {
+    overflow: hidden;
+    display: block;
+    margin-right: 8px;
+    max-width: 380px;
+    font-size: 18px;
+    color: #222;
+    line-height: 32px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.jview .btn-interest {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.jview .btn-jview-round {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 7px;
+    border: 1px solid #d7dce5;
+    border-radius: 35px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #475067;
+}
+#company-like-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 7px;
+    border: 1px solid #d7dce5;
+    border-radius: 35px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #475067;
+}
+.jview .btn-interest svg {
+    margin-right: 2px;
+}
+.jview .btn-jview span {
+    color: #5c667b;
+    font-size: 13px;
+    font-weight: normal;
+}
+.jv-company .tit-area .logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 11px 16px;
+    width: 146px;
+    height: 58px;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    background: #fff;
+    text-align: center;
+}
+.jv-company .tit-area .logo .img {
+    display: inline-block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+.jv-company .info-area {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill, 298px);
+    grid-template-rows: repeat(auto-fill, 20px);
+    gap: 10px 20px;
+}
+.jv-company .info-area dl {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+}
+.jv-company .info-area dl dt {
+    width: 68px;
+    font-size: 13px;
+    color: #67738e;
+}
+.jv-company .info-area dl dd {
+    overflow: hidden;
+    width: 230px;
+    font-size: 14px;
+    color: #444;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.jv-company .link-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 28px;
+}
+.jv-company .link-area .btn-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.jview .btn-jview-new.btn-link {
+    padding-right: 16px;
+}
+.jview .btn-jview-new {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 6px 11px;
+    height: 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 24px;
+    color: #475067;
+}
+.jview .btn-jview-new strong {
+    color: #2d65f2;
+    font-weight: bold;
+}
+.jview .btn-jview-new.btn-link:after {
+    margin-left: 10px;
+}
+.jview .btn-jview-new.spr-jview:after {
+    margin-top: 0;
+}
+.jview .btn-link:after {
+    margin: 8px 0 0 8px;
+    width: 6px;
+    height: 9px;
+    background-position: 0 -150px;
+    content: "";
+}
+.spr-jview:before,
+.spr-jview:after {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/person/jobs_view/spr_jview_220126.png)
+        no-repeat;
+}
+.jview .btn-jview-new {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 6px 11px;
+    height: 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 24px;
+    color: #475067;
+}
+.jview .btn-jview-new.btn-link:after {
+    margin-left: 10px;
+}
+.jview .btn-jview-new.spr-jview:after {
+    margin-top: 0;
+}
+.jview .btn-link:after {
+    margin: 8px 0 0 8px;
+    width: 6px;
+    height: 9px;
+    background-position: 0 -150px;
+    content: "";
+}
+.spr-jview:before,
+.spr-jview:after {
+    display: inline-block;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/person/jobs_view/spr_jview_220126.png)
+        no-repeat;
+}
+.jv-company .btn-more {
+    display: block;
+    padding: 13px 0;
+    line-height: 19px;
+    border-top: 1px solid #ebebeb;
+    text-align: center;
+}
+.jv-company .btn-more span {
+    position: relative;
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #666;
+}
+.jv-company .btn-more span:after {
+    position: absolute;
+    top: 7px;
+    right: 6px;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 1px solid #8491a7;
+    border-width: 0 1px 1px 0;
+    transform: rotate(-45deg);
+}
+.jv-company.jv-company > .box {
+    padding: 0;
+}
+.jv-cont > .box {
+    padding: 29px 29px 0;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+}
+.jv-cont > .cont {
+    position: relative;
+}
+.jv-company .tit-area .basic-info {
+    width: 616px;
+}
+body {
+    position: absolute;
+}
+#position-wrap {
+    position: absolute;
+}
+/* 지원 모달 */
+.wrap-quick-apply-layer {
+    position: relative; /* 위치 기준 설정 */
+    margin: 0; /* 기본 여백 제거 */
+    background-color: transparent;
+    margin-left: 1000px;
+}
+/* section과의 간격 조정 */
+.wrap-quick-apply-layer + #position-section {
+    margin-top: -20px; /* 음수 여백으로 겹치게 하기 */
+}
+.quick_apply_layer_frame {
+    position: fixed;
+    right: 34px;
+    bottom: 0px;
+    z-index: 150;
+    width: 448px;
+    height: 670px;
+    border: 0px;
+    border-radius: 20px 20px 0px 0px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 30px 0px;
+}
+.btn-apply-form-close {
+    display: block;
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    width: 24px;
+    height: 30px;
+}
+.ic[data-v-22e4f8a9] {
+    width: 24px;
+    height: 30px;
+}
+.wrap-global-apply {
+    position: relative;
+    width: 448px;
+    height: 670px;
+    overflow: hidden;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.15);
+}
+.head-apply {
+    position: relative;
+    padding: 28px 24px 15px 24px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.head-apply .title {
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 14px;
+    height: 18px;
+    line-height: 18px;
+}
+.head-apply .title .company-name {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 71%;
+    height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    vertical-align: top;
+}
+.head-apply .title-apply > a,
+.head-apply .title-apply > span[data-v-32582d6d] {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 8px;
+    color: #4876ef;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+.head-apply .desc {
+    font-size: 0;
+}
+.head-apply .desc > span {
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: top;
+}
+.head-apply .desc > span {
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: top;
+}
+.head-apply .desc > span:before {
+    display: inline-block;
+    margin: 3px 4px 0;
+    width: 1px;
+    height: 12px;
+    vertical-align: top;
+    background-color: #eaeaea;
+    content: "";
+}
+.head-apply .desc > span {
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: top;
+}
+.head-apply .desc > span:before {
+    display: inline-block;
+    margin: 3px 4px 0;
+    width: 1px;
+    height: 12px;
+    vertical-align: top;
+    background-color: #eaeaea;
+    content: "";
+}
+.head-apply .desc:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    width: calc(100% - 48px);
+    height: 1px;
+    background-color: #eaeaea;
+    content: "";
+}
+.head-apply .badges {
+    position: absolute;
+    right: 24px;
+    bottom: 7px;
+    font-size: 0;
+}
+.head-apply {
+    position: relative;
+    padding: 28px 24px 15px 24px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.head-apply .title {
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 14px;
+    height: 18px;
+    line-height: 18px;
+}
+.head-apply .title .company_name {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 71%;
+    height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    vertical-align: top;
+}
+.head-apply .title-apply > a,
+.head-apply .title-apply > span {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 8px;
+    color: #4876ef;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+.head-apply .desc {
+    font-size: 0;
+}
+.head-apply .desc > span {
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: top;
+}
+.head-apply .desc > span:before {
+    display: inline-block;
+    margin: 3px 4px 0;
+    width: 1px;
+    height: 12px;
+    vertical-align: top;
+    background-color: #eaeaea;
+    content: "";
+}
+.head-apply .desc > span {
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: top;
+}
+.head-apply .desc > span:before {
+    display: inline-block;
+    margin: 3px 4px 0;
+    width: 1px;
+    height: 12px;
+    vertical-align: top;
+    background-color: #eaeaea;
+    content: "";
+}
+.head-apply .desc:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    width: calc(100% - 48px);
+    height: 1px;
+    background-color: #eaeaea;
+    content: "";
+}
+.head-apply .badges {
+    position: absolute;
+    right: 24px;
+    bottom: 7px;
+    font-size: 0;
+}
+.area-scroll {
+    overflow-y: auto;
+    padding: 0 24px 0 24px;
+    max-height: 562px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+.box-miss-notice {
+    margin-bottom: 24px;
+}
+.box-choice .row-title {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+.box-choice .area-inpsel {
+    margin-bottom: 32px;
+    width: 100%;
+    height: 48px;
+    background-color: #fff;
+}
+#inpApply {
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box-choice .area-inpsel > select {
+    padding-left: 16px;
+    width: 100%;
+    height: 48px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 15px;
+    background: none;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_select_arr.png)
+        no-repeat 100% 6px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.msgInvalid {
+    display: block;
+    margin-top: -28px;
+    margin-bottom: 32px;
+    color: red;
+    font-size: 12px;
+    line-height: 16px;
+}
+.box-round-shadow .box-head {
+    position: relative;
+    padding-left: 16px;
+    width: 100%;
+    height: 65px;
+    border: 1px solid #ebebeb;
+    border-bottom: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 56px;
+    background-color: #f8f9fa;
+}
+.box-round-shadow .box-head .btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    padding-left: 11px;
+    height: 32px;
+    border-radius: 16px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 400;
+    background-color: #fff;
+}
+.box-round-shadow .box-head .btn .ic {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    margin: 1px 6px 0 4px;
+}
+.box-round-shadow .box-inner {
+    position: relative;
+    padding: 11px 16px 12px 16px;
+    border: 1px solid #eaf0fa;
+    border-radius: 12px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+    -webkit-transform: translateY(-9px);
+    transform: translateY(-9px);
+}
+.box-round-shadow .box-inner .row {
+    position: relative;
+    padding-top: 8px;
+}
+.box-round-shadow .box-inner .date {
+    margin: 1px 0 7px 0;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+}
+.box-round-shadow .box-inner .title-resume {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+.box-round-shadow .box-inner .title-resume > a {
+    display: block;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+.box-round-shadow .box-inner .add-files {
+    display: inline-block;
+    margin-bottom: 17px;
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
+}
+.box-round-shadow .box-inner .ic:first-child {
+    margin-left: 0;
+}
+.box-round-shadow .box-inner .ic {
+    display: inline-block;
+    margin: 0 6px 0 9px;
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+}
+.box-round-shadow + .box-round-shadow {
+    margin-top: 32px;
+}
+.box-round-shadow .box-head {
+    position: relative;
+    padding-left: 16px;
+    width: 100%;
+    height: 65px;
+    border: 1px solid #ebebeb;
+    border-bottom: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 56px;
+    background-color: #f8f9fa;
+}
+.box-round-shadow .box-head .btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    padding-left: 11px;
+    height: 32px;
+    border-radius: 16px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 400;
+    background-color: #fff;
+}
+.box-round-shadow .box-head .btn .ic {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    margin: 1px 6px 0 4px;
+}
+.txt-case-include {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 14px 24px 14px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #5c667b;
+    font-weight: 700;
+    background-color: #f8f9fa;
+    border-left: 1px solid #eaf0fa;
+    border-right: 1px solid #eaf0fa;
+}
+.txt-case-include + .box-inner {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+}
+.box-round-shadow .box-inner .no-result {
+    padding: 47px 0 43px 0;
+    color: #999;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+}
+.box-toggle {
+    margin-top: 24px;
+}
+.box-toggle .desc {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #999;
+}
+.box-toggle .desc + .desc {
+    margin-top: 16px;
+}
+.box-toggle .desc {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #999;
+}
+.box-toast {
+    position: fixed;
+    left: 54px;
+    bottom: 10%;
+    width: 340px;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    background-color: #555;
+    z-index: 5;
+}
+.area-scroll:after {
+    content: "";
+    height: 24px;
+    display: block;
+}
+.area-btns {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+.area-btns .btn:first-child:last-child {
+    display: block;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+}
+.area-btns .btn,
+.area-btns .btn .name {
+    display: inline-block;
+    vertical-align: top;
+}
+.area-btns .btn {
+    margin: 0 4px 20px;
+    width: 204px;
+    height: 54px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #ff6d6a;
+}
+.area-btns .btn .name {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+.area-btns .btn,
+.area-btns .btn .name {
+    display: inline-block;
+    vertical-align: top;
+}
+.dimmed-apply {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+.btn-apply-form-close {
+    display: block;
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    width: 24px;
+    height: 30px;
+}
+.ic {
+    width: 24px;
+    height: 30px;
+}
+/* 모달 버튼 */
+.area-btns {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+.area-btns .btn:first-child:last-child {
+    display: block;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+}
+.area-btns .btn,
+.area-btns .btn .name {
+    display: inline-block;
+    vertical-align: top;
+}
+.area-btns .btn {
+    margin: 0 4px 20px;
+    width: 204px;
+    height: 54px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #ff6d6a;
+}
+.area-btns .btn .name {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+.area-btns .btn,
+.area-btns .btn .name {
+    display: inline-block;
+    vertical-align: top;
+}

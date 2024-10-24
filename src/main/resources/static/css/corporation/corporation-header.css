@@ -1,0 +1,250 @@
+#header.main {
+    height: 161px;
+}
+
+#header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    min-width: 1280px;
+    height: 218px;
+    box-sizing: border-box;
+    background: #fff;
+}
+#header:before {
+    position: absolute;
+    top: 96px;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: 1px;
+    background: #eaedf4;
+    content: "";
+}
+#header .wrap_header {
+    display: grid;
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+    padding-top: 12px;
+    width: 1260px;
+    box-sizing: border-box;
+    gap: 1px 23px;
+    grid-template-areas:
+        "bi search utility"
+        "navigation navigation navigation";
+    grid-template-columns: 161px 554px 1fr;
+    grid-template-rows: 84px 64px;
+    align-items: center;
+}
+#header * {
+    box-sizing: border-box;
+}
+#header .bi {
+    display: block;
+    position: relative;
+    padding-left: 27px;
+}
+#header .bi .frame {
+    display: block;
+    overflow: hidden;
+    width: 134px;
+    height: 34px;
+    background: 0 0 no-repeat;
+}
+#header .utility {
+    display: grid;
+    position: relative;
+    z-index: 3;
+    gap: 16px;
+    justify-content: end;
+    justify-items: end;
+    align-items: center;
+    grid-template-rows: 40px;
+    grid-auto-flow: column dense;
+}
+#header .utility .sign {
+    display: grid;
+    gap: 16px;
+    grid-auto-flow: column dense;
+    align-items: center;
+}
+#header .utility .btn_sign {
+    color: #373f57;
+    font-size: 14px;
+    line-height: 24px;
+}
+#header .utility .wrap_service {
+    position: relative;
+    z-index: 2;
+}
+#header .utility .btn_service {
+    display: grid;
+    padding: 0 13px;
+    height: 32px;
+    border: 1px solid #d7dce5;
+    border-radius: 16px;
+    color: #373f57;
+    font-size: 13px;
+    font-weight: bold;
+    grid-template-columns: auto 10px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+}
+#header .utility .btn_service svg {
+    width: 10px;
+    height: 6px;
+    color: #5c667b;
+}
+#header .utility .wrap_service .layer_member {
+    top: 36px;
+    padding: 10px 0;
+}
+#header .utility .layer_member {
+    display: none;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    padding: 10px 0 0;
+    width: 164px;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 2px 6px 16px 0 rgba(17, 42, 128, 0.08);
+}
+#header .utility .layer_member .services li.half_col {
+    display: flex;
+}
+#header .utility .layer_member .services li.half_col a:first-child {
+    position: relative;
+    padding: 0 13px 0 16px;
+    width: 70px;
+}
+#header .utility .layer_member .services li.half_col a {
+    padding: 0;
+    width: 50%;
+}
+#header .utility .layer_member .services li a {
+    display: block;
+    padding: 0 16px;
+    height: 36px;
+    color: #5c667b;
+    font-size: 14px;
+    line-height: 36px;
+}
+#header .utility .layer_member .services li.half_col a:last-child {
+    padding-left: 12px;
+    width: calc(100% - 70px);
+}
+#header .utility .layer_member .services li.half_col a:first-child:after {
+    display: block;
+    position: absolute;
+    top: 13px;
+    right: 0;
+    width: 1px;
+    height: 12px;
+    background-color: #8491a7;
+    content: "";
+}
+#header .utility .sign hr {
+    display: block;
+    width: 1px;
+    height: 12px;
+    border: 0;
+    background: #d7dce5;
+}
+
+#sri_header .utility .btn_service:hover {
+    background: #f4f6fa;
+}
+
+#sri_header .utility .layer_member {
+    display: none;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    padding: 10px 0 0;
+    width: 164px;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 2px 6px 16px 0 rgba(17, 42, 128, 0.08);
+}
+
+#sri_header .utility .wrap_service .layer_member {
+    top: 36px;
+    padding: 10px 0;
+}
+
+#sri_header .utility .layer_member .services li a {
+    display: block;
+    padding: 0 16px;
+    height: 36px;
+    color: #5c667b;
+    font-size: 14px;
+    line-height: 36px;
+}
+
+#sri_header .utility .layer_member .services li.half_col {
+    display: flex;
+}
+
+#sri_header .utility .layer_member .services li.half_col a {
+    padding: 0;
+    width: 50%;
+}
+
+#sri_header .utility .layer_member .services li.half_col a:first-child {
+    position: relative;
+    padding: 0 13px 0 16px;
+    width: 70px;
+}
+
+#sri_header .utility .layer_member .services li.half_col a:first-child:after {
+    display: block;
+    position: absolute;
+    top: 13px;
+    right: 0;
+    width: 1px;
+    height: 12px;
+    background-color: #8491a7;
+    content: "";
+}
+
+#sri_header .utility .layer_member .services li.half_col a:last-child {
+    padding-left: 12px;
+    width: calc(100% - 70px);
+}
+
+#sri_header .utility .layer_member .services li.logout {
+    margin-top: 4px;
+    padding: 4px 0 7px;
+    border-top: 1px solid #eaedf4;
+}
+
+#sri_header .utility .layer_member .services li a:hover {
+    background: #f4f6fa;
+}
+
+#sri_header .utility .wrap_member {
+    position: relative;
+    z-index: 3;
+}
+
+#sri_header .utility .btn_member {
+    display: block;
+    position: relative;
+    padding: 10px 27px 12px 46px;
+    border-radius: 20px;
+    font-size: 0;
+}
+
+#sri_header .utility .btn_member:hover {
+    background: #f4f6fa;
+}

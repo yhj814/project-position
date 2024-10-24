@@ -1,0 +1,363 @@
+#position-section {
+    display: grid;
+    grid-template-areas:
+        "gnb main"
+        "gnb footer";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    min-width: 1560px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+#position-gnb-wrap {
+    grid-area: gnb;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    width: 271px;
+    border-right: 1px solid #f0f0f0;
+    background: #fff;
+    transition: width 0.5s;
+}
+
+#position-wrap {
+    grid-area: main;
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+/* 여기부터 body*/
+#content {
+    position: relative;
+    margin: 88px auto 136px;
+    width: 1248px;
+}
+
+.wrap-title {
+    color: #373f57;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 56px;
+}
+
+.wrap-pay .list-title {
+    color: var(--gray110);
+    font-size: 20px;
+    line-height: 28px;
+    margin: 56px 0 18px;
+    display: block;
+}
+
+.wrap-pay .top-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray40);
+}
+
+.InpBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.InpBox select {
+    padding: 0 28px 0 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    background: var(--white) url('/static/images/my-page/drop-down-resume.svg') no-repeat right 12px top 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.wrap-pay .search-interview .search-area {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+}
+
+.TypoBox {
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+.wrap-pay .search-interview .search-area input[type=text] {
+    padding-right: 36px;
+    width: 100%;
+}
+
+.TypoBox .Typo {
+    padding: 8px 12px;
+    width: 100%;
+    height: 38px;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: none;
+}
+
+.wrap-pay .search-interview .search-area button {
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    right: 4px;
+    width: 32px;
+    height: 32px;
+    background: url(https://www.saraminimage.co.kr/sri/person/resume/bg-alink.png) repeat;
+}
+
+.wrap-pay .search-interview .search-area button .icon-search {
+    width: 24px;
+    height: 24px;
+    color: #575d6d;
+}
+
+.wrap-pay .list-rewards {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid #eaedf4;
+}
+
+
+.wrap-pay .list-rewards .item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 32px 32px 32px 12px;
+    box-sizing: border-box;
+    border-top: 1px solid #d7dce5;
+}
+.list-rewards .item:first-child {
+    border-top: none; /* 첫 번째 아이템 상단에 border 제거 */
+}
+
+
+.wrap-pay .list-rewards .item .info-status {
+    margin-right: 24px;
+}
+
+.wrap-pay .list-rewards .item .info-status .order-num {
+    color: var(--gray80);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.wrap-pay .list-rewards .item .info-status .date {
+    display: block;
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 20px;
+    margin: 8px 0;
+}
+
+.wrap-pay .list-rewards .item .info-status .status {
+    color: var(--blue90);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.wrap-pay .list-rewards .item .title {
+    font-size: 20px;
+    color: var(--gray120);
+    line-height: 32px;
+    font-weight: bold;
+    width: 460px;
+    padding: 0 12px;
+}
+
+.wrap-pay .list-rewards .item .price {
+    font-size: 14px;
+    color: var(--gray120);
+    line-height: 20px;
+    margin-left: auto;
+    padding: 0 32px;
+}
+
+.wrap-pay .list-rewards .item .info {
+    padding: 0 32px;
+    width: 240px;
+    box-sizing: border-box;
+}
+
+.wrap-pay .list-rewards .item .info .info-card {
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* .wrap-pay .list-rewards .item .wrap-btn {
+    width: 168px;
+    padding-left: 32px;
+    box-sizing: border-box;
+} */
+
+/* 페이지 버튼 */
+[class*="BtnType"].SizeS {
+    padding: 4px 7px;
+    height: 32px;
+    font-size: 13px;
+    line-height: 20px;
+}
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--blue90);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--blue90);
+    justify-content: center;
+    align-items: center;
+}
+.PageBox {
+    display: flex;
+    margin: 40px 0 80px;
+    justify-content: center;
+}
+
+.BtnType.SizeS.select {
+    border: 1px solid var(--gray60);
+    font-weight: bold;
+}
+.PageBox .BtnPrev+.BtnType {
+    margin-left: 0;
+}
+.PageBox .BtnType {
+    display: flex;
+    position: relative;
+    width: 32px;
+    border: 0;
+    color: var(--gray80);
+    background: none;
+    align-items: center;
+    justify-content: center;
+}
+.PageBox .BtnType+.BtnType {
+    margin-left: 4px;
+}
+.PageBox .BtnType+.BtnNext {
+    margin-left: 16px;
+}
+.PageBox .BtnNext {
+    margin-left: 16px;
+    padding: 0 19px 0 8px;
+    width: 54px;
+}
+.PageBox .BtnPrev:after, .PageBox .BtnNext:after {
+    position: absolute;
+    top: calc(50% + 1px);
+    z-index: 2;
+    width: 6px;
+    height: 6px;
+    border: solid var(--gray80);
+    transform: translate(-50%, -50%) rotate(45deg);
+    content: "";
+}
+.PageBox .BtnPrev {
+    margin-left: 0;
+    margin-right: 16px;
+    padding: 0 7px 0 20px;
+    width: 54px;
+}
+.PageBox .BtnPrev:after {
+    left: 14px;
+    border-width: 0 0 1px 1px;
+}
+
+.PageBox .BtnNext:after {
+    right: 6px;
+    border-width: 1px 1px 0 0;
+}
+.PageBox .BtnPrev:hover, .PageBox .BtnNext:hover {
+    color: var(--gray100);
+}
+.PageBox .BtnType:hover {
+    background: var(--gray30);
+}
+
+
+
+
+.NotiBox {
+    display: flex;
+    position: relative;
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--gray20);
+    align-items: flex-start;
+}
+
+.NotiBox .NotiTit {
+    display: flex;
+    width: 178px;
+    box-sizing: border-box;
+    color: var(--gray70);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.NotiBox .NotiTit:before {
+    display: inline-block;
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    background: url('/static/images/my-page/note.svg') 0 0 no-repeat;
+    content: "";
+}
+
+.NotiBox .NotiCont .list>li {
+    display: block;
+    position: relative;
+    padding-left: 8px;
+    color: var(--gray70);
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.NotiBox .NotiCont .list>li:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    line-height: 22px;
+    content: "·";
+}
+
+
+.exam-inspection-wrap .self-inspection-wrap .self-exam-list>li {
+    display: block;
+    border-top: 1px solid #d7dce5;
+    position: relative;
+    margin: 0 32px;
+    padding: 32px 0;
+    box-sizing: border-box;
+    text-align: left;
+    background-repeat: no-repeat;
+    background-position: 40px 32px;
+}

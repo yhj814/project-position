@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resume</title>
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="/static/css/my-page/resume-management.css"
+        />
+    </head>
+
+    <body>
+        <!-- 헤더 추가 해야 함-->
+        <header></header>
+        <!-- 전체 body -->
+        <div id="position-section">
+            <!-- 사이드 바 추가 해야 함-->
+            <div id="position-gnb-wrap"></div>
+            <div class="position-wrap">
+                <div id="content">
+                    <div class="wrapper-narrow resume-manage-wrap">
+                        <h1 class="wrap-title">이력서 관리</h1>
+                        <div class="resume-list-wrap">
+                            <!-- 대표 이력서 영역 -->
+                            <div class="represent-wrap">
+                                <h3 class="blind">대표 이력서</h3>
+                                <div class="resume-item represent">
+                                    <div class="header">
+                                        <span>내가 작성한 이력서</span>
+                                        <span class="date"
+                                            >2024.10.15 15:52 수정</span
+                                        >
+                                    </div>
+                                    <!-- 사용자가 작성한 이력서 -->
+                                    <a
+                                        href="/zf-user/member/resume/view/edit-icon-fl/y/res-idx/30413242/mandb-view/n"
+                                        class="tit"
+                                        >이력서 제목
+                                    </a>
+                                    <ul class="option-list">
+                                        <li class="career">
+                                            <span>신입</span>
+                                        </li>
+                                        <li class="jobtype">
+                                            <span
+                                                >희망 직무·직업 :
+                                                IT개발·데이터</span
+                                            >
+                                        </li>
+                                        <li class="income">
+                                            <span>회사내규에 따름</span>
+                                        </li>
+                                    </ul>
+                                    <ul class="control-group">
+                                        <li>
+                                            <a
+                                                href="/zf-user/member/suggest/status-list"
+                                                class="BtnType SizeM resume-btn common ga-event"
+                                                >스크랩한 공고</a
+                                            >
+                                            <span class="badge-count">0</span>
+                                        </li>
+                                        <!-- <li>
+                                            <a
+                                                href="/zf-user/member/resume-manage/lookup-status"
+                                                class="BtnType SizeM resume-btn common ga-event"
+                                                data-layer="lookup-history"
+                                                >이력서 열람 현황</a
+                                            >
+                                            <span class="badge-count">0</span>
+                                        </li> -->
+                                        <li>
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM resume-btn common btn-layer-open ga-event"
+                                            >
+                                                입사 지원 내역
+                                            </button>
+                                            <span class="badge-count">0</span>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="/zf-user/persons/scrap-recruit"
+                                                class="BtnType SizeM resume-btn my-link ga-event"
+                                                >내 공고활동 보러가기</a
+                                            >
+                                        </li>
+                                        <li class="control">
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM BlueInvert btn-action ga-event"
+                                                data-action="copy"
+                                            >
+                                                삭제하기
+                                            </button>
+                                        </li>
+                                        <li class="control">
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM BlueInvert btn-action ga-event"
+                                            >
+                                                수정하기
+                                            </button>
+                                        </li>
+                                        <li class="update">
+                                            <button
+                                                type="button"
+                                                class="btnText btn-action ga-event"
+                                            >
+                                                오늘 날짜로 업데이트
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <div class="menu-box">
+                                        <button type="button" class="more-btn">
+                                            <span class="blind"
+                                                >메뉴 더보기</span
+                                            >
+                                        </button>
+                                        <ul class="menu-list">
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    인쇄
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    MS워드로 저장
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    PDF로 저장
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="desc">
+                                    <button
+                                        type="button"
+                                        class="btn-info btn-layer-open"
+                                    >
+                                        빠르게 이력서를 등록하고 싶다면?
+                                    </button>
+                                    <!-- <div class="TipBox">
+                                        <a
+                                            href="javascript:;"
+                                            class="BtnType SizeM btn-action"
+                                            data-action="write-file"
+                                            >파일로 등록</a
+                                        >
+                                        <div class="TipCont TopCenter">
+                                            <span class="Tail"
+                                                ><svg class="icon-tail">
+                                                    <use
+                                                        xlink:href="#TipBox-tail"
+                                                    ></use>
+                                                </svg>
+                                            </span>
+                                            <div class="TipTxt">
+                                                내 <strong>컴퓨터</strong>에
+                                                이미 이력서가 있나요?
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="TipBox">
+                                        <a
+                                            href="javascript:;"
+                                            class="BtnType SizeM url-btn btn-action"
+                                            data-action="write-url"
+                                            >URL로 등록</a
+                                        >
+                                        <div class="TipCont TopCenter">
+                                            <span class="Tail"
+                                                ><svg class="icon-tail">
+                                                    <use
+                                                        xlink:href="#TipBox-tail"
+                                                    ></use>
+                                                </svg>
+                                            </span>
+                                            <div class="TipTxt">
+                                                공개된
+                                                <strong>웹페이지</strong>에
+                                                이력서가 있나요?
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <a
+                                        href="javascript:;"
+                                        class="BtnType SizeM btn-action"
+                                        >이력서 작성</a
+                                    >
+                                </div>
+                            </div>
+                            <!-- 이력서 리스트 -->
+                            <div class="title-wrap">
+                                <h3 class="blind">이력서 리스트</h3>
+                                <strong class="list-count"
+                                    >총
+                                    <span id="list-count-txt">1</span>건</strong
+                                >
+                                <div class="InpBox">
+                                    <select
+                                        name="list-filter"
+                                        id="list-filter"
+                                        class="-auto-search"
+                                    >
+                                        <option value="" selected="">
+                                            전체
+                                        </option>
+                                        <option value="saramin">이력서</option>
+                                        <option value="file">
+                                            파일 이력서
+                                        </option>
+                                        <option value="url">URL 이력서</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <ul class="list-manage-resume">
+                                <li class="resume-item">
+                                    <input
+                                        type="hidden"
+                                        name="res-idx"
+                                        value="30427117"
+                                        id="res-idx"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="res-type"
+                                        value="saramin"
+                                        id="res-type"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="expired-exam"
+                                        value=""
+                                        id="expired-exam"
+                                    />
+                                    <a
+                                        href="javascript:;"
+                                        class="tit btn-action"
+                                    >
+                                        <span>이력서 제목</span>
+                                    </a>
+                                    <span class="date"
+                                        >2024.10.16 09:32 수정</span
+                                    >
+                                    <br />
+                                    <ul class="option-list type-02">
+                                        <li class="career">
+                                            <span>신입</span>
+                                        </li>
+                                        <li class="jobtype">
+                                            <span
+                                                >희망 직무·직업 :
+                                                IT개발·데이터</span
+                                            >
+                                        </li>
+                                    </ul>
+                                    <ul class="option-list last">
+                                        <li class="income">
+                                            <span
+                                                >희망연봉 : 회사내규에
+                                                따름</span
+                                            ><a
+                                                href="javascript:;"
+                                                class="btnText btnLink btn-action"
+                                                >희망근무조건 수정</a
+                                            >
+                                        </li>
+                                        <!-- WMG-33333 [DEV] 조건 수정 버튼 : $editConditionBtn -> $editConditionBtnTooltip 변경하여 툴팁 적용된 버튼 노출 시켜놨습니다! -->
+                                    </ul>
+                                    <ul class="control-group">
+                                        <li class="status">
+                                            <div class="txt">
+                                                입사 지원 내역
+                                                <a
+                                                    href="javascript:;"
+                                                    class="btn-layer-open ga-event"
+                                                    >0건</a
+                                                >
+                                            </div>
+                                        </li>
+                                        <li class="control">
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM BlueInvert btn-action ga-event"
+                                            >
+                                                삭제하기
+                                            </button>
+                                        </li>
+                                        <li class="control">
+                                            <a
+                                                href="javascript:;"
+                                                class="BtnType SizeM BlueInvert btn-action ga-event"
+                                                >수정하기</a
+                                            >
+                                        </li>
+                                    </ul>
+                                    <!-- <span
+                                        class="InpBox TxtType SizeXS position-select"
+                                    >
+                                        <select
+                                            class="btn-select"
+                                            id="resumeOnOff-30427117"
+                                        >
+                                            <option value="active">
+                                                적극 구직 중이에요. 제안
+                                                받을래요
+                                            </option>
+                                            <option value="y">
+                                                좋은 포지션이 있다면 제안
+                                                받을래요
+                                            </option>
+                                            <option value="n" selected="">
+                                                제안 받지 않을래요
+                                            </option>
+                                        </select>
+                                    </span> -->
+                                    <div class="memo-box empty">
+                                        <button
+                                            type="button"
+                                            class="btn-layer-open"
+                                            data-layer="resume-memo"
+                                        >
+                                            <span class="blind">메모 영역</span>
+                                            <svg class="icon">
+                                                <use
+                                                    xlink:href="#svg-my-4"
+                                                ></use>
+                                            </svg>
+                                            <span class="txt"
+                                                >이력서에 관련된 중요한 내용을
+                                                메모해보세요. ex) 11월 25일까지
+                                                사람인에 제출</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="menu-box">
+                                        <button type="button" class="more-btn">
+                                            <span class="blind"
+                                                >메뉴 더보기</span
+                                            >
+                                        </button>
+                                        <ul class="menu-list">
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    인쇄
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    MS워드로 저장
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    PDF로 저장
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    삭제
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="resume-item">
+                                    <a
+                                        href="javascript:;"
+                                        class="tit btn-action"
+                                    >
+                                        <span>석상훈의 이력서 입니다</span>
+                                    </a>
+                                    <span class="date"
+                                        >2024.10.15 17:09 수정</span
+                                    >
+                                    <br />
+                                    <ul class="option-list type-02">
+                                        <li class="career">
+                                            <span>신입</span>
+                                        </li>
+                                        <li class="jobtype">
+                                            <span
+                                                >희망 직무·직업 :
+                                                IT개발·데이터</span
+                                            >
+                                        </li>
+                                    </ul>
+                                    <ul class="option-list last">
+                                        <li class="income">
+                                            <span
+                                                >희망연봉 : 회사내규에
+                                                따름</span
+                                            ><a
+                                                href="javascript:;"
+                                                class="btnText btnLink btn-action"
+                                                >희망근무조건 수정</a
+                                            >
+                                        </li>
+                                    </ul>
+                                    <ul class="control-group">
+                                        <li class="status">
+                                            <div class="txt">
+                                                입사 지원 내역
+                                                <a
+                                                    href="javascript:;"
+                                                    class="btn-layer-open ga-event"
+                                                    >0건</a
+                                                >
+                                            </div>
+                                        </li>
+                                        <li class="control">
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM BlueInvert btn-action ga-event"
+                                            >
+                                                삭제하기
+                                            </button>
+                                        </li>
+                                        <li class="control">
+                                            <a
+                                                href="javascript:;"
+                                                class="BtnType SizeM BlueInvert btn-action ga-event"
+                                                >수정하기</a
+                                            >
+                                        </li>
+                                    </ul>
+                                    <!-- <span
+                                        class="InpBox TxtType SizeXS position-select"
+                                    >
+                                        <select
+                                            class="btn-select"
+                                            id="resumeOnOff-30413242"
+                                        >
+                                            <option value="active">
+                                                적극 구직 중이에요. 제안
+                                                받을래요
+                                            </option>
+                                            <option value="y" selected="">
+                                                좋은 포지션이 있다면 제안
+                                                받을래요
+                                            </option>
+                                            <option value="n">
+                                                제안 받지 않을래요
+                                            </option>
+                                        </select>
+                                    </span> -->
+                                    <div class="memo-box empty">
+                                        <button
+                                            type="button"
+                                            class="btn-layer-open"
+                                        >
+                                            <span class="blind">메모 영역</span>
+                                            <svg class="icon">
+                                                <use
+                                                    xlink:href="#svg-my-4"
+                                                ></use>
+                                            </svg>
+                                            <span class="txt"
+                                                >이력서에 관련된 중요한 내용을
+                                                메모해보세요. ex) 11월 25일까지
+                                                사람인에 제출</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="menu-box">
+                                        <button type="button" class="more-btn">
+                                            <span class="blind"
+                                                >메뉴 더보기</span
+                                            >
+                                        </button>
+                                        <ul class="menu-list">
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                    data-action="print"
+                                                >
+                                                    인쇄
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    MS워드로 저장
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="menu-option btn-action"
+                                                >
+                                                    PDF로 저장
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- <div class="access-restriction-area">
+                                        <strong class="title"
+                                            >현 직장 또는 특정 기업이 내
+                                            이력서를 열람하는게
+                                            부담스러우신가요?</strong
+                                        >
+                                        <span class="txt"
+                                            >열람제한 기업 및 업종 등록을 하면
+                                            내 이력서를 열람 할 수
+                                            없습니다.</span
+                                        >
+                                        <div class="btn-area">
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM"
+                                            >
+                                                열람제한 업종 등록
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="BtnType SizeM"
+                                            >
+                                                열람제한 기업 등록
+                                            </button>
+                                        </div>
+                                    </div> -->
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 유의사항 -->
+                        <div class="NotiBox">
+                            <span class="blind">유의사항</span>
+                            <h4 class="NotiTit">유의사항</h4>
+                            <div class="NotiCont">
+                                <ul class="list">
+                                    <li>
+                                        이력서 공개 설정은 1개의 이력서만
+                                        가능합니다.
+                                    </li>
+                                    <li>
+                                        이력서는 최대 15개, 파일 이력서와 URL
+                                        이력서는 최대 10개까지 등록 가능합니다.
+                                    </li>
+                                    <li>
+                                        '기업이 보낸 요청', '입사지원
+                                        내역'건수는 최근 1년간의 내역에 대해
+                                        확인 가능합니다.
+                                    </li>
+                                    <li>
+                                        인쇄, MS워드로 저장, PDF로 저장, 삭제
+                                        기능은 이력서 우측 버튼을 누르면
+                                        확인하실 수 있습니다. (파일 이력서와 URL
+                                        이력서는 삭제 기능만 제공)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <symbol id="TipBox-tail" viewBox="0 0 32 32">
+                <path d="M8.5 19L16 9L23.5 19H8.5Z" fill="inherit"></path>
+                <path
+                    d="M16 8L23.5 18H32V19H23L16 9.66667L9 19H0V18H8.5L16 8Z"
+                    fill="currentColor"
+                ></path>
+            </symbol>
+            <symbol id="svg-my-4" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M12.5.5c1.105 0 2 .895 2 2v12c0 1.105-.895 2-2 2h-10c-1.105 0-2-.895-2-2v-12c0-1.105.895-2 2-2zm0 1h-10c-.552 0-1 .448-1 1v12c0 .552.448 1 1 1h10c.552 0 1-.448 1-1v-12c0-.552-.448-1-1-1zm-2 9c.276 0 .5.224.5.5 0 .245-.177.45-.41.492l-.09.008h-6c-.276 0-.5-.224-.5-.5 0-.245.177-.45.41-.492l.09-.008h6zm0-3c.276 0 .5.224.5.5 0 .245-.177.45-.41.492l-.09.008h-6c-.276 0-.5-.224-.5-.5 0-.245.177-.45.41-.492L4.5 7.5h6zm0-3c.276 0 .5.224.5.5 0 .245-.177.45-.41.492l-.09.008h-6c-.276 0-.5-.224-.5-.5 0-.245.177-.45.41-.492L4.5 4.5h6z"
+                    transform="translate(-1125 -335) translate(447 335) translate(678) translate(4.5 3.5)"
+                ></path>
+            </symbol>
+        </svg>
+    </body>
+    <script src="/static/js/my-page/resume-management.js"></script>
+</html>

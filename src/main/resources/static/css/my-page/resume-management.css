@@ -1,0 +1,756 @@
+#position-wrap {
+    grid-area: main;
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+
+#content {
+    position: relative;
+    margin: 88px auto 136px;
+    width: 1248px;
+}
+
+.wrap-title {
+    color: #373f57;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 56px;
+}
+
+/* 대표 이력서 */
+.resume-list-wrap {
+    margin-top: 56px;
+}
+
+.resume-list-wrap .represent-wrap {
+    margin-bottom: 64px;
+}
+
+.resume-item.represent {
+    padding: 40px;
+    border-top: none;
+    border-radius: 16px;
+    background-color: #eff5ff;
+}
+
+.resume-item {
+    display: block;
+    position: relative;
+    padding: 32px;
+    border-top: 1px solid #dcdcdc;
+    font-size: 0;
+    text-align: left;
+}
+
+.resume-item .header {
+    display: flex;
+    position: relative;
+    color: var(--blue90);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+}
+
+.resume-item .header>span {
+    position: relative;
+    box-shadow: inset 0 -8px 0 #dbe8fe;
+}
+
+.resume-item .header .date {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--gray80);
+    font-size: 12px;
+    font-weight: normal;
+    box-shadow: none;
+}
+
+.resume-item.represent .tit {
+    overflow: hidden;
+    margin-top: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: initial;
+}
+
+.resume-item .tit {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 12px;
+    max-width: 764px;
+    color: var(--gray120);
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.resume-item.represent .option-list {
+    margin-bottom: 40px;
+}
+.resume-item .option-list {
+    font-size: 0;
+    vertical-align: top;
+}
+.resume-item.represent .option-list li {
+    display: inline-block;
+    position: relative;
+    padding-left: 24px;
+    width: initial;
+    min-width: 144px;
+    max-width: 992px;
+    height: 24px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.resume-item .option-list li {
+    display: inline-block;
+    position: relative;
+    padding-left: 24px;
+    width: 100%;
+    height: 24px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.resume-item .option-list li.career:before {
+    background: url('/static/images/my-page/bag.svg') no-repeat center center;
+}
+
+.resume-item .option-list li:before {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    content: "";
+}
+
+.resume-item .option-list li span {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 88%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resume-item.represent .option-list li:nth-child(2n) {
+    width: calc(100% - 200px);
+}
+
+.resume-item .option-list li.jobtype:before {
+    background: url('/static/images/my-page/equipment.svg') no-repeat center center;
+}
+
+.resume-item .option-list li.income:before {
+    background: url('/static/images/my-page/won.svg') no-repeat center center;
+}
+
+.resume-item .control-group {
+    display: block;
+    position: relative;
+    height: 40px;
+    font-size: 0;
+}
+
+.resume-item .control-group li {
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: top;
+}
+.resume-item .control-group li .resume-btn.common {
+    border: none;
+    color: #8491a7;
+    font-weight: bold;
+}
+.resume-item .control-group li .resume-btn {
+    position: relative;
+    padding: 6px 25px 8px;
+    border-radius: 20px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #fff;
+}
+[class*="BtnType"].SizeM {
+    padding: 6px 11px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 24px;
+}
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--blue90);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--blue90);
+    justify-content: center;
+    align-items: center;
+}
+.resume-item .control-group li .resume-btn.common+.badge-count {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    z-index: 5;
+    margin-left: -14px;
+    padding: 0 13px;
+    height: 28px;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 28px;
+    background-color: #afbac8;
+}
+
+.resume-item .control-group li.control {
+    float: right;
+    margin: 0 0 0 8px;
+}
+.resume-item.represent .control-group li.control .BtnType {
+    background: var(--blue20);
+}
+.resume-item .control-group li.control .BtnType {
+    min-width: 124px;
+}
+[class*="BtnType"].BlueInvert {
+    border-color: var(--blue90);
+    color: var(--blue90);
+    background: var(--white);
+}
+[class*="BtnType"].BlueInvert:hover {
+    background: var(--blue20);
+}
+
+.resume-item.represent .control-group li.control .BtnType:hover {
+    background: var(--blue30);
+}
+.resume-item .control-group li .resume-btn.common:hover {
+    color: #5c667d;
+}
+[class*="BtnType"]:hover {
+    border-color: var(--blue100);
+    background-color: var(--blue100);
+}
+
+.resume-item .control-group li.update {
+    position: absolute;
+    top: -32px;
+    right: 0;
+    margin: 0;
+}
+
+.resume-item .control-group li.update .btnText {
+    padding: 0 0 0 25px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: url('/static/images/my-page/refresh.svg') no-repeat left center;
+}
+.resume-item .menu-box {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.resume-item .menu-box .more-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: url('/static/images/my-page/three-spot.svg') no-repeat center center / 24px 24px;
+}
+.resume-item .menu-box .more-btn.on, .resume-item .menu-box .more-btn:hover {
+    background-color: #f4f6fa;
+}
+.resume-item.represent .menu-box .more-btn.on, .resume-item.represent .menu-box .more-btn:hover {
+    background-color: #deebff;
+}
+.resume-item .menu-box .menu-list {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: -32px;
+    z-index: 10;
+    padding: 8px 0;
+    width: 118px;
+    border: 1px solid #edeef0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px 0 rgba(70, 70, 70, 0.1);
+}
+.resume-item .menu-box .more-btn.on+.menu-list {
+    display: inline-block;
+}
+
+.resume-item .menu-box .menu-list li {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+}
+.resume-item .menu-box .menu-list li button {
+    padding: 9px 5px 10px 20px;
+    width: 100%;
+    color: #5c667b;
+    text-align: left;
+}
+.resume-item .menu-box .menu-list li:hover button {
+    background-color: #f4f6fa;
+}
+.resume-list-wrap .desc {
+    text-align: right;
+}
+.resume-list-wrap .desc {
+    position: relative;
+    margin-top: 24px;
+}
+
+.resume-list-wrap .desc .btn-info {
+    margin: 15px 10px;
+    font-size: 13px;
+}
+.resume-list-wrap .btn-info {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: underline;
+    vertical-align: top;
+}
+.resume-list-wrap .desc .TipBox {
+    display: inline-block;
+    vertical-align: top;
+}
+.TipBox {
+    position: relative;
+}
+
+.resume-list-wrap .desc .BtnType {
+    margin-right: 5px;
+    width: 124px;
+    color: var(--blue90);
+    border-color: var(--blue90);
+    background: var(--white);
+}
+.resume-list-wrap .desc a {
+    display: inline-block;
+    margin-right: 40px;
+    width: 124px;
+    vertical-align: top;
+}
+.resume-list-wrap .desc .BtnType:before {
+    display: inline-block;
+    margin-right: 7px;
+    width: 17px;
+    height: 22px;
+    vertical-align: bottom;
+    background: center url('/static/images/my-page/download.svg') no-repeat;
+    content: "";
+}
+.resume-list-wrap .desc .BtnType:hover {
+    background: var(--blue20);
+}
+
+.resume-list-wrap .desc .TipBox .TipCont {
+    z-index: 100;
+}
+.TipBox .TipCont.TopCenter {
+    top: calc(100% + 17px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.TipBox:hover .TipCont {
+    display: block;
+    z-index: 1;
+}
+.TipCont {
+    display: none;
+    position: absolute;
+    padding: 12px 16px 14px;
+    white-space: nowrap;
+    border: 1px solid var(--gray70);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: var(--white);
+    box-shadow: 2px 6px 16px rgba(0, 0, 0, 0.08);
+}
+.TipCont.TopCenter .Tail:has(>svg.icon-tail) {
+    background: none;
+}
+
+.TipCont.TopCenter .Tail {
+    top: -19px;
+    left: 50%;
+    margin-left: -16px;
+}
+
+
+.TipCont .Tail {
+    position: absolute;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+}
+.TipCont.TopCenter .Tail:has(>svg.icon-tail) svg.icon-tail, .TipCont.RightCenter .Tail:has(>svg.icon-tail) svg.icon-tail, .TipCont.BottomCenter .Tail:has(>svg.icon-tail) svg.icon-tail, .TipCont.LeftCenter .Tail:has(>svg.icon-tail) svg.icon-tail {
+    width: 32px;
+    height: 32px;
+}
+.TipCont .Tail:has(>svg.icon-tail) svg.icon-tail {
+    color: var(--gray70);
+    fill: var(--white);
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+.TipCont .TipTxt {
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.resume-list-wrap .desc .BtnType.url-btn:before {
+    background-image: url('/static/images/my-page/url.svg');
+}
+.resume-list-wrap .desc .BtnType[data-action="write"] {
+    position: relative;
+    margin-right: 40px;
+    color: var(--white);
+    border-color: var(--blue90);
+    background: var(--blue90);
+}
+
+
+/* 이력서 목록 */
+.resume-list-wrap .title-wrap {
+    position: relative;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.resume-list-wrap .title-wrap .list-count {
+    padding-left: 16px;
+    color: var(--gray100);
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+}
+
+.resume-list-wrap .title-wrap .InpBox {
+    margin-left: auto;
+    width: 163px;
+}
+
+.InpBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.InpBox select {
+    padding: 0 28px 0 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    background: var(--white) url('/static/images/my-page/drop-down.svg') no-repeat right 12px top 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.list-manage-resume .resume-item:first-child {
+    border-top: 1px solid #d7dce5;
+}
+
+.list-manage-resume .resume-item {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #eaedf4;
+}
+
+.resume-item .tit span:not(.flag) {
+    display: inline-block;
+    overflow: hidden;
+    /* float: right; */
+    max-width: 764px;
+    color: var(--gray120);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.resume-item .tit+.date {
+    display: none;
+    padding: 0 0 0 8px;
+    color: #8491a7;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 40px;
+    vertical-align: top;
+}
+
+
+.resume-item .option-list.type-02 li:nth-of-type(1) {
+    width: 30%;
+}
+
+.resume-item .option-list.type-02 li:nth-of-type(2) {
+    width: 70%;
+}
+
+.resume-item .option-list.last {
+    margin-bottom: 16px;
+}
+
+.resume-item .option-list li a {
+    margin-left: 8px;
+    padding: 0 0 0 6px;
+    color: var(--blue90);
+    font-size: 13px;
+    text-decoration: underline;
+    vertical-align: top;
+}
+
+.resume-item .tit:hover:after {
+    display: inline-block;
+}
+
+.resume-item .control-group li.status {
+    position: relative;
+    margin: 21px 0 0;
+    padding-right: 16px;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.resume-item .control-group li.status .txt a {
+    margin-left: 4px;
+    padding-right: 19px;
+    color: var(--blue90);
+    font-size: 15px;
+    font-weight: bold;
+    background: url('/static/images/my-page/next-button.svg') no-repeat right center;
+}
+
+.resume-item .InpBox.position-select {
+    position: absolute;
+    top: 38px;
+    right: 145px;
+}
+
+.InpBox.TxtType {
+    border: 0;
+    border-radius: unset;
+    color: #fff;
+    cursor: pointer;
+}
+
+.InpBox.TxtType select {
+    border: 0;
+    box-sizing: border-box;
+}
+
+.InpBox.SizeXS select {
+    height: 24px;
+    font-size: 12px;
+}
+
+
+.InpBox.TxtType.SizeXS select {
+    padding: 0 24px 0 0;
+    height: 24px;
+    font-size: 14px;
+    background: url('/static/images/my-page/drop-down2.svg') right center no-repeat;
+}
+
+.resume-item .memo-box.empty {
+    background-color: var(--blue10);
+}
+
+.resume-item .memo-box {
+    position: relative;
+    margin: 24px 0 0 -32px;
+    padding: 0;
+    width: calc(100% + 64px);
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 24px;
+    background-color: #f7fafe;
+}
+
+.resume-item .memo-box.empty button {
+    color: var(--gray80);
+}
+
+.resume-item .memo-box button {
+    display: inline-block;
+    padding: 8px 48px 8px 64px;
+    width: 100%;
+    min-height: 40px;
+    color: #373f57;
+    text-align: left;
+}
+
+.resume-item .memo-box button span {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resume-item .memo-box.empty [class*="icon"] {
+    color: #b5bdc8;
+}
+
+.resume-item .memo-box [class*="icon"] {
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 32px;
+    width: 24px;
+    height: 24px;
+    color: #4876ef;
+}
+
+.resume-item .access-restriction-area {
+    position: relative;
+    margin: 24px -32px 0 -32px;
+    padding: 24px 24px 28px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f4f6fa;
+}
+
+.resume-item .access-restriction-area .title {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--gray120);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.resume-item .access-restriction-area .txt {
+    display: block;
+    color: var(--gray80);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.resume-item .access-restriction-area .btn-area {
+    position: absolute;
+    top: 32px;
+    right: 24px;
+    font-size: 0;
+}
+.resume-item .access-restriction-area .btn-area .BtnType:hover {
+    background: var(--gray20);
+}
+
+.resume-item .access-restriction-area .btn-area .BtnType {
+    margin-left: 8px;
+    width: 174px;
+    color: var(--gray100);
+    border-color: var(--gray80);
+    background: var(--white);
+}
+
+.resume-list-wrap+.NotiBox {
+    margin-top: 40px;
+}
+
+.NotiBox {
+    display: flex;
+    position: relative;
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--gray20);
+    align-items: flex-start;
+}
+
+.NotiBox .NotiTit {
+    display: flex;
+    width: 178px;
+    box-sizing: border-box;
+    color: var(--gray70);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.NotiBox .NotiTit:before {
+    display: inline-block;
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    background: url('/static/images/my-page/note.svg') 0 0 no-repeat;
+    content: "";
+}
+
+.NotiBox .NotiCont .list>li {
+    display: block;
+    position: relative;
+    padding-left: 8px;
+    color: var(--gray70);
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.NotiBox .NotiCont .list>li:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    line-height: 22px;
+    content: "·";
+}
+
+.resume-item .control-group li .resume-btn.my-link:hover {
+    color: #5c667d;
+}
+
+.resume-item .control-group li .resume-btn.my-link {
+    padding: 6px 14px 8px 20px;
+    border: none;
+    color: #8491a7;
+    font-weight: bold;
+}
+
+.resume-item .control-group li .resume-btn.my-link:after {
+    display: inline-block;
+    margin-left: 3px;
+    width: 16px;
+    height: 18px;
+    background: url('/static/images/my-page/next-arrow2.svg') no-repeat center center;
+    transform: translateY(3px);
+    content: "";
+}
+
+.resume-item .control-group li .resume-btn.common:hover+.badge-count {
+    background-color: #6d7789;
+}
+
+.resume-list-wrap .desc .BtnType[data-action="write"]:hover {
+    background: var(--blue100);
+}
+.resume-list-wrap .desc .btn-action::before {
+    display: none;
+}
