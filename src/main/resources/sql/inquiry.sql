@@ -15,6 +15,8 @@ create table tbl_inquiry (
 select *
 from tbl_inquiry;
 
+use test;
+
 ALTER TABLE tbl_inquiry
     MODIFY created_date DATETIME DEFAULT CURRENT_TIMESTAMP;
 
@@ -23,3 +25,5 @@ ALTER TABLE tbl_inquiry
 
 ALTER TABLE tbl_inquiry
     MODIFY inquiry_content VARCHAR(255) NOT NULL;
+
+ALTER TABLE tbl_inquiry DROP COLUMN inquiry_attachment;
