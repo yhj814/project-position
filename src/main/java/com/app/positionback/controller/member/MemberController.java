@@ -1,6 +1,8 @@
 package com.app.positionback.controller.member;
 
 import com.app.positionback.domain.member.MemberDTO;
+import com.app.positionback.domain.member.MemberVO;
+import com.app.positionback.exception.LoginFailException;
 import com.app.positionback.service.member.MemberService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,7 +35,7 @@ public class MemberController {
 //    NPE가 발생할 수 있다. 이를 필수가 아닌 선택으로(null 허용) 변경하고 싶다면,
 //    required 설정을 false로 지정한다.
     public void goToLoginForm(@RequestParam(required = false) Boolean status, MemberDTO memberDTO, HttpServletRequest request, Model model) {
-        log.info("status: {}", status);
+        log.info("status: {}", status); //null 출력됨
 
         //        쿠키 조회
         Cookie[] cookies = request.getCookies();
@@ -60,10 +62,97 @@ public class MemberController {
 //    }
 //
     @PostMapping("/login/login-combine")
-    public RedirectView login(@RequestParam(required = false) Boolean status,MemberDTO memberDTO){
+//    HttpSession
+//    서버의 Session영역을 관리해주는 객체이다.
+//    Spring이 해당 객체를 주입해준다.
+    public RedirectView login(MemberDTO memberDTO, String save, HttpSession session, HttpServletResponse response){
+//        memberService.login(memberDTO.toVO())
+//                .ifPresentOrElse(
+//                        (member) -> {
+//                            log.info(member.toString());
+//                            log.info("로그인 성공");
+//                        },
+//                        () -> {
+//                            log.info("로그인 실패");
+//                        });
 
+//        // 로그인 시도
+        Optional<MemberVO> foundMember = memberService.login(memberDTO.toVO());
+//
+////        null이 아니면 단일 객체 리턴, null이면 예외 발생
+        MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
+//
+////        id만 담아놓으면 사용할 때마다 SELECT 쿼리를 발생시켜야 한다(싫어!)
+////        session.setAttribute("memberId", memberVO.getId());
+////        전체 정보를 담아놓기 때문에 쿼리를 따로 발생시킬 필요 없다(좋아!)
+//        session.setAttribute("member", memberVO);
+
+        // MemberVO에서 MemberDTO로 변환
+
+        memberDTO.setId(foundMember.get().getId());
+        memberDTO.setMemberName(foundMember.get().getMemberName());
+        memberDTO.setMemberEmail(foundMember.get().getMemberEmail());
+        memberDTO.setMemberPassword(foundMember.get().getMemberPassword());
+        memberDTO.setMemberAddress(foundMember.get().getMemberAddress());
+        memberDTO.setMemberAddressDetail(foundMember.get().getMemberAddressDetail());
+        memberDTO.setMemberNickname(foundMember.get().getMemberNickname());
+        memberDTO.setMemberStatus(foundMember.get().getMemberStatus());
+        memberDTO.setMemberType(foundMember.get().getMemberType());
+        memberDTO.setMemberWarningCount(foundMember.get().getMemberWarningCount());
+
+
+        memberDTO.setMemberStatus("활동 회원");
+        memberDTO.setMemberType("포지셔너");
+        // 필요에 따라 추가적인 필드 설정
+        log.info("memberDTO: {}", memberDTO);
+        // 세션에 memberDTO 저장
+        session.setAttribute("memberDTO", memberDTO);
+
+
+//        화면에서 아이디 저장을 선택했다면 null이 아니다.
+        if(save != null){
+//            쿠키 생성, 저장
+            Cookie saveCookie = new Cookie("save", save);
+            Cookie memberEmailCookie = new Cookie("memberEmail", memberDTO.getMemberEmail());
+
+//            -1: 쿠키 계속 유지
+            saveCookie.setMaxAge(-1);
+            memberEmailCookie.setMaxAge(-1);
+
+            response.addCookie(saveCookie);
+            response.addCookie(memberEmailCookie);
+
+        }else{
+//            쿠키 삭제
+            Cookie saveCookie = new Cookie("save", null);
+            Cookie memberEmailCookie = new Cookie("memberEmail", null);
+
+            saveCookie.setMaxAge(0);
+            memberEmailCookie.setMaxAge(0);
+
+            response.addCookie(saveCookie);
+            response.addCookie(memberEmailCookie);
+        }
+
+        log.info("로그인 성공: {}", memberVO);
+        log.info("로그인 성공: {}", memberDTO);
         return new RedirectView( "/main/body");
     }
+
+    //    로그 아웃
+    @GetMapping("logout")
+    public RedirectView logout(HttpSession session){
+        session.invalidate();
+        return new RedirectView("/login/login-combine");
+    }
+
+    //    메인페이지 이동
+    @GetMapping("/main/body")
+    public  void  goToWebMain(MemberDTO memberDTO,HttpSession session){
+        log.info("메인 페이지 들어옴");
+        session.invalidate();
+    }
+
 //    @GetMapping("/main/body")
 //    public String goToMainPage(MemberDTO memberDTO){
 //        return "/main/body";

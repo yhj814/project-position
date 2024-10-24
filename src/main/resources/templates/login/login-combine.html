@@ -8,6 +8,7 @@
         <title>로그인 - Position</title>
     </head>
     <body>
+    <form th:action="@{/login/login-combine}" method="post" name="login-form" th:object="${memberDTO}">
         <header id="login-hader" class="integrated-header">
             <div class="area-logo">
                 <!-- position path -->
@@ -297,6 +298,7 @@
                                                                 class="txt-tool"
                                                                 value=""
                                                                 required=""
+                                                                th:field="*{memberEmail}"
                                                             />
                                                             <label
                                                                 id="id-label"
@@ -316,6 +318,7 @@
                                                                 value=""
                                                                 maxlength="32"
                                                                 required=""
+                                                                th:field="*{memberPassword}"
                                                             />
                                                             <label
                                                                 id="password-label"
@@ -328,22 +331,7 @@
                                                                 class="inp-box"
                                                                 name="autologin-check-box"
                                                             >
-                                                                <span
-                                                                    class="chk"
-                                                                >
-                                                                    <input
-                                                                        type="checkbox"
-                                                                        id="autologin"
-                                                                        name="autologin"
-                                                                        data-gtm-form-interact-field-id="0"
-                                                                    />
-                                                                    <label
-                                                                        class="lbl"
-                                                                        for="autologin"
-                                                                        >로그인
-                                                                        유지</label
-                                                                    >
-                                                                </span>
+
                                                             </div>
                                                             <div
                                                                 class="inp-box"
@@ -353,13 +341,13 @@
                                                                 >
                                                                     <input
                                                                         type="checkbox"
-                                                                        id="id-save"
+                                                                        id="save"
                                                                         name="id-save"
                                                                         data-gtm-form-interact-field-id="1"
                                                                     />
                                                                     <label
                                                                         class="lbl"
-                                                                        for="id-save"
+                                                                        for="save"
                                                                         >아이디
                                                                         저장</label
                                                                     >
@@ -436,6 +424,14 @@
                 </div>
             </div>
         </div>
-        <script src="/js/login/login-combine.js"></script>
+    </form>
     </body>
+        <script src="/js/login/login-combine.js"></script>
+    <script th:inline="javascript">
+        const save = [[${save}]];
+        const saveInput = document.querySelector("input[name=save]");
+        if(save) {
+            saveInput.checked = true;
+        }
+    </script>
 </html>
