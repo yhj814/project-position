@@ -9,11 +9,13 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class InquiryVO {
     private Long id;
-    private String type;
-    private String category;
-    private String title;
-    private String content;
-
+    private String inquiryType;
+    private String inquiryCategory;
+    private String inquiryTitle;
+    private String inquiryContent;
+    private String createDate;
+    private String updateDate;
+    private Long memberId;
 }
 
 
