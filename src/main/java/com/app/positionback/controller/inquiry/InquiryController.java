@@ -16,4 +16,4 @@ public class InquiryController {
 
     @GetMapping
     public void goToInquiry() {}
-}
+};
