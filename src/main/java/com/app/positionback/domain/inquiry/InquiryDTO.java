@@ -7,6 +7,5 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 public class InquiryDTO {
-    @EqualsAndHashCode
 
 }
