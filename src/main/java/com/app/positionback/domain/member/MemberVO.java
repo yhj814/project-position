@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Getter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
+// for persistence
 public class MemberVO {
     @EqualsAndHashCode.Include
     private Long id;
