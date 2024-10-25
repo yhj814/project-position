@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.notice.NoticeMapper">
     <insert id="insertNotice">
-        insert into tbl_notice (corporation_id, notice_title, notice_career, notice_education, notice_work_date, notice_end_date)
-        values (#{corporationId}, #{noticeTitle}, #{noticeCareer}, #{noticeEducation}, #{noticeWorkDate}, #{noticeEndDate})
+        insert into tbl_notice (corporation_id, notice_title, notice_career, notice_education, notice_work_date, notice_end_date, job_categoryC_id)
+        values (#{corporationId}, #{noticeTitle}, #{noticeCareer}, #{noticeEducation}, #{noticeWorkDate}, #{noticeEndDate},#{jobCategorycId})
     </insert>
 
     <insert id="insertFile">
@@ -20,5 +20,13 @@
         insert into tbl_notice_file (notice_id, id)
         values (#{noticeId}, #{fileId})
     </insert>
+
+    <!-- 기업 정보를 ID로 가져오기 -->
+    <select id="getCorporationById" parameterType="long" resultType="com.app.positionback.domain.corporation.CorporationDTO">
+        SELECT id, corporation_name
+        FROM tbl_corporation
+        WHERE id = #{corporationId}
+    </select>
+
 
 </mapper>

@@ -21,4 +21,5 @@ public class NoticeVO {
     private String noticeEndDate;
     private String createdDate;
     private String updatedDate;
+    private Long jobCategorycId;
 }

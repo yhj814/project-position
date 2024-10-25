@@ -26,6 +26,7 @@ public class NoticeMapperTests {
         noticeDTO.setNoticeEducation("대졸 이상");
         noticeDTO.setNoticeWorkDate("2024-01-01");
         noticeDTO.setNoticeEndDate("2024-01-31");
+        noticeDTO.setJobCategorycId(1L);
 
         // 공고 등록
         noticeMapper.insertNotice(noticeDTO);
