@@ -200,7 +200,7 @@ label {
     color: #444;
     font-size: 13px;
     line-height: 17px;
-    background: url(/static/images/interview-review/sri_ico_checkbox03.png)
+    background: url(/images/interview-review/sri_ico_checkbox03.png)
         0 -200px no-repeat;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -230,7 +230,7 @@ label {
     font-weight: bold;
     line-height: normal;
     background: #fff
-        url(/static/images/customer-service-center/ico_position_input2.png)
+        url(/images/customer-service-center/ico_position_input2.png)
         100% -600px no-repeat;
     -webkit-user-select: none;
     user-select: none;
@@ -369,7 +369,7 @@ label {
     color: #444;
     font-size: 13px;
     line-height: 22px;
-    background: url(/static/images/customer-service-center/ico_checkbox.png)
+    background: url(/images/customer-service-center/ico_checkbox.png)
         0 2px no-repeat;
 }
 .help-find .wrap-link {
@@ -456,6 +456,6 @@ a {
     width: 13px;
     height: 13px;
     vertical-align: top;
-    background: url(/static/images/customer-service-center/btn_find_delete.png)
+    background: url(/images/customer-service-center/btn_find_delete.png)
         no-repeat 0 0;
 }

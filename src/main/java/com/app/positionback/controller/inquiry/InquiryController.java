@@ -1,5 +1,6 @@
 package com.app.positionback.controller.inquiry;
 
+import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.service.inquiry.InquiryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class InquiryController {
     private InquiryService inquiryService;
 
-    @GetMapping
-    public void goToInquiry() {}
+    @GetMapping("customer-service-center/inquiry")
+    public void goToInquiryForm(InquiryDTO inquiryDTO) {;}
 };
