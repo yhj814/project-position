@@ -7,14 +7,14 @@ import org.springframework.stereotype.Component;
 @Getter @Setter @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class FileDTO {
-    @EqualsAndHashCode.Include
-    private Long id;
-    private String fileName;
-    private String filePath;
-    private String createdDate;
-    private String updatedDate;
-
-    public FileVO toVO(){
-        return new FileVO(id, fileName, filePath, createdDate, updatedDate);
-    }
+//    @EqualsAndHashCode.Include
+//    private Long id;
+//    private String fileName;
+//    private String filePath;
+//    private String createdDate;
+//    private String updatedDate;
+//
+//    public FileVO toVO(){
+//        return new FileVO(id, fileName, filePath, createdDate, updatedDate);
+//    }
 }
