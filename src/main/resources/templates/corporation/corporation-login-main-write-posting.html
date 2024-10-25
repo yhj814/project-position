@@ -30,7 +30,8 @@
                         </p>
                     </div>
                     <div class="interview-write-wrap-interview-review">
-                        <form name="interview-write-review-form">
+                        <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" name="interview-write-review-form">
+                            <input type="hidden" th:field="*{noticeWorkDate}" id="noticeWorkDateField" />
                             <input
                                 type="hidden"
                                 name="interview-write-idx"
@@ -2174,8 +2175,10 @@
                                                             >
                                                                 <select
                                                                     name="interview-date-year"
-                                                                    id="interviewDateYear"
-                                                                    title="연도 선택"
+                                                                    id="interview-history"
+                                                                    title="경력 선택"
+                                                                    th:field="*{noticeCareer}"
+
                                                                 >
                                                                     <option
                                                                         value=""
@@ -2235,7 +2238,8 @@
                                                                 <select
                                                                     name="interview-date-year"
                                                                     id="interviewDateYear"
-                                                                    title="연도 선택"
+                                                                    title="학력 선택"
+                                                                    th:field="*{noticeEducation}"
                                                                 >
                                                                     <option
                                                                         value=""
@@ -2247,13 +2251,13 @@
                                                                         value="education"
                                                                     >
                                                                         학력
-                                                                        선택
+                                                                        무관
                                                                     </option>
                                                                     <option
-                                                                        value="education"
+                                                                        value="무관"
                                                                     >
                                                                         학력
-                                                                        선택
+                                                                        무관
                                                                     </option>
                                                                     <option
                                                                         value="education"
@@ -2364,7 +2368,7 @@
                                                                 autocomplete="off"
                                                                 type="datetime-local"
                                                                 max="2077-06-20T21:00"
-                                                                value=""
+                                                                th:field="*{noticeEndDate}"
                                                             />
                                                         </div>
                                                         <em
