@@ -46,5 +46,4 @@ public class NoticeController {
     private String getPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
-
 }
