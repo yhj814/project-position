@@ -2,7 +2,6 @@ package com.app.positionback.controller.inquiry;
 
 import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.service.inquiry.InquiryService;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
