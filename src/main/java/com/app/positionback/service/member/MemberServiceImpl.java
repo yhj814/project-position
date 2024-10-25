@@ -13,6 +13,7 @@ import java.util.Optional;
 @Primary
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
+// for implement of member
 public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO;
     @Override
