@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @Slf4j
 public class CorporationController {
-    @GetMapping("corporation-login-main-write-posting")
-    public void corporationLoginMainWritePosting(Model model) {
-        log.info("Accessing interview review page");
-    }
+//    @GetMapping("corporation-login-main-write-posting")
+//    public void corporationLoginMainWritePosting(Model model) {
+//        log.info("Accessing interview review page");
+//    }
 }

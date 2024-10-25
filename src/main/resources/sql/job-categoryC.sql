@@ -8,3 +8,5 @@ create table tbl_job_categoryC(
 
 select * from tbl_job_categoryC;
 
+INSERT INTO tbl_job_categoryC (job_categoryC_name, job_categoryB_id)
+VALUES ('게임기획', 1);
