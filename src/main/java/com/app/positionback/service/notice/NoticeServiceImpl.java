@@ -3,6 +3,7 @@ package com.app.positionback.service.notice;
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.repository.notice.NoticeDAO;
+import com.app.positionback.repository.notice.NoticeFileDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.springframework.context.annotation.Primary;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @Transactional(rollbackFor = Exception.class)
 public class NoticeServiceImpl implements NoticeService {
     private final NoticeDAO noticeDAO;
+    private final NoticeFileDAO noticeFileDAO;
 
     @Override
     public void saveNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
@@ -40,10 +42,10 @@ public class NoticeServiceImpl implements NoticeService {
         file.transferTo(new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename()));
         fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
 
-        noticeDAO.saveFile(fileDTO);
-        Long noticeId = noticeDAO.getLastInsertedId();
-        Long fileId = noticeDAO.getLastInsertedId();
-        noticeDAO.linkNoticeWithFile(noticeId, fileId);
+        noticeFileDAO.saveFile(fileDTO);
+        Long noticeId = noticeFileDAO.getLastInsertedId();
+        Long fileId = noticeFileDAO.getLastInsertedId();
+        noticeFileDAO.linkNoticeWithFile(noticeId, fileId);
     }
     private String getPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
