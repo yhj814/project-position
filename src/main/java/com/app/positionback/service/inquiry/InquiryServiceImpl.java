@@ -1,6 +1,8 @@
 package com.app.positionback.service.inquiry;
 
+import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.inquiry.InquiryVO;
+import com.app.positionback.mapper.inquiry.InquiryMapper;
 import com.app.positionback.repository.inquiry.InquiryDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class InquiryServiceImpl implements InquiryService {
     private final InquiryDAO inquiryDAO;
+    private final InquiryMapper inquiryMapper;
 
     @Override
     public void write(InquiryVO inquiryVO){

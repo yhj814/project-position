@@ -8,6 +8,7 @@ create table tbl_inquiry (
     member_id bigint unsigned not null,                      # 회원 외래 키
     constraint fk_inquiry_member foreign key (member_id)    # 회원 외래 키 제약 조건
         references tbl_member(id),
+
     created_date datetime default current_timestamp,        # 생성일
     updated_date datetime default current_timestamp         # 수정일
 );

@@ -19,7 +19,7 @@
                     </div>
                     <div class="help-find help-lost wrap-help">
                         <div class="cont-find">
-                            <form action="" id="write-form">
+                            <form action="/customer-service-center/inquiry" method="post" id="write-form">
                                 <fieldset>
                                     <p class="desc-find-type2">
                                         평일 09시 에서 17시까지 문의하신 내용은
@@ -48,8 +48,8 @@
                                                         type="text"
                                                         id="help-email"
                                                         class="inp-find"
-                                                        name="help-email"
-                                                        value="yhh725@naver.com"
+                                                        name="memberEmail"
+                                                        value="korea@gmail.com"
                                                         autocomplete="off"
                                                         readonly="readonly"
                                                     />
@@ -69,7 +69,7 @@
                                                     <span class="inp-rdo">
                                                         <input
                                                             type="radio"
-                                                            name="help-member-type"
+                                                            name="inquiryType"
                                                             id="help-member-type-person"
                                                             class="help-member-type"
                                                             checked
@@ -83,7 +83,7 @@
                                                     <span class="inp-rdo">
                                                         <input
                                                             type="radio"
-                                                            name="help-member-type"
+                                                            name="inquiryType"
                                                             id="help-member-type-company"
                                                             class="help-member-type"
                                                         />
@@ -110,7 +110,7 @@
                                             <div class="wrap-input">
                                                 <span class="position-input2">
                                                     <select
-                                                        name="help-category"
+                                                        name="inquiryTitle"
                                                         id="help-category"
                                                         style="width: 338px"
                                                     >
@@ -122,16 +122,34 @@
                                                         </option>
                                                         <!-- 복붙 -->
                                                         <option value="">
-                                                            종류1
+                                                            시스템 오류 및 버그 신고
                                                         </option>
                                                         <option value="">
-                                                            종류2
+                                                            이력서 문의
                                                         </option>
                                                         <option value="">
-                                                            종류3
+                                                            포지션 지원 관련 문의
                                                         </option>
                                                         <option value="">
-                                                            종류4
+                                                            포지션 배정 관련 문의
+                                                        </option>
+                                                         <option value="">
+                                                            회원가입/탈퇴/ID/PW
+                                                        </option>
+                                                         <option value="">
+                                                            공고 문의
+                                                        </option>
+                                                         <option value="">
+                                                            지원자 관련 문의
+                                                        </option>
+                                                         <option value="">
+                                                            결제/유료 상품 문의
+                                                        </option>
+                                                        <option value="">
+                                                            기업 정보
+                                                        </option>
+                                                        <option value="">
+                                                            제안 사항
                                                         </option>
                                                     </select>
                                                 </span>
@@ -152,7 +170,7 @@
                                                 <span class="box-input">
                                                     <input
                                                         type="text"
-                                                        name="help-title"
+                                                        name="inquiryTitle"
                                                         id="help-title"
                                                         class="inp-find"
                                                         style="width: 533px"
@@ -174,7 +192,7 @@
                                             <div class="wrap-input">
                                                 <span class="box-input">
                                                     <textarea
-                                                        name="help-content"
+                                                        name="inquiryContent"
                                                         id="help-desc"
                                                         class="inp-find textarea"
                                                         style="
@@ -235,7 +253,7 @@
                                             [개인정보 수집·이용에 대한 안내]
                                         </h3>
                                         <p class="desc-find-type2">
-                                            (주)사람인은 이용자 문의를 처리하기
+                                            (주)POISTION은 이용자 문의를 처리하기
                                             위해 다음과 같이 개인정보를 수집 및
                                             이용하며, 이용자의 개인정보를
                                             안전하게 취급하는데 최선을 다하고
@@ -260,7 +278,7 @@
                                             거부 시 문의하기 이용이 제한됩니다.
                                             <br />
                                             이외의 방법으로 문의하시려면
-                                            이메일(help@saramin.co.kr)을 통하여
+                                            이메일(help@position.co.kr)을 통하여
                                             문의하시기 바랍니다.
                                         </p>
                                         <div class="check-agree">
