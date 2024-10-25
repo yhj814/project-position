@@ -4,10 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>기업 공고 등록</title>
-        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/css/main.css" />
         <link
             rel="stylesheet"
-            href="/static/css/corporation/corporation-login-main-write-posting.css"
+            href="/css/corporation/corporation-login-main-write-posting.css"
         />
     </head>
     <body>
@@ -30,7 +30,7 @@
                         </p>
                     </div>
                     <div class="interview-write-wrap-interview-review">
-                        <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" name="interview-write-review-form">
+                        <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" enctype="multipart/form-data" name="interview-write-review-form">
                             <input type="hidden" th:field="*{noticeWorkDate}" id="noticeWorkDateField" />
                             <input
                                 type="hidden"
@@ -125,7 +125,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="companyName"
+                                                            for="NoticeTitle"
                                                             class="interview-write-tit-item"
                                                         >
                                                             공고명
@@ -162,14 +162,15 @@
                                                             />
                                                             <input
                                                                 type="text"
-                                                                name="company-nm"
-                                                                id="companyName"
+                                                                name="NoticeTitle"
+                                                                id="NoticeTitle"
                                                                 class="interview-write-inpTypo"
                                                                 title="공고명 입력"
                                                                 placeholder="공고명 입력"
                                                                 data-id="company-nm"
                                                                 data-value
                                                                 autocomplete="off"
+                                                                th:field="*{noticeTitle}"
                                                             />
                                                         </div>
                                                         <em
@@ -314,7 +315,6 @@
                                                                                 class="interview-write-area-btn"
                                                                             >
                                                                                 <button
-                                                                                    class="button"
                                                                                     class="interview-write-btn-close"
                                                                                 >
                                                                                     닫기
@@ -1937,42 +1937,7 @@
                                                         <div
                                                             class="interview-write-range-option"
                                                         >
-                                                            <span
-                                                                class="interview-write-inpSel"
-                                                            >
-                                                                <select
-                                                                    name="interview-date-year"
-                                                                    id="interviewDateYear"
-                                                                    title="연도 선택"
-                                                                >
-                                                                    <option
-                                                                        value
-                                                                    >
-                                                                        연도
-                                                                        선택
-                                                                    </option>
-                                                                    <option
-                                                                        value="2021"
-                                                                    >
-                                                                        2021년
-                                                                    </option>
-                                                                    <option
-                                                                        value="2022"
-                                                                    >
-                                                                        2022년
-                                                                    </option>
-                                                                    <option
-                                                                        value="2023"
-                                                                    >
-                                                                        2023년
-                                                                    </option>
-                                                                    <option
-                                                                        value="2024"
-                                                                    >
-                                                                        2024년
-                                                                    </option>
-                                                                </select>
-                                                            </span>
+
                                                             <span
                                                                 class="interview-write-inpSel"
                                                             >
@@ -2046,6 +2011,42 @@
                                                                     >
                                                                         12월
                                                                     </option>
+                                                                </select>
+                                                            </span>
+                                                            <span class="interview-write-inpSel">
+                                                                <select name="interview-date-day" id="interviewDateDay" title="일 선택">
+                                                                    <option value="">일 선택</option>
+                                                                    <option value="01">01일</option>
+                                                                    <option value="02">02일</option>
+                                                                    <option value="03">03일</option>
+                                                                    <option value="04">04일</option>
+                                                                    <option value="05">05일</option>
+                                                                    <option value="06">06일</option>
+                                                                    <option value="07">07일</option>
+                                                                    <option value="08">08일</option>
+                                                                    <option value="09">09일</option>
+                                                                    <option value="10">10일</option>
+                                                                    <option value="11">11일</option>
+                                                                    <option value="12">12일</option>
+                                                                    <option value="13">13일</option>
+                                                                    <option value="14">14일</option>
+                                                                    <option value="15">15일</option>
+                                                                    <option value="16">16일</option>
+                                                                    <option value="17">17일</option>
+                                                                    <option value="18">18일</option>
+                                                                    <option value="19">19일</option>
+                                                                    <option value="20">20일</option>
+                                                                    <option value="21">21일</option>
+                                                                    <option value="22">22일</option>
+                                                                    <option value="23">23일</option>
+                                                                    <option value="24">24일</option>
+                                                                    <option value="25">25일</option>
+                                                                    <option value="26">26일</option>
+                                                                    <option value="27">27일</option>
+                                                                    <option value="28">28일</option>
+                                                                    <option value="29">29일</option>
+                                                                    <option value="30">30일</option>
+                                                                    <option value="31">31일</option>
                                                                 </select>
                                                             </span>
                                                         </div>
@@ -2187,7 +2188,7 @@
                                                                         선택
                                                                     </option>
                                                                     <option
-                                                                        value="2021"
+                                                                        value="무관"
                                                                     >
                                                                         무관
                                                                     </option>
@@ -2237,7 +2238,7 @@
                                                             >
                                                                 <select
                                                                     name="interview-date-year"
-                                                                    id="interviewDateYear"
+                                                                    id="noticeEducation"
                                                                     title="학력 선택"
                                                                     th:field="*{noticeEducation}"
                                                                 >
@@ -2248,7 +2249,7 @@
                                                                         선택
                                                                     </option>
                                                                     <option
-                                                                        value="education"
+                                                                        value="무관"
                                                                     >
                                                                         학력
                                                                         무관
@@ -2314,12 +2315,12 @@
                                                         >
                                                             <input
                                                                 type="text"
-                                                                name="company-nm"
-                                                                id="companyName"
+                                                                name="companyTime"
+                                                                id="companyTime"
                                                                 class="interview-write-inpTypo"
                                                                 title="근무 일자, 시간 입력"
                                                                 placeholder="근무 일자, 시간 입력"
-                                                                data-id="company-nm"
+                                                                data-id="companyTime"
                                                                 data-value
                                                                 autocomplete="off"
                                                             />
@@ -2412,8 +2413,7 @@
                                                     >
                                                         <strong
                                                             class="interview-write-tit-item"
-                                                        >
-                                                            합격 여부
+                                                        >   공고 이미지
                                                             <span
                                                                 class="interview-write-spr-review interview-write-point"
                                                             >
@@ -2441,7 +2441,6 @@
                                                         <div class="filebox">
                                                             <input
                                                                 class="upload-name"
-                                                                value="첨부파일"
                                                                 placeholder="첨부파일"
                                                             />
                                                             <label for="file"
@@ -2450,6 +2449,8 @@
                                                             <input
                                                                 type="file"
                                                                 id="file"
+                                                                name="file"
+                                                                required
                                                             />
                                                         </div>
                                                         <em
@@ -2473,6 +2474,7 @@
                                     <button
                                         type="submit"
                                         class="interview-write-btn-confirm"
+                                        id="submitBtn"
                                     >
                                         등록 요청
                                     </button>
@@ -2484,5 +2486,5 @@
             </div>
         </div>
     </body>
-    <script src="/static/js/corporation/corporation-login-main-write-posting.js"></script>
+    <script src="/js/corporation/corporation-login-main-write-posting.js"></script>
 </html>

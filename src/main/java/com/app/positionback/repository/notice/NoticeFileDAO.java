@@ -20,8 +20,7 @@ public class NoticeFileDAO {
     }
 
     public void linkNoticeWithFile(Long noticeId, Long fileId) {
-        NoticeFileDTO noticeFileDTO = new NoticeFileDTO(noticeId, fileId);
-        noticeFileMapper.insertNoticeFile(noticeFileDTO);
+        noticeFileMapper.insertNoticeFile(noticeId, fileId);
     }
 
 }

@@ -13,5 +13,5 @@ public interface NoticeFileMapper {
     public Long getLastInsertId();
 
     // 공고와 파일 연결
-    public void insertNoticeFile(NoticeFileDTO noticeFileDTO);
+    public void insertNoticeFile(Long noticeId, Long fileId);
 }

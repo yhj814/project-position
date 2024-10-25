@@ -5,6 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const companyTimeInput = document.getElementById('companyTime');
     const noticeWorkDateField = document.getElementById('noticeWorkDateField');
 
+    const fileInput = document.querySelector("input[type=file]"); // 파일 입력
+    const uploadName = document.querySelector(".upload-name"); // 파일 이름을 표시할 input
+    const submitBtn = document.getElementById("submitBtn"); // 완료 버튼
+
+    // 파일 선택 이벤트
+    fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0]; // 첫 번째 파일
+        if (file) {
+            uploadName.value = file.name; // 파일 이름을 표시
+        }
+    });
+
+
     function updateNoticeEducation() {
         const month = monthSelect.value;
         const day = daySelect.value;

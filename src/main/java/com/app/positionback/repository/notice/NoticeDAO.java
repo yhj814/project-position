@@ -20,9 +20,9 @@ public class NoticeDAO {
 //        noticeMapper.insertFile(fileDTO);
 //    }
 //
-//    public Long getLastInsertedId() {
-//        return noticeMapper.getLastInsertId();
-//    }
+    public Long getLastInsertedId() {
+        return noticeMapper.getLastInsertId();
+    }
 //
 //    public void linkNoticeWithFile(Long noticeId, Long fileId) {
 //        NoticeFileDTO noticeFileDTO = new NoticeFileDTO(noticeId, fileId);

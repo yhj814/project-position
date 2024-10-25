@@ -27,26 +27,35 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Override
     public void saveNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
+        // 공지사항 저장
         noticeDAO.saveNotice(noticeDTO);
+        Long noticeId = noticeDTO.getId(); // 공지사항 ID 가져오기
+        if (noticeId == null) {
+            noticeId = noticeDAO.getLastInsertedId(); // ID를 DB에서 가져오기
+        }
+
+        // 파일 처리 및 저장
         String rootPath = "C:/upload/" + getPath();
         FileDTO fileDTO = new FileDTO();
         UUID uuid = UUID.randomUUID();
 
         fileDTO.setFilePath(getPath());
-
         File directory = new File(rootPath);
-        if(!directory.exists()){
+        if (!directory.exists()) {
             directory.mkdirs();
         }
 
         file.transferTo(new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename()));
         fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
 
+        // 파일 정보 저장
         noticeFileDAO.saveFile(fileDTO);
-        Long noticeId = noticeFileDAO.getLastInsertedId();
-        Long fileId = noticeFileDAO.getLastInsertedId();
+        Long fileId = noticeFileDAO.getLastInsertedId(); // 파일 ID 가져오기
+
+        // 공지사항과 파일 연결
         noticeFileDAO.linkNoticeWithFile(noticeId, fileId);
     }
+
     private String getPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }

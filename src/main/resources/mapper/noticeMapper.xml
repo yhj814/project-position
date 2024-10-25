@@ -6,4 +6,9 @@
         values (#{corporationId}, #{noticeTitle}, #{noticeCareer}, #{noticeEducation}, #{noticeWorkDate}, #{noticeEndDate},#{jobCategorycId})
     </insert>
 
+    <!-- 마지막으로 삽입된 ID를 가져오는 쿼리 -->
+    <select id="getLastInsertId" resultType="Long">
+        select last_insert_id()
+    </select>
+
 </mapper>
