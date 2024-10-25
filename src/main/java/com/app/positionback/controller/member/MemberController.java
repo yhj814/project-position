@@ -174,4 +174,6 @@ public class MemberController {
 //    public String goToMainPage(MemberDTO memberDTO){
 //        return "/main/body";
 //    }
+
+
 }

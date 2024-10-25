@@ -4,12 +4,10 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter
-@ToString
+@Getter @Setter @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class NoticeVO {
+public class NoticeDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long corporationId;
@@ -21,4 +19,8 @@ public class NoticeVO {
     private String noticeEndDate;
     private String createdDate;
     private String updatedDate;
+
+    public NoticeVO toVO(){
+        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeWorkDate,noticeWordLocation,noticeEndDate,createdDate,updatedDate);
+    }
 }

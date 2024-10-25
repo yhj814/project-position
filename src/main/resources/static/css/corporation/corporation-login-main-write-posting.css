@@ -212,7 +212,7 @@ fieldset {
 .interview-write-wrap-interview-review .interview-write-spr-review:before {
     display: inline-block;
     vertical-align: top;
-    background: url(/Position-Front/static/images/interview-review/spr_review_190220.png)
+    background: url(/images/interview-review/spr_review_190220.png)
         no-repeat;
 }
 
@@ -531,7 +531,7 @@ h2 {
     left: 15px;
     width: 13px;
     height: 13px;
-    background: url(/Position-Front/static/images/interview-review/spr_search_panel.png)
+    background: url(/images/interview-review/spr_search_panel.png)
         no-repeat 0 -133px;
     content: "";
 }
@@ -564,7 +564,7 @@ h2 {
     height: 15px;
     color: rgba(0, 0, 0, 0);
     font-size: 1px;
-    background: url(/Position-Front/static/images/interview-review/spr_search_panel.png)
+    background: url(/images/interview-review/spr_search_panel.png)
         no-repeat 0 -160px;
     border: 0;
     line-height: normal;
@@ -866,7 +866,7 @@ li {
     right: 15px;
     width: 6px;
     height: 11px;
-    background: url(/Position-Front/static/images/interview-review/img_main_spr_200710.png)
+    background: url(/images/interview-review/img_main_spr_200710.png)
         no-repeat -700px -300px;
     content: "";
 }
@@ -880,7 +880,7 @@ li {
     left: 15px;
     width: 13px;
     height: 13px;
-    background: url(/Position-Front/static/images/interview-review/spr_search_panel.png)
+    background: url(/images/interview-review/spr_search_panel.png)
         no-repeat 0 -133px;
     content: "";
 }
@@ -1176,7 +1176,7 @@ li {
     color: #666;
 }
 /* .interview-write-list-question select {
-    
+
 } */
 .interview-write-list-question .interview-write-inpTypo option {
     height: 32px;
@@ -1196,7 +1196,7 @@ li {
     vertical-align: top;
     white-space: nowrap;
     text-overflow: ellipsis;
-    background: url(/Position-Front/static/images/interview-review/ico_select_arr.png)
+    background: url(/images/interview-review/ico_select_arr.png)
         no-repeat 100% 0;
     -webkit-appearance: none;
 }
@@ -1355,7 +1355,7 @@ li {
     display: block;
     box-sizing: border-box;
     color: #444;
-    background: url(/Position-Front/static/images/interview-review/sri_ico_checkbox03.png)
+    background: url(/images/interview-review/sri_ico_checkbox03.png)
         0 2px no-repeat;
     user-select: none;
 }
@@ -1580,7 +1580,7 @@ li {
     right: 10px;
     width: 17px;
     height: 16px;
-    background: url(/Position-Front/static/images/interview-review/spr_panel_expand.png) -5px -5px
+    background: url(/images/interview-review/spr_panel_expand.png) -5px -5px
         no-repeat;
     content: "";
 }
@@ -1609,7 +1609,7 @@ li {
     position: absolute;
     top: 12px;
     right: 10px;
-    background: url(/Position-Front/static/images/interview-review/spr_panel_expand.png) -5px -5px
+    background: url(/images/interview-review/spr_panel_expand.png) -5px -5px
         no-repeat;
     content: "";
 }
