@@ -2,7 +2,7 @@ package com.app.positionback.domain.notice;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
-
+ 
 @Component
 @Getter @Setter @ToString
 @NoArgsConstructor
