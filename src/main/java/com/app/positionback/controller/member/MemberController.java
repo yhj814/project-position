@@ -77,7 +77,7 @@ public class MemberController {
 //                        });
 
 //        // 로그인 시도
-        Optional<MemberVO> foundMember = memberService.login(memberDTO.toVO());
+        Optional<MemberVO> foundMember = memberService.login(memberDTO.toMemVO());
 //
 ////        null이 아니면 단일 객체 리턴, null이면 예외 발생
         MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});

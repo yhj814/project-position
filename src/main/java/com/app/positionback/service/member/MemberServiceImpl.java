@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void registerMember(MemberDTO memberDTO) {
         MemberVO memberVO = new MemberVO();
-        memberDAO.saveMember(memberDTO.toVO());
+        memberDAO.saveMember(memberDTO.toMemVO());
     }
 
     @Override
