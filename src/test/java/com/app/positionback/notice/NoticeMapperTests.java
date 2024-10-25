@@ -33,28 +33,28 @@ public class NoticeMapperTests {
         log.info("Inserted notice: {}", noticeDTO);
 
         // 마지막으로 삽입된 ID 가져오기
-        Long lastInsertId = noticeMapper.getLastInsertId();
-
-        // 파일 등록을 위한 FileVO 생성
-        FileDTO fileDTO = new FileDTO();
-        fileDTO.setFileName("job_posting.pdf");
-        fileDTO.setFilePath("/uploads/job_posting.pdf");
-
-        // 파일 등록
-        noticeMapper.insertFile(fileDTO);
-        log.info("Inserted file: {}", fileDTO);
-
-        // 다시 마지막으로 삽입된 ID 가져오기
-        Long lastFileId = noticeMapper.getLastInsertId();
-
-        // 공고와 파일 연결
-        NoticeFileDTO noticeFileDTO = new NoticeFileDTO();
-        noticeFileDTO.setNoticeId(lastInsertId);
-        noticeFileDTO.setFileId(lastFileId);
-
-        // 연결 정보 삽입
-        noticeMapper.insertNoticeFile(noticeFileDTO);
-        log.info("Inserted notice-file connection: {}", noticeFileDTO);
+//        Long lastInsertId = noticeMapper.getLastInsertId();
+//
+//        // 파일 등록을 위한 FileVO 생성
+//        FileDTO fileDTO = new FileDTO();
+//        fileDTO.setFileName("job_posting.pdf");
+//        fileDTO.setFilePath("/uploads/job_posting.pdf");
+//
+//        // 파일 등록
+//        noticeMapper.insertFile(fileDTO);
+//        log.info("Inserted file: {}", fileDTO);
+//
+//        // 다시 마지막으로 삽입된 ID 가져오기
+//        Long lastFileId = noticeMapper.getLastInsertId();
+//
+//        // 공고와 파일 연결
+//        NoticeFileDTO noticeFileDTO = new NoticeFileDTO();
+//        noticeFileDTO.setNoticeId(lastInsertId);
+//        noticeFileDTO.setFileId(lastFileId);
+//
+//        // 연결 정보 삽입
+//        noticeMapper.insertNoticeFile(noticeFileDTO);
+//        log.info("Inserted notice-file connection: {}", noticeFileDTO);
     }
 
 }

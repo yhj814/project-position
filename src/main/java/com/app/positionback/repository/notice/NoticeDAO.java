@@ -16,17 +16,17 @@ public class NoticeDAO {
         noticeMapper.insertNotice(noticeDTO);
     }
 
-    public void saveFile(FileDTO fileDTO) {
-        noticeMapper.insertFile(fileDTO);
-    }
-
-    public Long getLastInsertedId() {
-        return noticeMapper.getLastInsertId();
-    }
-
-    public void linkNoticeWithFile(Long noticeId, Long fileId) {
-        NoticeFileDTO noticeFileDTO = new NoticeFileDTO(noticeId, fileId);
-        noticeMapper.insertNoticeFile(noticeFileDTO);
-    }
+//    public void saveFile(FileDTO fileDTO) {
+//        noticeMapper.insertFile(fileDTO);
+//    }
+//
+//    public Long getLastInsertedId() {
+//        return noticeMapper.getLastInsertId();
+//    }
+//
+//    public void linkNoticeWithFile(Long noticeId, Long fileId) {
+//        NoticeFileDTO noticeFileDTO = new NoticeFileDTO(noticeId, fileId);
+//        noticeMapper.insertNoticeFile(noticeFileDTO);
+//    }
 
 }
