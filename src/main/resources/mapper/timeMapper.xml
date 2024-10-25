@@ -5,5 +5,3 @@
         SELECT CURRENT_DATE FROM DUAL
     </select>
 </mapper>
-
-
