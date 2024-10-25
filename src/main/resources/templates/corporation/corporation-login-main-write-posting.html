@@ -31,7 +31,7 @@
                     </div>
                     <div class="interview-write-wrap-interview-review">
                         <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" enctype="multipart/form-data" name="interview-write-review-form">
-                            <input type="hidden" th:field="*{noticeWorkDate}" id="noticeWorkDateField" />
+
                             <input
                                 type="hidden"
                                 name="interview-write-idx"
@@ -1934,122 +1934,24 @@
                                                             참가자들을
                                                             모집합니다.
                                                         </p>
-                                                        <div
-                                                            class="interview-write-range-option"
-                                                        >
+                                                        <div class="interview-write-range-option">
+                                                            <div class="date-range">
+                                                                <label for="internshipStartDate">인턴십 시작일:</label>
+                                                                <input type="date" id="internshipStartDate" th:field="*{noticeWorkStartDate}" name="internshipStartDate" required />
 
-                                                            <span
-                                                                class="interview-write-inpSel"
-                                                            >
-                                                                <select
-                                                                    name="interview-date-month"
-                                                                    id="interviewDateMonth"
-                                                                    title="월 선택"
-                                                                >
-                                                                    <option
-                                                                        value
-                                                                    >
-                                                                        월 선택
-                                                                    </option>
-                                                                    <option
-                                                                        value="01"
-                                                                    >
-                                                                        01월
-                                                                    </option>
-                                                                    <option
-                                                                        value="02"
-                                                                    >
-                                                                        02월
-                                                                    </option>
-                                                                    <option
-                                                                        value="03"
-                                                                    >
-                                                                        03월
-                                                                    </option>
-                                                                    <option
-                                                                        value="04"
-                                                                    >
-                                                                        04월
-                                                                    </option>
-                                                                    <option
-                                                                        value="05"
-                                                                    >
-                                                                        05월
-                                                                    </option>
-                                                                    <option
-                                                                        value="06"
-                                                                    >
-                                                                        06월
-                                                                    </option>
-                                                                    <option
-                                                                        value="07"
-                                                                    >
-                                                                        07월
-                                                                    </option>
-                                                                    <option
-                                                                        value="08"
-                                                                    >
-                                                                        08월
-                                                                    </option>
-                                                                    <option
-                                                                        value="09"
-                                                                    >
-                                                                        09월
-                                                                    </option>
-                                                                    <option
-                                                                        value="10"
-                                                                    >
-                                                                        10월
-                                                                    </option>
-                                                                    <option
-                                                                        value="11"
-                                                                    >
-                                                                        11월
-                                                                    </option>
-                                                                    <option
-                                                                        value="12"
-                                                                    >
-                                                                        12월
-                                                                    </option>
-                                                                </select>
-                                                            </span>
-                                                            <span class="interview-write-inpSel">
-                                                                <select name="interview-date-day" id="interviewDateDay" title="일 선택">
-                                                                    <option value="">일 선택</option>
-                                                                    <option value="01">01일</option>
-                                                                    <option value="02">02일</option>
-                                                                    <option value="03">03일</option>
-                                                                    <option value="04">04일</option>
-                                                                    <option value="05">05일</option>
-                                                                    <option value="06">06일</option>
-                                                                    <option value="07">07일</option>
-                                                                    <option value="08">08일</option>
-                                                                    <option value="09">09일</option>
-                                                                    <option value="10">10일</option>
-                                                                    <option value="11">11일</option>
-                                                                    <option value="12">12일</option>
-                                                                    <option value="13">13일</option>
-                                                                    <option value="14">14일</option>
-                                                                    <option value="15">15일</option>
-                                                                    <option value="16">16일</option>
-                                                                    <option value="17">17일</option>
-                                                                    <option value="18">18일</option>
-                                                                    <option value="19">19일</option>
-                                                                    <option value="20">20일</option>
-                                                                    <option value="21">21일</option>
-                                                                    <option value="22">22일</option>
-                                                                    <option value="23">23일</option>
-                                                                    <option value="24">24일</option>
-                                                                    <option value="25">25일</option>
-                                                                    <option value="26">26일</option>
-                                                                    <option value="27">27일</option>
-                                                                    <option value="28">28일</option>
-                                                                    <option value="29">29일</option>
-                                                                    <option value="30">30일</option>
-                                                                    <option value="31">31일</option>
-                                                                </select>
-                                                            </span>
+                                                                <label for="internshipEndDate">인턴십 종료일:</label>
+                                                                <input type="date" id="internshipEndDate" th:field="*{noticeWorkEndDate}" name="internshipEndDate" required />
+                                                            </div>
+
+                                                            <div class="work-time-range">
+                                                                <label for="workStartTime">근무 시작 시간:</label>
+                                                                <input type="time" id="workStartTime" th:field="*{noticeWorkStartTime}" name="workStartTime" required />
+
+                                                                <label for="workEndTime">근무 종료 시간:</label>
+                                                                <input type="time" id="workEndTime" th:field="*{noticeWorkEndTime}" name="workEndTime" required />
+                                                            </div>
                                                         </div>
+
                                                         <em
                                                             class="interview-write-msgInvalid interview-write-msgInterviewDate interview-write-hide"
                                                         ></em>
@@ -2209,7 +2111,7 @@
                                                         <strong
                                                             class="interview-write-tit-item"
                                                         >
-                                                            난이도
+                                                            학력
                                                             <span
                                                                 class="interview-write-spr-review interview-write-point"
                                                             >
@@ -2255,22 +2157,24 @@
                                                                         무관
                                                                     </option>
                                                                     <option
-                                                                        value="무관"
+                                                                            value="대졸"
                                                                     >
-                                                                        학력
-                                                                        무관
+                                                                        대졸이상
                                                                     </option>
                                                                     <option
-                                                                        value="education"
+                                                                        value="고졸"
                                                                     >
-                                                                        학력
-                                                                        선택
+                                                                        고졸이상
                                                                     </option>
                                                                     <option
-                                                                        value="education"
+                                                                        value="중졸"
                                                                     >
-                                                                        학력
-                                                                        선택
+                                                                        중졸 이상
+                                                                    </option>
+                                                                    <option
+                                                                        value="초졸"
+                                                                    >
+                                                                        초졸 이상
                                                                     </option>
                                                                 </select>
                                                             </span>

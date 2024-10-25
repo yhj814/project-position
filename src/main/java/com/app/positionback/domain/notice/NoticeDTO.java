@@ -14,15 +14,18 @@ public class NoticeDTO {
     private String noticeTitle;
     private String noticeCareer;
     private String noticeEducation;
-    private String noticeWorkDate;
     private String noticeWordLocation;
     private String noticeEndDate;
     private String createdDate;
     private String updatedDate;
     private Long jobCategorycId;
+    private String noticeWorkStartTime;
+    private String noticeWorkEndTime;
+    private String noticeWorkStartDate;
+    private String noticeWorkEndDate;
     private String corporationName;
 
     public NoticeVO toVO(){
-        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeWorkDate,noticeWordLocation,noticeEndDate,createdDate,updatedDate,jobCategorycId);
+        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeWordLocation,noticeEndDate,createdDate,updatedDate,jobCategorycId,noticeWorkStartTime,noticeWorkEndTime,noticeWorkStartDate,noticeWorkEndDate);
     }
 }

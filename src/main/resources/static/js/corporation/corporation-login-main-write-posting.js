@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const monthSelect = document.getElementById('interviewDateMonth');
     const daySelect = document.getElementById('interviewDateDay');
     const companyTimeInput = document.getElementById('companyTime');
-    const noticeWorkDateField = document.getElementById('noticeWorkDateField');
+    // const noticeWorkDateField = document.getElementById('noticeWorkDateField');
 
     const fileInput = document.querySelector("input[type=file]"); // 파일 입력
     const uploadName = document.querySelector(".upload-name"); // 파일 이름을 표시할 input
@@ -18,22 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    function updateNoticeEducation() {
-        const month = monthSelect.value;
-        const day = daySelect.value;
-        const workTime = companyTimeInput.value;
-
-        if (month && day && workTime) {
-            noticeWorkDateField.value = `${month} ${day} ${workTime}`;
-        } else {
-            noticeWorkDateField.value = '';
-        }
-    }
-
-    // Add event listeners to update the hidden field on change
-    monthSelect.addEventListener('change', updateNoticeEducation);
-    daySelect.addEventListener('change', updateNoticeEducation);
-    companyTimeInput.addEventListener('input', updateNoticeEducation);
+    // function updateNoticeEducation() {
+    //     const month = monthSelect.value;
+    //     const day = daySelect.value;
+    //     const workTime = companyTimeInput.value;
+    //
+    //     if (month && day && workTime) {
+    //         noticeWorkDateField.value = `${month} ${day} ${workTime}`;
+    //     } else {
+    //         noticeWorkDateField.value = '';
+    //     }
+    // }
+    //
+    // // Add event listeners to update the hidden field on change
+    // monthSelect.addEventListener('change', updateNoticeEducation);
+    // daySelect.addEventListener('change', updateNoticeEducation);
+    // companyTimeInput.addEventListener('input', updateNoticeEducation);
 });
 
 
@@ -65,45 +65,125 @@ document
         targetElement.classList.toggle("on");
     });
 
-document.getElementById("interviewDateYear").addEventListener("change", (e) => {
-    const year = this.value;
-    const monthSelect = document.getElementById("interviewDateMonth");
-    let months = [];
+document.getElementById("internshipEndDate").addEventListener("change", validateDates);
+document.getElementById("workEndTime").addEventListener("change", validateTimes);
 
-    // 연도에 따라 월을 필터링
-    if (year === "2021") {
-        // 2021년은 11월과 12월만 가능
-        months = ["11", "12"];
-    } else if (year === "2024") {
-        // 2024년은 1월부터 10월까지만 가능
-        months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
-    } else {
-        // 2022년, 2023년은 1월부터 12월까지 가능
-        months = [
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-        ];
+function validateDates() {
+    const startDate = document.getElementById("internshipStartDate").value;
+    const endDate = document.getElementById("internshipEndDate").value;
+
+    if (startDate && endDate && startDate > endDate) {
+        alert("종료일은 시작일 이후여야 합니다.");
+        document.getElementById("internshipEndDate").value = "";
     }
+}
 
-    // 월 선택 초기화 및 옵션 동적 생성
-    monthSelect.innerHTML = `<option value="">월 선택</option>`; // 기본 옵션 추가
-    months.forEach((month) => {
-        const option = document.createElement("option");
-        option.value = month;
-        option.text = `${month}월`;
-        monthSelect.appendChild(option);
-    });
-});
+function validateTimes() {
+    const startTime = document.getElementById("workStartTime").value;
+    const endTime = document.getElementById("workEndTime").value;
+
+    if (startTime && endTime && startTime >= endTime) {
+        alert("근무 종료 시간은 시작 시간 이후여야 합니다.");
+        document.getElementById("workEndTime").value = "";
+    }
+}
+
+
+// // 연도에 따라 월 옵션 설정
+// function populateMonthOptions(selectedYear) {
+//     const monthSelect = document.getElementById("interviewDateMonth");
+//     let months = [];
+//
+//     // 선택한 연도에 맞게 월 필터링
+//     if (selectedYear === "2021") {
+//         months = ["11", "12"]; // 2021년은 11월과 12월만 가능
+//     } else if (selectedYear === "2024") {
+//         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]; // 2024년은 10월까지만 가능
+//     } else {
+//         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]; // 2022년, 2023년은 전체 월 가능
+//     }
+//
+//     // 월 옵션 초기화 및 설정
+//     monthSelect.innerHTML = `<option value="">월 선택</option>`;
+//     months.forEach((month) => {
+//         const option = document.createElement("option");
+//         option.value = month;
+//         option.text = `${month}월`;
+//         monthSelect.appendChild(option);
+//     });
+// }
+//
+// // 선택한 연도와 월에 따라 일 옵션 설정
+// function populateDayOptions(year, month) {
+//     const daySelect = document.getElementById("interviewDateDay");
+//     let daysInMonth = 31;
+//
+//     // 월에 따라 일 수 계산
+//     if (["04", "06", "09", "11"].includes(month)) {
+//         daysInMonth = 30;
+//     } else if (month === "02") {
+//         daysInMonth = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) ? 29 : 28; // 윤년 계산
+//     }
+//
+//     // 일 옵션 초기화 및 설정
+//     daySelect.innerHTML = `<option value="">일 선택</option>`;
+//     Array.from({ length: daysInMonth }, (_, i) => {
+//         const day = String(i + 1).padStart(2, '0');
+//         const option = document.createElement("option");
+//         option.value = day;
+//         option.text = `${day}일`;
+//         daySelect.appendChild(option);
+//     });
+// }
+//
+// // 시간 옵션 설정 (00시 ~ 23시)
+// function populateHourOptions(selectId) {
+//     const hourSelect = document.getElementById(selectId);
+//     hourSelect.innerHTML = `<option value="">시간 선택</option>`;
+//     Array.from({ length: 24 }, (_, i) => {
+//         const hour = String(i).padStart(2, '0');
+//         const option = document.createElement("option");
+//         option.value = hour;
+//         option.text = `${hour}시`;
+//         hourSelect.appendChild(option);
+//     });
+// }
+//
+// // 종료 시간이 시작 시간보다 늦어야 함을 확인
+// function validateTimeSelection() {
+//     const startHour = document.getElementById("interviewStartHour").value;
+//     const endHour = document.getElementById("interviewEndHour").value;
+//
+//     if (startHour && endHour && endHour <= startHour) {
+//         alert("종료 시간은 시작 시간보다 늦어야 합니다.");
+//         document.getElementById("interviewEndHour").value = ""; // 잘못된 선택 시 초기화
+//     }
+// }
+//
+// // 연도 변경 시 월 및 일 옵션 갱신
+// document.getElementById("interviewDateYear").addEventListener("change", (e) => {
+//     const year = e.target.value;
+//     populateMonthOptions(year); // 선택된 연도에 맞게 월 설정
+//
+//     const selectedMonth = document.getElementById("interviewDateMonth").value;
+//     if (selectedMonth) populateDayOptions(year, selectedMonth); // 선택된 월이 있을 경우 일 갱신
+// });
+//
+// // 월 변경 시 일 옵션 갱신
+// document.getElementById("interviewDateMonth").addEventListener("change", (e) => {
+//     const year = document.getElementById("interviewDateYear").value;
+//     const month = e.target.value;
+//     if (year) populateDayOptions(year, month); // 연도와 월에 따라 일 설정
+// });
+//
+// // 시간 선택 시 유효성 검사
+// document.getElementById("interviewStartHour").addEventListener("change", validateTimeSelection);
+// document.getElementById("interviewEndHour").addEventListener("change", validateTimeSelection);
+//
+// // 시간 옵션 초기화
+// populateHourOptions("interviewStartHour");
+// populateHourOptions("interviewEndHour");
+
 
 //
 
