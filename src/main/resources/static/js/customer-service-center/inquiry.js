@@ -44,6 +44,3 @@ document.getElementById("help-send").addEventListener("click", (e) => {
     location.href = `/customer-service-center/faq`;
 });
 
-const inputValue = document.getElementById("help-email").value;
-sessionStorage.setItem("keyName", inputValue);
-

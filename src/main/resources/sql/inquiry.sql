@@ -29,3 +29,7 @@ ALTER TABLE tbl_inquiry
 ALTER TABLE tbl_inquiry DROP COLUMN inquiry_attachment;
 
 alter table tbl_inquiry add column inquiry_attachment varchar(255);
+
+alter table tbl_inquiry drop column inquiry_attachment;
+
+alter table tbl_inquiry add column inquiry
