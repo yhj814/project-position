@@ -22,8 +22,8 @@ public interface NoticeMapper {
     // 공고와 파일 연결
     public void insertNoticeFile(NoticeFileDTO noticeFileDTO);
 
-
-
+    // 회사 이름 가져오기
+    public void getCorporationName(Long corporationId);
     // 공고 삭제
 
 //    공고 목록

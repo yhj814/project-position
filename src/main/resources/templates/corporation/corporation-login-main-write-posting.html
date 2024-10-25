@@ -30,7 +30,7 @@
                         </p>
                     </div>
                     <div class="interview-write-wrap-interview-review">
-                        <form name="interview-write-review-form">
+                        <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" name="interview-write-review-form">
                             <input
                                 type="hidden"
                                 name="interview-write-idx"
@@ -101,14 +101,15 @@
                                                             />
                                                             <input
                                                                 type="text"
-                                                                name="company-nm"
+                                                                name="corporationName"
                                                                 id="companyName"
                                                                 class="interview-write-inpTypo"
                                                                 title="기업명 입력"
                                                                 placeholder="기업명 입력"
                                                                 data-id="company-nm"
-                                                                data-value
                                                                 autocomplete="off"
+                                                                readonly
+                                                                th:field="*{corporationName}"
                                                             />
                                                         </div>
                                                         <em
@@ -124,7 +125,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="companyName"
+                                                            for="noticeTitle"
                                                             class="interview-write-tit-item"
                                                         >
                                                             공고명
@@ -160,14 +161,12 @@
                                                                 value
                                                             />
                                                             <input
-                                                                type="text"
-                                                                name="company-nm"
-                                                                id="companyName"
+                                                                type="text" th:field="*{noticeTitle}"
+                                                                id="noticeTitle"
                                                                 class="interview-write-inpTypo"
                                                                 title="공고명 입력"
                                                                 placeholder="공고명 입력"
                                                                 data-id="company-nm"
-                                                                data-value
                                                                 autocomplete="off"
                                                             />
                                                         </div>
@@ -2183,8 +2182,8 @@
                                                             >
                                                                 <select
                                                                     name="interview-date-year"
-                                                                    id="interviewDateYear"
-                                                                    title="연도 선택"
+                                                                    id="interview-history"
+                                                                    title="경력 선택"
                                                                 >
                                                                     <option
                                                                         value=""
@@ -2193,7 +2192,7 @@
                                                                         선택
                                                                     </option>
                                                                     <option
-                                                                        value="2021"
+                                                                        value="무관"
                                                                     >
                                                                         무관
                                                                     </option>
@@ -2320,7 +2319,7 @@
                                                             <input
                                                                 type="text"
                                                                 name="company-nm"
-                                                                id="companyName"
+                                                                id="companyTime"
                                                                 class="interview-write-inpTypo"
                                                                 title="근무 일자, 시간 입력"
                                                                 placeholder="근무 시간 입력"
@@ -2446,7 +2445,6 @@
                                                         <div class="filebox">
                                                             <input
                                                                 class="upload-name"
-                                                                value="첨부파일"
                                                                 placeholder="첨부파일"
                                                             />
                                                             <label for="file"
