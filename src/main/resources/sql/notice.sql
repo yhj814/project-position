@@ -11,9 +11,11 @@ create table  tbl_notice(
     updated_date datetime default  current_timestamp,
     constraint fk_notice_corporation foreign key (corporation_id)
                         references tbl_corporation(id),
-    constraint fk_notice_job_categoryA foreign key (job_categoryC_id)
+    constraint fk_notice_job_categoryC foreign key (job_categoryC_id)
                         references tbl_job_categoryC(id)
 );
 
 select * from tbl_notice;
 
+ALTER TABLE TBL_NOTICE
+    MODIFY COLUMN notice_end_date datetime NOT NULL;

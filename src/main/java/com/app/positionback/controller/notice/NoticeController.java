@@ -29,11 +29,15 @@ public class NoticeController {
 
 //    공고 작성 페이지 이동
     @GetMapping("corporation-login-main-write-posting")
-    public void goToWriteNotice(NoticeDTO noticeDTO) {noticeDTO.setCorporationId(1L);}
+    public void goToWriteNotice(NoticeDTO noticeDTO) {
+        noticeDTO.setCorporationId(1L);
+        noticeDTO.setJobCategorycId(1L);
+    }
 
     @PostMapping("corporation-login-main-write-posting")
     public RedirectView write(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
         noticeDTO.setCorporationId(1L);
+        noticeDTO.setJobCategorycId(1L);
         noticeService.saveNotice(noticeDTO, file);
         return new RedirectView("/notice/list");
     }

@@ -4,7 +4,7 @@
     font-weight: 700;
     font-display: swap;
     src: local("Pretendard Bold"),
-        url(/static/fonts/Pretendard-Bold.subset.woff) format("woff");
+        url(/fonts/Pretendard-Bold.subset.woff) format("woff");
 }
 
 @font-face {
@@ -12,7 +12,7 @@
     font-weight: 600;
     font-display: swap;
     src: local("Pretendard SemiBold"),
-        url(/static/fonts/Pretendard-SemiBold.subset.woff) format("woff");
+        url(/fonts/Pretendard-SemiBold.subset.woff) format("woff");
 }
 
 @font-face {
@@ -20,7 +20,7 @@
     font-weight: 400;
     font-display: swap;
     src: local("Pretendard Regular"),
-        url(/static/fonts/Pretendard-Regular.subset.woff) format("woff");
+        url(/fonts/Pretendard-Regular.subset.woff) format("woff");
 }
 
 html {
