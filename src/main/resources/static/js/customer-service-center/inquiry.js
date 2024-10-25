@@ -39,8 +39,3 @@ document.addEventListener("click", () => {
         });
     });
 });
-
-document.getElementById("help-send").addEventListener("click", (e) => {
-    location.href = `/customer-service-center/faq`;
-});
-

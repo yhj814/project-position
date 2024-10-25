@@ -17,9 +17,9 @@ public class InquiryMapperTests {
     public void testInquiryInsert() {
         InquiryDTO inquiryDTO = new InquiryDTO();
         inquiryDTO.setInquiryType("개인");
-        inquiryDTO.setInquiryCategory("이력서 문의");
-        inquiryDTO.setInquiryTitle("이력서 관련 문의합니다");
-        inquiryDTO.setInquiryContent("이력서는 어떻게 작성하나요?");
+        inquiryDTO.setInquiryCategory("종류1");
+        inquiryDTO.setInquiryTitle("포지션 문의합니다");
+        inquiryDTO.setInquiryContent("포지션 지원은 어떻게하나요?");
         inquiryDTO.setMemberId(1l);
         inquiryMapper.insert(inquiryDTO.toVO());
     }
