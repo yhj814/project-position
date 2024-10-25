@@ -37,6 +37,7 @@ public class NoticeController {
     @PostMapping("corporation-login-main-write-posting")
     public RedirectView write(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
         noticeDTO.setCorporationId(1L);
+
         noticeDTO.setJobCategorycId(1L);
         noticeService.saveNotice(noticeDTO, file);
         return new RedirectView("/notice/list");

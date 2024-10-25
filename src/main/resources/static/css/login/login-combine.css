@@ -42,7 +42,7 @@ a {
 }
 
 .integrated-header .area-util .menu-position:before {
-    background-image: url(/static/images/login/saramin-home.svg);
+    background-image: url(/images/login/saramin-home.svg);
 }
 
 .integrated-header .area-util .util-menu:before {
@@ -61,7 +61,7 @@ a {
 }
 
 .integrated-header .area-util .menu-must:before {
-    background-image: url(/static/images/login/saramin-must.svg);
+    background-image: url(/images/login/saramin-must.svg);
 }
 
 #position-section {
@@ -489,7 +489,7 @@ button {
 }
 
 .icon-kakao {
-    background: url(/static/images/login/kakao-login-medium-wide.png);
+    background: url(/images/login/kakao-login-medium-wide.png);
     background-repeat: no-repeat;
     margin-left: 10px;
     height: 45px;

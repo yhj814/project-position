@@ -3,19 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/static/css/main.css" />
         <link
             rel="stylesheet"
-            href="/css/customer-service-center/inquiry.css"
+            href="/static/css/customer-service-center/inquiry.css"
         />
-        <title>문의하기</title>
+        <title>기업 후기 신고 페이지</title>
     </head>
     <body>
         <div id="position-section" class="has-banner">
             <div id="position-wrap">
                 <div id="content">
                     <div class="wrap-title-recruit">
-                        <h1 class="title-common">문의하기</h1>
+                        <h1 class="title-common">신고하기</h1>
                     </div>
                     <div class="help-find help-lost wrap-help">
                         <div class="cont-find">
@@ -38,7 +38,7 @@
                                                     for="help-email"
                                                     class="lab-find"
                                                 >
-                                                    이메일
+                                                    회사명
                                                 </label>
                                             </div>
                                             <div class="wrap-input">
@@ -58,44 +58,28 @@
                                         </li>
                                         <li>
                                             <div class="wrap-lab">
-                                                <span class="ico-required">
-                                                </span>
-                                                <label class="lab-find">
-                                                    구분
-                                                </label>
+                                                <span
+                                                    class="ico-required"
+                                                ></span>
+                                                <label
+                                                    for="help-reported-name"
+                                                    class="lab-find"
+                                                    >피신고자 이름</label
+                                                >
                                             </div>
                                             <div class="wrap-input">
-                                                <span class="choice-input">
-                                                    <span class="inp-rdo">
-                                                        <input
-                                                            type="radio"
-                                                            name="help-member-type"
-                                                            id="help-member-type-person"
-                                                            class="help-member-type"
-                                                            checked
-                                                        />
-                                                        <label
-                                                            for="help-member-type-person"
-                                                            class="lbl"
-                                                            >개인</label
-                                                        >
-                                                    </span>
-                                                    <span class="inp-rdo">
-                                                        <input
-                                                            type="radio"
-                                                            name="help-member-type"
-                                                            id="help-member-type-company"
-                                                            class="help-member-type"
-                                                        />
-                                                        <label
-                                                            for="help-member-type-company"
-                                                            class="lbl"
-                                                            >기업</label
-                                                        >
-                                                    </span>
+                                                <span class="box-input">
+                                                    <input
+                                                        type="text"
+                                                        name="help-reported-name"
+                                                        id="help-reported-name"
+                                                        class="inp-find"
+                                                        placeholder="피신고자 이름을 입력해주세요."
+                                                    />
                                                 </span>
                                             </div>
                                         </li>
+
                                         <li>
                                             <div class="wrap-lab">
                                                 <span class="ico-required">
@@ -122,16 +106,16 @@
                                                         </option>
                                                         <!-- 복붙 -->
                                                         <option value="">
-                                                            종류1
+                                                            부적절한 내용
                                                         </option>
                                                         <option value="">
-                                                            종류2
+                                                            허위 정보
                                                         </option>
                                                         <option value="">
-                                                            종류3
+                                                            스팸/광고성 리뷰
                                                         </option>
                                                         <option value="">
-                                                            종류4
+                                                            개인정보 노출
                                                         </option>
                                                     </select>
                                                 </span>
@@ -235,7 +219,7 @@
                                             [개인정보 수집·이용에 대한 안내]
                                         </h3>
                                         <p class="desc-find-type2">
-                                            (주)사람인은 이용자 문의를 처리하기
+                                            (주)포지션은 이용자 문의를 처리하기
                                             위해 다음과 같이 개인정보를 수집 및
                                             이용하며, 이용자의 개인정보를
                                             안전하게 취급하는데 최선을 다하고
@@ -257,7 +241,7 @@
                                         </ul>
                                         <p class="desc-find-type2">
                                             위 동의를 거부 할 권리가 있으며 동의
-                                            거부 시 문의하기 이용이 제한됩니다.
+                                            거부 시 신고 이용이 제한됩니다.
                                             <br />
                                             이외의 방법으로 문의하시려면
                                             이메일(help@saramin.co.kr)을 통하여
@@ -292,7 +276,7 @@
                                             class="btn-biggest-type01"
                                             id="help-send"
                                         >
-                                            문의하기
+                                            신고하기
                                         </button>
                                     </div>
                                 </fieldset>
@@ -303,5 +287,5 @@
             </div>
         </div>
     </body>
-    <script src="/js/customer-service-center/inquiry.js"></script>
+    <script src="/static/js/customer-service-center/inquiry.js"></script>
 </html>

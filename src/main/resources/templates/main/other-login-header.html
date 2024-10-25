@@ -4,11 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>other login header</title>
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="stylesheet" href="/static/css/main/other-login-header.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/css/main/other-login-header.css" />
     </head>
     <body id="main" class="vsc-initialized">
-        <header id="header" class="main bubble">
+
+        <header id="header" class="main bubble" th:fragment="header-login">
             <div class="wrap_header">
                 <h1>
                     <a
@@ -455,7 +456,7 @@
                                 </li>
                             </ul>
                             <a
-                                href="/zf_user/auth/logout"
+
                                 class="logout"
                                 data-nav-track="ga_lead|main-gnb|layer_person|logout"
                                 >로그아웃</a
@@ -983,7 +984,7 @@
                     </div>
                 </div>
             </div>
-        </header>
+
         <div class="img_svg_layout">
             <svg xmlns="http://www.w3.org/2000/svg">
                 <symbol id="svg_saramin_ci" viewBox="0 0 126 40">
@@ -1429,6 +1430,8 @@
                 </symbol>
             </svg>
         </div>
+        </header>
     </body>
-    <script src="/static/js/main/other-login-header.js"></script>
+    <script src="/js/main/other-login-header.js"></script>
+
 </html>

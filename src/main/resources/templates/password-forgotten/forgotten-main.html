@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/css/main.css" />
         <link
             rel="stylesheet"
-            href="/static/css/password-forgotten/forgotten-main.css"
+            href="/css/password-forgotten/forgotten-main.css"
         />
         <title>비밀번호 찾기</title>
     </head>
@@ -26,7 +26,7 @@
                                 <li>
                                     <strong class="tit_idpwd">개인회원</strong>
                                     <span class="find_link">
-                                        <a href="" class="link_sns"
+                                        <a  class="link_sns member-forgotten"
                                             >비밀번호 찾기</a
                                         >
                                     </span>
@@ -34,7 +34,7 @@
                                 <li>
                                     <strong class="tit_idpwd">기업회원</strong>
                                     <span class="find_link">
-                                        <a href="" class="link_sns"
+                                        <a  class="link_sns corporation-forgotten"
                                             >비밀번호 찾기</a
                                         >
                                     </span>
@@ -43,27 +43,27 @@
                         </div>
                         <div class="find_method">
                             <a
-                                href=""
+
                                 class="btn_basic_type01 btn_login"
                                 title="로그인 바로가기"
                             >
                                 로그인
                             </a>
                             <a
-                                href=""
+
                                 class="btn_basic_type01 btn_sns"
                                 title="소셜계정 찾기 바로가기"
                             >
                                 소셜계정 찾기
                             </a>
                             <a
-                                href=""
+
                                 class="btn_basic_type04"
                                 title="회원가입 바로가기"
                                 >회원가입</a
                             >
                             <a
-                                href=""
+
                                 class="btn_basic_type04"
                                 title="자주 묻는 질문 바로가기"
                                 >자주 묻는 질문</a
@@ -80,4 +80,15 @@
             </div>
         </div>
     </body>
+    <script>
+        const memberForgotten = document.querySelector(".member-forgotten")
+        const corporationForgotten = document.querySelector(".corporation-forgotten")
+
+        memberForgotten.addEventListener("click",(e)=>{
+            location.href="/password-forgotten/member-forgotten"
+        })
+        corporationForgotten.addEventListener("click",(e)=>{
+            location.href="/password-forgotten/corporation-forgotten"
+        })
+    </script>
 </html>

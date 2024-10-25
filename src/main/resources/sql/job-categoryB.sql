@@ -8,6 +8,3 @@ create table tbl_job_categoryB(
 
 select * from tbl_job_categoryB;
 
--- '사업 기획' 카테고리 삽입, job_categoryA_id = 1 참조
-INSERT INTO tbl_job_categoryB (job_categoryB_name, job_categoryA_id)
-VALUES ('직무·직업', 1);

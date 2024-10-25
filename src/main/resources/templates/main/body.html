@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>main-body</title>
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="stylesheet" href="/static/css/main/body.css" />
+        <title>메인페이지</title>
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/css/main/body.css" />
+        <link rel="stylesheet" href="/css/main/footer.css" />
+        <link rel="stylesheet" href="/css/main/other-login-header.css" />
     </head>
     <body>
+    <header th:replace="~{/main/other-login-header :: header-login}"></header>
         <section
             role="region"
             aria-label="추천공고"
@@ -3044,6 +3047,17 @@
                 </defs>
             </symbol>
         </svg>
+        </section>
+<!--    <footer th:replace="~{/main/footer :: footer}"></footer>-->
     </body>
-    <script src="/static/js/main/body.js"></script>
+    <script src="/js/main/body.js"></script>
+    <script src="/js/main/other-login-header.js"></script>
+    <script>
+        const logoutButton = document.querySelector(".logout")
+        console.log(logoutButton)
+
+        logoutButton.addEventListener("click",(e)=>{
+            location.href ="/login/login-combine"
+        })
+    </script>
 </html>

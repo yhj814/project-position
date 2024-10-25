@@ -12,17 +12,14 @@ import org.springframework.stereotype.Repository;
 public class NoticeDAO {
     private final NoticeMapper noticeMapper;
 
-//    공고 추가
     public void saveNotice(NoticeDTO noticeDTO) {
         noticeMapper.insertNotice(noticeDTO);
     }
-    // 파일 등록
 
     public void saveFile(FileDTO fileDTO) {
         noticeMapper.insertFile(fileDTO);
     }
 
-    // 마지막으로 삽입된 ID 가져오기
     public Long getLastInsertedId() {
         return noticeMapper.getLastInsertId();
     }
