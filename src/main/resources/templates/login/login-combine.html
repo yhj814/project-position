@@ -8,7 +8,8 @@
         <title>로그인 - Position</title>
     </head>
     <body>
-        <header id="login-hader" class="integrated-header">
+    <form th:action="@{/login/login-combine}" method="post" name="login-form" th:object="${memberDTO}">
+        <header id="login-header" class="integrated-header">
             <div class="area-logo">
                 <!-- position path -->
                 <a href="" class="link-position-logo">
@@ -297,6 +298,7 @@
                                                                 class="txt-tool"
                                                                 value=""
                                                                 required=""
+                                                                th:field="*{memberEmail}"
                                                             />
                                                             <label
                                                                 id="id-label"
@@ -316,6 +318,7 @@
                                                                 value=""
                                                                 maxlength="32"
                                                                 required=""
+                                                                th:field="*{memberPassword}"
                                                             />
                                                             <label
                                                                 id="password-label"
@@ -328,22 +331,7 @@
                                                                 class="inp-box"
                                                                 name="autologin-check-box"
                                                             >
-                                                                <span
-                                                                    class="chk"
-                                                                >
-                                                                    <input
-                                                                        type="checkbox"
-                                                                        id="autologin"
-                                                                        name="autologin"
-                                                                        data-gtm-form-interact-field-id="0"
-                                                                    />
-                                                                    <label
-                                                                        class="lbl"
-                                                                        for="autologin"
-                                                                        >로그인
-                                                                        유지</label
-                                                                    >
-                                                                </span>
+
                                                             </div>
                                                             <div
                                                                 class="inp-box"
@@ -353,13 +341,13 @@
                                                                 >
                                                                     <input
                                                                         type="checkbox"
-                                                                        id="id-save"
-                                                                        name="id-save"
+                                                                        id="save"
+                                                                        name="save"
                                                                         data-gtm-form-interact-field-id="1"
                                                                     />
                                                                     <label
                                                                         class="lbl"
-                                                                        for="id-save"
+                                                                        for="save"
                                                                         >아이디
                                                                         저장</label
                                                                     >
@@ -377,15 +365,15 @@
                                                         class="signup-forgotten"
                                                     >
                                                         <a
-                                                            href="/zf-user/helpdesk/idpw-find"
-                                                            class="sign-up"
+
+                                                            class="sign-up findId"
                                                             target=""
                                                         >
                                                             아이디 찾기
                                                         </a>
                                                         <a
-                                                            href="/zf-user/helpdesk/idpw-find"
-                                                            class="forgotten"
+
+                                                            class="forgotten findPassword"
                                                             target=""
                                                         >
                                                             비밀번호 찾기
@@ -436,6 +424,29 @@
                 </div>
             </div>
         </div>
+
+    </form>
+
         <script src="/static/js/login/login-combine.js"></script>
+
     </body>
+        <script src="/js/login/login-combine.js"></script>
+    <script th:inline="javascript">
+        const save = [[${save}]];
+        const saveInput = document.querySelector("input[name=save]");
+        const findIdButton = document.querySelector(".sign-up.findId")
+        const findPasswordButton = document.querySelector(".forgotten.findPassword")
+        console.log(findIdButton);
+        if(save) {
+            saveInput.checked = true;
+        }
+        // 아이디 찾기 페이지로 이동
+        findIdButton.addEventListener("click",(e)=>{
+            location.href=""
+        })
+        // 비밀번호 찾기 페이지로 이동
+        findPasswordButton.addEventListener("click",(e)=>{
+            location.href="/password-forgotten/forgotten-main"
+        })
+    </script>
 </html>
