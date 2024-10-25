@@ -21,12 +21,7 @@
         values (#{noticeId}, #{fileId})
     </insert>
 
-    <!-- 기업 정보를 ID로 가져오기 -->
-    <select id="getCorporationById" parameterType="long" resultType="com.app.positionback.domain.corporation.CorporationDTO">
-        SELECT id, corporation_name
-        FROM tbl_corporation
-        WHERE id = #{corporationId}
-    </select>
+    
 
 
 </mapper>
