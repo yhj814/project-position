@@ -1,3 +1,29 @@
+// 입력된 3개(월, 일, 근무시간) 데이터를 하나로 합쳐서 db에 전달하는 js
+document.addEventListener('DOMContentLoaded', () => {
+    const monthSelect = document.getElementById('interviewDateMonth');
+    const daySelect = document.getElementById('interviewDateDay');
+    const companyTimeInput = document.getElementById('companyTime');
+    const noticeWorkDateField = document.getElementById('noticeWorkDateField');
+
+    function updateNoticeEducation() {
+        const month = monthSelect.value;
+        const day = daySelect.value;
+        const workTime = companyTimeInput.value;
+
+        if (month && day && workTime) {
+            noticeWorkDateField.value = `${month} ${day} ${workTime}`;
+        } else {
+            noticeWorkDateField.value = '';
+        }
+    }
+
+    // Add event listeners to update the hidden field on change
+    monthSelect.addEventListener('change', updateNoticeEducation);
+    daySelect.addEventListener('change', updateNoticeEducation);
+    companyTimeInput.addEventListener('input', updateNoticeEducation);
+});
+
+
 const dueDateValue = document.getElementById("dueDate");
 const curr = new Date();
 const KRdueDateValue = 9 * 60 * 60 * 1000; // 한국 시간대의 UTC 오프셋
