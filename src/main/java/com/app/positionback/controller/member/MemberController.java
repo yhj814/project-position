@@ -153,6 +153,23 @@ public class MemberController {
         session.invalidate();
     }
 
+    //    비밀번호 찾기 페이지 이동
+    @GetMapping("/password-forgotten/forgotten-main")
+    public  void  goToPasswordForgotten(MemberDTO memberDTO,HttpSession session){
+        log.info("비번 찾기 페이지 들어옴");
+
+    }
+
+    @GetMapping("/forgitteb-main/member-forgotten")
+    public void goToMemberForgotten(MemberDTO memberDTO,HttpSession session){
+        log.info("멤버 비번 찾기 페이지 들어옴");
+    }
+
+    @GetMapping("/forgitteb-main/corporation-forgotten")
+    public void goToCorporationForgotten(MemberDTO memberDTO,HttpSession session){
+        log.info("기업 비번 찾기 페이지 들어옴");
+    }
+
 //    @GetMapping("/main/body")
 //    public String goToMainPage(MemberDTO memberDTO){
 //        return "/main/body";
