@@ -5,6 +5,7 @@ import com.app.positionback.domain.member.MemberVO;
 
 import java.util.Optional;
 
+// 회원관련 서비스
 public interface MemberService {
 //    일반 회원가입
     public void registerMember(MemberDTO memberDTO);
