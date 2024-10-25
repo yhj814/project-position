@@ -4,10 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>기업 공고 등록</title>
-        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/static/css/main.css" />
         <link
             rel="stylesheet"
-            href="/css/corporation/corporation-login-main-write-posting.css"
+            href="/static/css/corporation/corporation-login-main-write-posting.css"
         />
     </head>
     <body>
@@ -30,7 +30,7 @@
                         </p>
                     </div>
                     <div class="interview-write-wrap-interview-review">
-                        <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" name="interview-write-review-form">
+                        <form name="interview-write-review-form">
                             <input
                                 type="hidden"
                                 name="interview-write-idx"
@@ -101,15 +101,14 @@
                                                             />
                                                             <input
                                                                 type="text"
-                                                                name="corporationName"
+                                                                name="company-nm"
                                                                 id="companyName"
                                                                 class="interview-write-inpTypo"
                                                                 title="기업명 입력"
                                                                 placeholder="기업명 입력"
                                                                 data-id="company-nm"
+                                                                data-value
                                                                 autocomplete="off"
-                                                                readonly
-                                                                th:field="*{corporationName}"
                                                             />
                                                         </div>
                                                         <em
@@ -125,7 +124,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="noticeTitle"
+                                                            for="companyName"
                                                             class="interview-write-tit-item"
                                                         >
                                                             공고명
@@ -161,12 +160,14 @@
                                                                 value
                                                             />
                                                             <input
-                                                                type="text" th:field="*{noticeTitle}"
-                                                                id="noticeTitle"
+                                                                type="text"
+                                                                name="company-nm"
+                                                                id="companyName"
                                                                 class="interview-write-inpTypo"
                                                                 title="공고명 입력"
                                                                 placeholder="공고명 입력"
                                                                 data-id="company-nm"
+                                                                data-value
                                                                 autocomplete="off"
                                                             />
                                                         </div>
@@ -312,6 +313,7 @@
                                                                                 class="interview-write-area-btn"
                                                                             >
                                                                                 <button
+                                                                                    class="button"
                                                                                     class="interview-write-btn-close"
                                                                                 >
                                                                                     닫기
@@ -1909,7 +1911,7 @@
                                                         <strong
                                                             class="interview-write-tit-item"
                                                         >
-                                                            근무 일자
+                                                            포지셔너 일자
                                                             <span
                                                                 class="interview-write-spr-review interview-write-point"
                                                             >
@@ -1939,73 +1941,34 @@
                                                             >
                                                                 <select
                                                                     name="interview-date-year"
-                                                                    id="interviewDateMonth"
-                                                                    title="월 선택"
+                                                                    id="interviewDateYear"
+                                                                    title="연도 선택"
                                                                 >
                                                                     <option
-                                                                        value=""
+                                                                        value
                                                                     >
-                                                                        월 선택
+                                                                        연도
+                                                                        선택
                                                                     </option>
                                                                     <option
-                                                                            value="01m"
+                                                                        value="2021"
                                                                     >
-                                                                        01월
+                                                                        2021년
                                                                     </option>
                                                                     <option
-                                                                            value="02m"
+                                                                        value="2022"
                                                                     >
-                                                                        02월
+                                                                        2022년
                                                                     </option>
                                                                     <option
-                                                                            value="03m"
+                                                                        value="2023"
                                                                     >
-                                                                        03월
+                                                                        2023년
                                                                     </option>
                                                                     <option
-                                                                            value="04m"
+                                                                        value="2024"
                                                                     >
-                                                                        04월
-                                                                    </option>
-                                                                    <option
-                                                                            value="05m"
-                                                                    >
-                                                                        05월
-                                                                    </option>
-                                                                    <option
-                                                                            value="06m"
-                                                                    >
-                                                                        06월
-                                                                    </option>
-                                                                    <option
-                                                                            value="07m"
-                                                                    >
-                                                                        07월
-                                                                    </option>
-                                                                    <option
-                                                                            value="08m"
-                                                                    >
-                                                                        08월
-                                                                    </option>
-                                                                    <option
-                                                                            value="09m"
-                                                                    >
-                                                                        09월
-                                                                    </option>
-                                                                    <option
-                                                                            value="10m"
-                                                                    >
-                                                                        10월
-                                                                    </option>
-                                                                    <option
-                                                                            value="11m"
-                                                                    >
-                                                                        11월
-                                                                    </option>
-                                                                    <option
-                                                                            value="12m"
-                                                                    >
-                                                                        12월
+                                                                        2024년
                                                                     </option>
                                                                 </select>
                                                             </span>
@@ -2014,45 +1977,74 @@
                                                             >
                                                                 <select
                                                                     name="interview-date-month"
-                                                                    id="interviewDateDay"
-                                                                    title="일 선택"
+                                                                    id="interviewDateMonth"
+                                                                    title="월 선택"
                                                                 >
                                                                     <option
-                                                                        value=""
+                                                                        value
                                                                     >
-                                                                        일 선택
+                                                                        월 선택
                                                                     </option>
-                                                                    <option value="01">01일</option>
-                                                                    <option value="02">02일</option>
-                                                                    <option value="03">03일</option>
-                                                                    <option value="04">04일</option>
-                                                                    <option value="05">05일</option>
-                                                                    <option value="06">06일</option>
-                                                                    <option value="07">07일</option>
-                                                                    <option value="08">08일</option>
-                                                                    <option value="09">09일</option>
-                                                                    <option value="10">10일</option>
-                                                                    <option value="11">11일</option>
-                                                                    <option value="12">12일</option>
-                                                                    <option value="13">13일</option>
-                                                                    <option value="14">14일</option>
-                                                                    <option value="15">15일</option>
-                                                                    <option value="16">16일</option>
-                                                                    <option value="17">17일</option>
-                                                                    <option value="18">18일</option>
-                                                                    <option value="19">19일</option>
-                                                                    <option value="20">20일</option>
-                                                                    <option value="21">21일</option>
-                                                                    <option value="22">22일</option>
-                                                                    <option value="23">23일</option>
-                                                                    <option value="24">24일</option>
-                                                                    <option value="25">25일</option>
-                                                                    <option value="26">26일</option>
-                                                                    <option value="27">27일</option>
-                                                                    <option value="28">28일</option>
-                                                                    <option value="29">29일</option>
-                                                                    <option value="30">30일</option>
-                                                                    <option value="31">31일</option>
+                                                                    <option
+                                                                        value="01"
+                                                                    >
+                                                                        01월
+                                                                    </option>
+                                                                    <option
+                                                                        value="02"
+                                                                    >
+                                                                        02월
+                                                                    </option>
+                                                                    <option
+                                                                        value="03"
+                                                                    >
+                                                                        03월
+                                                                    </option>
+                                                                    <option
+                                                                        value="04"
+                                                                    >
+                                                                        04월
+                                                                    </option>
+                                                                    <option
+                                                                        value="05"
+                                                                    >
+                                                                        05월
+                                                                    </option>
+                                                                    <option
+                                                                        value="06"
+                                                                    >
+                                                                        06월
+                                                                    </option>
+                                                                    <option
+                                                                        value="07"
+                                                                    >
+                                                                        07월
+                                                                    </option>
+                                                                    <option
+                                                                        value="08"
+                                                                    >
+                                                                        08월
+                                                                    </option>
+                                                                    <option
+                                                                        value="09"
+                                                                    >
+                                                                        09월
+                                                                    </option>
+                                                                    <option
+                                                                        value="10"
+                                                                    >
+                                                                        10월
+                                                                    </option>
+                                                                    <option
+                                                                        value="11"
+                                                                    >
+                                                                        11월
+                                                                    </option>
+                                                                    <option
+                                                                        value="12"
+                                                                    >
+                                                                        12월
+                                                                    </option>
                                                                 </select>
                                                             </span>
                                                         </div>
@@ -2182,8 +2174,8 @@
                                                             >
                                                                 <select
                                                                     name="interview-date-year"
-                                                                    id="interview-history"
-                                                                    title="경력 선택"
+                                                                    id="interviewDateYear"
+                                                                    title="연도 선택"
                                                                 >
                                                                     <option
                                                                         value=""
@@ -2192,7 +2184,7 @@
                                                                         선택
                                                                     </option>
                                                                     <option
-                                                                        value="무관"
+                                                                        value="2021"
                                                                     >
                                                                         무관
                                                                     </option>
@@ -2292,7 +2284,7 @@
                                                             for="interviewDetails"
                                                             class="interview-write-tit-item"
                                                         >
-                                                            근무 시간
+                                                            근무 일시
                                                             <span
                                                                 class="interview-write-spr-review interview-write-point"
                                                             >
@@ -2319,10 +2311,10 @@
                                                             <input
                                                                 type="text"
                                                                 name="company-nm"
-                                                                id="companyTime"
+                                                                id="companyName"
                                                                 class="interview-write-inpTypo"
                                                                 title="근무 일자, 시간 입력"
-                                                                placeholder="근무 시간 입력"
+                                                                placeholder="근무 일자, 시간 입력"
                                                                 data-id="company-nm"
                                                                 data-value
                                                                 autocomplete="off"
@@ -2445,6 +2437,7 @@
                                                         <div class="filebox">
                                                             <input
                                                                 class="upload-name"
+                                                                value="첨부파일"
                                                                 placeholder="첨부파일"
                                                             />
                                                             <label for="file"
@@ -2487,5 +2480,5 @@
             </div>
         </div>
     </body>
-    <script src="/js/corporation/corporation-login-main-write-posting.js"></script>
+    <script src="/static/js/corporation/corporation-login-main-write-posting.js"></script>
 </html>

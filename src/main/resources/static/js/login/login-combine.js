@@ -44,7 +44,7 @@ const toggleTabs = (isPerson) => {
 
 // 로그인 버튼 클릭 시 아이디, 비밀번호 입력 여부 확인
 loginButton.addEventListener("click", (event) => {
-    event.preventDefault(); // 실제 서버 요청 방지 (테스트용)
+    // event.preventDefault(); // 실제 서버 요청 방지 (테스트용)
 
     const userId = idInput.value.trim();
     const userPassword = passwordInput.value.trim();
@@ -61,7 +61,7 @@ loginButton.addEventListener("click", (event) => {
         return;
     }
 
-    // 아이디와 비밀번호가 모두 입력된 경우, 로그인 로직 실행
-    alert("로그인 시도 중...");
-    // 실제 로그인 로직 추가 필요
+    // // 아이디와 비밀번호가 모두 입력된 경우, 로그인 로직 실행
+    // alert("로그인 시도 중...");
+    // // 실제 로그인 로직 추가 필요
 });

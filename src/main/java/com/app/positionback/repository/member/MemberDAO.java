@@ -13,13 +13,13 @@ public class MemberDAO {
 
     private final MemberMapper memberMapper;
 
-    //    회원가입
+//    회원가입
     public void saveMember(MemberVO memberVO) {
         memberMapper.insertMember(memberVO);
     }
 
-    //    로그인
+//    로그인
     public Optional<MemberVO> findMemberByEmailAndPassword(MemberVO memberVO) {
-        return memberMapper.selectByMemberEmailAndMemberPassword(memberVO);
+       return memberMapper.selectByMemberEmailAndMemberPassword(memberVO);
     }
 }

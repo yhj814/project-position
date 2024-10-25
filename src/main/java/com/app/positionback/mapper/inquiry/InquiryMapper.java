@@ -8,5 +8,4 @@ public interface InquiryMapper {
 
     // 1:1 문의 작성
     public void insert(InquiryVO inquiryVO);
-
 }
