@@ -13,6 +13,7 @@ public class InquiryDTO {
     private String inquiryCategory;
     private String inquiryTitle;
     private String inquiryContent;
+    private String inquiryAttachment;
     private String createDate;
     private String updateDate;
     private Long memberId;
@@ -27,6 +28,6 @@ public class InquiryDTO {
     private String memberWaringCount;
 
     public InquiryVO toVO() {
-        return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, createDate, updateDate);
+        return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, inquiryAttachment, createDate, updateDate);
     }
 }

@@ -13,6 +13,7 @@ public class InquiryVO {
     private String inquiryCategory;
     private String inquiryTitle;
     private String inquiryContent;
+    private String inquiryAttachment;
     private String createDate;
     private String updateDate;
 }
