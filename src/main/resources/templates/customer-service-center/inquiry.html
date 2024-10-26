@@ -19,7 +19,7 @@
                     </div>
                     <div class="help-find help-lost wrap-help">
                         <div class="cont-find">
-                            <form th:action="@{/customer-service-center/inquiry}" method="post" th:object="${inquiryDTO}" id="write-form">
+                            <form action="" method="post" id="write-form">
                                 <fieldset>
                                     <p class="desc-find-type2">
                                         평일 09시 에서 17시까지 문의하신 내용은
@@ -72,7 +72,6 @@
                                                             name="inquiryType"
                                                             id="help-member-type-person"
                                                             class="help-member-type"
-                                                            th:field="*{inquiryType}"
                                                             value=""
                                                             checked
                                                         />
@@ -88,7 +87,6 @@
                                                             name="inquiryType"
                                                             id="help-member-type-company"
                                                             class="help-member-type"
-                                                            th:field="*{inquiryType}"
                                                             value=""
                                                         />
                                                         <label
@@ -117,7 +115,6 @@
                                                         name="inquiryTitle"
                                                         id="help-category"
                                                         style="width: 338px"
-                                                        th:field="*{inquiryCategory}"
                                                     >
                                                         <option
                                                             selected=""
@@ -179,7 +176,6 @@
                                                         id="help-title"
                                                         class="inp-find"
                                                         style="width: 533px"
-                                                        th:field="*{inquiryTitle}"
                                                     />
                                                 </span>
                                             </div>
@@ -206,7 +202,6 @@
                                                             height: 120px;
                                                         "
                                                         placeholder="문의종류 선택 후 내용을 입력해주세요."
-                                                        th:field="*{inquiryContent}"
                                                     ></textarea>
                                                 </span>
                                             </div>
