@@ -627,7 +627,7 @@ h2 {
     height: 183px;
 }
 
-.option_content.job_category_section .wrap_scroll .viewport {
+.interview-write-option-content.interview-write-job-category-section .interview-write-wrap-scroll .interview-write-viewport {
     height: 100%;
 }
 
@@ -1631,7 +1631,7 @@ li {
     height: 241px;
 }
 
-.common_panel .option_content.job_category_section .details .box_detail_depth {
+.common_panel .option_content.job_category_section .details .box-detail-depth {
     width: calc(100% - 204px);
 }
 
