@@ -22,7 +22,8 @@
         notice_work_start_time = #{noticeWorkStartTime},
         notice_work_end_time = #{noticeWorkEndTime},
         notice_work_start_date = #{noticeWorkStartDate},
-        notice_work_end_date = #{noticeWorkEndDate}
+        notice_work_end_date = #{noticeWorkEndDate},
+        updated_date = #{updatedDate}
         where id = #{id}
     </update>
 
