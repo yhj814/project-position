@@ -1,4 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.admin.AdminMapper">
+    <!-- 회원 관리 -->
+    <select id="selectByMember" resultType="MemberVO">
+        select * from tbl_member
+    </select>
+
+    <select id="selectByCorporateMember" resultType="CorporatationVO">
+       select * from tbl_corporatation
+    </select>
+
+    <!-- 지원 현황 관리 -->
+    <select id="getApplicationStatus" resultType="ApplyDTO">
+        select * from tbl_apply
+    </select>
+
+    <select id="getInterviewStatus" resultType="InterviewStatusDTO">
+        SELECT * FROM TBL_INTERVIEW_STATUS
+    </select>
+
+    <select id="getInternshipStatus" resultType="InternshipStatusDTO">
+        SELECT * FROM TBL_INTERNSHIP_STATUS
+    </select>
+
+    <!-- 결제 관리 -->
+    <select id="getPayments" resultType="PaymentDTO">
+        SELECT * FROM TBL_PAYMENTS
+    </select>
+
+    <!-- 작성 관리 -->
+    <select id="getJobPostings" resultType="JobPostingDTO">
+        SELECT * FROM TBL_JOB_POSTINGS
+    </select>
+
+    <select id="getBoardPosts" resultType="BoardPostDTO">
+        SELECT * FROM TBL_BOARD_POSTS
+    </select>
+
+    <select id="getComments" resultType="CommentDTO">
+        SELECT * FROM TBL_COMMENTS
+    </select>
+
+    <!-- 후기 관리 -->
+    <select id="getInterviewReviews" resultType="InterviewReviewDTO">
+        SELECT * FROM TBL_INTERVIEW_REVIEWS
+    </select>
+
+    <select id="getCorporateInternshipReviews" resultType="CorporateInternshipReviewDTO">
+        SELECT * FROM TBL_CORPORATE_INTERNSHIP_REVIEWS
+    </select>
+
+    <select id="getInternInternshipReviews" resultType="InternInternshipReviewDTO">
+        SELECT * FROM TBL_INTERN_INTERNSHIP_REVIEWS
+    </select>
+
+    <!-- 문의 관리 -->
+    <select id="selectByInquiry" resultType="InquiryDTO">
+        select * from tbl_inquiry
+    </select>
+
+    <select id="selectByCorporateInquiry" resultType="InquiryDTO">
+        select * from tbl_inquiry
+    </select>
+
+    <!-- 신고 관리 -->
+    <select id="getCorporateReviewReports" resultType="CorporateReviewReportDTO">
+        SELECT * FROM TBL_CORPORATE_REVIEW_REPORTS
+    </select>
+
+    <!-- 대시보드 기본 데이터 -->
+    <select id="getDashboardData" resultType="DashboardDataVO">
+        SELECT * FROM TBL_DASHBOARD_DATA
+    </select>
+
 </mapper>
