@@ -8,3 +8,7 @@ create table tbl_job_categoryB(
 
 select * from tbl_job_categoryB;
 
+-- 직무·직업
+INSERT INTO tbl_job_categoryB (job_categoryB_name, job_categoryA_id) VALUES
+                                                                         ('직무·직업', 2),
+                                                                         ('전문 분야', 2);

@@ -24,7 +24,6 @@ public class NoticeMapperTests {
         noticeDTO.setNoticeTitle("신규 채용 공고");
         noticeDTO.setNoticeCareer("경력 3년 이상");
         noticeDTO.setNoticeEducation("대졸 이상");
-        noticeDTO.setNoticeWorkDate("2024-01-01");
         noticeDTO.setNoticeEndDate("2024-01-31");
         noticeDTO.setJobCategorycId(1L);
 

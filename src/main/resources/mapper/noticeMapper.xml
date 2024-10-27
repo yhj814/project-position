@@ -11,4 +11,40 @@
         select last_insert_id()
     </select>
 
+    <update id="updateNotice">
+        update tbl_notice
+        set corporation_id = #{corporationId},
+        notice_title = #{noticeTitle},
+        notice_career = #{noticeCareer},
+        notice_education = #{noticeEducation},
+        notice_end_date = #{noticeEndDate},
+        job_categoryC_id = #{jobCategorycId},
+        notice_work_start_time = #{noticeWorkStartTime},
+        notice_work_end_time = #{noticeWorkEndTime},
+        notice_work_start_date = #{noticeWorkStartDate},
+        notice_work_end_date = #{noticeWorkEndDate}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNotice">
+        delete from tbl_notice
+        where id = #{id}
+    </delete>
+
+    <select id="selectNoticeById" resultType="com.app.positionback.domain.notice.NoticeDTO">
+        select corporation_id, notice_title, notice_career, notice_education, notice_end_date,
+        job_categoryC_id, notice_work_start_time, notice_work_end_time,
+        notice_work_start_date, notice_work_end_date
+        from tbl_notice
+        where id = #{id}
+    </select>
+
+    <select id="selectNoticesByCorporationId" resultType="com.app.positionback.domain.notice.NoticeDTO">
+        select corporation_id, notice_title, notice_career, notice_education, notice_end_date,
+               job_categoryC_id, notice_work_start_time, notice_work_end_time,
+               notice_work_start_date, notice_work_end_date
+        from tbl_notice
+        where corporation_id = #{corporationId}
+    </select>
+
 </mapper>

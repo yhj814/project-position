@@ -228,41 +228,49 @@ document.querySelector(".btn.btn-job-cancel").addEventListener("click", () =>{
 // })
 
 const confirmButton = document.querySelector(".btn.btn-job-confirm");
-const taskList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list"); // Select the target <ul>
+const taskList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list"); // <ul> 요소 선택
 
 confirmButton.addEventListener("click", () => {
-
-
-    // Get all selected job spans
+    // 모든 선택된 직무 span 요소를 가져옴
     const selectedJobSpans = document.querySelectorAll('span.job-selected');
 
     selectedJobSpans.forEach(span => {
-        const jobName = span.innerText; // Get the job name text
-        const dataMclsCdNo = span.querySelector('.btn-delete')?.getAttribute('data-mcls_cd_no'); // Assuming you have this data attribute for the button
+        // 첫 번째 값 (기획·전략)과 두 번째 값 (게임기획) 가져오기
+        const jobName1 = span.childNodes[0].nodeValue.trim(); // 첫 번째 텍스트 (기획·전략)
+        const jobName2 = span.childNodes[2].nodeValue.trim(); // 두 번째 텍스트 (게임기획)
 
-        // Create a new <li> for each selected job
+        // 새로운 <li> 요소 생성
         const newListItem = document.createElement('li');
-
-        // Create the formatted HTML
         newListItem.innerHTML = `
-            <span class="hope_jobs" style="color:#566feb;">${jobName}
-                <button type="button" class="btn-delete deleteToDepth" data-mcls_cd_no="${dataMclsCdNo}">
+            <span class="hope_jobs" style="color:#566feb;">
+                ${jobName1}
+                <span class="blind">삭제</span>
+            </span>
+            <span class="hope_jobs">
+                ${jobName2}
+                <button type="button" class="btn-delete deleteToKeyword">
                     <span class="blind">삭제</span>
-                </button> &nbsp;&gt;&nbsp;&nbsp;
+                </button>
             </span>
         `;
 
-        // Add event listener to the delete button
+        // 삭제 버튼에 이벤트 리스너 추가
         const deleteButton = newListItem.querySelector('.btn-delete');
-        deleteButton.addEventListener('click', () => {
-            taskList.removeChild(newListItem); // Remove the corresponding list item
+        deleteButton.addEventListener('click', (event) => {
+            const li = event.target.closest('li'); // 클릭된 버튼의 가장 가까운 <li> 요소 찾기
+            if (li) {
+                taskList.removeChild(li); // 해당 <li> 제거
+            }
         });
 
-        // Append the new <li> to the target <ul>
+        // <ul>에 <li> 추가
         taskList.appendChild(newListItem);
         targetElement.classList.remove("on");
     });
 });
+
+
+
 
 
 document.getElementById("internshipEndDate").addEventListener("change", validateDates);

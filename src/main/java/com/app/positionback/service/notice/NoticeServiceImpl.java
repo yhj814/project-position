@@ -5,7 +5,6 @@ import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.repository.notice.NoticeDAO;
 import com.app.positionback.repository.notice.NoticeFileDAO;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -27,38 +27,104 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Override
     public void saveNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
-        // 공지사항 저장
         noticeDAO.saveNotice(noticeDTO);
-        Long noticeId = noticeDTO.getId(); // 공지사항 ID 가져오기
+        Long noticeId = noticeDTO.getId();
         if (noticeId == null) {
-            noticeId = noticeDAO.getLastInsertedId(); // ID를 DB에서 가져오기
+            noticeId = noticeDAO.getLastInsertedId();
         }
 
-        // 파일 처리 및 저장
-        String rootPath = "C:/upload/" + getPath();
-        FileDTO fileDTO = new FileDTO();
-        UUID uuid = UUID.randomUUID();
-
-        fileDTO.setFilePath(getPath());
-        File directory = new File(rootPath);
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-
-        file.transferTo(new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename()));
-        fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
-
-        // 파일 정보 저장
-        noticeFileDAO.saveFile(fileDTO);
-        Long fileId = noticeFileDAO.getLastInsertedId(); // 파일 ID 가져오기
-
-        // 공지사항과 파일 연결
-        noticeFileDAO.linkNoticeWithFile(noticeId, fileId);
+        saveAndLinkFile(file, noticeId);
     }
 
-    private String getPath(){
+    @Override
+    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
+        noticeDAO.updateNotice(noticeDTO);
+        Long noticeId = noticeDTO.getId();
+
+        // 기존 파일 처리 로직 (선택적 파일 삭제 또는 업데이트 가능)
+        noticeFileDAO.deleteFilesByNoticeId(noticeId);
+
+        saveAndLinkFile(file, noticeId);
+    }
+
+    @Override
+    public void deleteNotice(Long id) {
+        noticeFileDAO.deleteFilesByNoticeId(id);
+        noticeDAO.deleteNotice(id);
+    }
+
+    @Override
+    public NoticeDTO getNoticeById(Long id) {
+        return noticeDAO.findNoticeById(id);
+    }
+
+    @Override
+    public List<NoticeDTO> getNoticesByCorporationId(Long corporationId) {
+        return noticeDAO.findNoticesByCorporationId(corporationId);
+    }
+
+    private void saveAndLinkFile(MultipartFile file, Long noticeId) throws IOException {
+        if (file != null && !file.isEmpty()) {
+            String rootPath = "C:/upload/" + getPath();
+            UUID uuid = UUID.randomUUID();
+
+            File directory = new File(rootPath);
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+
+            File savedFile = new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename());
+            file.transferTo(savedFile);
+
+            FileDTO fileDTO = new FileDTO();
+            fileDTO.setFilePath(getPath());
+            fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
+
+            noticeFileDAO.saveFile(fileDTO);
+            Long fileId = noticeFileDAO.getLastInsertedId();
+
+            noticeFileDAO.linkNoticeWithFile(noticeId, fileId);
+        }
+    }
+
+    private String getPath() {
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
+
+//    @Override
+//    public void saveNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
+//        // 공지사항 저장
+//        noticeDAO.saveNotice(noticeDTO);
+//        Long noticeId = noticeDTO.getId(); // 공지사항 ID 가져오기
+//        if (noticeId == null) {
+//            noticeId = noticeDAO.getLastInsertedId(); // ID를 DB에서 가져오기
+//        }
+//
+//        // 파일 처리 및 저장
+//        String rootPath = "C:/upload/" + getPath();
+//        FileDTO fileDTO = new FileDTO();
+//        UUID uuid = UUID.randomUUID();
+//
+//        fileDTO.setFilePath(getPath());
+//        File directory = new File(rootPath);
+//        if (!directory.exists()) {
+//            directory.mkdirs();
+//        }
+//
+//        file.transferTo(new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename()));
+//        fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
+//
+//        // 파일 정보 저장
+//        noticeFileDAO.saveFile(fileDTO);
+//        Long fileId = noticeFileDAO.getLastInsertedId(); // 파일 ID 가져오기
+//
+//        // 공지사항과 파일 연결
+//        noticeFileDAO.linkNoticeWithFile(noticeId, fileId);
+//    }
+//
+//    private String getPath(){
+//        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+//    }
 
 
 }
