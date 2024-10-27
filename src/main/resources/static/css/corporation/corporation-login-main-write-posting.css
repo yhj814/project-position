@@ -86,12 +86,12 @@ select {
     padding: 0;
 }
 
-#interview-write-sri-section.interview-write-layout-full {
+#sri-section.layout-full {
     margin: 0;
     width: 100%;
 }
 
-#interview-write-sri-section {
+#sri-section {
     display: table;
     overflow: hidden;
     position: relative;
@@ -100,35 +100,35 @@ select {
     box-sizing: border-box;
 }
 
-#interview-write-sri-wrap {
+#sri-wrap {
     display: table-row;
     width: 100%;
     height: 100%;
 }
 
-#interview-write-sri-section.interview-write-layout-full
-    #interview-write-content {
+#sri-section.layout-full
+    #content {
     margin: 0;
     width: 100%;
 }
 
-#interview-write-content {
+#content {
     position: relative;
     z-index: 1;
 }
 
-#interview-write-sri-section.interview-write-layout-full
-    .interview-write-wrap-title-recruit {
+#sri-section.layout-full
+    .wrap-title-recruit {
     margin: 0 auto;
     padding: 50px 0 50px;
     width: 1260px;
 }
 
-.interview-write-wrap-title-recruit {
+.wrap-title-recruit {
     position: relative;
 }
 
-.interview-write-wrap-title-recruit .interview-write-title-common {
+.wrap-title-recruit .title-common {
     display: inline-block;
     color: #444;
     font-size: 32px;
@@ -137,7 +137,7 @@ select {
     vertical-align: top;
 }
 
-.interview-write-wrap-title-recruit .interview-write-txt-write-info {
+.wrap-title-recruit .txt-write-info {
     margin-bottom: -19px;
     padding: 9px 0 0 3px;
     color: #888;
@@ -145,7 +145,7 @@ select {
     line-height: 21px;
 }
 
-.interview-write-wrap-title-recruit .interview-write-txt-write-info b {
+.wrap-title-recruit .txt-write-info b {
     color: #444;
 }
 
@@ -153,7 +153,7 @@ b {
     font-weight: bold;
 }
 
-.interview-write-wrap-interview-review {
+.wrap-interview-review {
     position: relative;
     margin: 0 auto 80px auto;
     padding-bottom: 69px;
@@ -169,11 +169,11 @@ fieldset {
     border: 0;
 }
 
-.interview-write-review-write:first-of-type {
+.review-write:first-of-type {
     padding-top: 0;
 }
 
-.interview-write-review-write .interview-write-tit-step {
+.review-write .tit-step {
     display: inline-block;
     color: #444;
     font-size: 16px;
@@ -181,7 +181,7 @@ fieldset {
     line-height: 21px;
 }
 
-.interview-write-review-write .interview-write-txt-point {
+.review-write .txt-point {
     float: right;
     padding-top: 6px;
     color: #444;
@@ -189,34 +189,34 @@ fieldset {
     line-height: 16px;
 }
 
-.interview-write-review-write
-    .interview-write-txt-point
-    .interview-write-point {
+.review-write
+    .txt-point
+    .point {
     margin: 6px 2px 0 0;
 }
 
-.interview-write-review-write .interview-write-point {
+.review-write .point {
     display: inline-block;
     width: 6px;
     height: 6px;
     vertical-align: top;
 }
 
-.interview-write-review-write .interview-write-point:before {
+.review-write .point:before {
     width: 6px;
     height: 6px;
     background-position: -20px 0;
     content: "";
 }
 
-.interview-write-wrap-interview-review .interview-write-spr-review:before {
+.wrap-interview-review .spr-review:before {
     display: inline-block;
     vertical-align: top;
-    background: url(/Position-Front/static/images/interview-review/spr_review_190220.png)
+    background: url(/images/interview-review/spr_review_190220.png)
         no-repeat;
 }
 
-.interview-write-blind {
+.blind {
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute !important;
@@ -224,15 +224,15 @@ fieldset {
     height: 1px;
 }
 
-.interview-write-review-write .interview-write-tblType {
+.review-write .tblType {
     margin-top: 8px;
 }
 
-.interview-write-tblType {
+.tblType {
     border-top: 1px solid #666;
 }
 
-.interview-write-tblType table {
+.tblType table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
@@ -244,9 +244,9 @@ table {
     line-height: 100%;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    th.interview-write-txtLeft {
+.review-write
+    .tblType
+    th.txtLeft {
     padding: 13px 0 14px 30px;
     color: #666;
     font-size: 13px;
@@ -254,11 +254,11 @@ table {
     line-height: 21px;
 }
 
-.interview-write-tblType .interview-write-txtLeft {
+.tblType .txtLeft {
     text-align: left;
 }
 
-.interview-write-tblType tbody th {
+.tblType tbody th {
     border-color: #eaeaea;
     background-color: #f7f7f7;
     margin: 0;
@@ -270,9 +270,9 @@ th {
     font-style: normal;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-tit-item {
+.review-write
+    .tblType
+    .tit-item {
     position: relative;
     padding-right: 10px;
     font-weight: normal;
@@ -282,28 +282,28 @@ label {
     cursor: pointer;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-tit-item
-    .interview-write-point {
+.review-write
+    .tblType
+    .tit-item
+    .point {
     margin: 8px 0 0 1px;
 }
 
-.interview-write-review-write .interview-write-point {
+.review-write .point {
     display: inline-block;
     width: 6px;
     height: 6px;
     vertical-align: top;
 }
 
-.interview-write-review-write .interview-write-point:before {
+.review-write .point:before {
     width: 6px;
     height: 6px;
     background-position: -20px 0;
     content: "";
 }
 
-.interview-write-tblType tbody td {
+.tblType tbody td {
     border-color: #eaeaea;
     padding: 14px 10px;
     height: 47px;
@@ -345,25 +345,25 @@ label {
     border: 0;
 }
 /*  */
-.interview-write-review-write .interview-write-auto-search {
+.review-write .auto-search {
     position: relative;
     width: 100%;
     font-size: 0;
 }
 
-.interview-write-review-write
-    .interview-write-auto-search
-    .interview-write-inpTypo {
+.review-write
+    .auto-search
+    .inpTypo {
     width: 345px;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-inpTypo {
+.review-write
+    .tblType
+    .inpTypo {
     padding-right: 4px;
 }
 
-.interview-write-inpTypo {
+.inpTypo {
     padding: 0 11px 1px 11px;
     height: 32px;
     border: 1px solid #dbdbdb;
@@ -375,9 +375,9 @@ label {
     background: #fff;
 }
 
-.interview-write-review-write
-    .interview-write-auto-search
-    .interview-write-list-auto-search {
+.review-write
+    .auto-search
+    .list-auto-search {
     display: none;
     overflow: hidden;
     overflow-y: auto;
@@ -399,17 +399,17 @@ ul {
     list-style: none;
 }
 
-.interview-write-review-write
-    .interview-write-auto-search
-    .interview-write-no-search {
+.review-write
+    .auto-search
+    .no-search {
     padding: 34px 0;
     color: #666;
     text-align: center;
 }
 
-.interview-write-review-write
-    .interview-write-auto-search
-    .interview-write-btn-company-search {
+.review-write
+    .auto-search
+    .btn-company-search {
     display: inline-block;
     margin-left: 6px;
     width: 138px;
@@ -427,15 +427,15 @@ button {
     background: transparent;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-msgInvalid.interview-write-hide {
+.review-write
+    .tblType
+    .msgInvalid.hide {
     display: none;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-msgInvalid {
+.review-write
+    .tblType
+    .msgInvalid {
     margin-top: 4px;
     width: 100%;
     color: #f00;
@@ -448,10 +448,10 @@ em {
     font-style: normal;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
+.review-write
+    .tblType
     td
-    .interview-write-desire-area {
+    .desire-area {
     position: relative;
     padding: 0 76px 1px 11px;
     width: 600px;
@@ -466,27 +466,27 @@ em {
     background: var(--white);
 }
 
-.interview-write-wrap-section-contents {
+.wrap-section-contents {
     position: relative;
     top: -1px;
     z-index: 1;
 }
 
-.interview-write-wrap-section-contents.interview-write-common-panel
-    .interview-write-option-content {
+.wrap-section-contents.common-panel
+    .option-content {
     width: 960px;
     border-radius: 8px;
 }
 
-.interview-write-option-content.interview-write-job-category-section.on {
+.option-content.job-category-section.on {
     min-height: auto;
 }
 
-.interview-write-wrap-section-contents .interview-write-option-content.on {
+.wrap-section-contents .option-content.on {
     display: block;
 }
 
-.interview-write-wrap-section-contents .interview-write-option-content {
+.wrap-section-contents .option-content {
     display: none;
     border: 1px solid #444;
     box-sizing: border-box;
@@ -497,23 +497,23 @@ h2 {
     font-weight: normal;
 }
 
-.interview-write-wrap-section-contents .interview-write-select-keyword {
+.wrap-section-contents .select-keyword {
     border-bottom: 0;
     padding: 12px 0 0 15px;
     height: 65px;
     box-sizing: border-box;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-wrap-auto-keyword {
+.wrap-section-contents
+    .select-keyword
+    .wrap-auto-keyword {
     float: left;
     position: relative;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-ipt-keyword {
+.wrap-section-contents
+    .select-keyword
+    .ipt-keyword {
     display: block;
     position: relative;
     width: 464px;
@@ -522,23 +522,23 @@ h2 {
     box-sizing: border-box;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-ipt-keyword:before {
+.wrap-section-contents
+    .select-keyword
+    .ipt-keyword:before {
     display: block;
     position: absolute;
     top: 14px;
     left: 15px;
     width: 13px;
     height: 13px;
-    background: url(/Position-Front/static/images/interview-review/spr_search_panel.png)
+    background: url(/images/interview-review/spr_search_panel.png)
         no-repeat 0 -133px;
     content: "";
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-ipt-keyword
+.wrap-section-contents
+    .select-keyword
+    .ipt-keyword
     input {
     padding: 0 40px 0 34px;
     width: 462px;
@@ -551,10 +551,10 @@ h2 {
     background: transparent;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-ipt-keyword
-    .interview-write-btn-delete {
+.wrap-section-contents
+    .select-keyword
+    .ipt-keyword
+    .btn-delete {
     display: none;
     overflow: hidden;
     position: absolute;
@@ -564,15 +564,15 @@ h2 {
     height: 15px;
     color: rgba(0, 0, 0, 0);
     font-size: 1px;
-    background: url(/Position-Front/static/images/interview-review/spr_search_panel.png)
+    background: url(/images/interview-review/spr_search_panel.png)
         no-repeat 0 -160px;
     border: 0;
     line-height: normal;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-wrap-result {
+.wrap-section-contents
+    .select-keyword
+    .wrap-result {
     display: none;
     position: absolute;
     top: 39px;
@@ -584,25 +584,25 @@ h2 {
     background: #fff;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-wrap-scroll {
+.option-content.job-category-section
+    .details
+    .wrap-scroll {
     width: 100%;
     height: 100%;
 }
 
-.interview-write-wrap-scroll {
+.wrap-scroll {
     position: relative;
 }
 
-.interview-write-wrap-scroll .interview-write-track {
+.wrap-scroll .track {
     position: relative;
     width: 100%;
     height: 100%;
     background: #fcfcfc;
 }
 
-.interview-write-wrap-scroll .interview-write-thumb {
+.wrap-scroll .thumb {
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -613,32 +613,32 @@ h2 {
     cursor: pointer;
 }
 
-.interview-write-wrap-scroll .interview-write-end {
+.wrap-scroll .end {
     overflow: hidden;
     width: 100%;
     height: 5px;
     background: #f2f2f3;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-wrap-result.interview-write-has-result
-    .interview-write-viewport {
+.wrap-section-contents
+    .select-keyword
+    .wrap-result.has-result
+    .viewport {
     height: 183px;
 }
 
-.option_content.job_category_section .wrap_scroll .viewport {
+.option-content.job-category-section .wrap-scroll .viewport {
     height: 100%;
 }
 
-.interview-write-wrap-scroll .interview-write-viewport {
+.wrap-scroll .viewport {
     overflow: hidden;
     position: relative;
     z-index: 1;
     width: 100%;
 }
 
-.interview-write-wrap-scroll .interview-write-overview {
+.wrap-scroll .overview {
     position: absolute;
     top: 0;
     left: 0;
@@ -648,9 +648,9 @@ h2 {
     list-style: none;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-list-keyword {
+.wrap-section-contents
+    .select-keyword
+    .list-keyword {
     padding: 9px 0 10px;
 }
 
@@ -658,9 +658,9 @@ ul {
     list-style: none;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-area-btn {
+.wrap-section-contents
+    .select-keyword
+    .area-btn {
     position: relative;
     padding: 0 15px;
     height: 39px;
@@ -668,10 +668,10 @@ ul {
     background: #fcfcfc;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-area-btn
-    .interview-write-btn-close {
+.wrap-section-contents
+    .select-keyword
+    .area-btn
+    .btn-close {
     position: absolute;
     top: 10px;
     right: 17px;
@@ -681,9 +681,9 @@ ul {
     border: 0;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-wrap-result {
+.wrap-section-contents
+    .select-keyword
+    .wrap-result {
     display: none;
     position: absolute;
     top: 39px;
@@ -695,9 +695,9 @@ ul {
     background: #fff;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-wrap-result.interview-write-no-result
+.wrap-section-contents
+    .select-keyword
+    .wrap-result.no-result
     p {
     padding-top: 85px;
     height: 183px;
@@ -708,9 +708,9 @@ ul {
     vertical-align: middle;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-area-btn {
+.wrap-section-contents
+    .select-keyword
+    .area-btn {
     position: relative;
     padding: 0 15px;
     height: 39px;
@@ -718,10 +718,10 @@ ul {
     background: #fcfcfc;
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-area-btn
-    .interview-write-btn-close {
+.wrap-section-contents
+    .select-keyword
+    .area-btn
+    .btn-close {
     position: absolute;
     top: 10px;
     right: 17px;
@@ -731,8 +731,8 @@ ul {
     border: 0;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details {
+.option-content.job-category-section
+    .details {
     overflow: hidden;
     height: initial;
 }
@@ -742,42 +742,42 @@ h4 {
     font-weight: normal;
 }
 
-.interview-write-common-panel
-    .interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-jobs {
+.common-panel
+    .option-content.job-category-section
+    .details
+    .box-jobs {
     display: block;
     width: 958px;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-jobs {
+.option-content.job-category-section
+    .details
+    .box-jobs {
     font-size: 0;
 }
 
-.interview-write-common-panel
-    .interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-jobs
-    .interview-write-btn-job {
+.common-panel
+    .option-content.job-category-section
+    .details
+    .box-jobs
+    .btn-job {
     width: 137px;
     border-bottom: 0;
     border-top: 1px solid #e6e9ea;
 }
 
-.interview-write-common-panel
-    .interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-jobs
-    .interview-write-btn-job:nth-of-type(7n) {
+.common-panel
+    .option-content.job-category-section
+    .details
+    .box-jobs
+    .btn-job:nth-of-type(7n) {
     width: 136px;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-jobs
-    .interview-write-btn-job {
+.option-content.job-category-section
+    .details
+    .box-jobs
+    .btn-job {
     height: 50px;
     border-right: 1px solid #e6e9ea;
     box-sizing: border-box;
@@ -786,27 +786,27 @@ h4 {
     line-height: normal;
 }
 
-.interview-write-common-panel .interview-write-box-detail-jobs {
+.common-panel .box-detail-jobs {
     display: none;
     border-top: 1px solid #e6e9ea;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-onedepth {
+.option-content.job-category-section
+    .details
+    .box-onedepth {
     height: 161px;
     float: left;
     width: 204px;
     box-sizing: border-box;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-wrap-scroll
-    .interview-write-viewport {
+.option-content.job-category-section
+    .wrap-scroll
+    .viewport {
     height: 100%;
 }
 
-.interview-write-wrap-scroll .interview-write-overview {
+.wrap-scroll .overview {
     top: 0px;
     position: absolute;
     left: 0;
@@ -816,15 +816,15 @@ h4 {
     list-style: none;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-onedepth
-    .interview-write-item-job {
+.option-content.job-category-section
+    .details
+    .box-onedepth
+    .item-job {
     height: 40px;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-wrap-scroll
+.option-content.job-category-section
+    .wrap-scroll
     li.on {
     background: #f8faff;
 }
@@ -833,19 +833,19 @@ li {
     list-style: none;
 }
 
-.interview-write-details
-    .interview-write-box-onedepth
-    .interview-write-item-job.on
-    .interview-write-first-depth {
+.details
+    .box-onedepth
+    .item-job.on
+    .first-depth {
     color: #566feb;
     font-weight: bold;
     vertical-align: top;
 }
 
-.interview-write-details
-    .interview-write-box-onedepth
-    .interview-write-item-job
-    .interview-write-first-depth {
+.details
+    .box-onedepth
+    .item-job
+    .first-depth {
     position: relative;
     margin-right: 4px;
     padding: 0 0 0 24px;
@@ -856,84 +856,88 @@ li {
     text-align: left;
 }
 
-.interview-write-details
-    .interview-write-box-onedepth
-    .interview-write-item-job.on
-    .interview-write-first-depth:after {
+.details
+    .box-onedepth
+    .item-job.on
+    .first-depth:after {
     display: block;
     position: absolute;
     top: 14px;
     right: 15px;
     width: 6px;
     height: 11px;
-    background: url(/Position-Front/static/images/interview-review/img_main_spr_200710.png)
+    background: url(/images/interview-review/img_main_spr_200710.png)
         no-repeat -700px -300px;
     content: "";
 }
 
-.interview-write-wrap-section-contents
-    .interview-write-select-keyword
-    .interview-write-ipt-keyword:before {
+.wrap-section-contents
+    .select-keyword
+    .ipt-keyword:before {
     display: block;
     position: absolute;
     top: 14px;
     left: 15px;
     width: 13px;
     height: 13px;
-    background: url(/Position-Front/static/images/interview-review/spr_search_panel.png)
+    background: url(/images/interview-review/spr_search_panel.png)
         no-repeat 0 -133px;
     content: "";
 }
 
-.interview-write-wrap-section-contents .interview-write-select-keyword:after {
+.wrap-section-contents .select-keyword:after {
     display: table;
     clear: both;
     content: "";
     table-layout: fixed;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details::after {
+.option-content.job-category-section
+    .details::after {
     display: table;
     clear: both;
     content: "";
     table-layout: fixed;
 }
 
-.interview-write-common-panel
-    .interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-detail-depth {
+.common-panel
+    .option-content.job-category-section
+    .details
+    .box-detail-depth {
     display: block;
     width: calc(100% - 204px);
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-detail-depth {
+.option-content.job-category-section
+    .details
+    .box-detail-depth {
     float: left;
     border-left: 1px solid #eaeaea;
     box-sizing: border-box;
 }
 
-.interview-write-box-detail-depth .interview-write-row.interview-write-list {
+.box-detail-depth .row.list {
     height: 161px;
 }
 
-.interview-write-box-detail-depth .interview-write-row {
+.box-detail-depth .row {
     box-sizing: border-box;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-row-item {
+.box-detail-depth
+    .list
+    .row-item {
     position: relative;
     padding-left: 172px;
     border-bottom: 1px solid #eaeaea;
     box-sizing: border-box;
 }
+.box-detail-depth .list .row-item.expand .area-list {
+    max-height: 100%;
+    border-bottom: 0;
+}
 
-.interview-write-box-detail-depth .interview-write-list dt {
+.box-detail-depth .list dt {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -945,10 +949,10 @@ li {
     font-size: 13px;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
+.box-detail-depth
+    .list
     dt
-    .interview-write-btn-expand {
+    .btn-expand {
     position: relative;
     width: 100%;
     height: 100%;
@@ -960,19 +964,19 @@ li {
     line-height: normal;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
+.box-detail-depth
+    .list
     dt
-    .interview-write-btn-expand
-    .interview-write-txt {
+    .btn-expand
+    .txt {
     position: absolute;
     top: 12px;
     left: 23px;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-area-list {
+.box-detail-depth
+    .list
+    .area-list {
     overflow: hidden;
     padding-left: 21px;
     width: 100%;
@@ -983,10 +987,10 @@ li {
     background-color: #fff;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-area-list
-    .interview-write-btn-three-depth {
+.box-detail-depth
+    .list
+    .area-list
+    .btn-three-depth {
     margin: 8px 8px 8px 0;
     padding: 0 6px;
     height: 24px;
@@ -997,14 +1001,14 @@ li {
     line-height: normal;
 }
 
-.interview-write-common-panel
-    .interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-row-item:last-of-type {
+.common-panel
+    .box-detail-depth
+    .list
+    .row-item:last-of-type {
     border-bottom: 0;
 }
 
-.interview-write-common-panel .interview-write-box-result {
+.common-panel .box-result {
     display: flex;
     overflow: hidden;
     width: 100%;
@@ -1017,7 +1021,7 @@ li {
     border-top: 1px solid #e6e9ea;
 }
 
-.interview-write-common-panel .interview-write-box-result .interview-write-row {
+.common-panel .box-result .row {
     display: flex;
     padding-bottom: 15px;
     width: calc(100% - 172px);
@@ -1025,18 +1029,18 @@ li {
     flex-flow: row wrap;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-list {
+.common-panel
+    .box-result
+    .list {
     display: flex;
     padding: 15px 0 0 21px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-list
+.common-panel
+    .box-result
+    .list
     > dt {
     margin-right: 16px;
     width: 64px;
@@ -1045,9 +1049,9 @@ li {
     font-weight: bold;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-list
+.common-panel
+    .box-result
+    .list
     dd {
     display: flex;
     padding-right: 17px;
@@ -1058,26 +1062,26 @@ li {
     flex-flow: row wrap;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-list
+.common-panel
+    .box-result
+    .list
     dd
     span {
     margin-right: 10px;
     margin-bottom: 5px;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-row
-    .interview-write-btn-job-reset.interview-write-hide {
+.common-panel
+    .box-result
+    .row
+    .btn-job-reset.hide {
     display: none;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-row
-    .interview-write-btn-job-reset {
+.common-panel
+    .box-result
+    .row
+    .btn-job-reset {
     position: relative;
     margin: 0 0 0 21px;
     color: #888;
@@ -1086,9 +1090,9 @@ li {
     line-height: normal;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-area-btn {
+.common-panel
+    .box-result
+    .area-btn {
     display: flex;
     width: 170px;
     border-left: 1px solid #eaeaea;
@@ -1098,19 +1102,19 @@ li {
     justify-content: center;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-area-btn
-    .interview-write-btn-job-cancel {
+.common-panel
+    .box-result
+    .area-btn
+    .btn-job-cancel {
     margin-right: 11px;
     border: 1px solid #dbdbdb;
     color: #444;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-area-btn
-    .interview-write-btn {
+.common-panel
+    .box-result
+    .area-btn
+    .btn {
     width: 64px;
     height: 32px;
     border-radius: 4px;
@@ -1119,18 +1123,18 @@ li {
     line-height: normal;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-area-btn
-    .interview-write-btn-job-confirm {
+.common-panel
+    .box-result
+    .area-btn
+    .btn-job-confirm {
     color: #fff;
     background-color: #555;
 }
 
-.interview-write-common-panel
-    .interview-write-box-result
-    .interview-write-area-btn
-    .interview-write-btn {
+.common-panel
+    .box-result
+    .area-btn
+    .btn {
     width: 64px;
     height: 32px;
     border-radius: 4px;
@@ -1139,27 +1143,27 @@ li {
     line-height: normal;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details::after {
+.option-content.job-category-section
+    .details::after {
     display: table;
     clear: both;
     content: "";
     table-layout: fixed;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txt-option {
+.review-write
+    .tblType
+    .txt-option {
     color: #444;
     font-size: 12px;
     line-height: 16px;
 }
 
-.interview-write-review-write .interview-write-range-option {
+.review-write .range-option {
     padding-top: 10px;
 }
 
-.interview-write-inpSel {
+.inpSel {
     display: inline-block;
     height: 32px;
     border: 1px solid #dbdbdb;
@@ -1168,23 +1172,23 @@ li {
     background: #fff;
 }
 
-.interview-write-review-write
-    .interview-write-range-option
-    .interview-write-inpSel
+.review-write
+    .range-option
+    .inpSel
     > select {
     border-color: #dbdbdb;
     color: #666;
 }
-/* .interview-write-list-question select {
+/* .list-question select {
     
 } */
-.interview-write-list-question .interview-write-inpTypo option {
+.list-question .inpTypo option {
     height: 32px;
     font-size: 13px;
     color: #444;
     line-height: 16px;
 }
-.interview-write-inpSel select {
+.inpSel select {
     padding: 0 29px 1px 11px;
     width: 169px;
     height: 30px;
@@ -1196,40 +1200,40 @@ li {
     vertical-align: top;
     white-space: nowrap;
     text-overflow: ellipsis;
-    background: url(/Position-Front/static/images/interview-review/ico_select_arr.png)
+    background: url(/images/interview-review/ico_select_arr.png)
         no-repeat 100% 0;
     -webkit-appearance: none;
 }
 
-.interview-write-inpSel select option {
+.inpSel select option {
     height: 32px;
     font-size: 13px;
     color: #444;
     line-height: 16px;
 }
 
-.interview-write-review-write .interview-write-range-option:after {
+.review-write .range-option:after {
     display: table;
     clear: both;
     content: "";
     table-layout: fixed;
 }
 
-.interview-write-review-write {
+.review-write {
     padding-top: 34px;
 }
 
-.interview-write-inpRdoSw {
+.inpRdoSw {
     display: inline-block;
     vertical-align: middle;
 }
 
-.interview-write-inpRdoSw .interview-write-inOption {
+.inpRdoSw .inOption {
     float: left;
     position: relative;
 }
 
-.interview-write-inpRdoSw .interview-write-inOption > input {
+.inpRdoSw .inOption > input {
     position: absolute;
     top: 0;
     width: 1px;
@@ -1239,31 +1243,31 @@ li {
     pointer-events: none;
 }
 
-.interview-write-inpRdoSw.interview-write-colorWhite
-    .interview-write-inOption
+.inpRdoSw.colorWhite
+    .inOption
     > input:checked
-    + .interview-write-lbl {
+    + .lbl {
     background-color: #fff;
     color: #4876ef;
 }
 
-.interview-write-inpRdoSw
-    .interview-write-inOption
+.inpRdoSw
+    .inOption
     > input:checked
-    + .interview-write-lbl {
+    + .lbl {
     position: relative;
     z-index: 2;
     border-color: #4876ef;
 }
 
-.interview-write-review-write
-    .interview-write-inpRdoSw
-    .interview-write-inOption
-    .interview-write-lbl {
+.review-write
+    .inpRdoSw
+    .inOption
+    .lbl {
     width: 116px;
 }
 
-.interview-write-inpRdoSw .interview-write-inOption > .interview-write-lbl {
+.inpRdoSw .inOption > .lbl {
     display: inline-block;
     padding: 5px 14px 6px;
     height: 32px;
@@ -1279,13 +1283,13 @@ li {
     user-select: none;
 }
 
-.interview-write-inpRdoSw
-    .interview-write-inOption
-    + .interview-write-inOption {
+.inpRdoSw
+    .inOption
+    + .inOption {
     margin-left: -1px;
 }
 
-.interview-write-inpRdoSw .interview-write-inOption:nth-child(n + 2):after {
+.inpRdoSw .inOption:nth-child(n + 2):after {
     position: absolute;
     top: 0;
     left: -1px;
@@ -1295,55 +1299,55 @@ li {
     content: "";
 }
 
-.interview-write-inpRdoSw:after {
+.inpRdoSw:after {
     display: table;
     clear: both;
     content: "";
     table-layout: fixed;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txt-sub {
+.review-write
+    .tblType
+    .txt-sub {
     display: block;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txtLeft
-    .interview-write-inpChk {
+.review-write
+    .tblType
+    .txtLeft
+    .inpChk {
     margin-right: 10px;
 }
 
-.interview-write-inpChk {
+.inpChk {
     display: inline-block;
     position: relative;
     font-size: 0;
     vertical-align: top;
 }
 
-.interview-write-inpChk > input[type="checkbox"] {
+.inpChk > input[type="checkbox"] {
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute;
     width: 1px;
     height: 1px;
 }
 
-.interview-write-inpChk.interview-write-small
+.inpChk.small
     > input[type="checkbox"]:checked
-    + .interview-write-lbl {
+    + .lbl {
     background-position: 0 -148px;
 }
 
-.interview-write-inpChk > input[type="checkbox"]:focus + label,
-.interview-write-inpRdo > input[type="radio"]:focus + label {
+.inpChk > input[type="checkbox"]:focus + label,
+.inpRdo > input[type="radio"]:focus + label {
     outline: 1px solid #94b6ed;
     box-shadow: 0 0 2px #94b6ed;
 }
 
-.interview-write-inpChk.interview-write-small
+.inpChk.small
     > input[type="checkbox"]
-    + .interview-write-lbl {
+    + .lbl {
     padding-left: 20px;
     height: 17px;
     font-size: 12px;
@@ -1351,24 +1355,24 @@ li {
     background-position: 0 -98px;
 }
 
-.interview-write-inpChk .interview-write-lbl {
+.inpChk .lbl {
     display: block;
     box-sizing: border-box;
     color: #444;
-    background: url(/Position-Front/static/images/interview-review/sri_ico_checkbox03.png)
+    background: url(/images/interview-review/sri_ico_checkbox03.png)
         0 2px no-repeat;
     user-select: none;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-textarea {
+.review-write
+    .tblType
+    .textarea {
     width: 510px;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-tf-input {
+.review-write
+    .tblType
+    .tf-input {
     display: block;
     overflow: hidden;
     padding: 6px 13px;
@@ -1384,9 +1388,9 @@ li {
     resize: none;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txt-byte {
+.review-write
+    .tblType
+    .txt-byte {
     float: right;
     margin: 4px 0 0;
     color: #888;
@@ -1394,54 +1398,54 @@ li {
     line-height: 16px;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txt-byte
-    .interview-write-emph {
+.review-write
+    .tblType
+    .txt-byte
+    .emph {
     color: var(--blue80);
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-textarea
-    .interview-write-msgInvalid {
+.review-write
+    .tblType
+    .textarea
+    .msgInvalid {
     float: left;
     width: auto;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-textarea:after {
+.review-write
+    .tblType
+    .textarea:after {
     display: table;
     clear: both;
     content: "";
     table-layout: fixed;
 }
 
-.interview-write-review-write .interview-write-list-question li {
+.review-write .list-question li {
     overflow: hidden;
     position: relative;
     padding-top: 2px;
 }
 
-.interview-write-review-write
-    .interview-write-list-question
-    .interview-write-inpTypo {
+.review-write
+    .list-question
+    .inpTypo {
     float: left;
     padding-left: 32px;
     width: 446px;
 }
 
-.interview-write-review-write
-    .interview-write-list-question
-    .interview-write-btn-basic-type02 {
+.review-write
+    .list-question
+    .btn-basic-type02 {
     float: left;
     margin-left: 6px;
     width: 58px;
     color: #666;
 }
 
-.interview-write-btn-basic-type02 {
+.btn-basic-type02 {
     padding: 5px 13px 9px;
     height: 32px;
     border: 1px solid #dbdbdb;
@@ -1452,13 +1456,13 @@ li {
     background-color: #fff;
 }
 
-.interview-write-review-write
-    .interview-write-list-question
-    .interview-write-btn-add {
+.review-write
+    .list-question
+    .btn-add {
     padding: 5px 0 9px;
 }
 
-.interview-write-review-write .interview-write-list-question li:before {
+.review-write .list-question li:before {
     position: absolute;
     top: 3px;
     left: 1px;
@@ -1474,29 +1478,29 @@ li {
     content: "Q";
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txt-attach {
+.review-write
+    .tblType
+    .txt-attach {
     font-size: 13px;
 }
 
-.interview-write-review-write
-    .interview-write-tblType
-    .interview-write-txt-attach
-    .interview-write-ex {
+.review-write
+    .tblType
+    .txt-attach
+    .ex {
     display: block;
     padding: 3px 0 9px;
     color: #949494;
     font-size: 12px;
 }
 
-.interview-write-review-write .interview-write-wrap-attached {
+.review-write .wrap-attached {
     overflow: hidden;
 }
 
-.interview-write-review-write
-    .interview-write-wrap-attached
-    .interview-write-btn-attach {
+.review-write
+    .wrap-attached
+    .btn-attach {
     overflow: hidden;
     float: left;
     position: relative;
@@ -1504,9 +1508,9 @@ li {
     width: 116px;
 }
 
-.interview-write-review-write
-    .interview-write-wrap-attached
-    .interview-write-btn-attach
+.review-write
+    .wrap-attached
+    .btn-attach
     input {
     position: absolute;
     top: 0;
@@ -1517,10 +1521,10 @@ li {
     pointer-events: none;
 }
 
-.interview-write-review-write
-    .interview-write-wrap-attached
-    .interview-write-btn-attach
-    .interview-write-btn-basic-type02:before {
+.review-write
+    .wrap-attached
+    .btn-attach
+    .btn-basic-type02:before {
     margin: 3px 7px 0 0;
     width: 16px;
     height: 16px;
@@ -1528,18 +1532,18 @@ li {
     content: "";
 }
 
-.interview-write-review-write
-    .interview-write-wrap-attached
-    .interview-write-btn-attach
-    .interview-write-btn-basic-type02 {
+.review-write
+    .wrap-attached
+    .btn-attach
+    .btn-basic-type02 {
     width: 100%;
     text-align: center;
     display: inline-block;
 }
 
-.interview-write-review-write
-    .interview-write-wrap-attached
-    .interview-write-txt-filename {
+.review-write
+    .wrap-attached
+    .txt-filename {
     display: none;
     overflow: hidden;
     padding: 6px 10px 9px;
@@ -1552,7 +1556,7 @@ li {
     white-space: nowrap;
 }
 
-.interview-write-review-write .interview-write-txt-copyright {
+.review-write .txt-copyright {
     padding: 26px 0 28px;
     color: #666;
     font-size: 13px;
@@ -1560,7 +1564,7 @@ li {
     text-align: center;
 }
 
-.interview-write-review-write .interview-write-btn-confirm {
+.review-write .btn-confirm {
     display: block;
     margin: 0 auto;
     width: 200px;
@@ -1571,66 +1575,170 @@ li {
     background: #5f75eb;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
+.box-detail-depth
+    .list
     dt
-    .interview-write-btn-expand:after {
+    .btn-expand:after {
     position: absolute;
     top: 12px;
     right: 10px;
     width: 17px;
     height: 16px;
-    background: url(/Position-Front/static/images/interview-review/spr_panel_expand.png) -5px -5px
+    background: url(/images/interview-review/spr_panel_expand.png) -5px -5px
         no-repeat;
     content: "";
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-row-item.interview-write-expand {
+.box-detail-depth
+    .list
+    .row-item.expand {
     height: auto;
     background-color: #f8faff;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-row-item.expand
+.box-detail-depth
+    .list
+    .row-item.expand
     dt
-    .interview-write-btn-expand:after {
+    .btn-expand:after {
     width: 16px;
     height: 16px;
     background-position: -32px -5px;
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
+.box-detail-depth
+    .list
     dt
-    .interview-write-btn-expand:after {
+    .btn-expand:after {
     position: absolute;
     top: 12px;
     right: 10px;
-    background: url(/Position-Front/static/images/interview-review/spr_panel_expand.png) -5px -5px
+    background: url(/images/interview-review/spr_panel_expand.png) -5px -5px
         no-repeat;
     content: "";
 }
 
-.interview-write-box-detail-depth
-    .interview-write-list
-    .interview-write-row-item.expand {
+.box-detail-depth
+    .list
+    .row-item.expand {
     height: auto;
     background-color: #f8faff;
 }
 
-.interview-write-option-content.interview-write-job-category-section
-    .interview-write-details
-    .interview-write-box-onedepth.on {
+.option-content.job-category-section
+    .details
+    .box-onedepth.on {
     height: 241px;
 }
 
-.interview-write-box-detail-depth .interview-write-row.interview-write-list.on {
+.box-detail-depth .row.list.on {
     height: 241px;
 }
 
-.common_panel .option_content.job_category_section .details .box_detail_depth {
+.common_panel .option_content.job_category_section .details .box-detail-depth {
     width: calc(100% - 204px);
+}
+
+.date-range {
+    display: flex;                 /* Flexbox를 사용하여 정렬 */
+    align-items: center;          /* 세로 방향 중앙 정렬 */
+    margin-bottom: 10px;          /* 아래 여백 추가 */
+}
+.work-time-range{
+    display: flex;                 /* Flexbox를 사용하여 정렬 */
+    align-items: center;          /* 세로 방향 중앙 정렬 */
+}
+
+label {
+    margin-right: 10px;           /* 레이블과 입력 필드 사이 여백 */
+    font-size: 14px;              /* 레이블 글자 크기 */
+}
+
+input[type="date"],
+input[type="time"] {
+    margin-right: 20px;           /* 입력 필드 사이 여백 */
+    padding: 0 4px 1px 11px;
+    height: 32px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 13px;
+    line-height: 28px;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.wrap-section-contents .select-keyword .list-keyword {
+    padding: 9px 0 10px;
+}
+
+.wrap-section-contents .select-keyword .list-keyword li:hover, .wrap-section-contents .select-keyword .list-keyword li.current {
+    background: #f8faff;
+}
+
+.wrap-section-contents .select-keyword .list-keyword li {
+    padding: 0 14px;
+    width: 100%;
+    height: 32px;
+    box-sizing: border-box;
+    line-height: 32px;
+}
+
+.box-detail-depth .list dt .btn-expand:hover {
+    color: inherit;
+    background-color: #f4f6fa;
+}
+
+.details .box-onedepth .item-job .first-depth:hover {
+    color: #222;
+    background-color: #f4f6fa;
+}
+
+.box-detail-depth .list .row-item.expand dt .btn-expand:hover {
+    color: #566feb;
+    background-color: inherit;
+}
+
+.box-detail-depth .list .row-item.expand dt .btn-expand {
+    color: #566feb;
+    font-weight: bold;
+}
+.box-detail-depth .list .area-list .btn-three-depth:hover {
+    background-color: #f4f6fa;
+}
+
+.option-content.job-category-section .details .box-jobs .btn-job:hover {
+    color: #5c667b;
+    background-color: #f4f6fa;
+}
+
+.details .box-onedepth .item-job.on .first-depth {
+    color: #566feb;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.box-detail-depth .list .area-list .btn-three-depth.on {
+    color: #4876ef;
+    background-color: #eff5ff;
+}
+
+.common-panel .box-result .list dd .btn-delete {
+    overflow: hidden;
+    margin: 1px 0 0 5px;
+    width: 17px;
+    height: 17px;
+    font-size: 0;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/spr_total_search.png) no-repeat -50px -126px;
+}
+
+.review-write .tblType td .desire-area .list-task .btn-delete {
+    overflow: hidden;
+    margin: 5px 0 0;
+    width: 17px;
+    height: 17px;
+    font-size: 0;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/spr_total_search.png) no-repeat -50px -126px;
 }

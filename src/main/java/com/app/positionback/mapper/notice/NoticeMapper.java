@@ -8,22 +8,26 @@ import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface NoticeMapper {
     // 공고등록
     public void insertNotice(NoticeDTO noticeDTO);
 
-    // 파일 등록
-//    public void insertFile(FileDTO fileDTO);
-//
-//    // 마지막으로 삽입된 ID 가져오기
-//    public Long getLastInsertId();
-//
-//    // 공고와 파일 연결
-//    public void insertNoticeFile(NoticeFileDTO noticeFileDTO);
+    // 마지막으로 삽입된 ID 가져오기
+    public Long getLastInsertId();
+
+    // 공고 수정
+    public void updateNotice(NoticeDTO noticeDTO);
 
     // 공고 삭제
+    public void deleteNotice(Long id);
 
-//    공고 목록
-//    공고 상세보기
+    // 공고 상세조회
+    public NoticeDTO selectNoticeById(Long id);
+
+    // 기업이 작성한 공고 목록
+    public List<NoticeDTO> selectNoticesByCorporationId(Long corporationId);
+
 }
