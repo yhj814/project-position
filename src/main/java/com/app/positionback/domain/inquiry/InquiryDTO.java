@@ -24,7 +24,7 @@ public class InquiryDTO {
     private String memberNickname;
     private String memberStatus;
     private String memberType;
-    private String memberWaringCount;
+    private int memberWaringCount;
 
     public InquiryVO toVO() {
         return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, createDate, updateDate, memberId);
