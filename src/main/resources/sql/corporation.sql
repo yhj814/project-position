@@ -12,12 +12,12 @@ create table tbl_corporation(
     corporation_read_count int default 0,
     created_date datetime default current_timestamp,
     updated_date datetime default  current_timestamp,
-    corporation_Gen int,#대표 번호(general number)
-    corporation_sales int default 0
+    corporation_Gen varchar(255),#대표 번호(general number)
+    corporation_sales varchar(255) default '0'
 );
 
 
-alter table tbl_corporation add(corporation_sales int);
+alter table tbl_corporation add(corporation_sales varchar(255) default '0');
 alter table tbl_corporation alter column corporation_sales set default 0;
 alter table tbl_corporation alter column corporation_read_count set default 0;
 alter table tbl_corporation alter column corporation_type set default '-';
@@ -25,6 +25,9 @@ alter table tbl_corporation alter column corporation_business set default '-';
 
 alter table tbl_corporation drop column corporation_sales;
 alter table tbl_corporation add(corporation_sales int);
+
+alter table  tbl_corporation drop column corporation_Gen;
+alter  table  tbl_corporation add (corporation_Gen varchar(255))
 
 alter table  tbl_corporation add(created_date datetime default current_timestamp);
 alter table  tbl_corporation add(updated_date datetime default current_timestamp);
