@@ -26,4 +26,8 @@ public class JobCategoryDAO {
     public List<JobCategoryCDTO> findAllJobCategoryC(Long categoryBId) {
         return jobCategoryMapper.selectAllJobCategoryC(categoryBId);
     }
+
+    public int findCountOfCategoryB(Long categoryAId) {
+        return jobCategoryMapper.countJobCategoryB(categoryAId);
+    }
 }

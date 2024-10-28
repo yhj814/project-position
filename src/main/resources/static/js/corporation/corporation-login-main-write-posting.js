@@ -1,7 +1,18 @@
+const ulElement = document.querySelector(".list.overview");
+
+// 스크롤 위치에 따라 상단 고정 (선택적 구현)
+ulElement.addEventListener("scroll", () => {
+    const scrollTop = ulElement.scrollTop; // ul 내부의 스크롤 위치
+    console.log(`스크롤 위치: ${scrollTop}px`);
+});
+
+
 // 직무 추가 삭제
 // 모든 btn-three-depth 버튼에 이벤트 리스너 추가
-document.querySelectorAll('.btn-three-depth').forEach(button => {
-    button.addEventListener('click', () => {
+const boxDetailDepth = document.querySelector(".box-detail-depth");
+boxDetailDepth.addEventListener('click', (event) => {
+    const button = event.target.closest('.btn-three-depth');
+    if (button) {
         // 버튼에 on 클래스 토글
         button.classList.toggle('on');
 
@@ -26,7 +37,8 @@ document.querySelectorAll('.btn-three-depth').forEach(button => {
 
             // btn-delete 버튼 클릭 이벤트 추가
             const deleteButton = selectedJobSpan.querySelector('.btn-delete');
-            deleteButton.addEventListener('click', () => {
+            deleteButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // 이벤트 전파 방지
                 // btn-three-depth 버튼에서 같은 jobName 찾기
                 const relatedButton = Array.from(document.querySelectorAll('.btn-three-depth')).find(btn => btn.innerText === jobName);
 
@@ -38,19 +50,7 @@ document.querySelectorAll('.btn-three-depth').forEach(button => {
                 ddElement.removeChild(selectedJobSpan);
 
                 // 선택된 직무가 없으면 메시지 표시
-                const noSelectionSpan = ddElement.querySelector('span.no-selection');
-                if (ddElement.childElementCount === 0) {
-                    if (!noSelectionSpan) {
-                        const span = document.createElement('span');
-                        span.className = 'no-selection'; // 클래스 추가
-                        span.innerText = '선택된 직무가 없습니다'; // 메시지
-                        ddElement.appendChild(span);
-                    }
-                } else {
-                    if (noSelectionSpan) {
-                        ddElement.removeChild(noSelectionSpan); // 메시지 제거
-                    }
-                }
+                updateNoSelectionMessage(ddElement);
             });
         } else {
             // on 클래스가 삭제되었을 때, 관련된 span 제거
@@ -65,21 +65,107 @@ document.querySelectorAll('.btn-three-depth').forEach(button => {
         }
 
         // 선택된 직무가 없으면 메시지 표시
-        const noSelectionSpan = ddElement.querySelector('span.no-selection');
-        if (ddElement.childElementCount === 0) {
-            if (!noSelectionSpan) {
-                const span = document.createElement('span');
-                span.className = 'no-selection'; // 클래스 추가
-                span.innerText = '선택된 직무가 없습니다'; // 메시지
-                ddElement.appendChild(span);
-            }
-        } else {
-            if (noSelectionSpan) {
-                ddElement.removeChild(noSelectionSpan); // 메시지 제거
-            }
-        }
-    });
+        updateNoSelectionMessage(ddElement);
+    }
 });
+
+// 선택된 직무가 없으면 메시지 표시하는 함수
+const updateNoSelectionMessage = (ddElement) => {
+    const noSelectionSpan = ddElement.querySelector('span.no-selection');
+    if (ddElement.childElementCount === 0) {
+        if (!noSelectionSpan) {
+            const span = document.createElement('span');
+            span.className = 'no-selection'; // 클래스 추가
+            span.innerText = '선택된 직무가 없습니다'; // 메시지
+            ddElement.appendChild(span);
+        }
+    } else {
+        if (noSelectionSpan) {
+            ddElement.removeChild(noSelectionSpan); // 메시지 제거
+        }
+    }
+};
+
+// document.querySelectorAll('.btn-three-depth').forEach(button => {
+//     button.addEventListener('click', () => {
+//         // 버튼에 on 클래스 토글
+//         button.classList.toggle('on');
+//
+//         // 해당 버튼의 텍스트 값을 가져오기
+//         const jobName = button.innerText; // 버튼의 텍스트 값
+//         const txtValueElement = button.closest('.box-detail-jobs').querySelector('.item-job.depth1-btn-wrapper.on .txt'); // .txt 클래스의 span 값
+//
+//         // .txt 요소가 존재하는지 확인하고, 값 가져오기
+//         const txtValue = txtValueElement ? txtValueElement.innerText : '';
+//
+//         // 결과를 추가하거나 제거
+//         const ddElement = document.querySelector('.box-result .list dd'); // 선택한 직무 dd 찾기
+//
+//         if (button.classList.contains('on')) {
+//             // on 클래스가 추가되었을 때
+//             const selectedJobSpan = document.createElement('span'); // 새로운 span 생성
+//             selectedJobSpan.className = 'job-selected'; // 클래스 추가 (필요시)
+//             selectedJobSpan.innerHTML = `${txtValue}<button type="button" class="btnDelete deleteToDepth"><span class="blind">삭제</span></button> &nbsp;&gt;&nbsp;&nbsp;${jobName}<button type="button" class="btn-delete deleteToKeyword"><span class="blind">삭제</span></button>`;
+//
+//             // 선택한 직무 리스트에 추가
+//             ddElement.appendChild(selectedJobSpan);
+//
+//             // btn-delete 버튼 클릭 이벤트 추가
+//             const deleteButton = selectedJobSpan.querySelector('.btn-delete');
+//             deleteButton.addEventListener('click', () => {
+//                 // btn-three-depth 버튼에서 같은 jobName 찾기
+//                 const relatedButton = Array.from(document.querySelectorAll('.btn-three-depth')).find(btn => btn.innerText === jobName);
+//
+//                 if (relatedButton) {
+//                     relatedButton.classList.remove('on'); // on 클래스 제거
+//                 }
+//
+//                 // job-selected span 제거
+//                 ddElement.removeChild(selectedJobSpan);
+//
+//                 // 선택된 직무가 없으면 메시지 표시
+//                 const noSelectionSpan = ddElement.querySelector('span.no-selection');
+//                 if (ddElement.childElementCount === 0) {
+//                     if (!noSelectionSpan) {
+//                         const span = document.createElement('span');
+//                         span.className = 'no-selection'; // 클래스 추가
+//                         span.innerText = '선택된 직무가 없습니다'; // 메시지
+//                         ddElement.appendChild(span);
+//                     }
+//                 } else {
+//                     if (noSelectionSpan) {
+//                         ddElement.removeChild(noSelectionSpan); // 메시지 제거
+//                     }
+//                 }
+//             });
+//         } else {
+//             // on 클래스가 삭제되었을 때, 관련된 span 제거
+//             const spans = ddElement.querySelectorAll('span.job-selected'); // dd 안의 모든 선택된 span 찾기
+//
+//             spans.forEach(span => {
+//                 // 버튼 텍스트와 span의 내용을 비교하여 일치하는 경우 제거
+//                 if (span.innerText.includes(jobName)) {
+//                     ddElement.removeChild(span); // 해당 span 제거
+//                 }
+//             });
+//         }
+//
+//         // 선택된 직무가 없으면 메시지 표시
+//         const noSelectionSpan = ddElement.querySelector('span.no-selection');
+//         if (ddElement.childElementCount === 0) {
+//             if (!noSelectionSpan) {
+//                 const span = document.createElement('span');
+//                 span.className = 'no-selection'; // 클래스 추가
+//                 span.innerText = '선택된 직무가 없습니다'; // 메시지
+//                 ddElement.appendChild(span);
+//             }
+//         } else {
+//             if (noSelectionSpan) {
+//                 ddElement.removeChild(noSelectionSpan); // 메시지 제거
+//             }
+//         }
+//     });
+// });
 
 
 
@@ -120,17 +206,41 @@ closeButtons.forEach(button => {
 });
 
 
+// 창 높이 조절
+// MutationObserver 설정
+const targetNode = document.querySelector('.box-detail-depth .viewport');
+const config = { childList: true, subtree: true };
 
-// 창높이 조절
-document.querySelectorAll('.btn-expand').forEach(button => {
-    button.addEventListener('click', () => {
-        const rowItem = button.closest('.row-item'); // 버튼이 속한 row-item 찾기
-        rowItem.classList.toggle('expand'); // expand 클래스 토글
+const callback = (mutationsList) => {
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            // 자식 노드가 변경되면 높이 업데이트
+            const parent = targetNode.closest('.box-detail-depth');
+            updateParentHeight(parent);
+        }
+    }
+};
+
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, config);
+// 창 높이 조절
+document.querySelector('.box-detail-jobs').addEventListener('click', (event) => {
+    console.log('클릭된 요소:', event.target); // 클릭된 요소 로그 출력
+    // 클릭한 요소가 .btn-expand 버튼인지 확인
+    if (event.target.classList.contains('btn-expand')) {
+        const button = event.target;
+        const rowItem = button.closest('.row-item');
+        rowItem.classList.toggle('expand');
 
         // 부모 요소의 높이 재조정
-        const parent = rowItem.closest('.row.list');
+        const parent = rowItem.closest('.box-detail-depth');
         updateParentHeight(parent);
-    });
+    }
+    if (event.target.classList.contains('first-depth')||event.target.classList.contains('txt')) {
+        // depth1-btn-wrapper 클릭 시 높이만 업데이트
+        // const parent = document.querySelector('.box-detail-depth');
+        // updateParentHeight(parent);
+    }
 });
 
 /**
@@ -138,15 +248,22 @@ document.querySelectorAll('.btn-expand').forEach(button => {
  * 관련된 .box-onedepth의 높이도 동일하게 맞춤
  */
 function updateParentHeight(parent) {
+    const rowList = parent.closest('.box-detail-jobs').querySelector('.row.list'); // .row.list 찾기
+    const depthViewport = parent.querySelector('.viewport'); // depth 관련 viewport
     let totalHeight = 0;
 
     // 모든 row-item의 높이를 합산
-    parent.querySelectorAll('.row-item').forEach(item => {
-        totalHeight += item.scrollHeight;
+    depthViewport.querySelectorAll('.row-item').forEach(item => {
+        totalHeight += item.scrollHeight; // 각 row-item의 전체 높이 추가
     });
 
-    // 부모 .row.list의 높이 설정
-    parent.style.height = totalHeight + 'px';
+    // 부모 .viewport의 높이 설정
+    depthViewport.style.height = totalHeight + 'px';
+
+    // .row.list의 높이 설정
+    if (rowList) {
+        rowList.style.height = totalHeight + 'px';
+    }
 
     // 관련된 .box-onedepth의 높이도 동일하게 설정
     const boxOnedepth = parent.closest('.box-detail-jobs').querySelector('.box-onedepth');
@@ -154,6 +271,7 @@ function updateParentHeight(parent) {
         boxOnedepth.style.height = totalHeight + 'px';
     }
 }
+
 
 
 // 입력된 3개(월, 일, 근무시간) 데이터를 하나로 합쳐서 db에 전달하는 js
@@ -216,12 +334,18 @@ const targetElement = document.querySelector(
 );
 // 버튼 클릭 시 on 클래스 토글
 document.getElementById("selected-job").addEventListener("click",  ()=> {
+        const boxJobs = document.querySelector(".box-jobs");
         // on 클래스 추가
         targetElement.classList.add("on");
+        boxJobs.style.display = "block";
     });
 
 document.querySelector(".btn.btn-job-cancel").addEventListener("click", () =>{
     targetElement.classList.remove("on");
+    const boxJobs = document.querySelector(".box-jobs");
+    const boxDetailJobs = document.querySelector(".box-detail-jobs");
+    boxJobs.style.display = "none";
+    boxDetailJobs.style.display = "none";
 })
 // document.querySelector(".btn.btn-job-confirm").addEventListener("click", () =>{
 //     targetElement.classList.remove("on");
@@ -231,8 +355,20 @@ const confirmButton = document.querySelector(".btn.btn-job-confirm");
 const taskList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list"); // <ul> 요소 선택
 
 confirmButton.addEventListener("click", () => {
+
     // 모든 선택된 직무 span 요소를 가져옴
     const selectedJobSpans = document.querySelectorAll('span.job-selected');
+    const boxJobs = document.querySelector(".box-jobs");
+    const boxDetailJobs = document.querySelector(".box-detail-jobs");
+
+    // 선택된 직무가 없을 경우 경고 메시지 표시 후 함수 종료
+    if (selectedJobSpans.length === 0) {
+        alert("1개 이상 선택해주세요.");
+        return;
+    }
+
+    // 기존의 모든 <li> 요소 제거
+    taskList.innerHTML = '';
 
     selectedJobSpans.forEach(span => {
         // 첫 번째 값 (기획·전략)과 두 번째 값 (게임기획) 가져오기
@@ -266,6 +402,8 @@ confirmButton.addEventListener("click", () => {
         // <ul>에 <li> 추가
         taskList.appendChild(newListItem);
         targetElement.classList.remove("on");
+        boxJobs.style.display = "none";
+        boxDetailJobs.style.display = "none";
     });
 });
 
@@ -295,6 +433,20 @@ function validateTimes() {
         document.getElementById("workEndTime").value = "";
     }
 }
+// 처음 대카 선택
+// 모든 .item-job.depth1-btn-wrapper 요소를 선택
+listOverview.addEventListener("click", (event) => {
+    const clickedItem = event.target.closest(".item-job.depth1-btn-wrapper");
+
+    if (clickedItem) {
+        // 모든 요소에서 'on' 클래스 제거
+        listOverview.querySelectorAll(".item-job").forEach(item => item.classList.remove("on"));
+
+        // 클릭된 요소에만 'on' 클래스 추가
+        clickedItem.classList.add("on");
+    }
+});
+
 
 
 // // 연도에 따라 월 옵션 설정
@@ -415,18 +567,17 @@ function validateTimes() {
 //     });
 
 // // 2단계: box-jobs와 box-detail-jobs 사이 토글
-document
-    .querySelector(".btn-job")
-    .addEventListener("click", function () {
+document.querySelector(".box-jobs").addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-job")) {
         const boxJobs = document.querySelector(".box-jobs");
-        const boxDetailJobs = document.querySelector(
-            ".box-detail-jobs"
-        );
+        const boxDetailJobs = document.querySelector(".box-detail-jobs");
 
-        // box-jobs 숨기고, box-detail-jobs 보여주기
         boxJobs.style.display = "none";
         boxDetailJobs.style.display = "block";
-    });
+    }
+});
+
+
 
 // // 3단계: box-detail-jobs가 표시되도록 설정
 // document.addEventListener("DOMContentLoaded", function () {
