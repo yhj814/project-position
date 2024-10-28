@@ -20,7 +20,7 @@ public class JobCategoryController {
     }
 
     @GetMapping("/categoryB/{categoryAId}")
-    public Map<String, List<String>> getCategoryB(@PathVariable("categoryAId") Long categoryAId) {
+    public Map<String, Map<String, List<String>>> getCategoryB(@PathVariable("categoryAId") Long categoryAId) {
         return jobCategoryService.toMapOfCategoryB(categoryAId);
     }
 }

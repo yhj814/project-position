@@ -31,7 +31,7 @@
                     </div>
                     <div class="wrap-interview-review">
                         <form th:action="@{/corporation/corporation-login-main-write-posting}" method="post" th:object="${noticeDTO}" enctype="multipart/form-data" name="review-form">
-
+                            <input type="hidden" name="jobCategoryCId" id="jobCategoryCId" />
                             <input
                                 type="hidden"
                                 name="idx"

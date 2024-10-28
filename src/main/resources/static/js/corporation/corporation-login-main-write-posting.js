@@ -9,82 +9,82 @@ ulElement.addEventListener("scroll", () => {
 
 // 직무 추가 삭제
 // 모든 btn-three-depth 버튼에 이벤트 리스너 추가
-const boxDetailDepth = document.querySelector(".box-detail-depth");
-boxDetailDepth.addEventListener('click', (event) => {
-    const button = event.target.closest('.btn-three-depth');
-    if (button) {
-        // 버튼에 on 클래스 토글
-        button.classList.toggle('on');
-
-        // 해당 버튼의 텍스트 값을 가져오기
-        const jobName = button.innerText; // 버튼의 텍스트 값
-        const txtValueElement = button.closest('.box-detail-jobs').querySelector('.item-job.depth1-btn-wrapper.on .txt'); // .txt 클래스의 span 값
-
-        // .txt 요소가 존재하는지 확인하고, 값 가져오기
-        const txtValue = txtValueElement ? txtValueElement.innerText : '';
-
-        // 결과를 추가하거나 제거
-        const ddElement = document.querySelector('.box-result .list dd'); // 선택한 직무 dd 찾기
-
-        if (button.classList.contains('on')) {
-            // on 클래스가 추가되었을 때
-            const selectedJobSpan = document.createElement('span'); // 새로운 span 생성
-            selectedJobSpan.className = 'job-selected'; // 클래스 추가 (필요시)
-            selectedJobSpan.innerHTML = `${txtValue}<button type="button" class="btnDelete deleteToDepth"><span class="blind">삭제</span></button> &nbsp;&gt;&nbsp;&nbsp;${jobName}<button type="button" class="btn-delete deleteToKeyword"><span class="blind">삭제</span></button>`;
-
-            // 선택한 직무 리스트에 추가
-            ddElement.appendChild(selectedJobSpan);
-
-            // btn-delete 버튼 클릭 이벤트 추가
-            const deleteButton = selectedJobSpan.querySelector('.btn-delete');
-            deleteButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // 이벤트 전파 방지
-                // btn-three-depth 버튼에서 같은 jobName 찾기
-                const relatedButton = Array.from(document.querySelectorAll('.btn-three-depth')).find(btn => btn.innerText === jobName);
-
-                if (relatedButton) {
-                    relatedButton.classList.remove('on'); // on 클래스 제거
-                }
-
-                // job-selected span 제거
-                ddElement.removeChild(selectedJobSpan);
-
-                // 선택된 직무가 없으면 메시지 표시
-                updateNoSelectionMessage(ddElement);
-            });
-        } else {
-            // on 클래스가 삭제되었을 때, 관련된 span 제거
-            const spans = ddElement.querySelectorAll('span.job-selected'); // dd 안의 모든 선택된 span 찾기
-
-            spans.forEach(span => {
-                // 버튼 텍스트와 span의 내용을 비교하여 일치하는 경우 제거
-                if (span.innerText.includes(jobName)) {
-                    ddElement.removeChild(span); // 해당 span 제거
-                }
-            });
-        }
-
-        // 선택된 직무가 없으면 메시지 표시
-        updateNoSelectionMessage(ddElement);
-    }
-});
-
-// 선택된 직무가 없으면 메시지 표시하는 함수
-const updateNoSelectionMessage = (ddElement) => {
-    const noSelectionSpan = ddElement.querySelector('span.no-selection');
-    if (ddElement.childElementCount === 0) {
-        if (!noSelectionSpan) {
-            const span = document.createElement('span');
-            span.className = 'no-selection'; // 클래스 추가
-            span.innerText = '선택된 직무가 없습니다'; // 메시지
-            ddElement.appendChild(span);
-        }
-    } else {
-        if (noSelectionSpan) {
-            ddElement.removeChild(noSelectionSpan); // 메시지 제거
-        }
-    }
-};
+// const boxDetailDepth = document.querySelector(".box-detail-depth");
+// boxDetailDepth.addEventListener('click', (event) => {
+//     const button = event.target.closest('.btn-three-depth');
+//     if (button) {
+//         // 버튼에 on 클래스 토글
+//         button.classList.toggle('on');
+//
+//         // 해당 버튼의 텍스트 값을 가져오기
+//         const jobName = button.innerText; // 버튼의 텍스트 값
+//         const txtValueElement = button.closest('.box-detail-jobs').querySelector('.item-job.depth1-btn-wrapper.on .txt'); // .txt 클래스의 span 값
+//
+//         // .txt 요소가 존재하는지 확인하고, 값 가져오기
+//         const txtValue = txtValueElement ? txtValueElement.innerText : '';
+//
+//         // 결과를 추가하거나 제거
+//         const ddElement = document.querySelector('.box-result .list dd'); // 선택한 직무 dd 찾기
+//
+//         if (button.classList.contains('on')) {
+//             // on 클래스가 추가되었을 때
+//             const selectedJobSpan = document.createElement('span'); // 새로운 span 생성
+//             selectedJobSpan.className = 'job-selected'; // 클래스 추가 (필요시)
+//             selectedJobSpan.innerHTML = `${txtValue}<button type="button" class="btnDelete deleteToDepth"><span class="blind">삭제</span></button> &nbsp;&gt;&nbsp;&nbsp;${jobName}<button type="button" class="btn-delete deleteToKeyword"><span class="blind">삭제</span></button>`;
+//
+//             // 선택한 직무 리스트에 추가
+//             ddElement.appendChild(selectedJobSpan);
+//
+//             // btn-delete 버튼 클릭 이벤트 추가
+//             const deleteButton = selectedJobSpan.querySelector('.btn-delete');
+//             deleteButton.addEventListener('click', (event) => {
+//                 event.stopPropagation(); // 이벤트 전파 방지
+//                 // btn-three-depth 버튼에서 같은 jobName 찾기
+//                 const relatedButton = Array.from(document.querySelectorAll('.btn-three-depth')).find(btn => btn.innerText === jobName);
+//
+//                 if (relatedButton) {
+//                     relatedButton.classList.remove('on'); // on 클래스 제거
+//                 }
+//
+//                 // job-selected span 제거
+//                 ddElement.removeChild(selectedJobSpan);
+//
+//                 // 선택된 직무가 없으면 메시지 표시
+//                 updateNoSelectionMessage(ddElement);
+//             });
+//         } else {
+//             // on 클래스가 삭제되었을 때, 관련된 span 제거
+//             const spans = ddElement.querySelectorAll('span.job-selected'); // dd 안의 모든 선택된 span 찾기
+//
+//             spans.forEach(span => {
+//                 // 버튼 텍스트와 span의 내용을 비교하여 일치하는 경우 제거
+//                 if (span.innerText.includes(jobName)) {
+//                     ddElement.removeChild(span); // 해당 span 제거
+//                 }
+//             });
+//         }
+//
+//         // 선택된 직무가 없으면 메시지 표시
+//         updateNoSelectionMessage(ddElement);
+//     }
+// });
+//
+// // 선택된 직무가 없으면 메시지 표시하는 함수
+// const updateNoSelectionMessage = (ddElement) => {
+//     const noSelectionSpan = ddElement.querySelector('span.no-selection');
+//     if (ddElement.childElementCount === 0) {
+//         if (!noSelectionSpan) {
+//             const span = document.createElement('span');
+//             span.className = 'no-selection'; // 클래스 추가
+//             span.innerText = '선택된 직무가 없습니다'; // 메시지
+//             ddElement.appendChild(span);
+//         }
+//     } else {
+//         if (noSelectionSpan) {
+//             ddElement.removeChild(noSelectionSpan); // 메시지 제거
+//         }
+//     }
+// };
 
 // document.querySelectorAll('.btn-three-depth').forEach(button => {
 //     button.addEventListener('click', () => {
@@ -356,55 +356,55 @@ const taskList = document.querySelector(".list-task.list-hope-jobs.size-type5.se
 
 confirmButton.addEventListener("click", () => {
 
-    // 모든 선택된 직무 span 요소를 가져옴
+    // // 모든 선택된 직무 span 요소를 가져옴
     const selectedJobSpans = document.querySelectorAll('span.job-selected');
     const boxJobs = document.querySelector(".box-jobs");
     const boxDetailJobs = document.querySelector(".box-detail-jobs");
-
-    // 선택된 직무가 없을 경우 경고 메시지 표시 후 함수 종료
-    if (selectedJobSpans.length === 0) {
-        alert("1개 이상 선택해주세요.");
-        return;
-    }
-
-    // 기존의 모든 <li> 요소 제거
-    taskList.innerHTML = '';
-
-    selectedJobSpans.forEach(span => {
-        // 첫 번째 값 (기획·전략)과 두 번째 값 (게임기획) 가져오기
-        const jobName1 = span.childNodes[0].nodeValue.trim(); // 첫 번째 텍스트 (기획·전략)
-        const jobName2 = span.childNodes[2].nodeValue.trim(); // 두 번째 텍스트 (게임기획)
-
-        // 새로운 <li> 요소 생성
-        const newListItem = document.createElement('li');
-        newListItem.innerHTML = `
-            <span class="hope_jobs" style="color:#566feb;">
-                ${jobName1}
-                <span class="blind">삭제</span>
-            </span>
-            <span class="hope_jobs">
-                ${jobName2}
-                <button type="button" class="btn-delete deleteToKeyword">
-                    <span class="blind">삭제</span>
-                </button>
-            </span>
-        `;
-
-        // 삭제 버튼에 이벤트 리스너 추가
-        const deleteButton = newListItem.querySelector('.btn-delete');
-        deleteButton.addEventListener('click', (event) => {
-            const li = event.target.closest('li'); // 클릭된 버튼의 가장 가까운 <li> 요소 찾기
-            if (li) {
-                taskList.removeChild(li); // 해당 <li> 제거
-            }
-        });
-
-        // <ul>에 <li> 추가
-        taskList.appendChild(newListItem);
+    //
+    // // 선택된 직무가 없을 경우 경고 메시지 표시 후 함수 종료
+    // if (selectedJobSpans.length === 0) {
+    //     alert("1개 이상 선택해주세요.");
+    //     return;
+    // }
+    //
+    // // 기존의 모든 <li> 요소 제거
+    // taskList.innerHTML = '';
+    //
+    // selectedJobSpans.forEach(span => {
+    //     // 첫 번째 값 (기획·전략)과 두 번째 값 (게임기획) 가져오기
+    //     const jobName1 = span.childNodes[0].nodeValue.trim(); // 첫 번째 텍스트 (기획·전략)
+    //     const jobName2 = span.childNodes[2].nodeValue.trim(); // 두 번째 텍스트 (게임기획)
+    //
+    //     // 새로운 <li> 요소 생성
+    //     const newListItem = document.createElement('li');
+    //     newListItem.innerHTML = `
+    //         <span class="hope_jobs" style="color:#566feb;">
+    //             ${jobName1}
+    //             <span class="blind">삭제</span>
+    //         </span>
+    //         <span class="hope_jobs">
+    //             ${jobName2}
+    //             <button type="button" class="btn-delete deleteToKeyword">
+    //                 <span class="blind">삭제</span>
+    //             </button>
+    //         </span>
+    //     `;
+    //
+    //     // 삭제 버튼에 이벤트 리스너 추가
+    //     const deleteButton = newListItem.querySelector('.btn-delete');
+    //     deleteButton.addEventListener('click', (event) => {
+    //         const li = event.target.closest('li'); // 클릭된 버튼의 가장 가까운 <li> 요소 찾기
+    //         if (li) {
+    //             taskList.removeChild(li); // 해당 <li> 제거
+    //         }
+    //     });
+    //
+    //     // <ul>에 <li> 추가
+    //     taskList.appendChild(newListItem);
         targetElement.classList.remove("on");
         boxJobs.style.display = "none";
         boxDetailJobs.style.display = "none";
-    });
+    // });
 });
 
 
