@@ -19,6 +19,10 @@ public class JobCategoryDAO {
         return jobCategoryMapper.selectAllJobCategoryA();
     }
 
+    public JobCategoryADTO findJobCategoryAById(Long categoryAId) {
+        return jobCategoryMapper.selectJobCategoryAById(categoryAId);
+    }
+
     public List<JobCategoryBDTO> findAllJobCategoryB(Long categoryAId) {
         return jobCategoryMapper.selectAllJobCategoryB(categoryAId);
     }

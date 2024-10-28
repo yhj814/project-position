@@ -8,5 +8,5 @@ import java.util.Map;
 
 public interface JobCategoryService {
     List<JobCategoryADTO> findAllJobCategoryA();
-    Map<String, List<String>> toMapOfCategoryB(Long categoryAId);
+    Map<String, Map<String, List<String>>> toMapOfCategoryB(Long categoryAId);
 }
