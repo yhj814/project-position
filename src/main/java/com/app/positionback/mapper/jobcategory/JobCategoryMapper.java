@@ -18,4 +18,7 @@ public interface JobCategoryMapper {
 
     // 소카 조회 메서드 (중카 ID로 필터링)
     List<JobCategoryCDTO> selectAllJobCategoryC(Long categoryBId);
+
+    // 중카의 전체 개수 조회
+    int countJobCategoryB(Long categoryAId);
 }

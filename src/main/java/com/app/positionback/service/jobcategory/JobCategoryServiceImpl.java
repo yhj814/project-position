@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @Primary
@@ -19,25 +20,21 @@ public class JobCategoryServiceImpl implements JobCategoryService {
     private final JobCategoryDAO jobCategoryDAO;
 
     @Override
-    public Map<String, Object> getAllJobCategories(Long categoryAId, Long categoryBId) {
-        Map<String, Object> resultMap = new HashMap<>();
-
-        // 대카 조회
-        List<JobCategoryADTO> jobCategoryAList = jobCategoryDAO.findAllJobCategoryA();
-        resultMap.put("jobCategoryA", jobCategoryAList);
-
-        // 중카 조회 (대카 ID로 필터링)
-        if (categoryAId != null) {
-            List<JobCategoryBDTO> jobCategoryBList = jobCategoryDAO.findAllJobCategoryB(categoryAId);
-            resultMap.put("jobCategoryB", jobCategoryBList);
-        }
-
-        // 소카 조회 (중카 ID로 필터링)
-        if (categoryBId != null) {
-            List<JobCategoryCDTO> jobCategoryCList = jobCategoryDAO.findAllJobCategoryC(categoryBId);
-            resultMap.put("jobCategoryC", jobCategoryCList);
-        }
-
-        return resultMap;
+    public List<JobCategoryADTO> findAllJobCategoryA() {
+        return jobCategoryDAO.findAllJobCategoryA();
     }
+
+    @Override
+    public Map<String, List<String>> toMapOfCategoryB(Long categoryAId) {
+        List<JobCategoryBDTO> categoriesB = jobCategoryDAO.findAllJobCategoryB(categoryAId);
+        Map<String, List<String>> categoryBMap  = new HashMap<String, List<String>>();
+
+        for (JobCategoryBDTO jobCategoryBDTO : categoriesB) {
+            List<JobCategoryCDTO> categoriesC = jobCategoryDAO.findAllJobCategoryC(jobCategoryBDTO.getId());
+            List<String> categoryNamesC = categoriesC.stream().map(JobCategoryCDTO::getJobCategoryCName).collect(Collectors.toList());
+            categoryBMap.put(jobCategoryBDTO.getJobCategoryBName(), categoryNamesC);
+        }
+        return categoryBMap;
+    }
+
 }

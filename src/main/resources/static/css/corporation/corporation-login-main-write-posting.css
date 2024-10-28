@@ -1742,3 +1742,12 @@ input[type="time"] {
     vertical-align: top;
     background: url(//www.saraminimage.co.kr/sri/common/ico/spr_total_search.png) no-repeat -50px -126px;
 }
+
+.list.overview {
+    height: 100%; /* 부모 높이 내에서 꽉 채움 */
+    overflow-y: auto; /* 수직 스크롤 활성화 */
+    position: relative; /* 부모 요소 기준으로 위치 지정 */
+}
+.list.overview::-webkit-scrollbar {
+    display: none;
+}
