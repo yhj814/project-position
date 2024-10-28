@@ -13,5 +13,8 @@ public interface NoticeFileMapper {
     public Long getLastInsertId();
 
     // 공고와 파일 연결
-    public void insertNoticeFile(NoticeFileDTO noticeFileDTO);
+    public void insertNoticeFile(Long noticeId, Long fileId);
+
+    // 공고에 연결된 파일 매핑 삭제
+    public void deleteFilesByNoticeId(Long noticeId);
 }

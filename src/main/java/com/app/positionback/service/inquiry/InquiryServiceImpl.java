@@ -16,4 +16,5 @@ public class InquiryServiceImpl implements InquiryService {
     public void write(InquiryVO inquiryVO){
         inquiryDAO.insert(inquiryVO);
     };
+
 }

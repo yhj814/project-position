@@ -16,4 +16,10 @@
         values (#{noticeId}, #{fileId})
     </insert>
 
+    <!-- 특정 공고에 연결된 파일 삭제 -->
+    <delete id="deleteFilesByNoticeId">
+        delete from tbl_notice_file
+        where notice_id = #{noticeId}
+    </delete>
+
 </mapper>

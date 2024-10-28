@@ -19,7 +19,7 @@
                     </div>
                     <div class="help-find help-lost wrap-help">
                         <div class="cont-find">
-                            <form action="/customer-service-center/inquiry" method="post" id="write-form">
+                            <form th:action="@{/customer-service-center/inquiry}" method="post" th:object="${inquiryDTO}"id="write-form">
                                 <fieldset>
                                     <p class="desc-find-type2">
                                         평일 09시 에서 17시까지 문의하신 내용은
@@ -49,7 +49,7 @@
                                                         id="help-email"
                                                         class="inp-find"
                                                         name="memberEmail"
-                                                        value=""
+                                                        th:value="${inquiryDTO.memberEmail}"
                                                         autocomplete="off"
                                                         readonly="readonly"
                                                     />
@@ -72,6 +72,8 @@
                                                             name="inquiryType"
                                                             id="help-member-type-person"
                                                             class="help-member-type"
+                                                            th:field="*{inquiryType}"
+                                                            value="개인"
                                                             checked
                                                         />
                                                         <label
@@ -86,6 +88,8 @@
                                                             name="inquiryType"
                                                             id="help-member-type-company"
                                                             class="help-member-type"
+                                                            th:field="*{inquiryType}"
+                                                            value="기업"
                                                         />
                                                         <label
                                                             for="help-member-type-company"
@@ -110,45 +114,45 @@
                                             <div class="wrap-input">
                                                 <span class="position-input2">
                                                     <select
-                                                        name="inquiryTitle"
+                                                        name="inquiryCategory"
                                                         id="help-category"
                                                         style="width: 338px"
+                                                        th:field="*{inquiryCategory}"
                                                     >
                                                         <option
-                                                            selected=""
-                                                            value=""
+                                                            selected value=""
                                                         >
                                                             선택해주세요
                                                         </option>
                                                         <!-- 복붙 -->
-                                                        <option value="">
+                                                        <option value="시스템 오류 및 버그 신고">
                                                             시스템 오류 및 버그 신고
                                                         </option>
-                                                        <option value="">
+                                                        <option value="이력서 문의">
                                                             이력서 문의
                                                         </option>
-                                                        <option value="">
+                                                        <option value="포지션 지원 관련 문의">
                                                             포지션 지원 관련 문의
                                                         </option>
-                                                        <option value="">
+                                                        <option value="포지션 배정 관련 문의">
                                                             포지션 배정 관련 문의
                                                         </option>
-                                                         <option value="">
+                                                         <option value="회원가입/탈퇴/ID/PW">
                                                             회원가입/탈퇴/ID/PW
                                                         </option>
-                                                         <option value="">
+                                                         <option value="공고 문의">
                                                             공고 문의
                                                         </option>
-                                                         <option value="">
+                                                         <option value="지원자 관련 문의">
                                                             지원자 관련 문의
                                                         </option>
-                                                         <option value="">
+                                                         <option value="결제/유료 상품 문의">
                                                             결제/유료 상품 문의
                                                         </option>
-                                                        <option value="">
+                                                        <option value="기업 정보">
                                                             기업 정보
                                                         </option>
-                                                        <option value="">
+                                                        <option value="제안 사항">
                                                             제안 사항
                                                         </option>
                                                     </select>
@@ -174,6 +178,7 @@
                                                         id="help-title"
                                                         class="inp-find"
                                                         style="width: 533px"
+                                                        th:field="*{inquiryTitle}"
                                                     />
                                                 </span>
                                             </div>
@@ -200,6 +205,7 @@
                                                             height: 120px;
                                                         "
                                                         placeholder="문의종류 선택 후 내용을 입력해주세요."
+                                                        th:field="*{inquiryContent}"
                                                     ></textarea>
                                                 </span>
                                             </div>

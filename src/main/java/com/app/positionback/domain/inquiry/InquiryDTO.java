@@ -16,21 +16,12 @@ public class InquiryDTO {
     private String createDate;
     private String updateDate;
     private Long memberId;
-    private String memberName;
     private String memberEmail;
-    private String memberPassword;
-    private String memberAddress;
-    private String memberAddressDetail;
-    private String memberNickname;
-    private String memberStatus;
-    private String memberType;
-    private String memberWaringCount;
 
     public InquiryVO toVO() {
         return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, createDate, updateDate, memberId);
     }
 }
-
 //member_name varchar(255) not null,
 //member_email varchar(255) not null,
 //member_password varchar(255) not null,

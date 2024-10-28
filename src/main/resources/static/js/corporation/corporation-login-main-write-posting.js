@@ -1,26 +1,315 @@
+const ulElement = document.querySelector(".list.overview");
+
+// 스크롤 위치에 따라 상단 고정 (선택적 구현)
+ulElement.addEventListener("scroll", () => {
+    const scrollTop = ulElement.scrollTop; // ul 내부의 스크롤 위치
+    console.log(`스크롤 위치: ${scrollTop}px`);
+});
+
+
+// 직무 추가 삭제
+// 모든 btn-three-depth 버튼에 이벤트 리스너 추가
+const boxDetailDepth = document.querySelector(".box-detail-depth");
+boxDetailDepth.addEventListener('click', (event) => {
+    const button = event.target.closest('.btn-three-depth');
+    if (button) {
+        // 버튼에 on 클래스 토글
+        button.classList.toggle('on');
+
+        // 해당 버튼의 텍스트 값을 가져오기
+        const jobName = button.innerText; // 버튼의 텍스트 값
+        const txtValueElement = button.closest('.box-detail-jobs').querySelector('.item-job.depth1-btn-wrapper.on .txt'); // .txt 클래스의 span 값
+
+        // .txt 요소가 존재하는지 확인하고, 값 가져오기
+        const txtValue = txtValueElement ? txtValueElement.innerText : '';
+
+        // 결과를 추가하거나 제거
+        const ddElement = document.querySelector('.box-result .list dd'); // 선택한 직무 dd 찾기
+
+        if (button.classList.contains('on')) {
+            // on 클래스가 추가되었을 때
+            const selectedJobSpan = document.createElement('span'); // 새로운 span 생성
+            selectedJobSpan.className = 'job-selected'; // 클래스 추가 (필요시)
+            selectedJobSpan.innerHTML = `${txtValue}<button type="button" class="btnDelete deleteToDepth"><span class="blind">삭제</span></button> &nbsp;&gt;&nbsp;&nbsp;${jobName}<button type="button" class="btn-delete deleteToKeyword"><span class="blind">삭제</span></button>`;
+
+            // 선택한 직무 리스트에 추가
+            ddElement.appendChild(selectedJobSpan);
+
+            // btn-delete 버튼 클릭 이벤트 추가
+            const deleteButton = selectedJobSpan.querySelector('.btn-delete');
+            deleteButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // 이벤트 전파 방지
+                // btn-three-depth 버튼에서 같은 jobName 찾기
+                const relatedButton = Array.from(document.querySelectorAll('.btn-three-depth')).find(btn => btn.innerText === jobName);
+
+                if (relatedButton) {
+                    relatedButton.classList.remove('on'); // on 클래스 제거
+                }
+
+                // job-selected span 제거
+                ddElement.removeChild(selectedJobSpan);
+
+                // 선택된 직무가 없으면 메시지 표시
+                updateNoSelectionMessage(ddElement);
+            });
+        } else {
+            // on 클래스가 삭제되었을 때, 관련된 span 제거
+            const spans = ddElement.querySelectorAll('span.job-selected'); // dd 안의 모든 선택된 span 찾기
+
+            spans.forEach(span => {
+                // 버튼 텍스트와 span의 내용을 비교하여 일치하는 경우 제거
+                if (span.innerText.includes(jobName)) {
+                    ddElement.removeChild(span); // 해당 span 제거
+                }
+            });
+        }
+
+        // 선택된 직무가 없으면 메시지 표시
+        updateNoSelectionMessage(ddElement);
+    }
+});
+
+// 선택된 직무가 없으면 메시지 표시하는 함수
+const updateNoSelectionMessage = (ddElement) => {
+    const noSelectionSpan = ddElement.querySelector('span.no-selection');
+    if (ddElement.childElementCount === 0) {
+        if (!noSelectionSpan) {
+            const span = document.createElement('span');
+            span.className = 'no-selection'; // 클래스 추가
+            span.innerText = '선택된 직무가 없습니다'; // 메시지
+            ddElement.appendChild(span);
+        }
+    } else {
+        if (noSelectionSpan) {
+            ddElement.removeChild(noSelectionSpan); // 메시지 제거
+        }
+    }
+};
+
+// document.querySelectorAll('.btn-three-depth').forEach(button => {
+//     button.addEventListener('click', () => {
+//         // 버튼에 on 클래스 토글
+//         button.classList.toggle('on');
+//
+//         // 해당 버튼의 텍스트 값을 가져오기
+//         const jobName = button.innerText; // 버튼의 텍스트 값
+//         const txtValueElement = button.closest('.box-detail-jobs').querySelector('.item-job.depth1-btn-wrapper.on .txt'); // .txt 클래스의 span 값
+//
+//         // .txt 요소가 존재하는지 확인하고, 값 가져오기
+//         const txtValue = txtValueElement ? txtValueElement.innerText : '';
+//
+//         // 결과를 추가하거나 제거
+//         const ddElement = document.querySelector('.box-result .list dd'); // 선택한 직무 dd 찾기
+//
+//         if (button.classList.contains('on')) {
+//             // on 클래스가 추가되었을 때
+//             const selectedJobSpan = document.createElement('span'); // 새로운 span 생성
+//             selectedJobSpan.className = 'job-selected'; // 클래스 추가 (필요시)
+//             selectedJobSpan.innerHTML = `${txtValue}<button type="button" class="btnDelete deleteToDepth"><span class="blind">삭제</span></button> &nbsp;&gt;&nbsp;&nbsp;${jobName}<button type="button" class="btn-delete deleteToKeyword"><span class="blind">삭제</span></button>`;
+//
+//             // 선택한 직무 리스트에 추가
+//             ddElement.appendChild(selectedJobSpan);
+//
+//             // btn-delete 버튼 클릭 이벤트 추가
+//             const deleteButton = selectedJobSpan.querySelector('.btn-delete');
+//             deleteButton.addEventListener('click', () => {
+//                 // btn-three-depth 버튼에서 같은 jobName 찾기
+//                 const relatedButton = Array.from(document.querySelectorAll('.btn-three-depth')).find(btn => btn.innerText === jobName);
+//
+//                 if (relatedButton) {
+//                     relatedButton.classList.remove('on'); // on 클래스 제거
+//                 }
+//
+//                 // job-selected span 제거
+//                 ddElement.removeChild(selectedJobSpan);
+//
+//                 // 선택된 직무가 없으면 메시지 표시
+//                 const noSelectionSpan = ddElement.querySelector('span.no-selection');
+//                 if (ddElement.childElementCount === 0) {
+//                     if (!noSelectionSpan) {
+//                         const span = document.createElement('span');
+//                         span.className = 'no-selection'; // 클래스 추가
+//                         span.innerText = '선택된 직무가 없습니다'; // 메시지
+//                         ddElement.appendChild(span);
+//                     }
+//                 } else {
+//                     if (noSelectionSpan) {
+//                         ddElement.removeChild(noSelectionSpan); // 메시지 제거
+//                     }
+//                 }
+//             });
+//         } else {
+//             // on 클래스가 삭제되었을 때, 관련된 span 제거
+//             const spans = ddElement.querySelectorAll('span.job-selected'); // dd 안의 모든 선택된 span 찾기
+//
+//             spans.forEach(span => {
+//                 // 버튼 텍스트와 span의 내용을 비교하여 일치하는 경우 제거
+//                 if (span.innerText.includes(jobName)) {
+//                     ddElement.removeChild(span); // 해당 span 제거
+//                 }
+//             });
+//         }
+//
+//         // 선택된 직무가 없으면 메시지 표시
+//         const noSelectionSpan = ddElement.querySelector('span.no-selection');
+//         if (ddElement.childElementCount === 0) {
+//             if (!noSelectionSpan) {
+//                 const span = document.createElement('span');
+//                 span.className = 'no-selection'; // 클래스 추가
+//                 span.innerText = '선택된 직무가 없습니다'; // 메시지
+//                 ddElement.appendChild(span);
+//             }
+//         } else {
+//             if (noSelectionSpan) {
+//                 ddElement.removeChild(noSelectionSpan); // 메시지 제거
+//             }
+//         }
+//     });
+// });
+
+
+
+
+
+
+// 검색할때 검색창
+const input = document.getElementById("job-category-ipt-keyword");
+const resultWrapper = document.querySelector('.wrap-result.has-result');
+const deleteButton = document.querySelector('.btn-delete');
+const closeButtons = document.querySelectorAll('.btn-close'); // 모든 btn-close 버튼 선택
+
+// 입력 이벤트 처리
+input.addEventListener('input', () => {
+    if (input.value.trim() !== '') {
+        resultWrapper.style.display = 'block';  // 값이 있으면 보여줌
+        deleteButton.style.display ='block';
+    } else {
+        resultWrapper.style.display = 'none';  // 값이 없으면 숨김
+        deleteButton.style.display ='none';
+    }
+});
+
+// 삭제 버튼 클릭 시 input 값 비우고 결과 숨기기
+deleteButton.addEventListener('click', () => {
+    input.value = '';  // input 값 비우기
+    resultWrapper.style.display = 'none';  // 결과 숨기기
+    deleteButton.style.display ='none';
+});
+
+// 모든 닫기 버튼에 클릭 이벤트 추가
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        input.value = '';  // input 값 비우기
+        resultWrapper.style.display = 'none';  // 결과 숨기기
+        deleteButton.style.display ='none';
+    });
+});
+
+
+// 창 높이 조절
+// MutationObserver 설정
+const targetNode = document.querySelector('.box-detail-depth .viewport');
+const config = { childList: true, subtree: true };
+
+const callback = (mutationsList) => {
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            // 자식 노드가 변경되면 높이 업데이트
+            const parent = targetNode.closest('.box-detail-depth');
+            updateParentHeight(parent);
+        }
+    }
+};
+
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, config);
+// 창 높이 조절
+document.querySelector('.box-detail-jobs').addEventListener('click', (event) => {
+    console.log('클릭된 요소:', event.target); // 클릭된 요소 로그 출력
+    // 클릭한 요소가 .btn-expand 버튼인지 확인
+    if (event.target.classList.contains('btn-expand')) {
+        const button = event.target;
+        const rowItem = button.closest('.row-item');
+        rowItem.classList.toggle('expand');
+
+        // 부모 요소의 높이 재조정
+        const parent = rowItem.closest('.box-detail-depth');
+        updateParentHeight(parent);
+    }
+    if (event.target.classList.contains('first-depth')||event.target.classList.contains('txt')) {
+        // depth1-btn-wrapper 클릭 시 높이만 업데이트
+        // const parent = document.querySelector('.box-detail-depth');
+        // updateParentHeight(parent);
+    }
+});
+
+/**
+ * 부모 높이를 모든 row-item의 높이에 맞게 업데이트하고,
+ * 관련된 .box-onedepth의 높이도 동일하게 맞춤
+ */
+function updateParentHeight(parent) {
+    const rowList = parent.closest('.box-detail-jobs').querySelector('.row.list'); // .row.list 찾기
+    const depthViewport = parent.querySelector('.viewport'); // depth 관련 viewport
+    let totalHeight = 0;
+
+    // 모든 row-item의 높이를 합산
+    depthViewport.querySelectorAll('.row-item').forEach(item => {
+        totalHeight += item.scrollHeight; // 각 row-item의 전체 높이 추가
+    });
+
+    // 부모 .viewport의 높이 설정
+    depthViewport.style.height = totalHeight + 'px';
+
+    // .row.list의 높이 설정
+    if (rowList) {
+        rowList.style.height = totalHeight + 'px';
+    }
+
+    // 관련된 .box-onedepth의 높이도 동일하게 설정
+    const boxOnedepth = parent.closest('.box-detail-jobs').querySelector('.box-onedepth');
+    if (boxOnedepth) {
+        boxOnedepth.style.height = totalHeight + 'px';
+    }
+}
+
+
+
 // 입력된 3개(월, 일, 근무시간) 데이터를 하나로 합쳐서 db에 전달하는 js
 document.addEventListener('DOMContentLoaded', () => {
     const monthSelect = document.getElementById('interviewDateMonth');
     const daySelect = document.getElementById('interviewDateDay');
     const companyTimeInput = document.getElementById('companyTime');
-    const noticeWorkDateField = document.getElementById('noticeWorkDateField');
+    // const noticeWorkDateField = document.getElementById('noticeWorkDateField');
 
-    function updateNoticeEducation() {
-        const month = monthSelect.value;
-        const day = daySelect.value;
-        const workTime = companyTimeInput.value;
+    const fileInput = document.querySelector("input[type=file]"); // 파일 입력
+    const uploadName = document.querySelector(".upload-name"); // 파일 이름을 표시할 input
+    const submitBtn = document.getElementById("submitBtn"); // 완료 버튼
 
-        if (month && day && workTime) {
-            noticeWorkDateField.value = `${month} ${day} ${workTime}`;
-        } else {
-            noticeWorkDateField.value = '';
+    // 파일 선택 이벤트
+    fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0]; // 첫 번째 파일
+        if (file) {
+            uploadName.value = file.name; // 파일 이름을 표시
         }
-    }
+    });
 
-    // Add event listeners to update the hidden field on change
-    monthSelect.addEventListener('change', updateNoticeEducation);
-    daySelect.addEventListener('change', updateNoticeEducation);
-    companyTimeInput.addEventListener('input', updateNoticeEducation);
+
+    // function updateNoticeEducation() {
+    //     const month = monthSelect.value;
+    //     const day = daySelect.value;
+    //     const workTime = companyTimeInput.value;
+    //
+    //     if (month && day && workTime) {
+    //         noticeWorkDateField.value = `${month} ${day} ${workTime}`;
+    //     } else {
+    //         noticeWorkDateField.value = '';
+    //     }
+    // }
+    //
+    // // Add event listeners to update the hidden field on change
+    // monthSelect.addEventListener('change', updateNoticeEducation);
+    // daySelect.addEventListener('change', updateNoticeEducation);
+    // companyTimeInput.addEventListener('input', updateNoticeEducation);
 });
 
 
@@ -39,58 +328,222 @@ dueDateValue.min = KRcurrentDate.toISOString().slice(0, 16); // 현재 시간을
 
 console.log(dueDateValue.value);
 
+// 대상 요소 선택
+const targetElement = document.querySelector(
+    ".option-content.job-category-section"
+);
 // 버튼 클릭 시 on 클래스 토글
-document
-    .getElementById("interview-write-selected-job")
-    .addEventListener("click", function () {
-        // 대상 요소 선택
-        const targetElement = document.querySelector(
-            ".interview-write-option-content.interview-write-job-category-section"
-        );
-
+document.getElementById("selected-job").addEventListener("click",  ()=> {
+        const boxJobs = document.querySelector(".box-jobs");
         // on 클래스 추가
-        targetElement.classList.toggle("on");
+        targetElement.classList.add("on");
+        boxJobs.style.display = "block";
     });
 
-document.getElementById("interviewDateYear").addEventListener("change", (e) => {
-    const year = this.value;
-    const monthSelect = document.getElementById("interviewDateMonth");
-    let months = [];
+document.querySelector(".btn.btn-job-cancel").addEventListener("click", () =>{
+    targetElement.classList.remove("on");
+    const boxJobs = document.querySelector(".box-jobs");
+    const boxDetailJobs = document.querySelector(".box-detail-jobs");
+    boxJobs.style.display = "none";
+    boxDetailJobs.style.display = "none";
+})
+// document.querySelector(".btn.btn-job-confirm").addEventListener("click", () =>{
+//     targetElement.classList.remove("on");
+// })
 
-    // 연도에 따라 월을 필터링
-    if (year === "2021") {
-        // 2021년은 11월과 12월만 가능
-        months = ["11", "12"];
-    } else if (year === "2024") {
-        // 2024년은 1월부터 10월까지만 가능
-        months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
-    } else {
-        // 2022년, 2023년은 1월부터 12월까지 가능
-        months = [
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-        ];
+const confirmButton = document.querySelector(".btn.btn-job-confirm");
+const taskList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list"); // <ul> 요소 선택
+
+confirmButton.addEventListener("click", () => {
+
+    // 모든 선택된 직무 span 요소를 가져옴
+    const selectedJobSpans = document.querySelectorAll('span.job-selected');
+    const boxJobs = document.querySelector(".box-jobs");
+    const boxDetailJobs = document.querySelector(".box-detail-jobs");
+
+    // 선택된 직무가 없을 경우 경고 메시지 표시 후 함수 종료
+    if (selectedJobSpans.length === 0) {
+        alert("1개 이상 선택해주세요.");
+        return;
     }
 
-    // 월 선택 초기화 및 옵션 동적 생성
-    monthSelect.innerHTML = `<option value="">월 선택</option>`; // 기본 옵션 추가
-    months.forEach((month) => {
-        const option = document.createElement("option");
-        option.value = month;
-        option.text = `${month}월`;
-        monthSelect.appendChild(option);
+    // 기존의 모든 <li> 요소 제거
+    taskList.innerHTML = '';
+
+    selectedJobSpans.forEach(span => {
+        // 첫 번째 값 (기획·전략)과 두 번째 값 (게임기획) 가져오기
+        const jobName1 = span.childNodes[0].nodeValue.trim(); // 첫 번째 텍스트 (기획·전략)
+        const jobName2 = span.childNodes[2].nodeValue.trim(); // 두 번째 텍스트 (게임기획)
+
+        // 새로운 <li> 요소 생성
+        const newListItem = document.createElement('li');
+        newListItem.innerHTML = `
+            <span class="hope_jobs" style="color:#566feb;">
+                ${jobName1}
+                <span class="blind">삭제</span>
+            </span>
+            <span class="hope_jobs">
+                ${jobName2}
+                <button type="button" class="btn-delete deleteToKeyword">
+                    <span class="blind">삭제</span>
+                </button>
+            </span>
+        `;
+
+        // 삭제 버튼에 이벤트 리스너 추가
+        const deleteButton = newListItem.querySelector('.btn-delete');
+        deleteButton.addEventListener('click', (event) => {
+            const li = event.target.closest('li'); // 클릭된 버튼의 가장 가까운 <li> 요소 찾기
+            if (li) {
+                taskList.removeChild(li); // 해당 <li> 제거
+            }
+        });
+
+        // <ul>에 <li> 추가
+        taskList.appendChild(newListItem);
+        targetElement.classList.remove("on");
+        boxJobs.style.display = "none";
+        boxDetailJobs.style.display = "none";
     });
 });
+
+
+
+
+
+document.getElementById("internshipEndDate").addEventListener("change", validateDates);
+document.getElementById("workEndTime").addEventListener("change", validateTimes);
+
+function validateDates() {
+    const startDate = document.getElementById("internshipStartDate").value;
+    const endDate = document.getElementById("internshipEndDate").value;
+
+    if (startDate && endDate && startDate > endDate) {
+        alert("종료일은 시작일 이후여야 합니다.");
+        document.getElementById("internshipEndDate").value = "";
+    }
+}
+
+function validateTimes() {
+    const startTime = document.getElementById("workStartTime").value;
+    const endTime = document.getElementById("workEndTime").value;
+
+    if (startTime && endTime && startTime >= endTime) {
+        alert("근무 종료 시간은 시작 시간 이후여야 합니다.");
+        document.getElementById("workEndTime").value = "";
+    }
+}
+// 처음 대카 선택
+// 모든 .item-job.depth1-btn-wrapper 요소를 선택
+listOverview.addEventListener("click", (event) => {
+    const clickedItem = event.target.closest(".item-job.depth1-btn-wrapper");
+
+    if (clickedItem) {
+        // 모든 요소에서 'on' 클래스 제거
+        listOverview.querySelectorAll(".item-job").forEach(item => item.classList.remove("on"));
+
+        // 클릭된 요소에만 'on' 클래스 추가
+        clickedItem.classList.add("on");
+    }
+});
+
+
+
+// // 연도에 따라 월 옵션 설정
+// function populateMonthOptions(selectedYear) {
+//     const monthSelect = document.getElementById("interviewDateMonth");
+//     let months = [];
+//
+//     // 선택한 연도에 맞게 월 필터링
+//     if (selectedYear === "2021") {
+//         months = ["11", "12"]; // 2021년은 11월과 12월만 가능
+//     } else if (selectedYear === "2024") {
+//         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]; // 2024년은 10월까지만 가능
+//     } else {
+//         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]; // 2022년, 2023년은 전체 월 가능
+//     }
+//
+//     // 월 옵션 초기화 및 설정
+//     monthSelect.innerHTML = `<option value="">월 선택</option>`;
+//     months.forEach((month) => {
+//         const option = document.createElement("option");
+//         option.value = month;
+//         option.text = `${month}월`;
+//         monthSelect.appendChild(option);
+//     });
+// }
+//
+// // 선택한 연도와 월에 따라 일 옵션 설정
+// function populateDayOptions(year, month) {
+//     const daySelect = document.getElementById("interviewDateDay");
+//     let daysInMonth = 31;
+//
+//     // 월에 따라 일 수 계산
+//     if (["04", "06", "09", "11"].includes(month)) {
+//         daysInMonth = 30;
+//     } else if (month === "02") {
+//         daysInMonth = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) ? 29 : 28; // 윤년 계산
+//     }
+//
+//     // 일 옵션 초기화 및 설정
+//     daySelect.innerHTML = `<option value="">일 선택</option>`;
+//     Array.from({ length: daysInMonth }, (_, i) => {
+//         const day = String(i + 1).padStart(2, '0');
+//         const option = document.createElement("option");
+//         option.value = day;
+//         option.text = `${day}일`;
+//         daySelect.appendChild(option);
+//     });
+// }
+//
+// // 시간 옵션 설정 (00시 ~ 23시)
+// function populateHourOptions(selectId) {
+//     const hourSelect = document.getElementById(selectId);
+//     hourSelect.innerHTML = `<option value="">시간 선택</option>`;
+//     Array.from({ length: 24 }, (_, i) => {
+//         const hour = String(i).padStart(2, '0');
+//         const option = document.createElement("option");
+//         option.value = hour;
+//         option.text = `${hour}시`;
+//         hourSelect.appendChild(option);
+//     });
+// }
+//
+// // 종료 시간이 시작 시간보다 늦어야 함을 확인
+// function validateTimeSelection() {
+//     const startHour = document.getElementById("interviewStartHour").value;
+//     const endHour = document.getElementById("interviewEndHour").value;
+//
+//     if (startHour && endHour && endHour <= startHour) {
+//         alert("종료 시간은 시작 시간보다 늦어야 합니다.");
+//         document.getElementById("interviewEndHour").value = ""; // 잘못된 선택 시 초기화
+//     }
+// }
+//
+// // 연도 변경 시 월 및 일 옵션 갱신
+// document.getElementById("interviewDateYear").addEventListener("change", (e) => {
+//     const year = e.target.value;
+//     populateMonthOptions(year); // 선택된 연도에 맞게 월 설정
+//
+//     const selectedMonth = document.getElementById("interviewDateMonth").value;
+//     if (selectedMonth) populateDayOptions(year, selectedMonth); // 선택된 월이 있을 경우 일 갱신
+// });
+//
+// // 월 변경 시 일 옵션 갱신
+// document.getElementById("interviewDateMonth").addEventListener("change", (e) => {
+//     const year = document.getElementById("interviewDateYear").value;
+//     const month = e.target.value;
+//     if (year) populateDayOptions(year, month); // 연도와 월에 따라 일 설정
+// });
+//
+// // 시간 선택 시 유효성 검사
+// document.getElementById("interviewStartHour").addEventListener("change", validateTimeSelection);
+// document.getElementById("interviewEndHour").addEventListener("change", validateTimeSelection);
+//
+// // 시간 옵션 초기화
+// populateHourOptions("interviewStartHour");
+// populateHourOptions("interviewEndHour");
+
 
 //
 
@@ -98,10 +551,10 @@ document.getElementById("interviewDateYear").addEventListener("change", (e) => {
 
 // 1단계 자바스크립트
 // document
-//     .querySelector(".interview-write-btn-add-modify")
+//     .querySelector(".btn-add-modify")
 //     .addEventListener("click", function () {
 //         const jobCategorySection = document.querySelector(
-//             ".interview-write-box-jobs"
+//             ".box-jobs"
 //         );
 
 //         if (jobCategorySection.classList.contains("on")) {
@@ -114,23 +567,22 @@ document.getElementById("interviewDateYear").addEventListener("change", (e) => {
 //     });
 
 // // 2단계: box-jobs와 box-detail-jobs 사이 토글
-document
-    .querySelector(".interview-write-btn-job")
-    .addEventListener("click", function () {
-        const boxJobs = document.querySelector(".interview-write-box-jobs");
-        const boxDetailJobs = document.querySelector(
-            ".interview-write-box-detail-jobs"
-        );
+document.querySelector(".box-jobs").addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-job")) {
+        const boxJobs = document.querySelector(".box-jobs");
+        const boxDetailJobs = document.querySelector(".box-detail-jobs");
 
-        // box-jobs 숨기고, box-detail-jobs 보여주기
         boxJobs.style.display = "none";
         boxDetailJobs.style.display = "block";
-    });
+    }
+});
+
+
 
 // // 3단계: box-detail-jobs가 표시되도록 설정
 // document.addEventListener("DOMContentLoaded", function () {
 //     const boxDetailJobs = document.querySelector(
-//         ".interview-write-box-detail-jobs"
+//         ".box-detail-jobs"
 //     );
 //     if (boxDetailJobs) {
 //         boxDetailJobs.style.display = "none"; // 초기 상태 설정
@@ -139,21 +591,21 @@ document
 
 // // 버튼 클릭 이벤트 리스너 등록
 // document
-//     .querySelector(".interview-write-btn-expand")
+//     .querySelector(".btn-expand")
 //     .addEventListener("click", function () {
 //         // dl 태그에 expand 클래스 토글
-//         const dlElement = document.querySelector(".interview-write-row-item");
+//         const dlElement = document.querySelector(".row-item");
 //         dlElement.classList.toggle("expand");
 
-//         // div.interview-write-box-onedepth에 on 클래스 토글
+//         // div.box-onedepth에 on 클래스 토글
 //         const boxOnedepth = document.querySelector(
-//             ".interview-write-box-onedepth"
+//             ".box-onedepth"
 //         );
 //         boxOnedepth.classList.toggle("on");
 
-//         // div.interview-write-row.interview-write-list에 on 클래스 토글
+//         // div.row.list에 on 클래스 토글
 //         const rowList = document.querySelector(
-//             ".interview-write-row.interview-write-list"
+//             ".row.list"
 //         );
 //         rowList.classList.toggle("on");
 //     });
@@ -2495,16 +2947,16 @@ const categorys = {
 // Object.keys(categorys).forEach((categoryA) => {
 //     text += `
 //             <li
-//                 class="interview-write-item-job interview-write-depth1-btn-wrapper on"
+//                 class="item-job depth1-btn-wrapper on"
 //                 data-mcls-cd-no="16"
 //             >
 //                 <button
 //                     type="button"
 //                     data-mcls-cd-no="16"
-//                     class="interview-write-first-depth"
+//                     class="first-depth"
 //                 >
 //                     <span
-//                         class="interview-write-txt"
+//                         class="txt"
 //                         >${categoryA}</span
 //                     >
 //                 </button>
