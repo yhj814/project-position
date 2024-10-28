@@ -4,29 +4,48 @@
 
     <!-- 대카 조회 -->
     <select id="selectAllJobCategoryA" resultType="com.app.positionback.domain.jobcategory.JobCategoryADTO">
-        SELECT id, job_categoryA_name
-        FROM
+        select id, job_categoryA_name
+        from
             tbl_job_categoryA
     </select>
 
     <!-- 중카 조회 (대카 ID로 필터링) -->
-    <select id="selectAllJobCategoryB" resultType="com.app.positionback.domain.jobcategory.JobCategoryBVO">
-        SELECT B.id ,B.job_categoryB_name, B.job_categoryA_id
-        FROM tbl_job_categoryB B
-        JOIN tbl_job_categoryA A
-            ON B.job_categoryA_id = A.id
-        WHERE
+    <select id="selectAllJobCategoryB" resultType="com.app.positionback.domain.jobcategory.JobCategoryBDTO">
+        select B.id ,B.job_categoryB_name, B.job_categoryA_id
+        from tbl_job_categoryB B
+        join tbl_job_categoryA A
+            on B.job_categoryA_id = A.id
+        where
         A.id = #{categoryAId} <!-- 필터링할 대카 ID를 파라미터로 받음 -->
     </select>
 
     <!-- 소카 조회 (중카 ID로 필터링) -->
     <select id="selectAllJobCategoryC" resultType="com.app.positionback.domain.jobcategory.JobCategoryCDTO">
-        SELECT C.id, C.job_categoryC_name, C.job_categoryB_id
-        FROM tbl_job_categoryC C
-        JOIN tbl_job_categoryB B
-            ON C.job_categoryB_id = B.id
-        WHERE
-        B.id = #{categoryBId} <!-- 필터링할 중카 ID를 파라미터로 받음 -->
+        select C.id, C.job_categoryC_name, C.job_categoryB_id
+        from tbl_job_categoryC C
+        join tbl_job_categoryB B on C.job_categoryB_id = B.id
+        where B.id = #{categoryBId}
     </select>
+
+    <!-- 카테고리 B의 개수를 구하는 쿼리 (대카 ID로 필터링) -->
+    <select id="countJobCategoryB" >
+        select count(*)
+        from tbl_job_categoryB B
+        join tbl_job_categoryA A on B.job_categoryA_id = A.id
+        where A.id = #{categoryAId} <!-- 필터링할 대카 ID를 파라미터로 받음 -->
+    </select>
+
+    <!-- 소카 조건 검색 (중카 ID 필터링 없음) -->
+    <select id="selectJobCategoryCByCriteria" resultType="com.app.positionback.domain.jobcategory.JobCategoryCDTO">
+        select C.id, C.job_categoryC_name, C.job_categoryB_id
+        from tbl_job_categoryC C
+        <where>
+            <!-- 조건: 소카 이름 검색 -->
+            <if test="categoryCName != null and categoryCName != ''">
+                and C.job_categoryC_name like concat('%', #{categoryCName}, '%') <!--search.keyword 사용? -->
+            </if>
+        </where>
+    </select>
+
 
 </mapper>
