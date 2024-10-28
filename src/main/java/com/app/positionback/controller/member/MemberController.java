@@ -60,8 +60,10 @@ public class MemberController {
         }
 
     }
-
+    //**************************************************************************************
     //memberDTO로 corporation의 정보를 다 받습니다.
+    // 아이디와 이메일을 넣었을때, 맞는 아이디와 비번일 경우에도 loginFailException으로 넘어갑니다.ㅜㅜ
+    //**************************************************************************************
     @PostMapping("/login/login-combine")
 //    HttpSession
 //    서버의 Session영역을 관리해주는 객체이다.
@@ -116,32 +118,48 @@ public class MemberController {
 
 //        화면에서 아이디 저장을 선택했다면 null이 아니다.
         if(save != null){
+
+            //기업 회원인지 일반 회원인지 나눠줘야됩니다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 //            쿠키 생성, 저장
             Cookie saveCookie = new Cookie("save", save);
+            //일반 회원
             Cookie memberEmailCookie = new Cookie("memberEmail", memberDTO.getMemberEmail());
+            //기업 회원
+            Cookie corporationEmailCookie = new Cookie("corporationEmail",memberDTO.getCorporationEmail());
 
 //            -1: 쿠키 계속 유지
             saveCookie.setMaxAge(-1);
             memberEmailCookie.setMaxAge(-1);
 
             response.addCookie(saveCookie);
+            //일반 회원
             response.addCookie(memberEmailCookie);
+            //기업 회원
+            response.addCookie(corporationEmailCookie);
 
         }else{
 //            쿠키 삭제
             Cookie saveCookie = new Cookie("save", null);
             Cookie memberEmailCookie = new Cookie("memberEmail", null);
+            Cookie corporationEmailCookie = new Cookie("corporationEmail", null);
 
             saveCookie.setMaxAge(0);
             memberEmailCookie.setMaxAge(0);
 
             response.addCookie(saveCookie);
             response.addCookie(memberEmailCookie);
+            response.addCookie(corporationEmailCookie);
         }
 
         log.info("로그인 성공: {}", memberVO);
+        log.info("로그인 성공: {}", corporationVO);
         log.info("로그인 성공: {}", memberDTO);
+
+        //일반 회원일떄,
         return new RedirectView( "/main/body");
+        //기업 회원일때는 corporation/login-corporation-main으로 return
     }
 
     //    로그 아웃
