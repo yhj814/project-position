@@ -1,5 +1,7 @@
 package com.app.positionback.controller.member;
 
+import com.app.positionback.domain.corporation.CorporationDTO;
+import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.exception.LoginFailException;
@@ -50,38 +52,30 @@ public class MemberController {
                 }
                 if (cookies[i].getName().equals("memberEmail")) {
                     memberDTO.setMemberEmail(cookies[i].getValue());
+                } else if (cookies[i].getName().equals("corporationEmail")) {
+                    memberDTO.setCorporationEmail(cookies[i].getValue());
                 }
 
             }
         }
 
     }
-    //    @GetMapping("/login/login-combine")
-//    public String goToLoginForm(MemberDTO memberDTO){
-//        return "login/login-combine";
-//    }
-//
+
+    //memberDTO로 corporation의 정보를 다 받습니다.
     @PostMapping("/login/login-combine")
 //    HttpSession
 //    서버의 Session영역을 관리해주는 객체이다.
 //    Spring이 해당 객체를 주입해준다.
     public RedirectView login(MemberDTO memberDTO, String save, HttpSession session, HttpServletResponse response){
-//        memberService.login(memberDTO.toVO())
-//                .ifPresentOrElse(
-//                        (member) -> {
-//                            log.info(member.toString());
-//                            log.info("로그인 성공");
-//                        },
-//                        () -> {
-//                            log.info("로그인 실패");
-//                        });
 
 //        // 로그인 시도
-        Optional<MemberVO> foundMember = memberService.login(memberDTO.toMemVO());
-//
+        //기업 로그인인지 회원 로그인인지
+        Optional<MemberVO> foundMember = memberService.loginAsMember(memberDTO);
+        Optional<CorporationVO> foundCorporation = memberService.loginAsCorporation(memberDTO);
+
 ////        null이 아니면 단일 객체 리턴, null이면 예외 발생
         MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
-//
+        CorporationVO corporationVO = foundCorporation.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
 ////        id만 담아놓으면 사용할 때마다 SELECT 쿼리를 발생시켜야 한다(싫어!)
 ////        session.setAttribute("memberId", memberVO.getId());
 ////        전체 정보를 담아놓기 때문에 쿼리를 따로 발생시킬 필요 없다(좋아!)
@@ -99,10 +93,21 @@ public class MemberController {
         memberDTO.setMemberStatus(foundMember.get().getMemberStatus());
         memberDTO.setMemberType(foundMember.get().getMemberType());
         memberDTO.setMemberWarningCount(foundMember.get().getMemberWarningCount());
-
+        memberDTO.setCorporationName(foundCorporation.get().getCorporationName());
+        memberDTO.setCorporationAddress(foundCorporation.get().getCorporationAddress());
+        memberDTO.setCorporationAddressDetail(foundCorporation.get().getCorporationAddressDetail());
+        memberDTO.setCorporationBusiness(foundCorporation.get().getCorporationBusiness());
+        memberDTO.setCorporationType(foundCorporation.get().getCorporationType());
+        memberDTO.setCorporationOwner(foundCorporation.get().getCorporationOwner());
+        memberDTO.setCorporationEmail(foundCorporation.get().getCorporationEmail());
+        memberDTO.setCorporationPassword(foundCorporation.get().getCorporationPassword());
+        memberDTO.setCorporationHomepage(foundCorporation.get().getCorporationHomepage());
+        memberDTO.setCorporationGen(foundCorporation.get().getCorporationGen());
+        memberDTO.setCorporationSales(foundCorporation.get().getCorporationSales());
 
         memberDTO.setMemberStatus("활동 회원");
         memberDTO.setMemberType("포지셔너");
+
         // 필요에 따라 추가적인 필드 설정
         log.info("memberDTO: {}", memberDTO);
         // 세션에 memberDTO 저장

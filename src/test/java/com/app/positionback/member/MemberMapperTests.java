@@ -28,7 +28,7 @@ public class MemberMapperTests {
         memberDTO.setMemberAddressDetail("주류성빌딩 7층");
         memberDTO.setMemberNickname("취뽀지션");
 
-        memberMapper.insertMember(memberDTO.toVO());
+        memberMapper.insertMember(memberDTO.toMemVO());
         log.info("memberDTO : {}", memberDTO);
     }
 
@@ -39,7 +39,7 @@ public class MemberMapperTests {
         memberDTO.setMemberPassword("123456");
 
         Optional<MemberVO> foundMember =
-                memberMapper.selectByMemberEmailAndMemberPassword(memberDTO.toVO());
+                memberMapper.selectByMemberEmailAndMemberPassword(memberDTO.toMemVO());
 
 //        테이블에서 조회된 회원 정보가 null이 아니라면, 전체 정보 출력
         foundMember.map(MemberVO::toString).ifPresent(log::info);

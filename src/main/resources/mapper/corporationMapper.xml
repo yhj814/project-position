@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.positionback.mapper.member.MemberMapper">
+<mapper namespace="com.app.positionback.mapper.corporation.CorporationMapper">
 
  <insert id="insertCorporation">
      insert into tbl_corporation(id,corporation_name,corporation_address,corporation_address_detail,corporation_business,
-                                 corporation_type,corporation_owner,corporation_email,corporation_password,corporation_homepage,corporation_read_count,corporation_Gen,corporation_sales)
+                                 corporation_type,corporation_owner,corporation_email,corporation_password,corporation_homepage,corporation_Gen,corporation_sales)
      values (#{id},#{corporationName},#{corporationAddress},#{corporationAddressDetail},#{corporationBusiness},#{corporationType},#{corporationOwner},
-             #{corporationEmail},#{corporationPassword},#{corporationHomepage},#{corporationReadCount},#{corporationGen},#{corporationSales})
+             #{corporationEmail},#{corporationPassword},#{corporationHomepage},#{corporationGen},#{corporationSales})
  </insert>
 
-    <select id="selectByCorporationEmailAndPassword" resultType="memberDTO">
+    <select id="selectByCorporationEmailAndPassword" resultType="corporationVO">
         select id,corporation_name,corporation_address,corporation_address_detail,corporation_business,
                corporation_type,corporation_owner,corporation_email,corporation_password,corporation_homepage,corporation_read_count,corporation_Gen,corporation_sales
         from tbl_corporation
-        where corporation_email =#{corporationEmail} and corporation_password = #{corporationPassword}
+        where corporation_email = #{corporationEmail} and corporation_password = #{corporationPassword}
     </select>
 </mapper>

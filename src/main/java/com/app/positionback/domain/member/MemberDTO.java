@@ -29,19 +29,19 @@ public class MemberDTO {
     private String corporationAddressDetail;
     private String corporationBusiness;
     private String corporationType;
-    private String corporationSales;
     private String corporationOwner;
     private String corporationEmail;
     private String corporationPassword;
     private String corporationHomepage;
-    private String corporationReadCount;
+    private String corporationGen;
+    private String corporationSales;
 
     public MemberVO toMemVO(){return new MemberVO(id,memberName,memberEmail,memberPassword,memberAddress,
             memberAddressDetail,memberNickname,memberStatus,memberType,memberWarningCount);}
 
     public CorporationVO toCorpVO(){
         return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,corporationBusiness,
-                corporationType,corporationSales,corporationOwner,corporationEmail,corporationPassword,corporationHomepage,
-                corporationReadCount);
+                corporationType,corporationOwner,corporationEmail,corporationPassword,corporationHomepage
+                ,corporationGen,corporationSales);
     }
 }
