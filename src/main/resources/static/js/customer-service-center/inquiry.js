@@ -41,5 +41,12 @@ document.addEventListener("click", () => {
 });
 
 document.getElementById("help-send").addEventListener("click", (e) => {
-    location.href = `/customer-service-center/inquiry`;
+    location.href = `/customer-service-center/faq`;
+});
+
+document.querySelectorAll('#help-category option').forEach(option => {
+    option.addEventListener('click', (e) => {
+        const selectedValue = this.value; // 선택된 값 가져오기
+        document.getElementById('selected-category').textContent = `선택된 카테고리: ${selectedValue}`;
+    });
 });
