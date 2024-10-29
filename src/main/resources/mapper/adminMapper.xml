@@ -7,51 +7,51 @@
     </select>
 
     <select id="selectByCorporateMember" resultType="CorporatationVO">
-       select * from tbl_corporatation
+        select * from tbl_corporatation
     </select>
 
     <!-- 지원 현황 관리 -->
-    <select id="getApplicationStatus" resultType="ApplyDTO">
+    <select id="selectByApplicationStatus" resultType="ApplyDTO">
         select * from tbl_apply
     </select>
 
-    <select id="getInterviewStatus" resultType="InterviewStatusDTO">
-        SELECT * FROM TBL_INTERVIEW_STATUS
+    <select id="selectByInterviewStatus" resultType="InterviewDTO">
+        select * from tbl_interview
     </select>
 
-    <select id="getInternshipStatus" resultType="InternshipStatusDTO">
-        SELECT * FROM TBL_INTERNSHIP_STATUS
+    <select id="selectByInternshipStatus" resultType="PositionDTO">
+        select * from tbl_position
     </select>
 
     <!-- 결제 관리 -->
-    <select id="getPayments" resultType="PaymentDTO">
-        SELECT * FROM TBL_PAYMENTS
+    <select id="selectByPayments" resultType="PaymentDTO">
+        select * from tbl_payment
     </select>
 
     <!-- 작성 관리 -->
-    <select id="getJobPostings" resultType="JobPostingDTO">
-        SELECT * FROM TBL_JOB_POSTINGS
+    <select id="selectByNotice" resultType="NoticeDTO">
+        select * from tbl_notice
     </select>
 
-    <select id="getBoardPosts" resultType="BoardPostDTO">
-        SELECT * FROM TBL_BOARD_POSTS
+    <select id="selectByPosts" resultType="PostDTO">
+        select * from tbl_post
     </select>
 
-    <select id="getComments" resultType="CommentDTO">
-        SELECT * FROM TBL_COMMENTS
+    <select id="selectByReply" resultType="ReplyDTO">
+        select * from tbl_reply
     </select>
 
     <!-- 후기 관리 -->
-    <select id="getInterviewReviews" resultType="InterviewReviewDTO">
-        SELECT * FROM TBL_INTERVIEW_REVIEWS
+    <select id="selectByInterviewReviews" resultType="InterviewReviewDTO">
+        select * from tbl_interview_review
     </select>
 
-    <select id="getCorporateInternshipReviews" resultType="CorporateInternshipReviewDTO">
-        SELECT * FROM TBL_CORPORATE_INTERNSHIP_REVIEWS
+    <select id="selectByToPositionReview" resultType="CorporationReviewDTO>">
+        select * from tbl_corporation_review
     </select>
 
-    <select id="getInternInternshipReviews" resultType="InternInternshipReviewDTO">
-        SELECT * FROM TBL_INTERN_INTERNSHIP_REVIEWS
+    <select id="selctByToCorporationReview" resultType="PositionReviewDTO">
+        select * from tbl_postion_review
     </select>
 
     <!-- 문의 관리 -->
@@ -64,8 +64,8 @@
     </select>
 
     <!-- 신고 관리 -->
-    <select id="getCorporateReviewReports" resultType="CorporateReviewReportDTO">
-        SELECT * FROM TBL_CORPORATE_REVIEW_REPORTS
+    <select id="selectByComplain" resultType="ComplainDTO">
+        select * from tbl_complain
     </select>
 
     <!-- 대시보드 기본 데이터 -->
