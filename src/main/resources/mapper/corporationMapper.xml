@@ -3,16 +3,9 @@
 <mapper namespace="com.app.positionback.mapper.corporation.CorporationMapper">
 
  <insert id="insertCorporation">
-     insert into tbl_corporation(id,corporation_name,corporation_address,corporation_address_detail,corporation_business,
-                                 corporation_type,corporation_owner,corporation_email,corporation_password,corporation_homepage,corporation_Gen,corporation_sales)
-     values (#{id},#{corporationName},#{corporationAddress},#{corporationAddressDetail},#{corporationBusiness},#{corporationType},#{corporationOwner},
-             #{corporationEmail},#{corporationPassword},#{corporationHomepage},#{corporationGen},#{corporationSales})
+     insert into tbl_corporation(corporation_name, corporation_address, corporation_address_detail,
+                                 corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_gen, corporation_sales)
+     values (#{corporationName}, #{corporationAddress}, #{corporationAddressDetail}, #{corporationBusiness}, #{corporationOwner},
+             #{corporationEmail}, #{corporationPassword}, #{corporationHomepage}, #{corporationGen}, #{corporationSales})
  </insert>
-
-    <select id="selectByCorporationEmailAndPassword" resultType="corporationVO">
-        select id,corporation_name,corporation_address,corporation_address_detail,corporation_business,
-               corporation_type,corporation_owner,corporation_email,corporation_password,corporation_homepage,corporation_read_count,corporation_Gen,corporation_sales
-        from tbl_corporation
-        where corporation_email = #{corporationEmail} and corporation_password = #{corporationPassword}
-    </select>
 </mapper>

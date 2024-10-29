@@ -8,7 +8,8 @@
         <title>로그인 - Position</title>
     </head>
     <body>
-    <form th:action="@{/login/login-combine}" method="post" name="login-form" th:object="${memberDTO}">
+    <form th:action="@{/login}" method="post" name="login-form" th:object="${memberDTO}">
+        <input type="hidden" name="loginType" id="member-type" value="개인">
         <header id="login-header" class="integrated-header">
             <div class="area-logo">
                 <!-- position path -->
@@ -265,6 +266,7 @@
                                                             selected="true"
                                                             tabindex="0"
                                                             area-selected="true"
+                                                            id="member"
                                                         >
                                                             개인회원
                                                         </button>
@@ -277,11 +279,13 @@
                                                             selected="false"
                                                             tabindex="-1"
                                                             area-selected="false"
+                                                            id="company"
                                                         >
                                                             기업회원
                                                         </button>
                                                     </li>
                                                 </ul>
+
                                                 <div
                                                     class="tab-panel"
                                                     role="tabpanel"
@@ -294,11 +298,10 @@
                                                             <input
                                                                 type="text"
                                                                 id="id"
-                                                                name="id"
                                                                 class="txt-tool"
                                                                 value=""
                                                                 required=""
-                                                                th:field="*{memberEmail}"
+                                                                name="memberEmail"
                                                             />
                                                             <label
                                                                 id="id-label"
@@ -313,12 +316,11 @@
                                                             <input
                                                                 type="password"
                                                                 id="password"
-                                                                name="password"
+                                                                name="memberPassword"
                                                                 class="txt-tool"
                                                                 value=""
                                                                 maxlength="32"
                                                                 required=""
-                                                                th:field="*{memberPassword}"
                                                             />
                                                             <label
                                                                 id="password-label"
