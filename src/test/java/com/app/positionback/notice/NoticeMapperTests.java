@@ -30,7 +30,6 @@ public class NoticeMapperTests {
         noticeDTO.setNoticeCareer("3 years");
         noticeDTO.setNoticeEducation("Bachelor's Degree");
         noticeDTO.setNoticeEndDate("2024-01-31");
-        noticeDTO.setJobCategorycId(2L);
         noticeDTO.setNoticeWorkStartTime("09:00");
         noticeDTO.setNoticeWorkEndTime("18:00");
         noticeDTO.setNoticeWorkStartDate("2024-01-31");
@@ -50,7 +49,6 @@ public class NoticeMapperTests {
         noticeDTO.setNoticeCareer("5 years");
         noticeDTO.setNoticeEducation("Master's Degree");
         noticeDTO.setNoticeEndDate("2024-01-31");
-        noticeDTO.setJobCategorycId(3L);
         noticeDTO.setNoticeWorkStartTime("08:00");
         noticeDTO.setNoticeWorkEndTime("17:00");
         noticeDTO.setNoticeWorkStartDate("2024-01-31");

@@ -51,11 +51,13 @@ public class NoticeServiceImpl implements NoticeService {
         noticeDAO.deleteNotice(id);
     }
 
+    // 상세보기
     @Override
     public NoticeDTO getNoticeById(Long id) {
         return noticeDAO.findNoticeById(id);
     }
 
+    // 기업이 작성한 공고 목록
     @Override
     public List<NoticeDTO> getNoticesByCorporationId(Long corporationId) {
         return noticeDAO.findNoticesByCorporationId(corporationId);
