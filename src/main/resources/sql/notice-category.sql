@@ -5,3 +5,6 @@ create table tbl_notice_category(
     constraint fk_notice_category_notice_id foreign key (notice_id)
                                 references tbl_notice(id)
 );
+
+select *
+from tbl_notice_category;

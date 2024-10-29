@@ -346,6 +346,12 @@ document.querySelector(".btn.btn-job-cancel").addEventListener("click", () =>{
     const boxDetailJobs = document.querySelector(".box-detail-jobs");
     boxJobs.style.display = "none";
     boxDetailJobs.style.display = "none";
+
+    const selectedJobs = selectedJobContainer.querySelectorAll(".job-selected");
+    selectedJobs.forEach(job => {
+        selectedJobContainer.removeChild(job);
+    });
+    updateNoSelectionMessage();
 })
 // document.querySelector(".btn.btn-job-confirm").addEventListener("click", () =>{
 //     targetElement.classList.remove("on");
