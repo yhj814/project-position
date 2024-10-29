@@ -21,10 +21,14 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // 탭 토글 함수
+const memberType = document.getElementById("member-type");
+
 personTab.addEventListener("click", () => toggleTabs(true));
 companyTab.addEventListener("click", () => toggleTabs(false));
 
 const toggleTabs = (isPerson) => {
+    memberType.value = isPerson ? "개인" : "기업";
+
     personTab.classList.toggle("active", isPerson);
     companyTab.classList.toggle("active", !isPerson);
 

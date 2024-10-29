@@ -9,6 +9,8 @@
 
         <typeAlias type="com.app.positionback.domain.member.MemberVO" alias="memberVO"/>
         <typeAlias type="com.app.positionback.domain.member.MemberDTO" alias="memberDTO"/>
+        <typeAlias type="com.app.positionback.domain.corporation.CorporationVO" alias="corporationVO"/>
+        <typeAlias type="com.app.positionback.domain.corporation.CorporationDTO" alias="corporationDTO"/>
 
         <typeAlias type="com.app.positionback.domain.inquiry.InquiryVO" alias="inquiryVO"/>
         <typeAlias type="com.app.positionback.domain.inquiry.InquiryDTO" alias="inquiryDTO"/>
