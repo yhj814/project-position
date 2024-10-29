@@ -35,6 +35,19 @@ const setButtonClickEvents = () => {
         });
     });
 };
+
+// 선택한 카테고리에 해당하는 항목에 'on' 클래스 추가
+const highlightJobItem = (categoryId) => {
+    // 모든 <li> 요소에서 'on' 클래스 제거
+    listOverview.querySelectorAll(".item-job").forEach(item => item.classList.remove("on"));
+
+    // 해당하는 <li> 요소에만 'on' 클래스 추가
+    const targetItem = listOverview.querySelector(`.item-job[data-category="${categoryId}"]`);
+    if (targetItem) {
+        targetItem.classList.add("on");
+    }
+};
+
 // <ul> 목록에 항목 추가
 const addJobListItems = (categories) => {
     listOverview.innerHTML =''; // 기존 내용 삭제
@@ -107,20 +120,25 @@ const handleDepthButtonClick = (event) => {
 
     // 선택된 직무를 표시할 span 태그 내용
     const spanContent = `
-        <span class="job-selected">${categoryA}
+        ${categoryA}
             <button type="button" class="btnDelete deleteToDepth">
                 <span class="blind">삭제</span>
             </button> &nbsp;&gt;&nbsp;&nbsp;${categoryC}
             <button type="button" class="btn-delete deleteToKeyword">
                 <span class="blind">삭제</span>
             </button>
-        </span>`;
+        `;
 
     // 이미 선택된 직무인지 확인
     const existingSpans = selectedJobContainer.querySelectorAll(".job-selected");
 
     // 버튼이 선택된 경우
     if (button.classList.contains("on")) {
+        if (existingSpans.length >= 1) {
+            alert("최대 1개의 직무만 선택할 수 있습니다."); // Show an alert
+            button.classList.remove("on"); // Remove the "on" class if limit is exceeded
+            return; // Stop the execution
+        }
         // 새로운 span을 추가
         const newSpan = document.createElement("span");
         newSpan.className = "job-selected";
@@ -188,13 +206,18 @@ const updateNoSelectionMessage = () => {
 
 // btn-job-confirm 클릭 시 호출되는 함수
 const handleJobConfirmClick = () => {
+    // 희망 직무 리스트 요소 선택
     const hopeJobsList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list");
+
+    // 모든 유효성 검사를 통과한 경우, 원래의 기능을 진행
     hopeJobsList.innerHTML ='';
+
     const selectedJobs = selectedJobContainer.querySelectorAll(".job-selected");
     selectedJobs.forEach(job => {
         // 대카와 소카를 파싱
         const categoryA = job.childNodes[0].nodeValue.trim(); // 대카값
         const categoryC = job.childNodes[2].nodeValue.trim(); // 소카값
+        const cleanedCategory = categoryC.replace(/[\s>&nbsp;]/g, ''); // 공백, >, &nbsp; 제거
 
         // 새로운 li 요소 생성
         const liElement = document.createElement("li");
@@ -202,9 +225,11 @@ const handleJobConfirmClick = () => {
             <span class="hope_jobs" style="color:#566feb;">${categoryA}
                 <button type="button" class="btnDelete deleteToDepth">
                     <span class="blind">삭제</span>
-                </button>
+                </button>&nbsp;&nbsp;
             </span>
-            <span class="hope_jobs" th:field="*{noticeCategoryName}">${categoryC}
+            <span class="hope_jobs">
+                <input type="hidden" name="noticeJobCategoryName" th:field="*{noticeJobCategoryName}" value="${cleanedCategory}"/>
+                >&nbsp;&nbsp;${cleanedCategory}
                 <button type="button" class="btn-delete deleteToKeyword">
                     <span class="blind">삭제</span>
                 </button>
@@ -222,6 +247,11 @@ const handleJobConfirmClick = () => {
 
         hopeJobsList.appendChild(liElement); // ul에 li 추가
     });
+    // 선택된 직무 span 태그들 삭제
+    selectedJobs.forEach(job => {
+        selectedJobContainer.removeChild(job);
+    });
+    updateNoSelectionMessage();
 };
 
 
@@ -231,17 +261,93 @@ if (jobConfirmButton) {
     jobConfirmButton.addEventListener("click", handleJobConfirmClick);
 }
 
+// 유효성 검사 함수
+const validateForm = () => {
+    const hopeJobsList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list");
+    const noticeTitle = document.getElementById("NoticeTitle").value.trim(); // 제목 체크
+    const internshipStartDate = document.getElementById("internshipStartDate").value.trim(); // 인턴 시작일 체크
+    const internshipEndDate = document.getElementById("internshipEndDate").value.trim(); // 인턴 종료일 체크
+    const workStartTime = document.getElementById("workStartTime").value.trim(); // 근무 시작 시간 체크
+    const workEndTime = document.getElementById("workEndTime").value.trim(); // 근무 종료 시간 체크
+    const selectedCareer = document.getElementById("interview-history").value; // 경력 선택 체크
+    const selectedEducation = document.getElementById("noticeEducation").value; // 학력 선택 체크
+    const dueDate = document.getElementById("dueDate").value.trim(); // 마감일 체크
+    const fileInput = document.getElementById("file"); // 파일 입력 체크
 
+    // 유효성 검사 플래그
+    let isValid = true;
 
-
-// 선택한 카테고리에 해당하는 항목에 'on' 클래스 추가
-const highlightJobItem = (categoryId) => {
-    // 모든 <li> 요소에서 'on' 클래스 제거
-    listOverview.querySelectorAll(".item-job").forEach(item => item.classList.remove("on"));
-
-    // 해당하는 <li> 요소에만 'on' 클래스 추가
-    const targetItem = listOverview.querySelector(`.item-job[data-category="${categoryId}"]`);
-    if (targetItem) {
-        targetItem.classList.add("on");
+    // 1. NoticeTitle이 비어 있는지 체크
+    if (!noticeTitle) {
+        alert("제목을 입력해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
     }
+
+    // 2. 희망 직무 리스트에 <li> 항목이 없는지 체크
+    if (hopeJobsList.children.length === 0) {
+        alert("희망 직무를 선택해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 3. internshipStartDate가 비어 있는지 체크
+    if (!internshipStartDate) {
+        alert("인턴 시작일을 입력해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 4. internshipEndDate가 비어 있는지 체크
+    if (!internshipEndDate) {
+        alert("인턴 종료일을 입력해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 5. workStartTime이 비어 있는지 체크
+    if (!workStartTime) {
+        alert("근무 시작 시간을 입력해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 6. workEndTime이 비어 있는지 체크
+    if (!workEndTime) {
+        alert("근무 종료 시간을 입력해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 7. 경력 선택이 비어 있는지 체크
+    if (!selectedCareer) {
+        alert("경력을 선택해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 8. 학력 선택이 비어 있는지 체크
+    if (!selectedEducation) {
+        alert("학력을 선택해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 9. dueDate가 비어 있는지 체크
+    if (!dueDate) {
+        alert("마감일을 입력해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 10. 파일이 첨부되지 않았는지 체크
+    if (!fileInput.value) {
+        alert("파일을 첨부해주세요."); // 알림 메시지
+        return false; // 유효성 검사 실패 시 즉시 종료
+    }
+
+    // 모든 유효성 검사를 통과한 경우
+    return isValid;
 };
+
+// submitBtn 클릭 시 유효성 검사 후 기능 실행
+const submitButton = document.getElementById("submitBtn");
+if (submitButton) {
+    submitButton.addEventListener("click", (event) => {
+        const isFormValid = validateForm();
+        if (!isFormValid) {
+            event.preventDefault(); // 유효성 검사 실패 시 폼 제출 중단
+        }
+    });
+}

@@ -28,7 +28,7 @@ class JobCategoryServiceImplTest {
     @Test
     void testToMapOfCategoryB() {
         Long categoryAId = 1L;
-        Map<String, List<String>> result = jobCategoryService.toMapOfCategoryB(categoryAId);
+        Map<String, Map<String, List<String>>> result = jobCategoryService.toMapOfCategoryB(categoryAId);
         log.info("Map of Category B: {}", result);
     }
 }
