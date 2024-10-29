@@ -20,10 +20,10 @@ public class AdminController {
     @GetMapping("/admin")
     public String goToAdminPage(@RequestParam(required = false) String section, Model model) {
         // 선택적 파라미터 'section'에 따라 특정 섹션의 데이터를 조회
-        // section 파라미터에 따라 AdminMapper에서 해당 데이터를 조회하여 Model에 추가합니다.
-        // model.addAttribute("data", ...) 구문을 통해 뷰에서 data라는 이름으로 조회된 데이터를 사용할 수 있도록 설정합니다.
-        // model.addAttribute("section", section)은 현재 section 값을 뷰에서 활용할 수 있도록 전달합니다.
-        // 최종적으로 admin/admin 페이지가 렌더링됩니다.
+        // section 파라미터에 따라 AdminMapper에서 해당 데이터를 조회하여 Model에 추가한다.
+        // model.addAttribute("data", ...) 구문을 통해 뷰에서 data라는 이름으로 조회된 데이터를 사용할 수 있도록 설정한다.
+        // model.addAttribute("section", section)은 현재 section 값을 뷰에서 활용할 수 있도록 전달한다.
+        // 최종적으로 admin/admin 페이지가 렌더링된다.
 
         // 회원 관리
 
@@ -36,31 +36,31 @@ public class AdminController {
 
             // 지원 현황 관리
         } else if ("applicationStatus".equals(section)) {
-            model.addAttribute("data", adminMapper.getApplicationStatus());
+            model.addAttribute("data", adminMapper.selectByApplicationStatus());
         } else if ("interviewStatus".equals(section)) {
-            model.addAttribute("data", adminMapper.getInterviewStatus());
+            model.addAttribute("data", adminMapper.selectByInterviewStatus());
         } else if ("internshipStatus".equals(section)) {
-            model.addAttribute("data", adminMapper.getInternshipStatus());
+            model.addAttribute("data", adminMapper.selectByInternshipStatus());
 
             // 결제 관리
         } else if ("payments".equals(section)) {
-            model.addAttribute("data", adminMapper.getPayments());
+            model.addAttribute("data", adminMapper.selectByPayments());
 
             // 작성 관리
         } else if ("jobPostings".equals(section)) {
-            model.addAttribute("data", adminMapper.getJobPostings());
+            model.addAttribute("data", adminMapper.selectByNotice());
         } else if ("boardPosts".equals(section)) {
-            model.addAttribute("data", adminMapper.getBoardPosts());
+            model.addAttribute("data", adminMapper.selectByPosts());
         } else if ("comments".equals(section)) {
-            model.addAttribute("data", adminMapper.getComments());
+            model.addAttribute("data", adminMapper.selectByReply());
 
             // 후기 관리
         } else if ("interviewReviews".equals(section)) {
-            model.addAttribute("data", adminMapper.getInterviewReviews());
+            model.addAttribute("data", adminMapper.selectByInterviewReviews());
         } else if ("corporateInternshipReviews".equals(section)) {
-            model.addAttribute("data", adminMapper.getCorporateInternshipReviews());
+            model.addAttribute("data", adminMapper.selectByToPositionReview());
         } else if ("internInternshipReviews".equals(section)) {
-            model.addAttribute("data", adminMapper.getInternInternshipReviews());
+            model.addAttribute("data", adminMapper.selctByToCorporationReview());
 
             // 문의 관리
         } else if ("generalInquiries".equals(section)) {
@@ -70,7 +70,7 @@ public class AdminController {
 
             // 신고 관리
         } else if ("corporateReviewReports".equals(section)) {
-            model.addAttribute("data", adminMapper.getCorporateReviewReports());
+            model.addAttribute("data", adminMapper.selectByComplain());
 
             // 기본 대시보드 데이터
         } else {
