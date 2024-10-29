@@ -1,4 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.admin.AdminMapper">
+<!--    &lt;!&ndash; 회원 관리 &ndash;&gt;-->
+<!--    <select id="selectByMember" resultType="MemberVO">-->
+<!--        select * from tbl_member-->
+<!--    </select>-->
+
+<!--    <select id="selectByCorporateMember" resultType="CorporatationVO">-->
+<!--        select * from tbl_corporatation-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 지원 현황 관리 &ndash;&gt;-->
+<!--    <select id="selectByApplicationStatus" resultType="ApplyDTO">-->
+<!--        select * from tbl_apply-->
+<!--    </select>-->
+
+<!--    <select id="selectByInterviewStatus" resultType="InterviewDTO">-->
+<!--        select * from tbl_interview-->
+<!--    </select>-->
+
+<!--    <select id="selectByInternshipStatus" resultType="PositionDTO">-->
+<!--        select * from tbl_position-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 결제 관리 &ndash;&gt;-->
+<!--    <select id="selectByPayments" resultType="PaymentDTO">-->
+<!--        select * from tbl_payment-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 작성 관리 &ndash;&gt;-->
+<!--    <select id="selectByNotice" resultType="NoticeDTO">-->
+<!--        select * from tbl_notice-->
+<!--    </select>-->
+
+<!--    <select id="selectByPosts" resultType="PostDTO">-->
+<!--        select * from tbl_post-->
+<!--    </select>-->
+
+<!--    <select id="selectByReply" resultType="ReplyDTO">-->
+<!--        select * from tbl_reply-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 후기 관리 &ndash;&gt;-->
+<!--    <select id="selectByInterviewReviews" resultType="InterviewReviewDTO">-->
+<!--        select * from tbl_interview_review-->
+<!--    </select>-->
+
+<!--    <select id="selectByToPositionReview" resultType="CorporationReviewDTO>">-->
+<!--        select * from tbl_corporation_review-->
+<!--    </select>-->
+
+<!--    <select id="selctByToCorporationReview" resultType="PositionReviewDTO">-->
+<!--        select * from tbl_postion_review-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 문의 관리 &ndash;&gt;-->
+<!--    <select id="selectByInquiry" resultType="InquiryDTO">-->
+<!--        select * from tbl_inquiry-->
+<!--    </select>-->
+
+<!--    <select id="selectByCorporateInquiry" resultType="InquiryDTO">-->
+<!--        select * from tbl_inquiry-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 신고 관리 &ndash;&gt;-->
+<!--    <select id="selectByComplain" resultType="ComplainDTO">-->
+<!--        select * from tbl_complain-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 대시보드 기본 데이터 &ndash;&gt;-->
+<!--    <select id="getDashboardData" resultType="DashboardDataVO">-->
+<!--        SELECT * FROM TBL_DASHBOARD_DATA-->
+<!--    </select>-->
+
 </mapper>
