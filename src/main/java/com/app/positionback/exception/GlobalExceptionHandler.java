@@ -15,6 +15,5 @@ public class GlobalExceptionHandler {
         String currentPath = request.getRequestURI();
         log.error(e.getMessage());
         return new RedirectView(currentPath + "?status=false");
-
     }
 }

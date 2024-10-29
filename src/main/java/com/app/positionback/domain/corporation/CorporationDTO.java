@@ -14,7 +14,6 @@ public class CorporationDTO {
     private String corporationName;
     private String corporationAddress;
     private String corporationAddressDetail;
-    private String corporationBusiness;
     private String corporationType;
     private String corporationOwner;
     private String corporationEmail;
@@ -24,7 +23,7 @@ public class CorporationDTO {
     private String corporationSales;
 
     public  CorporationVO toVO() {
-        return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,corporationBusiness,
+        return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,
                 corporationType,corporationOwner,corporationEmail,corporationPassword,corporationHomepage,corporationGen,corporationSales);
     }
 }

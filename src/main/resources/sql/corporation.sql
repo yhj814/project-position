@@ -22,12 +22,14 @@ alter table tbl_corporation alter column corporation_sales set default 0;
 alter table tbl_corporation alter column corporation_read_count set default 0;
 alter table tbl_corporation alter column corporation_type set default '-';
 alter table tbl_corporation alter column corporation_business set default '-';
+alter table tbl_corporation drop column corporation_business;
+alter table tbl_corporation drop column corporation_type;
 
 alter table tbl_corporation drop column corporation_sales;
 alter table tbl_corporation add(corporation_sales int);
 
-alter table  tbl_corporation drop column corporation_Gen;
-alter  table  tbl_corporation add (corporation_Gen varchar(255))
+alter table  tbl_corporation drop column corporation_gen;
+alter  table  tbl_corporation add (corporation_gen varchar(255));
 
 alter table  tbl_corporation add(created_date datetime default current_timestamp);
 alter table  tbl_corporation add(updated_date datetime default current_timestamp);

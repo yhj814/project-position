@@ -14,7 +14,6 @@ public class CorporationVO {
     private String corporationName;
     private String corporationAddress;
     private String corporationAddressDetail;
-    private String corporationBusiness;
     private String corporationType;
     private String corporationOwner;
     private String corporationEmail;
