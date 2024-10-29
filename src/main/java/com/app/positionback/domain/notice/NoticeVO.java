@@ -25,4 +25,5 @@ public class NoticeVO {
     private String noticeWorkEndTime;
     private String noticeWorkStartDate;
     private String noticeWorkEndDate;
+    private String noticeJobCategoryName;
 }

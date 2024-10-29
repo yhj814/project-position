@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.notice.NoticeMapper">
     <insert id="insertNotice">
-        insert into tbl_notice (corporation_id, notice_title, notice_career, notice_education, notice_end_date, job_categoryC_id, notice_work_start_time,notice_work_end_time, notice_work_start_date, notice_work_end_date)
-        values (#{corporationId}, #{noticeTitle}, #{noticeCareer}, #{noticeEducation}, #{noticeEndDate},#{jobCategorycId}, #{noticeWorkStartTime}, #{noticeWorkEndTime}, #{noticeWorkStartDate}, #{noticeWorkEndDate})
+        insert into tbl_notice (corporation_id, notice_title, notice_career, notice_education, notice_end_date, job_categoryC_id, notice_work_start_time,notice_work_end_time, notice_work_start_date, notice_work_end_date, notice_job_category_name)
+        values (#{corporationId}, #{noticeTitle}, #{noticeCareer}, #{noticeEducation}, #{noticeEndDate},#{jobCategorycId}, #{noticeWorkStartTime}, #{noticeWorkEndTime}, #{noticeWorkStartDate}, #{noticeWorkEndDate} ,#{noticeJobCategoryName})
     </insert>
 
     <!-- 마지막으로 삽입된 ID를 가져오는 쿼리 -->

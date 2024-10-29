@@ -21,5 +21,5 @@ create table  tbl_notice(
 select * from tbl_notice;
 
 ALTER TABLE TBL_NOTICE
-    MODIFY COLUMN notice_end_date datetime NOT NULL;
+    add COLUMN notice_job_category_name VARCHAR(255);
 

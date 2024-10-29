@@ -35,6 +35,19 @@ const setButtonClickEvents = () => {
         });
     });
 };
+
+// 선택한 카테고리에 해당하는 항목에 'on' 클래스 추가
+const highlightJobItem = (categoryId) => {
+    // 모든 <li> 요소에서 'on' 클래스 제거
+    listOverview.querySelectorAll(".item-job").forEach(item => item.classList.remove("on"));
+
+    // 해당하는 <li> 요소에만 'on' 클래스 추가
+    const targetItem = listOverview.querySelector(`.item-job[data-category="${categoryId}"]`);
+    if (targetItem) {
+        targetItem.classList.add("on");
+    }
+};
+
 // <ul> 목록에 항목 추가
 const addJobListItems = (categories) => {
     listOverview.innerHTML =''; // 기존 내용 삭제
@@ -195,6 +208,7 @@ const handleJobConfirmClick = () => {
         // 대카와 소카를 파싱
         const categoryA = job.childNodes[0].nodeValue.trim(); // 대카값
         const categoryC = job.childNodes[2].nodeValue.trim(); // 소카값
+        const cleanedCategory = categoryC.replace(/[\s>&nbsp;]/g, ''); // 공백, >, &nbsp; 제거
 
         // 새로운 li 요소 생성
         const liElement = document.createElement("li");
@@ -202,9 +216,11 @@ const handleJobConfirmClick = () => {
             <span class="hope_jobs" style="color:#566feb;">${categoryA}
                 <button type="button" class="btnDelete deleteToDepth">
                     <span class="blind">삭제</span>
-                </button>
+                </button>&nbsp;&nbsp;
             </span>
-            <span class="hope_jobs" th:field="*{noticeCategoryName}">${categoryC}
+            <span class="hope_jobs">
+                <input type="hidden" name="noticeJobCategoryName" th:field="*{noticeJobCategoryName}" value="${cleanedCategory}"/>
+                >&nbsp;&nbsp;${cleanedCategory}
                 <button type="button" class="btn-delete deleteToKeyword">
                     <span class="blind">삭제</span>
                 </button>
@@ -230,18 +246,3 @@ const jobConfirmButton = document.querySelector(".btn-job-confirm");
 if (jobConfirmButton) {
     jobConfirmButton.addEventListener("click", handleJobConfirmClick);
 }
-
-
-
-
-// 선택한 카테고리에 해당하는 항목에 'on' 클래스 추가
-const highlightJobItem = (categoryId) => {
-    // 모든 <li> 요소에서 'on' 클래스 제거
-    listOverview.querySelectorAll(".item-job").forEach(item => item.classList.remove("on"));
-
-    // 해당하는 <li> 요소에만 'on' 클래스 추가
-    const targetItem = listOverview.querySelector(`.item-job[data-category="${categoryId}"]`);
-    if (targetItem) {
-        targetItem.classList.add("on");
-    }
-};
