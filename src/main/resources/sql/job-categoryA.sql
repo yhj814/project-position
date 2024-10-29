@@ -3,7 +3,12 @@ create table tbl_job_categoryA(
   job_categoryA_name varchar(255)
 );
 
-INSERT INTO tbl_job_categoryA (job_categoryA_name) VALUES ('기획·전략');
+-- 고객상담·TM 카테고리 (ID = 9)
+INSERT INTO tbl_job_categoryA (job_categoryA_name)
+VALUES ('고객상담·TM');
+
+
+
 
 select *
 from tbl_job_categoryA;

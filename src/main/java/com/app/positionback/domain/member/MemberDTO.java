@@ -23,25 +23,10 @@ public class MemberDTO {
     private String memberStatus;
     private String memberType;
     private String memberWarningCount;
-//    기업 정보
-    private String corporationName;
-    private String corporationAddress;
-    private String corporationAddressDetail;
-    private String corporationBusiness;
-    private String corporationType;
-    private String corporationOwner;
-    private String corporationEmail;
-    private String corporationPassword;
-    private String corporationHomepage;
-    private String corporationGen;
-    private String corporationSales;
+    private String memberPhone;
+    private String loginType;
 
-    public MemberVO toMemVO(){return new MemberVO(id,memberName,memberEmail,memberPassword,memberAddress,
-            memberAddressDetail,memberNickname,memberStatus,memberType,memberWarningCount);}
-
-    public CorporationVO toCorpVO(){
-        return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,corporationBusiness,
-                corporationType,corporationOwner,corporationEmail,corporationPassword,corporationHomepage
-                ,corporationGen,corporationSales);
+    public MemberVO toVO() {
+        return new MemberVO(id, memberName, memberEmail, memberPassword, memberAddress, memberAddressDetail, memberNickname, memberStatus, memberType, memberWarningCount, memberPhone);
     }
 }

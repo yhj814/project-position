@@ -8,15 +8,10 @@ import java.util.Optional;
 
 // 회원관련 서비스
 public interface MemberService {
-//    일반 회원가입
-    public void registerMember(MemberDTO memberDTO);
-//    일반 로그인
-//    public Optional<MemberVO> login(MemberVO memberVO);
-//    public Optional<MemberVO> loginAsMember(MemberVO memberVO);
-//   public Optional<CorporationVO> loginAsCorporation(CorporationVO corporationVO);
-
-    public  Optional<MemberVO> loginAsMember(MemberDTO memberDTO);
-
-    public  Optional<CorporationVO> loginAsCorporation(MemberDTO memberDTO);
-//Optional<MemberVO> login(MemberDTO memberDTO);
+    public int checkMemberEmail(String memberEmail);
+    public int checkMemberPhone(String memberPhone);
+    public String createCertificationNumber();
+    public String sendMessage(String memberPhone);
+    public void join(MemberVO memberVO);
+    public Optional<MemberVO> login(MemberVO memberVO);
 }

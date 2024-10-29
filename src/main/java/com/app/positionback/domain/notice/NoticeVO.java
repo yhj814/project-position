@@ -20,9 +20,9 @@ public class NoticeVO {
     private String noticeEndDate;
     private String createdDate;
     private String updatedDate;
-    private Long jobCategorycId;
     private String noticeWorkStartTime;
     private String noticeWorkEndTime;
     private String noticeWorkStartDate;
     private String noticeWorkEndDate;
+    private String noticeJobCategoryName;
 }
