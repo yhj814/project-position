@@ -18,7 +18,6 @@ public class NoticeDTO {
     private String noticeEndDate;
     private String createdDate;
     private String updatedDate;
-    private Long jobCategorycId;
     private String noticeWorkStartTime;
     private String noticeWorkEndTime;
     private String noticeWorkStartDate;
@@ -27,6 +26,6 @@ public class NoticeDTO {
     private String corporationName;
 
     public NoticeVO toVO(){
-        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeWordLocation,noticeEndDate,createdDate,updatedDate,jobCategorycId,noticeWorkStartTime,noticeWorkEndTime,noticeWorkStartDate,noticeWorkEndDate,noticeJobCategoryName);
+        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeWordLocation,noticeEndDate,createdDate,updatedDate,noticeWorkStartTime,noticeWorkEndTime,noticeWorkStartDate,noticeWorkEndDate,noticeJobCategoryName);
     }
 }

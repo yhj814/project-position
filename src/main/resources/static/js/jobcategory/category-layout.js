@@ -134,15 +134,21 @@ const handleDepthButtonClick = (event) => {
 
     // 버튼이 선택된 경우
     if (button.classList.contains("on")) {
-        if (existingSpans.length >= 3) {
-            alert("최대 3개의 직무만 선택할 수 있습니다."); // Show an alert
+        if (existingSpans.length >= 1) {
+            alert("최대 1개의 직무만 선택할 수 있습니다."); // Show an alert
             button.classList.remove("on"); // Remove the "on" class if limit is exceeded
             return; // Stop the execution
         }
         // 새로운 span을 추가
         const newSpan = document.createElement("span");
         newSpan.className = "job-selected";
-        newSpan.innerHTML = spanContent; // spanContent에 ID 포함된 내용 설정
+        newSpan.innerHTML = `${categoryA}
+            <button type="button" class="btnDelete deleteToDepth">
+                <span class="blind">삭제</span>
+            </button> &nbsp;&gt;&nbsp;&nbsp;${categoryC}
+            <button type="button" class="btn-delete deleteToKeyword">
+                <span class="blind">삭제</span>
+            </button>`;
 
         selectedJobContainer.appendChild(newSpan);
 
@@ -332,17 +338,16 @@ const validateForm = () => {
     }
 
     // 모든 유효성 검사를 통과한 경우
-    return true;
+    return isValid;
 };
 
 // submitBtn 클릭 시 유효성 검사 후 기능 실행
 const submitButton = document.getElementById("submitBtn");
 if (submitButton) {
-    submitButton.addEventListener("click", () => {
-        // 유효성 검사
-        if (validateForm()) {
-            // 모든 유효성 검사가 통과하면 btn-job-confirm 클릭 이벤트 호출
-            handleJobConfirmClick();
+    submitButton.addEventListener("click", (event) => {
+        const isFormValid = validateForm();
+        if (!isFormValid) {
+            event.preventDefault(); // 유효성 검사 실패 시 폼 제출 중단
         }
     });
 }
