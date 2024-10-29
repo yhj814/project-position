@@ -1,18 +1,15 @@
 package com.app.positionback.repository.inquiry;
 
+import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.inquiry.InquiryVO;
-import com.app.positionback.mapper.inquiry.InquiryMapper;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import com.app.positionback.domain.member.MemberVO;
+import org.apache.ibatis.annotations.Mapper;
 
-@Repository
-@RequiredArgsConstructor
-public class InquiryDAO {
-    private final InquiryMapper inquiryMapper;
+@Mapper
+public interface InquiryDAO {
+    void insertForCorporation(CorporationVO corpVO); // 기업 회원용 삽입 메서드
+    void insertForMember(MemberVO memberVO); // 일반 회원용 삽입 메서드
 
-    // 1:1 문의 작성
-    public void insert(InquiryVO inquiryVO) {
-        inquiryMapper.insert(inquiryVO);
-    }
-
+    void insert(InquiryVO inquiryVO);
 }
+

@@ -9,12 +9,11 @@ const passwordFocus = document.querySelectorAll("#password1FocusMsg"); // 안내
 const passwordInputBox = document.querySelector(".pass-box"); // 부모 요소
 const corpCodeInput = document.getElementById("corp-code");
 const msgCorpCode = document.getElementById("msg-corp-code");
-const typoBox = corpCodeInput.closest(".TypoBox");
+const typoBox = corpCodeInput.closest(".typo-box");
 const areaInputCompany = document.getElementById("area-input-company"); // 기업명 입력 영역
 const idMessage = document.querySelector("#idCheckMsg1");
 const idMessageSafe = document.querySelector("#idCheckMsg2");
 const idInput = document.querySelector("#id");
-
 // 각 typoBox에 포커스 이벤트 추가
 typoBoxes.forEach((typoBox) => {
     const input = typoBox.querySelector("input"); // typoBox 안의 input 요소 찾기
@@ -78,14 +77,13 @@ corpCodeInput.addEventListener("input", () => {
 // 입력 필드에서 벗어날 때 유효성 검사 실행
 corpCodeInput.addEventListener("blur", () => {
     const corpCode = corpCodeInput.value;
-
     if (validateCorpCode(corpCode)) {
+        console.log("들어옴");
         msgCorpCode.textContent =
             "사업자등록번호 확인완료, 기업인증에 사업자등록증명원을 첨부해 주세요.";
         msgCorpCode.classList.remove("msgInvalid");
         msgCorpCode.classList.add("alert-column", "good-txt");
         typoBox.classList.remove("invalid");
-
         // 기업명 입력 영역 보이기
         areaInputCompany.style.display = "block";
     } else {

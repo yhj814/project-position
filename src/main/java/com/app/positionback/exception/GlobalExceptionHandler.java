@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.view.RedirectView;
 
-//두개의 컨트롤러를 받는 법
+
 @ControllerAdvice(basePackages = "com.app.positionback.controller.member")
 @Slf4j
 public class GlobalExceptionHandler {
@@ -15,6 +15,5 @@ public class GlobalExceptionHandler {
         String currentPath = request.getRequestURI();
         log.error(e.getMessage());
         return new RedirectView(currentPath + "?status=false");
-
     }
 }
