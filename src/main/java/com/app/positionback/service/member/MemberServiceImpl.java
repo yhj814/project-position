@@ -1,22 +1,37 @@
 package com.app.positionback.service.member;
 
 import com.app.positionback.domain.corporation.CorporationVO;
+import com.app.positionback.domain.file.CorporationFileDTO;
+import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.repository.corporation.CorporationDAO;
+import com.app.positionback.repository.file.CorporationFileDAO;
+import com.app.positionback.repository.file.FileDAO;
 import com.app.positionback.repository.member.MemberDAO;
+import com.app.positionback.service.corporation.CorporationService;
+import com.app.positionback.service.file.CorporationFileService;
+import com.app.positionback.service.file.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.coobird.thumbnailator.Thumbnailator;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.json.simple.JSONObject;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.Random;
+import java.util.UUID;
 
 @Service
 @Primary
@@ -26,6 +41,9 @@ import java.util.Random;
 // for implement of member
 public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO;
+    private final CorporationDAO corporationDAO;
+    private final CorporationFileDAO corporationFileDAO;
+    private final FileDAO fileDAO;
 
     @Override
     public int checkMemberEmail(String memberEmail) {
@@ -81,7 +99,52 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public void join(CorporationVO corporationVO, String uuid, String path, MultipartFile file) throws IOException{
+        CorporationFileDTO corporationFileDTO = new CorporationFileDTO();
+        FileDTO fileDTO = new FileDTO();
+
+        fileDTO.setFilePath(path);
+        fileDTO.setFileName(uuid + "_" + file.getOriginalFilename());
+
+        corporationDAO.save(corporationVO);
+        corporationFileDTO.setCorporationId(corporationDAO.findLastInsertId());
+
+        fileDAO.save(uploadFile(file).toVO());
+        corporationFileDTO.setId(fileDAO.findLastInsertId());
+
+        corporationFileDAO.save(corporationFileDTO.toVO());
+    }
+
+    @Override
     public Optional<MemberVO> login(MemberVO memberVO) {
         return memberDAO.findByMemberEmailAndMemberPassword(memberVO);
+    }
+
+    @Override
+    public FileDTO uploadFile(MultipartFile file) throws IOException {
+        String rootPath = "C:/upload/" + getPath();
+        FileDTO fileDTO = new FileDTO();
+        UUID uuid = UUID.randomUUID();
+
+        fileDTO.setFilePath(getPath());
+
+        File directory = new File(rootPath);
+        if(!directory.exists()){
+            directory.mkdirs();
+        }
+
+        if(file.getContentType().startsWith("image")){
+            file.transferTo(new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename()));
+            fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
+
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(rootPath, "t_" + uuid.toString() + "_" + file.getOriginalFilename()));
+            Thumbnailator.createThumbnail(file.getInputStream(), fileOutputStream, 53, 68);
+            fileOutputStream.close();
+        }
+        return fileDTO;
+    }
+
+    private String getPath(){
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
 }
