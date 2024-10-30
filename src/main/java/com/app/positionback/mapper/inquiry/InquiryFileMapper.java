@@ -11,7 +11,7 @@ public interface InquiryFileMapper {
     public void insertInquiryAddFile(FileDTO FileDTO);
 
     // 가장 최근 추가된 ID 가져오기
-    public Long getRecentInsertId();
+    public Long selectRecentInsertId();
 
     // 문의와 파일 연결
     public void insertInquiryFile(Long inquiryId, Long fileId);

@@ -17,7 +17,7 @@ public class InquiryDAO {
     }
 
     // 가장 최근 문의 ID 가져오기
-    public Long getRecentInsertedId() {
+    public Long selectRecentInsertedId() {
         return inquiryMapper.getRecentInsertId();
     }
 }

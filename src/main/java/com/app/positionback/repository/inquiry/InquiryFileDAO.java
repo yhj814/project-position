@@ -17,8 +17,8 @@ public class InquiryFileDAO {
     }
 
     // 가장 최근 추가된 ID 가져오기
-    public Long getRecentInsertedId() {
-        return inquiryFileMapper.getRecentInsertId();
+    public Long selectRecentInsertedId() {
+        return inquiryFileMapper.selectRecentInsertId();
     }
 
     // 문의와 파일 연결

@@ -30,13 +30,13 @@ public class InquiryServiceImpl implements InquiryService {
     @Override
     public void saveInquiry(InquiryDTO inquiryDTO, MultipartFile file) throws IOException {
         inquiryDAO.saveInquiry(inquiryDTO);
-        Long inquiryId = inquiryDAO.getRecentInsertedId();
+        Long inquiryId = inquiryDAO.selectRecentInsertedId();
         saveAndLinkInquiryFile(file, inquiryId);
     }
 
     private void saveAndLinkInquiryFile(MultipartFile file, Long inquiryId) throws IOException {
         if (file != null && !file.isEmpty()) {
-            String rootPath = "C;/upload/" + getPath();
+            String rootPath = "C:/upload/" + getPath();
             UUID uuid = UUID.randomUUID();
 
             File directory = new File(rootPath);
@@ -53,7 +53,7 @@ public class InquiryServiceImpl implements InquiryService {
 
             // saveInquiryFile => 문의 파일 저장
             inquiryFileDAO.saveInquiryFile(fileDTO);
-            Long fileId = inquiryFileDAO.getRecentInsertedId();
+            Long fileId = inquiryFileDAO.selectRecentInsertedId();
             //  linkInquiryWithFile => 문의와 파일 연결
             inquiryFileDAO.linkInquiryWithFile(inquiryId, fileId);
         }
