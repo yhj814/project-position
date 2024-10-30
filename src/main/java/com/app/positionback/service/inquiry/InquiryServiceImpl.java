@@ -15,16 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class InquiryServiceImpl implements InquiryService {
     private final InquiryDAO inquiryDAO;
 
-    public void processInquiry(InquiryDTO inquiryDTO) {
-        if ("기업".equals(inquiryDTO.getInquiryType())) {
-            CorporationVO corpVO = inquiryDTO.toCorpVO();
-            inquiryDAO.insertForCorporation(corpVO); // DAO 호출
-        } else {
-            MemberVO memberVO = inquiryDTO.toMemVO();
-            inquiryDAO.insertForMember(memberVO); // DAO 호출
-        }
-    }
-
     @Override
     public void write(InquiryVO inquiryVO){
         inquiryDAO.insert(inquiryVO);

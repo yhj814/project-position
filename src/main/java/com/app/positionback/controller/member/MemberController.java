@@ -1,10 +1,16 @@
 package com.app.positionback.controller.member;
 
+import com.app.positionback.domain.corporation.CorporationDTO;
 import com.app.positionback.domain.corporation.CorporationVO;
+import com.app.positionback.domain.file.CorporationFileDTO;
 import com.app.positionback.domain.member.MemberDTO;
 //import com.app.positionback.service.member.MemberService;
 import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.exception.LoginFailException;
+import com.app.positionback.repository.file.CorporationFileDAO;
+import com.app.positionback.service.corporation.CorporationService;
+import com.app.positionback.service.file.CorporationFileService;
+import com.app.positionback.service.file.FileService;
 import com.app.positionback.service.member.MemberService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +19,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -37,10 +45,21 @@ public class MemberController {
     @GetMapping("/join/company")
     public void goToJoinForm(CorporationVO corporationVO) {;}
 
+    @PostMapping("/join/company")
+    public void join(CorporationDTO corporationDTO, String uuid, String path, MultipartFile file) throws IOException {
+        memberService.join(corporationDTO.toVO(), uuid, path, file);
+    }
+
     @GetMapping("/join/check-id")
     @ResponseBody
     public int checkId(String memberEmail){
         return memberService.checkMemberEmail(memberEmail);
+    }
+
+    @GetMapping("/join/company/check-id")
+    @ResponseBody
+    public int checkCorporationId(String corporationEmail){
+        return memberService.checkMemberEmail(corporationEmail);
     }
 
     @GetMapping("/join/check-phone")
