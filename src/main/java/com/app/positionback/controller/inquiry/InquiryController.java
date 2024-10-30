@@ -3,6 +3,7 @@ package com.app.positionback.controller.inquiry;
 import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.inquiry.InquiryVO;
 import com.app.positionback.service.inquiry.InquiryService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,12 @@ public class InquiryController {
     }
 
     @PostMapping("/inquiry")
-    public RedirectView write(InquiryDTO inquiryDTO, MultipartFile file) throws Exception {
-        inquiryDTO.setMemberId(1l);
+    public RedirectView write(InquiryDTO inquiryDTO, MultipartFile file, HttpSession session) throws Exception {
+        Long memberId = (Long) session.getAttribute("memberId");
+        if (memberId == null) {
+            memberId = 1L;
+        }
+        inquiryDTO.setMemberId(memberId);
         log.info(inquiryDTO.toString());
         inquiryService.saveInquiry(inquiryVO, file);
         return new RedirectView("/customer-service-center/faq");

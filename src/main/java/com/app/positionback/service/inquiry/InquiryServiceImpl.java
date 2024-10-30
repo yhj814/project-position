@@ -50,9 +50,10 @@ public class InquiryServiceImpl implements InquiryService {
             fileDTO.setFilePath(getPath());
             fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
 
+            // saveInquiryFile => 문의 파일 저장
             inquiryFileDAO.saveInquiryFile(fileVO);
             Long fileId = inquiryFileDAO.getRecentInsertedId();
-
+            //  linkInquiryWithFile => 문의와 파일 연결
             inquiryFileDAO.linkInquiryWithFile(inquiryId, fileId);
         }
     }
