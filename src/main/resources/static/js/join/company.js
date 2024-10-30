@@ -10,14 +10,10 @@ const idMessage = document.querySelector("#id-check-msg1");
 const idMessageCheck = document.querySelector("#id-check-msg2");
 const idMessageSafe = document.querySelector("#id-check-msg3");
 const idInput = document.querySelector("#id");
-const companyNameInput = document.getElementById("company-nm");
-const ceoNameInput = document.getElementById("ceo-nm");
-const openDateInput = document.getElementById("open-date");
-const homepageInput = document.getElementById("company-hp");
-const saleInput = document.getElementById("company-s");
+
 
 const companyFile = document.getElementById("confirm-document-file");
-const checks = {corpCodeCheck: false, companyNameCheck: false, ceoNameCheck: false, addressCheck: false, openDateCheck: false, homepageCheck:false, saleCheck: false, emailCheck: false, passwordCheck: false};
+const checks = {corpCodeCheck: false, companyNameCheck: false, ceoNameCheck: false, addressCheck: false, openDateCheck: false, homepageCheck:false, saleCheck: false, passwordCheck: false, employeesNumberCheck: false};
 
 
 // 주소
@@ -116,8 +112,11 @@ corpCodeInput.addEventListener("input", () => {
 
 // 입력 필드에서 벗어날 때 유효성 검사 실행
 corpCodeInput.addEventListener("blur", () => {
+    checks.corpCodeCheck = false;
+
     const corpCode = corpCodeInput.value;
     if (validateCorpCode(corpCode)) {
+        checks.corpCodeCheck = true;
         msgCorpCode.textContent =
             "사업자등록번호 확인완료, 기업인증에 사업자등록증명원을 첨부해 주세요.";
         msgCorpCode.classList.remove("msgInvalid");
@@ -164,24 +163,22 @@ typoBoxes.forEach((typoBox) => {
 });
 
 // =======================================================================
-idInput.addEventListener("blur", (e) => {
+idInput.addEventListener("blur", async (e) => {
     const emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-
+    checks.idCheck = false;
     idMessageSafe.style.display = "none";
     idMessageCheck.style.display = "none";
 
     if(!emailReg.test(e.target.value)) {
         idMessage.style.display = "block";
-        checks.idCheck = false;
         return;
     }
 
     idMessage.style.display = "none";
 
-    companyService.checkId(e.target.value, (result) => {
+    await companyService.checkId(e.target.value, (result) => {
         if(result) {
             idMessageCheck.style.display = "block";
-            checks.idCheck = false;
         }else{
             idMessageSafe.style.display = "block";
             checks.idCheck = true;
@@ -192,10 +189,10 @@ idInput.addEventListener("blur", (e) => {
 passwordInput.addEventListener("blur", (e) => {
     const passwordReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
     passwordWarn.style.display = "none";
+    checks.passwordCheck = false;
 
     if(!passwordReg.test(e.target.value)) {
         passwordWarn.style.display = "block";
-        checks.passwordCheck = false;
         return;
     }
     checks.passwordCheck = true;
@@ -212,7 +209,7 @@ companyFile.addEventListener("change", async (e) => {
         formData.append("file", file);
         const fileInfo = await companyService.upload(formData);
         console.log(fileInfo);
-        uuid.value = fileInfo.fileName.substring(fileInfo.fileName.indexOf("_") + 1);
+        uuid.value = fileInfo.fileName.substring(0, fileInfo.fileName.indexOf("_"));
         path.value = fileInfo.filePath;
     }else{
         alert("이미지 파일이 아닙니다.");
@@ -222,5 +219,79 @@ companyFile.addEventListener("change", async (e) => {
 });
 
 // 기타 유효성
+const companyNameInput = document.getElementById("company-nm");
+const ceoNameInput = document.getElementById("ceo-nm");
+const openDateInput = document.getElementById("open-date");
+const homepageInput = document.getElementById("company-hp");
+const saleInput = document.getElementById("company-s");
+const employeesNumberInput = document.getElementById("employees-number");
+
+
+addressMain.addEventListener("blur", (e) => {
+    checks.addressCheck = false;
+
+    if(e.target.value){
+        checks.addressCheck = true;
+    }
+});
+
+companyNameInput.addEventListener("blur", (e) => {
+    checks.companyNameCheck = false;
+
+    if(e.target.value){
+        checks.companyNameCheck = true;
+    }
+});
+
+ceoNameInput.addEventListener("blur", (e) => {
+    checks.ceoNameCheck = false;
+
+    if(e.target.value){
+        checks.ceoNameCheck = true;
+    }
+
+});
+
+openDateInput.addEventListener("blur", (e) => {
+    checks.openDateCheck = false;
+
+    if(e.target.value){
+        checks.openDateCheck = true;
+    }
+
+});
+
+homepageInput.addEventListener("blur", (e) => {
+    checks.homepageCheck = false;
+
+    if(e.target.value){
+        checks.homepageCheck = true;
+    }
+
+});
+
+saleInput.addEventListener("blur", (e) => {
+    checks.saleCheck = false;
+
+    if(e.target.value){
+        checks.saleCheck = true;
+    }
+});
+
+employeesNumberInput.addEventListener("blur", (e) => {
+    checks.employeesNumberCheck = false;
+
+    if(e.target.value){
+        checks.employeesNumberCheck = true;
+    }
+});
 
 // 회원가입 전송
+const button = document.getElementById("btn-submit");
+
+button.addEventListener("click", (e) => {
+    console.log(Object.values(checks).filter((value) => !value));
+    if(Object.values(checks).filter((value) => !value).length == 0){
+        document["c-frm"].submit();
+    }
+});

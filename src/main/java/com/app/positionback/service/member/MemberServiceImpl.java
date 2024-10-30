@@ -102,14 +102,16 @@ public class MemberServiceImpl implements MemberService {
     public void join(CorporationVO corporationVO, String uuid, String path, MultipartFile file) throws IOException{
         CorporationFileDTO corporationFileDTO = new CorporationFileDTO();
         FileDTO fileDTO = new FileDTO();
+        String fileSize = String.format("%.2f", file.getSize() / 1024.0 / 1024.0);
 
         fileDTO.setFilePath(path);
         fileDTO.setFileName(uuid + "_" + file.getOriginalFilename());
+        fileDTO.setFileSize(fileSize);
 
         corporationDAO.save(corporationVO);
         corporationFileDTO.setCorporationId(corporationDAO.findLastInsertId());
 
-        fileDAO.save(uploadFile(file).toVO());
+        fileDAO.save(fileDTO.toVO());
         corporationFileDTO.setId(fileDAO.findLastInsertId());
 
         corporationFileDAO.save(corporationFileDTO.toVO());

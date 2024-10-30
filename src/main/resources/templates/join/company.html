@@ -130,7 +130,7 @@
                                         </label>
                                         <div class="typo-box">
                                             <input
-                                                name="corp-code"
+                                                name="corporationCode"
                                                 id="corp-code"
                                                 type="text"
                                                 class="typo size-l defalt"
@@ -535,7 +535,7 @@
                                             >
                                             <div class="typo-box">
                                                 <input
-                                                    name="ceo-nm"
+                                                    name="corporationOwner"
                                                     id="ceo-nm"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -630,6 +630,25 @@
                                                 아닙니다.</em
                                             >
                                         </div>
+                                        <div
+                                                class="item"
+                                        >
+                                            <label for="open-date" class=""
+                                            ><strong>직원 수</strong></label
+                                            >
+                                            <div class="typo-box">
+                                                <input
+                                                        name="corporationEmployeesNumber"
+                                                        id="employees-number"
+                                                        type="text"
+                                                        class="typo size-l defalt"
+                                                        maxlength="8"
+                                                        autocapitalize="off"
+                                                        autocomplete="off"
+                                                        placeholder="직원 수 입력"
+                                                />
+                                            </div>
+                                        </div>
                                         <div class="item">
                                             <label for="company-nm" class=""
                                             ><strong>기업 공식 홈페이지</strong></label
@@ -686,7 +705,7 @@
                                             >
                                             <div class="typo-box">
                                                 <input
-                                                    name="corporationName"
+                                                    name="corporationEmail"
                                                     id="id"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -730,7 +749,7 @@
                                             <div class="typo-box pass-box">
                                                 <input
                                                     autocapitalize="off"
-                                                    name="password1"
+                                                    name="corporationPassword"
                                                     class="typo size-l defalt"
                                                     id="password1"
                                                     type="password"
@@ -813,5 +832,4 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="/js/join/service/company-service.js"></script>
     <script src="/js/join/company.js"></script>
-    <script src="/js/join/company-category.js"></script>
 </html>

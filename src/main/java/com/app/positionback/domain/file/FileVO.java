@@ -16,6 +16,7 @@ public class FileVO {
     private Long id;
     private String fileName;
     private String filePath;
+    private String fileSize;
     private String createdDate;
     private String updatedDate;
 }
