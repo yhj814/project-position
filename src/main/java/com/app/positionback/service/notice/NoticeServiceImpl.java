@@ -65,7 +65,7 @@ public class NoticeServiceImpl implements NoticeService {
     public NoticeListDTO getNoticesByCorporationId(int page, Pagination pagination, Long corporationId) {
         NoticeListDTO noticeListDTO = new NoticeListDTO();
         pagination.setPage(page);
-        pagination.setTotal(noticeDAO.getTotal(corporationId));
+        pagination.setTotal(noticeDAO.getTotal(corporationId)); // 총 공고 수를 가져오는 메서드 호출
         pagination.progress();
         noticeListDTO.setPagination(pagination);
         noticeListDTO.setNotices(noticeDAO.findNoticesByCorporationId(pagination,corporationId));

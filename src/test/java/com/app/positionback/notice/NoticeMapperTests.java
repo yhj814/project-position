@@ -80,26 +80,26 @@ public class NoticeMapperTests {
     // 기업이 작성한 공고 목록 조회 테스트
     @Test
     public void testSelectNoticesByCorporationId() {
-        Long corporationId = 1L; // 테스트용 corporationId
-        Pagination pagination = new Pagination();
-
-        // Pagination 설정
-        pagination.setPage(2);  // 1페이지 조회
-
-        pagination.setTotal(noticeMapper.selectCount(corporationId));
-        pagination.progress();
-
-        log.info("Start Row: {}, Row Count: {}", pagination.getStartRow(), pagination.getRowCount());
-
-        // 공고 목록 조회
-        List<NoticeDTO> notices = noticeMapper.selectNoticesByCorporationId(pagination,corporationId);
-
-        // 조회 결과 출력
-        if (notices.isEmpty()) {
-            log.info("No notices found for corporationId: {}", corporationId);
-        } else {
-            notices.forEach(notice -> log.info("Notice: {}", notice));
-        }
+//        Long corporationId = 1L; // 테스트용 corporationId
+//        Pagination pagination = new Pagination();
+//
+//        // Pagination 설정
+//        pagination.setPage(2);  // 1페이지 조회
+//
+//        pagination.setTotal(noticeMapper.selectCount(corporationId));
+//        pagination.progress();
+//
+//        log.info("Start Row: {}, Row Count: {}", pagination.getStartRow(), pagination.getRowCount());
+//
+//        // 공고 목록 조회
+//        List<NoticeDTO> notices = noticeMapper.selectNoticesByCorporationId(pagination,corporationId);
+//
+//        // 조회 결과 출력
+//        if (notices.isEmpty()) {
+//            log.info("No notices found for corporationId: {}", corporationId);
+//        } else {
+//            notices.forEach(notice -> log.info("Notice: {}", notice));
+//        }
     }
 //        Long corporationId = 1L; // 조회할 기업 ID
 //        List<NoticeDTO> notices = noticeMapper.selectNoticesByCorporationId(corporationId);

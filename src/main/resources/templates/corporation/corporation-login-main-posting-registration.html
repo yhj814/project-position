@@ -333,13 +333,14 @@
                                     </div>
                                     <div class="section-content">
                                         <div class="area-sorting">
+                                            <!-- 진행/마감 상태를 저장하는 hidden input -->
+                                            <input type="hidden" id="notice-status" value="ongoing" />
                                             <ul class="TabBox">
                                                 <li class="Select">
                                                     <button
                                                         type="button"
                                                         class="BtnType"
-                                                        data-tab="all"
-                                                        onmousedown="try {dataLayer.push({'event': 'ga-lead', 'category': 'company-view', 'event-flow': 'jobs-rec', 'event-label': 'all'});} catch (e) {}"
+                                                        id="ongoing-btn"
                                                     >
                                                         진행 중<span
                                                             class="Badge"
@@ -351,8 +352,7 @@
                                                     <button
                                                         type="button"
                                                         class="BtnType"
-                                                        data-tab="carrer"
-                                                        onmousedown="try {dataLayer.push({'event': 'ga-lead', 'category': 'company-view', 'event-flow': 'jobs-rec', 'event-label': 'experience'});} catch (e) {}"
+                                                        id="closed-btn"
                                                     >
                                                         마감<span class="Badge"
                                                             >3</span
@@ -361,16 +361,14 @@
                                                 </li>
                                             </ul>
                                             <div class="InpBox sorting-select">
-                                                <select name="">
+                                                <select>
+                                                    <option value="recent">
+                                                        최신순
+                                                    </option>
                                                     <option value="closing-dt">
                                                         마감순
                                                     </option>
-                                                    <option value="reg-dt">
-                                                        최신순
-                                                    </option>
-                                                    <option value="read-cnt">
-                                                        조회순
-                                                    </option>
+
                                                 </select>
                                             </div>
                                         </div>
