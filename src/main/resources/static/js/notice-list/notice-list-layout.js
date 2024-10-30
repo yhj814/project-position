@@ -1,7 +1,10 @@
+const noticePaging = document.querySelector(".PageBox");
+const listBody = document.querySelector('.list-body');
+
 // 공고 목록 데이터를 받아서 DOM에 추가하는 함수
-const renderJobList = (notices) => {
-    const listBody = document.querySelector('.list-body');
+const showNoticeList = ({notices, pagination}) => {
     listBody.innerHTML = ''; // 목록 초기화
+    let pagingText = "";
 
     if (notices.length === 0) {
         listBody.innerHTML = '<p>현재 공고가 없습니다.</p>';
@@ -24,10 +27,7 @@ const renderJobList = (notices) => {
                                target="_blank" title="${notice.noticeTitle}">
                                 <span>${notice.noticeTitle}</span>
                             </a>
-                            <button class="scrap-on" type="button" 
-                                    title="스크랩" scraped="n" rec-idx="${notice.id}">
-                                <span class="blind">스크랩</span>
-                            </button>
+                            
                         </div>
                         <div class="job-meta">
                             <span class="job-sector">${notice.noticeJobCategoryName || '직무 미정'}</span>
@@ -58,8 +58,51 @@ const renderJobList = (notices) => {
 
     // 누적된 HTML 문자열을 한 번에 설정
     listBody.innerHTML = text;
+
+    // 이전 버튼
+    if (pagination.prev) {
+        pagingText += `
+        <button class="BtnType SizeS BtnPrev" onclick="goToPage(${pagination.startPage - 1})">
+            이전
+        </button>
+    `;
+    }
+
+    // 페이지 번호
+        for (let i = pagination.startPage; i <= pagination.endPage; i++) {
+            if (pagination.page === i) {
+                pagingText += `
+                <span class="BtnType SizeS active">${i}</span>
+            `;
+            } else {
+                pagingText += `
+                <span class="BtnType SizeS" onclick="goToPage(${i})">${i}</span>
+            `;
+            }
+        }
+
+    // 다음 버튼
+        if (pagination.next) {
+            pagingText += `
+            <button class="BtnType SizeS BtnNext" onclick="goToPage(${pagination.endPage + 1})">
+                다음
+            </button>
+        `;
+        }
+
+    // 페이지네이션 HTML 삽입
+        noticePaging.innerHTML = pagingText;
 };
 
+const loadNotices = (page = 1) => {
+    noticeService.getNoticeList(page, showNoticeList);
+};
+
+function goToPage(page) {
+    globalThis.page = page;
+    history.pushState({ page }, "", `corporation-login-main-posting-registration?page=${page}`);
+    loadNotices(page);
+}
 
 // 날짜 형식을 'YYYY-MM-DD'로 변환하는 함수
 const formatDate = (dateString) => {
@@ -124,11 +167,11 @@ function calculateDaysLeft(endDate) {
 }
 
 // 공고 목록 가져오기 및 렌더링
-const loadNotices = () => {
-    noticeService.getNoticeList((notices) => {
-        renderJobList(notices);
-    });
-};
+// const loadNotices = () => {
+//     noticeService.getNoticeList((notices) => {
+//         showNoticeList(notices);
+//     });
+// };
 
-// 페이지 로드 시 공고 목록 가져오기
-document.addEventListener('DOMContentLoaded', loadNotices);
+// // 페이지 로드 시 공고 목록 가져오기
+// document.addEventListener('DOMContentLoaded', loadNotices);

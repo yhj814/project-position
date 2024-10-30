@@ -701,6 +701,18 @@ ol, ul, li {
     transform: translateY(-50%);
     content: "";
 }
+.list-recruiting .list-body .list-item .recruit-info>ul>li p.work-time:before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url(/images/corporation/work-time.svg);
+    background-size: cover;
+    transform: translateY(-50%);
+    content: "";
+}
 .list-recruiting .list-body .list-item .support-info {
     margin-left: 24px;
     padding: 0;

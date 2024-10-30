@@ -4,6 +4,7 @@ import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.mapper.notice.NoticeMapper;
+import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -40,8 +41,12 @@ public class NoticeDAO {
     }
 
     // 기업별 공고 목록 조회
-    public List<NoticeDTO> findNoticesByCorporationId(Long corporationId) {
-        return noticeMapper.selectNoticesByCorporationId(corporationId);
+    public List<NoticeDTO> findNoticesByCorporationId(Pagination pagination,Long corporationId) {
+        return noticeMapper.selectNoticesByCorporationId(pagination,corporationId);
+    }
+
+    public int getTotal(Long corporationId) {
+        return noticeMapper.selectCount(corporationId);
     }
 
 
