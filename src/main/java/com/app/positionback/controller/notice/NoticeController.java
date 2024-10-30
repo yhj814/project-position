@@ -50,8 +50,19 @@ public class NoticeController {
         if (page == null) {
             page = 1; // 기본 페이지 번호
         }
-        NoticeListDTO noticeListDTO = noticeService.getNoticesByCorporationId(page,pagination,1L); // corporationId에 맞게 조정
+        if(pagination.getOrder() == null){
+            pagination.setOrder("recent");
+        }
+        if(pagination.getStatus() == null){
+            pagination.setStatus("ongoing");
+        }
+        // 공고 목록 조회
+        NoticeListDTO noticeListDTO = noticeService.getNoticesByCorporationId(page, pagination, 1L); // corporationId에 맞게 조정
         model.addAttribute("notices", noticeListDTO); // "notices"라는 이름으로 데이터를 추가
+
+        // Pagination에서 상태별 개수 가져오기
+        model.addAttribute("ongoingCount", pagination.getOngoingCount());
+        model.addAttribute("closedCount", pagination.getClosedCount());
     }
 
     // 공고 목록 조회 (비동기)
@@ -61,11 +72,22 @@ public class NoticeController {
         if(pagination.getOrder() == null){
             pagination.setOrder("recent");
         }
+        if(pagination.getStatus() == null){
+            pagination.setStatus("ongoing");
+        }
         // page가 null인 경우 기본값 설정
         if (page == null) {
             page = 1; // 기본 페이지 번호
         }
         return noticeService.getNoticesByCorporationId(page,pagination,1L); // corporationId에 맞게 조정
+    }
+
+    @GetMapping("notices/total")
+    @ResponseBody
+    public int getTotalCount(@RequestParam String status) {
+        Pagination pagination = new Pagination();
+        pagination.setStatus(status);
+        return noticeService.getTotal(pagination, 1L); // corporationId에 맞게 조정
     }
 
 //    // 공고 상세 조회

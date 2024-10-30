@@ -65,17 +65,31 @@ public class NoticeServiceImpl implements NoticeService {
     public NoticeListDTO getNoticesByCorporationId(int page, Pagination pagination, Long corporationId) {
         NoticeListDTO noticeListDTO = new NoticeListDTO();
         pagination.setPage(page);
-        pagination.setTotal(noticeDAO.getTotal(corporationId)); // 총 공고 수를 가져오는 메서드 호출
+        pagination.setTotal(noticeDAO.getTotal(pagination,corporationId)); // 총 공고 수를 가져오는 메서드 호출
         pagination.progress();
         noticeListDTO.setPagination(pagination);
         noticeListDTO.setNotices(noticeDAO.findNoticesByCorporationId(pagination,corporationId));
+
+        // 각 상태에 따른 총 개수 조회
+        // ongoing 상태 개수 조회
+        Pagination ongoingPagination = new Pagination();
+        ongoingPagination.setStatus("ongoing");
+        int ongoingCount = noticeDAO.getTotal(ongoingPagination, corporationId); // ongoing 상태 개수
+        // closed 상태 개수 조회
+        Pagination closedPagination = new Pagination();
+        closedPagination.setStatus("closed");
+        int closedCount = noticeDAO.getTotal(closedPagination, corporationId); // closed 상태 개수
+
+        // Pagination에 상태별 개수 추가
+        pagination.setOngoingCount(ongoingCount);
+        pagination.setClosedCount(closedCount);
         return noticeListDTO;
     }
 
     // 기업이 작성한 공고 목록 개수
     @Override
-    public int getTotal(Long corporationId) {
-        return noticeDAO.getTotal(corporationId);
+    public int getTotal(Pagination pagination,Long corporationId) {
+        return noticeDAO.getTotal(pagination,corporationId);
     }
 
     private void saveAndLinkFile(MultipartFile file, Long noticeId) throws IOException {
