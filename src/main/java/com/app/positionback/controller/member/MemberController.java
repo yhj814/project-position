@@ -31,6 +31,7 @@ import java.util.Optional;
 @Slf4j
 public class MemberController {
     private final MemberService memberService;
+    private final CorporationService corporationService;
     private final HttpSession session;
 
     @GetMapping("/join/member")
@@ -46,8 +47,9 @@ public class MemberController {
     public void goToJoinForm(CorporationVO corporationVO) {;}
 
     @PostMapping("/join/company")
-    public void join(CorporationDTO corporationDTO, String uuid, String path, MultipartFile file) throws IOException {
+    public RedirectView join(CorporationDTO corporationDTO, String uuid, String path, MultipartFile file) throws IOException {
         memberService.join(corporationDTO.toVO(), uuid, path, file);
+        return new RedirectView("/login");
     }
 
     @GetMapping("/join/check-id")
@@ -59,7 +61,7 @@ public class MemberController {
     @GetMapping("/join/company/check-id")
     @ResponseBody
     public int checkCorporationId(String corporationEmail){
-        return memberService.checkMemberEmail(corporationEmail);
+        return corporationService.checkCorporationEmail(corporationEmail);
     }
 
     @GetMapping("/join/check-phone")

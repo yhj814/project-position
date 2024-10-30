@@ -33,5 +33,10 @@ alter  table  tbl_corporation add (corporation_gen varchar(255));
 
 alter table  tbl_corporation add(created_date datetime default current_timestamp);
 alter table  tbl_corporation add(updated_date datetime default current_timestamp);
+alter table  tbl_corporation add(corporation_code varchar(255) not null);
+
+alter table tbl_corporation modify column corporation_read_count int default 0;
 
 select * from  tbl_corporation;
+select * from tbl_file;
+select * from tbl_corporation_file;

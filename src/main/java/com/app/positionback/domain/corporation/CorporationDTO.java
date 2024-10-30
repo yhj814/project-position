@@ -21,9 +21,12 @@ public class CorporationDTO {
     private String corporationHomepage;
     private String corporationGen;
     private String corporationSales;
+    private String corporationCode;
+    private String corporationEmployeesNumber;
 
     public  CorporationVO toVO() {
         return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,
-                corporationType,corporationOwner,corporationEmail,corporationPassword,corporationHomepage,corporationGen,corporationSales);
+                corporationType,corporationOwner,corporationEmail,corporationPassword,
+                corporationHomepage,corporationGen,corporationSales, corporationCode, corporationEmployeesNumber);
     }
 }

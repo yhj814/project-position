@@ -3,10 +3,10 @@
 <mapper namespace="com.app.positionback.mapper.corporation.CorporationMapper">
 
     <insert id="insert">
-         insert into tbl_corporation(corporation_name, corporation_address, corporation_address_detail,
-                                     corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_gen, corporation_sales)
-         values (#{corporationName}, #{corporationAddress}, #{corporationAddressDetail}, #{corporationOwner},
-                 #{corporationEmail}, #{corporationPassword}, #{corporationHomepage}, #{corporationGen}, #{corporationSales})
+         insert into tbl_corporation(corporation_name, corporation_address, corporation_address_detail, corporation_employees_number,
+                                     corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_gen, corporation_sales, corporation_code)
+         values (#{corporationName}, #{corporationAddress}, #{corporationAddressDetail}, #{corporationEmployeesNumber}, #{corporationOwner},
+                 #{corporationEmail}, #{corporationPassword}, #{corporationHomepage}, #{corporationGen}, #{corporationSales}, #{corporationCode})
     </insert>
 
     <select id="selectLastInsertId" resultType="long">

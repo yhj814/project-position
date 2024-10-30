@@ -21,4 +21,6 @@ public class CorporationVO {
     private String corporationHomepage;
     private String corporationGen;
     private String corporationSales;
+    private String corporationCode;
+    private String corporationEmployeesNumber;
 }
