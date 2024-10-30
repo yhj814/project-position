@@ -28,7 +28,6 @@ public class InquiryServiceImpl implements InquiryService {
     private final InquiryFileDAO inquiryFileDAO;
 
     @Override
-<<<<<<< HEAD
     public void saveInquiry(InquiryDTO inquiryDTO, MultipartFile file) throws IOException {
         inquiryDAO.saveInquiry(inquiryDTO);
         Long inquiryId = inquiryDAO.selectRecentInsertedId();
@@ -63,9 +62,4 @@ public class InquiryServiceImpl implements InquiryService {
     private String getPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
-=======
-    public void write(InquiryVO inquiryVO){
-        inquiryDAO.insert(inquiryVO);
-    };
->>>>>>> 96354830e5c08a0e548996f4fbcdbd4d13213fea
 }
