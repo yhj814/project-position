@@ -1,13 +1,19 @@
 const noticeService = (() => {
     // 공고 목록 조회
-    const getNoticeList = async (callback) => {
-            const response = await fetch("/corporation/notices/list");
-            const notices = await response.json();
-
-            if (callback) {
-                callback(notices);
-            }
+    const getNoticeList = async (page, callback) => {
+        page = page || 1;
+        const response = await fetch(`/corporation/notices/list/${page}`);
+        const notices = await response.json();
+        if (callback) {
+            callback(notices);
+        }
     };
 
-    return { getNoticeList: getNoticeList };
-})();
+    const remove = async (id) => {
+        await fetch(`/corporation/notice/delete/${id}`, {
+            method: "delete"
+        })
+    }
+
+    return { getNoticeList: getNoticeList, remove:remove };
+})()

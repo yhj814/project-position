@@ -454,7 +454,7 @@ button.interested-corp {
 .TipCont.RightTop .Tail,
 .TipCont.BottomRight .Tail,
 .TipCont.LeftBottom .Tail {
-    background: url(/static/images/corporation/TipCont.TopRight_Tail.svg) 0 0
+    background: url(/static/images/corporation/TipCont.TopRight-Tail.svg) 0 0
         no-repeat;
 }
 .cont-introduce
@@ -972,7 +972,7 @@ button.interested-corp {
     margin-left: 4px;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/wrap_company_view_btn_fold.svg);
+    background-image: url(/static/images/corporation/wrap-company-view-btn-fold.svg);
     content: "";
 }
 .cont-introduce .section .citation,
@@ -1171,10 +1171,10 @@ a {
     right: 20px;
     width: 24px;
     height: 24px;
-    background: url(/static/images/corporation/star_logo.svg) no-repeat 0 0;
+    background: url(/static/images/corporation/star-logo.svg) no-repeat 0 0;
 }
 .cont-introduce .list-curation-item li .newcomer-book-mark.on {
-    background-image: url(/static/images/corporation/star-on_logo.svg);
+    background-image: url(/static/images/corporation/star-on-logo.svg);
 }
 .cont-introduce .section .link-content-more {
     border-color: var(--gray40);
