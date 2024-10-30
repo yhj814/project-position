@@ -18,7 +18,6 @@
         notice_career = #{noticeCareer},
         notice_education = #{noticeEducation},
         notice_end_date = #{noticeEndDate},
-        job_categoryC_id = #{jobCategorycId},
         notice_work_start_time = #{noticeWorkStartTime},
         notice_work_end_time = #{noticeWorkEndTime},
         notice_work_start_date = #{noticeWorkStartDate},
@@ -34,16 +33,14 @@
 
     <select id="selectNoticeById" resultType="com.app.positionback.domain.notice.NoticeDTO">
         select corporation_id, notice_title, notice_career, notice_education, notice_end_date,
-        job_categoryC_id, notice_work_start_time, notice_work_end_time,
-        notice_work_start_date, notice_work_end_date
+         notice_work_start_time, notice_work_end_time,
+        notice_work_start_date, notice_work_end_date, notice_job_category_name
         from tbl_notice
         where id = #{id}
     </select>
 
     <select id="selectNoticesByCorporationId" resultType="com.app.positionback.domain.notice.NoticeDTO">
-        select corporation_id, notice_title, notice_career, notice_education, notice_end_date,
-               job_categoryC_id, notice_work_start_time, notice_work_end_time,
-               notice_work_start_date, notice_work_end_date
+        select id, corporation_id, notice_title,notice_career, notice_education, notice_end_date, created_date, updated_date, notice_work_start_date, notice_work_end_date, notice_work_start_time, notice_work_end_time, notice_job_category_name
         from tbl_notice
         where corporation_id = #{corporationId}
     </select>
