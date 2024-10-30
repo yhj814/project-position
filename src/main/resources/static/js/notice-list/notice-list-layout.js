@@ -4,24 +4,12 @@ const sortingSelect = document.querySelector(".sorting-select select");
 const ongoingBtn = document.getElementById("ongoing-btn");
 const closedBtn = document.getElementById("closed-btn");
 const statusInput = document.getElementById("notice-status");
+const loadingScreen = document.getElementById("ingRecruitLoading"); // 로딩 화면 요소
 
 // 공고 목록 데이터를 받아서 DOM에 추가하는 함수
 const showNoticeList = ({notices, pagination}, status) => {
     listBody.innerHTML = ''; // 목록 초기화
-    // let filteredNotices = [];
     let pagingText = "";
-    console.log('Original notices:', notices); // 원본 공고 목록 로그 확인
-
-    // // 상태에 따른 공고 필터링
-    // if (status === 'ongoing') {
-    //     filteredNotices = notices.filter(notice => calculateDaysLeft(notice.noticeEndDate) > 0);
-    // } else if (status === 'closed') {
-    //     filteredNotices = notices.filter(notice => calculateDaysLeft(notice.noticeEndDate) <= 0);
-    // }
-    //
-    // console.log('Filtered notices:', filteredNotices); // 필터링된 공고 출력
-
-
 
     let text = ''; // 텍스트 초기화
 
@@ -123,12 +111,25 @@ const showNoticeList = ({notices, pagination}, status) => {
             }
         });
     });
+
+    hideLoading(); // 로딩 화면 숨기기
+
+};
+
+// 로딩 화면 표시 함수
+const showLoading = () => {
+    loadingScreen.style.display = 'block';
+};
+
+// 로딩 화면 숨김 함수
+const hideLoading = () => {
+    loadingScreen.style.display = 'none';
 };
 
 /// 공고 목록 로드 함수
 const loadNotices = (page = 1, order = 'recent', status = statusInput.value) => {
+    showLoading(); // 로딩 화면 표시
     noticeService.getNoticeList(page, order, status, (data) => {
-        console.log('Fetched data:', data); // 데이터 로그 확인
         showNoticeList(data, status);
     });
 };
@@ -148,7 +149,6 @@ closedBtn.addEventListener("click", () => {
 function goToPage(page) {
     const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
     const status = statusInput.value; // 현재 상태 값을 가져옵니다.
-    history.pushState({ page, status }, "", `corporation-login-main-posting-registration?page=${page}&order=${order}&status=${status}`);
     loadNotices(page, order, status); // 상태를 유지하면서 공고 목록 로드
 }
 
@@ -159,11 +159,7 @@ sortingSelect.addEventListener("change", () => {
 
 // 페이지 로드 시 공고 목록 가져오기
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const page = urlParams.get('page') || 1; // URL에서 페이지 번호 가져오기
-    const order = urlParams.get('order') || sortingSelect.value; // URL에서 정렬 기준 가져오기
-    const status = urlParams.get('status') || statusInput.value; // URL에서 상태 가져오기
-    loadNotices(page, order, status); // 기본 정렬 기준과 상태로 목록 로드
+    loadNotices(); // 기본 정렬 기준과 상태로 목록 로드
 });
 
 // 날짜 형식을 'YYYY-MM-DD'로 변환하는 함수
