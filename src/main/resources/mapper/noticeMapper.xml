@@ -32,7 +32,7 @@
     </delete>
 
     <select id="selectNoticeById" resultType="com.app.positionback.domain.notice.NoticeDTO">
-        select corporation_id, notice_title, notice_career, notice_education, notice_end_date,
+        select id, corporation_id, notice_title, notice_career, notice_education, notice_end_date,
          notice_work_start_time, notice_work_end_time,
         notice_work_start_date, notice_work_end_date, notice_job_category_name
         from tbl_notice

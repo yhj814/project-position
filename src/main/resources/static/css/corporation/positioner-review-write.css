@@ -106,12 +106,8 @@ select {
     height: 100%;
 }
 
-<<<<<<< HEAD:static/css/corporation/positioner-review-write.css
 #interview-write-sri-section.interview-write-layout-full
     #interview-write-content {
-=======
-#interview-write-position-section.interview-write-layout-full #interview-write-content {
->>>>>>> 018ca68051467acb8b29f8215c2c400b6e4d1156:static/css/interview-review-2/interview-review-write.css
     margin: 0;
     width: 100%;
 }
@@ -121,12 +117,8 @@ select {
     z-index: 1;
 }
 
-<<<<<<< HEAD:static/css/corporation/positioner-review-write.css
 #interview-write-sri-section.interview-write-layout-full
     .interview-write-wrap-title-recruit {
-=======
-#interview-write-position-section.interview-write-layout-full .interview-write-wrap-title-recruit {
->>>>>>> 018ca68051467acb8b29f8215c2c400b6e4d1156:static/css/interview-review-2/interview-review-write.css
     margin: 0 auto;
     padding: 50px 0 50px;
     width: 1260px;
@@ -1617,7 +1609,6 @@ li {
 .common_panel .option_content.job_category_section .details .box_detail_depth {
     width: calc(100% - 204px);
 }
-<<<<<<< HEAD:static/css/corporation/positioner-review-write.css
 .interview-write-Typo {
     padding: 0 11px 1px 11px;
     height: 32px;
@@ -1630,7 +1621,6 @@ li {
     background: #fff;
     border-color: #ffff;
 }
-=======
 
 table col:nth-child(1) {
     width: 170px;
@@ -1645,4 +1635,3 @@ table col:nth-child(2) {
     display: none;
 }
 
->>>>>>> 018ca68051467acb8b29f8215c2c400b6e4d1156:static/css/interview-review-2/interview-review-write.css

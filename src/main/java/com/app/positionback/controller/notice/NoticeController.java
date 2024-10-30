@@ -90,13 +90,13 @@ public class NoticeController {
         return noticeService.getTotal(pagination, 1L); // corporationId에 맞게 조정
     }
 
-//    // 공고 상세 조회
-//    @GetMapping("notice/{id}")
-//    public String getNoticeDetail(Long id, Model model) {
-//        NoticeDTO notice = noticeService.getNoticeById(id);
-//        model.addAttribute("notice", notice);
-//        return "notice/noticeDetail";
-//    }
+    // 공고 상세 조회
+    @GetMapping("notice-detail")
+    public String getNoticeDetail(@RequestParam("id")Long id, Model model) {
+        NoticeDTO noticeDTO = noticeService.getNoticeById(id);
+        model.addAttribute("notice", noticeDTO);
+        return "matching/matching-detail";
+    }
 //
 //    // 공고 수정 페이지 이동
 //    @GetMapping("corporation-login-main-update-posting/{id}")
