@@ -24,11 +24,3 @@ public class InquiryMapperTests {
         inquiryMapper.insert(inquiryDTO.toVO());
     }
 }
-
-//private String inquiryType;
-//private String inquiryCategory;
-//private String inquiryTitle;
-//private String inquiryContent;
-//private String createDate;
-//private String updateDate;
-//private Long memberId;

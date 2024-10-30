@@ -12,6 +12,9 @@ const idInput = document.querySelector("#id");
 const passwordInput = document.querySelector("#password");
 const loginButton = document.querySelector(".btn-login"); // 로그인 버튼
 
+const socialLogin = document.querySelector("div.social-login-tit");
+const socialLoginWrap = document.getElementById("wrap-social-login");
+
 // 페이지 로드 시 기본 상태 설정 (기업회원 숨김)
 window.addEventListener("DOMContentLoaded", () => {
     companyLogin.style.display = "none"; // 기업회원 탭 처음에 숨김
@@ -21,10 +24,26 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // 탭 토글 함수
+const memberType = document.getElementById("member-type");
+
 personTab.addEventListener("click", () => toggleTabs(true));
 companyTab.addEventListener("click", () => toggleTabs(false));
 
 const toggleTabs = (isPerson) => {
+    if(isPerson){
+        memberType.value = "Personal";
+        idInput.name = "memberEmail";
+        passwordInput.name = "memberPassword";
+        socialLogin.style.display = "block";
+        socialLoginWrap.style.display = "block";
+    }else{
+        idInput.name = "corporationEmail";
+        passwordInput.name = "corporationPassword";
+        memberType.value = "Corporation";
+        socialLogin.style.display = "none";
+        socialLoginWrap.style.display = "none";
+    }
+
     personTab.classList.toggle("active", isPerson);
     companyTab.classList.toggle("active", !isPerson);
 
@@ -60,8 +79,6 @@ loginButton.addEventListener("click", (event) => {
         passwordInput.focus(); // 비밀번호 입력 필드에 포커스
         return;
     }
-
-    // // 아이디와 비밀번호가 모두 입력된 경우, 로그인 로직 실행
-    // alert("로그인 시도 중...");
-    // // 실제 로그인 로직 추가 필요
 });
+
+

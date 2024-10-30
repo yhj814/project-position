@@ -16,10 +16,19 @@ create table tbl_member(
 );
 
 select * from tbl_member;
+select * from tbl_corporation;
+delete from tbl_member;
 
 alter table  tbl_member add(created_date datetime default current_timestamp);
 alter table  tbl_member add(updated_date datetime default current_timestamp);
 alter table  tbl_member add(member_warning_count int default 0);
+alter table tbl_member add(member_kakao_email varchar(255));
+alter table tbl_member add(member_kakao_profile_url varchar(255));
+alter table tbl_member modify column member_phone varchar(255);
+alter table tbl_member modify column member_address_detail varchar(255);
+alter table tbl_member modify column member_password varchar(255);
+alter table tbl_member drop column member_type;
+
 
 
 

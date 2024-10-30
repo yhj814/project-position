@@ -8,7 +8,8 @@
         <title>로그인 - Position</title>
     </head>
     <body>
-    <form th:action="@{/login/login-combine}" method="post" name="login-form" th:object="${memberDTO}">
+    <form th:action="@{/login}" method="post" name="login-form" th:object="${memberDTO}">
+        <input type="hidden" name="memberType" id="member-type" value="Personal">
         <header id="login-header" class="integrated-header">
             <div class="area-logo">
                 <!-- position path -->
@@ -217,7 +218,7 @@
                                         </strong>
                                         <div class="area-btn">
                                             <a
-                                                href="javascript:void(0)"
+                                                href="/join/member"
                                                 id="person-join"
                                                 class="btn-type blue-invert size-l"
                                             >
@@ -235,7 +236,7 @@
                                         </strong>
                                         <div class="area-btn">
                                             <a
-                                                href="javascript:void(0)"
+                                                href="/join/company"
                                                 id="company-join"
                                                 class="btn-type blue-invert size-l"
                                             >
@@ -265,6 +266,7 @@
                                                             selected="true"
                                                             tabindex="0"
                                                             area-selected="true"
+                                                            id="member"
                                                         >
                                                             개인회원
                                                         </button>
@@ -277,11 +279,13 @@
                                                             selected="false"
                                                             tabindex="-1"
                                                             area-selected="false"
+                                                            id="company"
                                                         >
                                                             기업회원
                                                         </button>
                                                     </li>
                                                 </ul>
+
                                                 <div
                                                     class="tab-panel"
                                                     role="tabpanel"
@@ -294,11 +298,10 @@
                                                             <input
                                                                 type="text"
                                                                 id="id"
-                                                                name="id"
                                                                 class="txt-tool"
                                                                 value=""
                                                                 required=""
-                                                                th:field="*{memberEmail}"
+                                                                name="memberEmail"
                                                             />
                                                             <label
                                                                 id="id-label"
@@ -313,12 +316,11 @@
                                                             <input
                                                                 type="password"
                                                                 id="password"
-                                                                name="password"
+                                                                name="memberPassword"
                                                                 class="txt-tool"
                                                                 value=""
                                                                 maxlength="32"
                                                                 required=""
-                                                                th:field="*{memberPassword}"
                                                             />
                                                             <label
                                                                 id="password-label"
@@ -326,37 +328,10 @@
                                                                 >비밀번호</label
                                                             >
                                                         </div>
-                                                        <div class="setting">
-                                                            <div
-                                                                class="inp-box"
-                                                                name="autologin-check-box"
-                                                            >
-
-                                                            </div>
-                                                            <div
-                                                                class="inp-box"
-                                                            >
-                                                                <span
-                                                                    class="chk"
-                                                                >
-                                                                    <input
-                                                                        type="checkbox"
-                                                                        id="save"
-                                                                        name="save"
-                                                                        data-gtm-form-interact-field-id="1"
-                                                                    />
-                                                                    <label
-                                                                        class="lbl"
-                                                                        for="save"
-                                                                        >아이디
-                                                                        저장</label
-                                                                    >
-                                                                </span>
-                                                            </div>
-                                                        </div>
                                                         <button
                                                             type="submit"
                                                             class="btn-login btn-type size-ml"
+                                                            style="margin-top: 20px"
                                                         >
                                                             로그인
                                                         </button>
@@ -399,7 +374,7 @@
                                                     >
                                                         <li class="login-kakao">
                                                             <a
-                                                                href=""
+                                                                href="https://kauth.kakao.com/oauth/authorize?client_id=1535ee6277b12554f8cb83bc32bf2338&redirect_uri=http://localhost:10000/kakao/login&response_type=code"
                                                                 class="sl-kakao ga-data-layer"
                                                                 data-provider="kakao"
                                                             >

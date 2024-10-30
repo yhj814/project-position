@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="stylesheet" href="/static/css/join/company.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/css/join/company.css" />
         <title>Document</title>
     </head>
     <body>
@@ -111,10 +111,12 @@
                             name="c-frm"
                             id="c-frm"
                             method="post"
-                            action=""
+                            th:action="@{/join/company}"
                             enctype="multipart/form-data"
                             autocomplete="off"
                         >
+                            <input type="hidden" name="uuid" id="uuid">
+                            <input type="hidden" name="path" id="path">
                             <fieldset>
                                 <h3 class="tit-join-member">
                                     포지션 기업회원 가입
@@ -128,7 +130,7 @@
                                         </label>
                                         <div class="typo-box">
                                             <input
-                                                name="corp-code"
+                                                name="corporationCode"
                                                 id="corp-code"
                                                 type="text"
                                                 class="typo size-l defalt"
@@ -197,7 +199,7 @@
                                             <input
                                                 type="file"
                                                 id="confirm-document-file"
-                                                name="confirm-document-file"
+                                                name="file"
                                                 class="file-input"
                                             />
                                             <label
@@ -508,7 +510,7 @@
                                             >
                                             <div class="typo-box">
                                                 <input
-                                                    name="company-nm"
+                                                    name="corporationName"
                                                     id="company-nm"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -533,7 +535,7 @@
                                             >
                                             <div class="typo-box">
                                                 <input
-                                                    name="ceo-nm"
+                                                    name="corporationOwner"
                                                     id="ceo-nm"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -566,7 +568,7 @@
                                                 class="typo-box input-address adress-domestic"
                                             >
                                                 <input
-                                                    name="address-main"
+                                                    name="corporationAddress"
                                                     id="address-main"
                                                     type="text"
                                                     class="typo size-l defalt from-address -search-area"
@@ -581,7 +583,7 @@
                                                 class="typo-box input-sebu-address"
                                             >
                                                 <input
-                                                    name="address-sebu"
+                                                    name="corporationAddressDetail"
                                                     id="address-sebu"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -599,188 +601,6 @@
                                             >
                                         </div>
 
-                                        <!-- 업종 -->
-                                        <div
-                                            class="cont-division"
-                                            id="job-category-area"
-                                            style="display: block"
-                                        >
-                                            <strong
-                                                id="job-category"
-                                                class="cont-tit"
-                                                >업종</strong
-                                            >
-
-                                            <div
-                                                class="flexbox row-reverse"
-                                                id="industry-category"
-                                            >
-                                                <button
-                                                    type="button"
-                                                    name="btn-desire-industry"
-                                                    class="btn-type size-l btn-job-category"
-                                                    aria-haspopup="true"
-                                                    aria-expanded="false"
-                                                    aria-labelledby="job-category"
-                                                    data-api-id="desire-industry"
-                                                >
-                                                    선택
-                                                </button>
-                                                <div
-                                                    id="industry-selected-area"
-                                                    class="form-typo-box area-job-category"
-                                                >
-                                                    <span
-                                                        class="form-placeholder"
-                                                        aria-hidden="true"
-                                                        >업종선택</span
-                                                    >
-                                                </div>
-                                            </div>
-                                            <em
-                                                class="msg-invalid"
-                                                id="msg-industry-category"
-                                                style="display: none"
-                                                >업종을 선택하세요</em
-                                            >
-
-                                            <!-- 업종 레이어 -->
-                                            <div
-                                                class="layer-desire-industry"
-                                                id="layer-desire-industry"
-                                                style="display: none"
-                                            >
-                                                <div
-                                                    class="layer-pop-manage layer-hope layer-hope-industry"
-                                                    data-layer-id="desire-industry"
-                                                >
-                                                    <div
-                                                        class="layer-manage-wrap"
-                                                    >
-                                                        <h4>업종 선택</h4>
-                                                        <div
-                                                            class="area-search-job"
-                                                        >
-                                                            <label
-                                                                class="title-search-job"
-                                                                for="search-industry"
-                                                                >빠른 업종
-                                                                검색</label
-                                                            >
-                                                            <input
-                                                                type="text"
-                                                                class="position-input"
-                                                                data-api-type="auto"
-                                                                data-api-id="desire-industry"
-                                                            />
-                                                            <div
-                                                                id="desire-industry"
-                                                                class="charge-job-select auto-search"
-                                                                style="
-                                                                    display: none;
-                                                                "
-                                                            >
-                                                                <ul
-                                                                    class="list-job-charge"
-                                                                    style="
-                                                                        height: 165px;
-                                                                    "
-                                                                >
-                                                                    <li
-                                                                        class="no-list"
-                                                                    >
-                                                                        <p>
-                                                                            일치하는
-                                                                            직종이
-                                                                            없습니다.
-                                                                            직종을
-                                                                            다시
-                                                                            검색해
-                                                                            주세요.
-                                                                        </p>
-                                                                    </li>
-                                                                </ul>
-                                                                <div
-                                                                    class="btn-select"
-                                                                >
-                                                                    <button
-                                                                        type="button"
-                                                                        class="btn-basic-type05"
-                                                                        btn-save
-                                                                    >
-                                                                        선택
-                                                                    </button>
-                                                                    <button
-                                                                        type="button"
-                                                                        class="btn-basic-type01 btn-close"
-                                                                    >
-                                                                        취소
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <p class="txt">
-                                                            ※ 업종- 1개만
-                                                            선택가능 /
-                                                            키워드-업종당 최대
-                                                            5개까지 선택 가능
-                                                        </p>
-                                                        <fieldset>
-                                                            <legend>
-                                                                업종 선택
-                                                            </legend>
-                                                            <div
-                                                                class="area-table-scroll list-jobs"
-                                                            >
-                                                                <!-- 대분류 카테고리 -->
-                                                                <ul
-                                                                    class="list-jobs-category"
-                                                                >
-                                                                    <!-- 자바스크립트로 동적으로 생성될 부분 -->
-                                                                </ul>
-                                                            </div>
-                                                        </fieldset>
-
-                                                        <div
-                                                            class="list-job-check"
-                                                        >
-                                                            <ul></ul>
-                                                        </div>
-
-                                                        <div
-                                                            class="bottom-btn-wrap"
-                                                        >
-                                                            <button
-                                                                type="button"
-                                                                class="btn-basic-type05 btn-save"
-                                                            >
-                                                                완료
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                class="btn-basic-type01 btn-close"
-                                                            >
-                                                                취소
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                class="btn-basic-type03 btn-reset"
-                                                            >
-                                                                초기화
-                                                            </button>
-                                                        </div>
-
-                                                        <button
-                                                            type="button"
-                                                            class="btn-layer-close btn-close"
-                                                        >
-                                                            <span>닫기</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <!-- 개업일 -->
                                         <div
                                             class="item"
@@ -792,7 +612,7 @@
                                             >
                                             <div class="typo-box">
                                                 <input
-                                                    name="open-date"
+                                                    name="corporationGen"
                                                     id="open-date"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -810,107 +630,82 @@
                                                 아닙니다.</em
                                             >
                                         </div>
+                                        <div
+                                                class="item"
+                                        >
+                                            <label for="open-date" class=""
+                                            ><strong>직원 수</strong></label
+                                            >
+                                            <div class="typo-box">
+                                                <input
+                                                        name="corporationEmployeesNumber"
+                                                        id="employees-number"
+                                                        type="text"
+                                                        class="typo size-l defalt"
+                                                        maxlength="8"
+                                                        autocapitalize="off"
+                                                        autocomplete="off"
+                                                        placeholder="직원 수 입력"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <label for="company-nm" class=""
+                                            ><strong>기업 공식 홈페이지</strong></label
+                                            >
+                                            <div class="typo-box">
+                                                <input
+                                                        name="corporationHomepage"
+                                                        id="company-hp"
+                                                        type="text"
+                                                        class="typo size-l defalt"
+                                                        maxlength="25"
+                                                        autocapitalize="off"
+                                                        autocomplete="off"
+                                                        placeholder="https://example.com"
+                                                />
+                                            </div>
+                                            <em
+                                                    class="msg-invalid"
+                                                    id="msg-company-hp"
+                                                    style="display: none"
+                                            >필수 정보입니다.</em
+                                            >
+                                        </div>
+                                        <div class="item">
+                                            <label for="company-nm" class=""
+                                            ><strong>전년도 매출액</strong></label
+                                            >
+                                            <div class="typo-box">
+                                                <input
+                                                        name="corporationSales"
+                                                        id="company-s"
+                                                        type="text"
+                                                        class="typo size-l defalt"
+                                                        maxlength="25"
+                                                        autocapitalize="off"
+                                                        autocomplete="off"
+                                                        placeholder="단위: 만원"
+                                                />
+                                            </div>
+                                            <em
+                                                    class="msg-invalid"
+                                                    id="msg-company-s"
+                                                    style="display: none"
+                                            >필수 정보입니다.</em
+                                            >
+                                        </div>
                                     </div>
 
                                     <div class="write-base">
-                                        <!-- 이메일 -->
-                                        <div
-                                            class="item identify-phone email-column"
-                                            style="display: none"
-                                        >
-                                            <label for="email" class=""
+                                        <!-- 아이디 -->
+                                        <div class="item">
+                                            <label for="id" class=""
                                                 ><strong>이메일</strong></label
                                             >
                                             <div class="typo-box">
                                                 <input
-                                                    name="tmp-email-id"
-                                                    id="sms-email-id"
-                                                    type="text"
-                                                    class="typo size-l defalt"
-                                                    maxlength=""
-                                                    value=""
-                                                    autocapitalize="off"
-                                                    autocomplete="off"
-                                                    placeholder="email@saramin.co.kr"
-                                                />
-                                            </div>
-                                            <!-- 자동리스트 영역 -->
-                                            <ul
-                                                class="auto-list-area email-list"
-                                                style="display: none"
-                                            >
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@naver.com</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@gmail.com</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@daum.net</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@nate.com</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@outlook.com</a
-                                                    >
-                                                </li>
-                                            </ul>
-                                            <em
-                                                class="msg-invalid"
-                                                id="sms-msg-email1"
-                                                style="display: none"
-                                                >필수정보 입니다.</em
-                                            >
-                                        </div>
-
-                                        <!-- 아이디 -->
-                                        <div class="item">
-                                            <label for="userId" class=""
-                                                ><strong>아이디</strong></label
-                                            >
-                                            <div class="typo-box">
-                                                <input
-                                                    name="id"
+                                                    name="corporationEmail"
                                                     id="id"
                                                     type="text"
                                                     class="typo size-l defalt"
@@ -920,28 +715,27 @@
                                                     placeholder="4~20자리 / 영문, 숫자, 특수문자'-' 사용 가능"
                                                 />
                                             </div>
-                                            <p
-                                                class="alert-column focus-txt"
-                                                id="id-focus-msg"
-                                                style="display: none"
+                                            <em
+                                                    class="msg-invalid"
+                                                    id="id-check-msg1"
+                                                    style="display: none"
+                                            ><span
+                                                    class="less-important"
+                                            >이메일 형식을 다시 확인해주세요.</span
+                                            ></em
                                             >
-                                                4 ~ 20자의 영문, 숫자와 특수문자
-                                                '-'만 사용 가능
-                                            </p>
-                                            <p
-                                                class="msg-invalid"
-                                                id="id-check-msg1"
-                                                style="display: none"
+                                            <em
+                                                    class="msg-invalid rep"
+                                                    id="id-check-msg2"
+                                                    style="display: none"
+                                            >이미 사용중인 이메일입니다.</em
                                             >
-                                                4 ~ 20자의 영문, 숫자와 특수문자
-                                                '-'만 사용해 주세요.
-                                            </p>
                                             <p
-                                                class="alert-column good-txt"
-                                                id="id-check-msg2"
-                                                style="display: none"
+                                                    class="alert-column good-txt"
+                                                    id="id-check-msg3"
+                                                    style="display: none"
                                             >
-                                                사용가능한 ID입니다.
+                                                사용가능한 이메일입니다.
                                             </p>
                                         </div>
 
@@ -955,7 +749,7 @@
                                             <div class="typo-box pass-box">
                                                 <input
                                                     autocapitalize="off"
-                                                    name="password1"
+                                                    name="corporationPassword"
                                                     class="typo size-l defalt"
                                                     id="password1"
                                                     type="password"
@@ -963,13 +757,6 @@
                                                     autocomplete="off"
                                                     placeholder="8~16자리/영문 대소문자, 숫자, 특수문자 조합"
                                                 />
-                                                <button
-                                                    type="button"
-                                                    toggle="#password1"
-                                                    id="masking-password"
-                                                    class="toggle-password field-eye on"
-                                                    style="display: none"
-                                                ></button>
                                             </div>
                                             <p
                                                 class="alert-column focus-txt"
@@ -1024,233 +811,6 @@
                                     </div>
                                 </div>
 
-                                <!-- 약관 -->
-                                <div
-                                    class="cont-division"
-                                    id="company-terms-title"
-                                >
-                                    <span class="terms-agree"
-                                        ><strong>약관</strong></span
-                                    >
-                                    <div class="agree-box">
-                                        <ul class="agree-article">
-                                            <li>
-                                                <div class="inp-box">
-                                                    <span class="chk size-l">
-                                                        <input
-                                                            type="checkbox"
-                                                            class="check-mail"
-                                                            id="hidden-check-all-company"
-                                                            name="hidden-check-all-company"
-                                                            value="0"
-                                                        />
-                                                        <label
-                                                            class="check-all check-off Lbl"
-                                                            for="hidden-check-all-company"
-                                                        >
-                                                            <strong
-                                                                class="all-agree"
-                                                                >전체
-                                                                동의</strong
-                                                            >
-                                                        </label>
-                                                    </span>
-                                                </div>
-                                                <p class="agree-txt">
-                                                    마케팅 정보 수신
-                                                    동의(이메일,SMS/MMS)(선택)
-                                                    동의를 포함합니다.
-                                                </p>
-                                            </li>
-                                        </ul>
-                                        <ul class="agree-article depth2">
-                                            <li>
-                                                <div class="agree-desc">
-                                                    <div class="inp-box">
-                                                        <span class="chk">
-                                                            <input
-                                                                type="checkbox"
-                                                                id="agree-rule2"
-                                                                onclick=""
-                                                            />
-                                                            <label
-                                                                class="Lbl check-off"
-                                                                for="agree-rule2"
-                                                            >
-                                                                <span
-                                                                    ><strong
-                                                                        >(필수)
-                                                                        기업회원
-                                                                        약관에
-                                                                        동의</strong
-                                                                    ></span
-                                                                >
-                                                            </label>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <a
-                                                    href=""
-                                                    class="view-indetail"
-                                                    target="-blank"
-                                                >
-                                                    <span class="blind"
-                                                        >기업회원 약관
-                                                        상세보기</span
-                                                    >
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <div class="agree-desc">
-                                                    <div class="inp-box">
-                                                        <span class="chk">
-                                                            <input
-                                                                type="checkbox"
-                                                                id="agree-take2"
-                                                                onclick=""
-                                                            />
-                                                            <label
-                                                                class="Lbl check-off"
-                                                                for="agree-take2"
-                                                            >
-                                                                <span
-                                                                    ><strong
-                                                                        >(필수)
-                                                                        개인정보
-                                                                        수집 및
-                                                                        이용에
-                                                                        동의</strong
-                                                                    ></span
-                                                                >
-                                                            </label>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <a
-                                                    href=""
-                                                    class="view-indetail popup-clause-open"
-                                                    target="-blank"
-                                                >
-                                                    <span class="blind"
-                                                        >개인정보 수집 및 이용에
-                                                        동의 약관 상세보기</span
-                                                    >
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <div class="agree-desc">
-                                                    <div class="inp-box">
-                                                        <span class="chk">
-                                                            <input
-                                                                type="checkbox"
-                                                                id="agree-sms2"
-                                                                onclick=""
-                                                            />
-                                                            <label
-                                                                class="Lbl check-off"
-                                                                for="agree-sms2"
-                                                            >
-                                                                <span
-                                                                    ><strong
-                                                                        >(필수)
-                                                                        SMS 발송
-                                                                        서비스
-                                                                        약관에
-                                                                        동의</strong
-                                                                    ></span
-                                                                >
-                                                            </label>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <a
-                                                    id="popup-terms-agree-lb"
-                                                    href="/zf-user/help/terms-of-service/send-sms"
-                                                    class="view-indetail"
-                                                    target="-blank"
-                                                >
-                                                    <span class="blind"
-                                                        >SMS 발송 서비스 약관에
-                                                        동의 상세보기</span
-                                                    >
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <div class="agree-desc">
-                                                    <div class="inp-box">
-                                                        <span class="chk">
-                                                            <input
-                                                                type="checkbox"
-                                                                class="check-mail"
-                                                                id="corpAgree"
-                                                            />
-                                                            <label
-                                                                class="lbl check-off"
-                                                                for="corpAgree"
-                                                            >
-                                                                <span
-                                                                    >(선택)
-                                                                    마케팅정보
-                                                                    수신 동의 -
-                                                                    이메일</span
-                                                                >
-                                                            </label>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <a
-                                                    id="popup-email-receive"
-                                                    href="/zf-user/popup/privacy-policy?category=com-email-opt"
-                                                    class="view-indetail popup-clause-open"
-                                                    target="-blank"
-                                                >
-                                                    <span class="blind"
-                                                        >마케팅 정보수신 동의 -
-                                                        이메일 약관
-                                                        상세보기</span
-                                                    >
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <div class="agree-desc">
-                                                    <div class="inp-box">
-                                                        <span class="chk">
-                                                            <input
-                                                                type="checkbox"
-                                                                id="reject-sms-fl"
-                                                                name="reject-sms-fl"
-                                                                value="n"
-                                                            />
-                                                            <label
-                                                                class="Lbl check-off"
-                                                                for="reject-sms-fl"
-                                                            >
-                                                                <span
-                                                                    >(선택)
-                                                                    마케팅정보
-                                                                    수신 동의 -
-                                                                    SMS/MMS</span
-                                                                >
-                                                            </label>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <a
-                                                    id="popup-sms-receive"
-                                                    href=""
-                                                    class="view-indetail popup-clause-open"
-                                                    target="-blank"
-                                                >
-                                                    <span class="blind"
-                                                        >마케팅정보 수신 동의 -
-                                                        SMS/MMS 약관
-                                                        상세보기</span
-                                                    >
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <div class="btn-join">
                                     <button
                                         type="button"
@@ -1262,13 +822,6 @@
                                 </div>
                             </fieldset>
                         </form>
-
-                        <form
-                            name="certify-form"
-                            id="certify-form"
-                            action=""
-                            method="post"
-                        ></form>
                     </div>
                 </div>
 
@@ -1276,6 +829,7 @@
             </div>
         </div>
     </body>
-    <script src="/static/js/join/company.js"></script>
-    <script src="/static/js/join/company-category.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/join/service/company-service.js"></script>
+    <script src="/js/join/company.js"></script>
 </html>

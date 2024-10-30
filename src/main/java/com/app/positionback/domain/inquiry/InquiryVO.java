@@ -19,7 +19,6 @@ public class InquiryVO {
 }
 
 
-
 //id bigint unsigned auto_increment primary key,           # 기본 키
 //inquiry_type varchar(255) not null,                     # 구분 (기업, 개인)
 //inquiry_category varchar(255),                           # 문의 종류

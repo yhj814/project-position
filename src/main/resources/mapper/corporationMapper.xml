@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.positionback.mapper.corporation.CorporationMapper">
+
+    <insert id="insert">
+         insert into tbl_corporation(corporation_name, corporation_address, corporation_address_detail, corporation_employees_number,
+                                     corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_gen, corporation_sales, corporation_code)
+         values (#{corporationName}, #{corporationAddress}, #{corporationAddressDetail}, #{corporationEmployeesNumber}, #{corporationOwner},
+                 #{corporationEmail}, #{corporationPassword}, #{corporationHomepage}, #{corporationGen}, #{corporationSales}, #{corporationCode})
+    </insert>
+
+    <select id="selectLastInsertId" resultType="long">
+        select last_insert_id()
+    </select>
+
+    <select id="selectCountByCorporationEmail" resultType="_int">
+        select count(*) from tbl_corporation where corporation_email = #{corporationEmail}
+    </select>
+
+    <select id="selectByCorporationEmailAndCorporationPassword">
+        select id, corporation_name, corporation_address, corporation_address_detail, corporation_employees_number, corporation_sales,
+               corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_read_count, created_date,
+               updated_date, corporation_gen, corporation_code
+        from tbl_corporation
+        where corporation_email = #{corporationEmail} and corporation_password = #{corporationPassword}
+    </select>
+</mapper>

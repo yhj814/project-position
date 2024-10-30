@@ -13,13 +13,35 @@ public class MemberDAO {
 
     private final MemberMapper memberMapper;
 
-//    회원가입
-    public void saveMember(MemberVO memberVO) {
-        memberMapper.insertMember(memberVO);
+    public int findCountByMemberEmail(String memberEmail) {
+        return memberMapper.selectCountByMemberEmail(memberEmail);
     }
 
-//    로그인
-    public Optional<MemberVO> findMemberByEmailAndPassword(MemberVO memberVO) {
-       return memberMapper.selectByMemberEmailAndMemberPassword(memberVO);
+    public int findCountByMemberPhone(String memberPhone) {
+        return memberMapper.selectCountByMemberPhone(memberPhone);
+    }
+
+    public void save(MemberVO memberVO) {
+        memberMapper.insert(memberVO);
+    }
+
+    public Optional<MemberVO> findByMemberEmailAndMemberPassword(MemberVO memberVO) {
+        return memberMapper.selectByMemberEmailAndMemberPassword(memberVO);
+    }
+    public Optional<MemberVO> findByMemberKakaoEmail(String memberKakaoEmail){
+        return memberMapper.selectByMemberKakaoEmail(memberKakaoEmail);
+    }
+    public void saveKakaoInfo(MemberVO memberVO){
+        memberMapper.insertKakaoInfo(memberVO);
+    }
+    public void updateKakaoMember(MemberVO memberVO){
+        memberMapper.updateKakaoMember(memberVO);
+    }
+    public Long findLastInsertId(){
+        return memberMapper.selectLastInsertId();
+    }
+
+    public Optional<MemberVO> findById(Long id){
+        return memberMapper.selectById(id);
     }
 }

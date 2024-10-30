@@ -11,10 +11,11 @@ public class FileDTO {
     private Long id;
     private String fileName;
     private String filePath;
+    private String fileSize;
     private String createdDate;
     private String updatedDate;
 
     public FileVO toVO(){
-        return new FileVO(id, fileName, filePath, createdDate, updatedDate);
+        return new FileVO(id, fileName, filePath, fileSize, createdDate, updatedDate);
     }
 }

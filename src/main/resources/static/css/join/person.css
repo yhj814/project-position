@@ -44,9 +44,6 @@ ol, ul, li {
     align-items: center;
 }
 
-.join-header .area-util .menu-position:before {
-    background-image: url(/static/images/login/position-home.svg);
-}
 
 .join-header .area-util .util-menu:before {
     margin-right: 5px;
@@ -225,17 +222,6 @@ button {
     background-color: transparent;
 }
 
-.write-base .item .pass-box .field-eye.on:before {
-    background: url(/static/images/join/eye.svg) no-repeat;
-}
-
-.write-base .item .pass-box .field-eye:before {
-    display: inline-block;
-    width: 28px;
-    height: 20px;
-    background: url(/static/images/join/oneye.svg) no-repeat;
-    content: "";
-}
 
 .write-base .item .alert-column.focus-txt {
     color: #5c667b;
@@ -309,7 +295,7 @@ button {
     color: #5c667b;
     font-size: 13px;
     line-height: 20px;
-    background: url(/static/images/join/info.svg) 0 50% no-repeat;
+    background: url(/images/join/info.svg) 0 50% no-repeat;
     background-size: 14px 14px;
 }
 
@@ -364,7 +350,7 @@ button {
     display: block;
     width: 24px;
     height: 24px;
-    background: url(/static/images/join/close.svg) no-repeat;
+    background: url(/images/join/close.svg) no-repeat;
     content: "";
 }
 
@@ -548,7 +534,7 @@ input[type="checkbox"], input[type="radio"] {
     bottom: 0;
     width: 20px;
     height: 20px;
-    background: url(/static/images/join/arrow.svg) no-repeat;
+    background: url(/images/join/arrow.svg) no-repeat;
     background-position: center right;
 }
 
@@ -674,7 +660,7 @@ input[type="checkbox"], input[type="radio"] {
     display: block;
     width: 24px;
     height: 24px;
-    background: url(/static/images/join/close.svg) no-repeat;
+    background: url(/images/join/close.svg) no-repeat;
     content: "";
 }
 
@@ -707,7 +693,7 @@ input[type="checkbox"], input[type="radio"] {
 
 .write-base .item .wrap-collection-basis .btn-link.on {
     color: #2d65f2;
-    background: url(/static/images/join/info-on.svg) 0 50% no-repeat;
+    background: url(/images/join/info-on.svg) 0 50% no-repeat;
     background-size: 14px 14px;
 }
 
@@ -764,7 +750,7 @@ input[type="checkbox"], input[type="radio"] {
     display: block;
     width: 24px;
     height: 24px;
-    background: url(/static/images/join/close-btn.svg) 50% no-repeat;
+    background: url(/images/join/close-btn.svg) 50% no-repeat;
     content: "";
 }
 
@@ -801,7 +787,7 @@ input[type="checkbox"], input[type="radio"] {
     display: block;
     width: 24px;
     height: 24px;
-    background: url(/static/images/join/close-btn.svg) 50% no-repeat;
+    background: url(/images/join/close-btn.svg) 50% no-repeat;
     content: "";
 }
 
@@ -853,10 +839,6 @@ button {
     display: none;
 }
 
-#name {
-    display: none;
-}
-
 #birth {
     display: none;
 }
@@ -878,15 +860,30 @@ button {
     display: none;
 }
 
-/* #sms-cellnum {
-    display: none;
-} */
-
 #sms-cellnum-desc {
     display: none;
 }
 
-#sms-cellnum-area{
+#sms-code-focus-msg {
     display: none;
 }
 
+#sms-code-warning-txt {
+    display: none;
+}
+
+#sms-code-good-txt {
+    display: none;
+}
+
+#name-check-msg {
+    display: none;
+}
+
+#sms-sent-code{
+    display: none;
+}
+
+#phone-warn-msg, #phone-check-msg {
+    display: none;
+}
