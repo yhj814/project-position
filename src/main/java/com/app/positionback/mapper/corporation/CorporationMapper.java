@@ -8,8 +8,7 @@ import java.util.Optional;
 @Mapper
 public interface CorporationMapper {
 //    회원가입
-    public void insertCorporation(CorporationVO corporationVO);
-
-//    로그인
-    public Optional<CorporationVO> selectByCorporationEmailAndPassword(CorporationVO corporationVO);
+    public void insert(CorporationVO corporationVO);
+    public Long selectLastInsertId();
+    public int selectCountByCorporationEmail(String corporationEmail);
 }

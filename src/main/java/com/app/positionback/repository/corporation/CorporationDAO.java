@@ -14,14 +14,15 @@ public class CorporationDAO {
     private final CorporationMapper corporationMapper;
 
     // 회원가입
-    public void saveCorporation(CorporationVO corporationVO) {
-        corporationMapper.insertCorporation(corporationVO);
-
+    public void save(CorporationVO corporationVO) {
+        corporationMapper.insert(corporationVO);
     }
 
-    //        로그인
-    public Optional<CorporationVO> findCorporationByEmailAndPassword(CorporationVO corporationVO){
-        return corporationMapper.selectByCorporationEmailAndPassword(corporationVO);
+    public Long findLastInsertId(){
+        return corporationMapper.selectLastInsertId();
+    }
 
+    public int findCountByCorporationEmail(String corporationEmail){
+        return corporationMapper.selectCountByCorporationEmail(corporationEmail);
     }
 }

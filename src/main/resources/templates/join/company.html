@@ -111,10 +111,12 @@
                             name="c-frm"
                             id="c-frm"
                             method="post"
-                            action=""
+                            th:action="@{/join/company}"
                             enctype="multipart/form-data"
                             autocomplete="off"
                         >
+                            <input type="hidden" name="uuid" id="uuid">
+                            <input type="hidden" name="path" id="path">
                             <fieldset>
                                 <h3 class="tit-join-member">
                                     포지션 기업회원 가입
@@ -197,7 +199,7 @@
                                             <input
                                                 type="file"
                                                 id="confirm-document-file"
-                                                name="confirm-document-file"
+                                                name="file"
                                                 class="file-input"
                                             />
                                             <label
@@ -677,96 +679,6 @@
                                     </div>
 
                                     <div class="write-base">
-                                        <!-- 이메일 -->
-                                        <div
-                                            class="item identify-phone email-column"
-                                            style="display: none"
-                                        >
-                                            <label for="sms-email-id" class=""
-                                                ><strong>이메일</strong></label
-                                            >
-                                            <div class="typo-box">
-                                                <input
-                                                    name="corporationEmail"
-                                                    id="sms-email-id"
-                                                    type="text"
-                                                    class="typo size-l defalt"
-                                                    maxlength=""
-                                                    value=""
-                                                    autocapitalize="off"
-                                                    autocomplete="off"
-                                                    placeholder="email@saramin.co.kr"
-                                                />
-                                            </div>
-                                            <!-- 자동리스트 영역 -->
-                                            <ul
-                                                class="auto-list-area email-list"
-                                                style="display: none"
-                                            >
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@naver.com</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@gmail.com</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@daum.net</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@nate.com</a
-                                                    >
-                                                </li>
-                                                <li class="auto-list">
-                                                    <a
-                                                        href="javascript:;"
-                                                        onclick=""
-                                                        class="email-domain"
-                                                        ><strong
-                                                            class="txt-input"
-                                                        ></strong
-                                                        >@outlook.com</a
-                                                    >
-                                                </li>
-                                            </ul>
-                                            <em
-                                                class="msg-invalid"
-                                                id="sms-msg-email1"
-                                                style="display: none"
-                                                >필수정보 입니다.</em
-                                            >
-                                        </div>
-
                                         <!-- 아이디 -->
                                         <div class="item">
                                             <label for="id" class=""
@@ -784,28 +696,27 @@
                                                     placeholder="4~20자리 / 영문, 숫자, 특수문자'-' 사용 가능"
                                                 />
                                             </div>
-                                            <p
-                                                class="alert-column focus-txt"
-                                                id="id-focus-msg"
-                                                style="display: none"
+                                            <em
+                                                    class="msg-invalid"
+                                                    id="id-check-msg1"
+                                                    style="display: none"
+                                            ><span
+                                                    class="less-important"
+                                            >이메일 형식을 다시 확인해주세요.</span
+                                            ></em
                                             >
-                                                4 ~ 20자의 영문, 숫자와 특수문자
-                                                '-'만 사용 가능
-                                            </p>
-                                            <p
-                                                class="msg-invalid"
-                                                id="id-check-msg1"
-                                                style="display: none"
+                                            <em
+                                                    class="msg-invalid rep"
+                                                    id="id-check-msg2"
+                                                    style="display: none"
+                                            >이미 사용중인 이메일입니다.</em
                                             >
-                                                4 ~ 20자의 영문, 숫자와 특수문자
-                                                '-'만 사용해 주세요.
-                                            </p>
                                             <p
-                                                class="alert-column good-txt"
-                                                id="id-check-msg2"
-                                                style="display: none"
+                                                    class="alert-column good-txt"
+                                                    id="id-check-msg3"
+                                                    style="display: none"
                                             >
-                                                사용가능한 ID입니다.
+                                                사용가능한 이메일입니다.
                                             </p>
                                         </div>
 
@@ -827,13 +738,6 @@
                                                     autocomplete="off"
                                                     placeholder="8~16자리/영문 대소문자, 숫자, 특수문자 조합"
                                                 />
-                                                <button
-                                                    type="button"
-                                                    toggle="#password1"
-                                                    id="masking-password"
-                                                    class="toggle-password field-eye on"
-                                                    style="display: none"
-                                                ></button>
                                             </div>
                                             <p
                                                 class="alert-column focus-txt"
@@ -899,13 +803,6 @@
                                 </div>
                             </fieldset>
                         </form>
-
-                        <form
-                            name="certify-form"
-                            id="certify-form"
-                            action=""
-                            method="post"
-                        ></form>
                     </div>
                 </div>
 
@@ -913,6 +810,8 @@
             </div>
         </div>
     </body>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/join/service/company-service.js"></script>
     <script src="/js/join/company.js"></script>
     <script src="/js/join/company-category.js"></script>
 </html>

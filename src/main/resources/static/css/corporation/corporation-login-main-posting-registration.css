@@ -166,7 +166,7 @@ button.interested-corp {
     height: 16px;
     border: 0;
     vertical-align: middle;
-    background: url(/static/images/corporation/sp-interested-corp.png) 0 1px
+    background: url(/images/corporation/sp-interested-corp.png) 0 1px
         no-repeat;
     cursor: pointer;
     -overflow: hidden;
@@ -559,7 +559,7 @@ button.interested-corp {
 }
 .list-recruiting .list-body .list-item .notification-info {
     padding: 0;
-    width: 556px;
+    width: 500px;
     flex-shrink: 0;
 }
 .list-recruiting .list-body .list-item .col {
@@ -596,7 +596,7 @@ button.interested-corp {
 .spr-scrap {
     display: block;
     overflow: hidden;
-    background: url(/static/images/corporation/star-logo.svg);
+    background: url(/images/corporation/star-logo.svg);
 }
 
 .scrap-on {
@@ -605,7 +605,7 @@ button.interested-corp {
     background-position: -27px -1px;
     display: block;
     overflow: hidden;
-    background: url(/static/images/corporation/star-on-logo.svg);
+    background: url(/images/corporation/star-on-logo.svg);
 }
 .hidden, .blind {
     overflow: hidden;
@@ -636,9 +636,9 @@ button.interested-corp {
     margin-right: 4px;
 }
 .list-recruiting .list-body .list-item .recruit-info {
-    margin-left: 56px;
+    /*margin-left: 56px;*/
     padding: 0;
-    width: 232px;
+    width: 270px;
 }
 .list-recruiting .list-body .list-item .col {
     min-height: 51px;
@@ -669,7 +669,7 @@ ol, ul, li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/icon-location.png);
+    background-image: url(/images/corporation/icon-location.png);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
@@ -684,7 +684,7 @@ ol, ul, li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/icon-career.png);
+    background-image: url(/images/corporation/icon-career.png);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
@@ -696,7 +696,7 @@ ol, ul, li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/icon-education.png);
+    background-image: url(/images/corporation/icon-education.png);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
