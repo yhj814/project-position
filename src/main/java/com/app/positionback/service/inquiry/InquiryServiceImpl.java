@@ -2,11 +2,13 @@ package com.app.positionback.service.inquiry;
 
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.FileVO;
+import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.inquiry.InquiryVO;
 import com.app.positionback.repository.inquiry.InquiryDAO;
 import com.app.positionback.repository.inquiry.InquiryFileDAO;
 import com.app.positionback.repository.notice.NoticeFileDAO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,17 +20,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Service
+@Primary
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class InquiryServiceImpl implements InquiryService {
     private final InquiryDAO inquiryDAO;
     private final InquiryFileDAO inquiryFileDAO;
-    private final FileVO fileVO;
-    private final NoticeFileDAO noticeFileDAO;
 
     @Override
-    public void saveInquiry(InquiryVO inquiryVO, MultipartFile file) throws IOException {
-        inquiryDAO.saveInquiry(inquiryVO);
+    public void saveInquiry(InquiryDTO inquiryDTO, MultipartFile file) throws IOException {
+        inquiryDAO.saveInquiry(inquiryDTO);
         Long inquiryId = inquiryDAO.getRecentInsertedId();
         saveAndLinkInquiryFile(file, inquiryId);
     }
@@ -51,7 +52,7 @@ public class InquiryServiceImpl implements InquiryService {
             fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
 
             // saveInquiryFile => 문의 파일 저장
-            inquiryFileDAO.saveInquiryFile(fileVO);
+            inquiryFileDAO.saveInquiryFile(fileDTO);
             Long fileId = inquiryFileDAO.getRecentInsertedId();
             //  linkInquiryWithFile => 문의와 파일 연결
             inquiryFileDAO.linkInquiryWithFile(inquiryId, fileId);

@@ -52,6 +52,7 @@
                                                         th:value="${inquiryDTO.memberEmail}"
                                                         autocomplete="off"
                                                         readonly="readonly"
+                                                        required
                                                     />
                                                 </span>
                                             </div>
@@ -74,6 +75,7 @@
                                                             class="help-member-type"
                                                             th:field="*{inquiryType}"
                                                             value="개인"
+                                                            required
                                                             checked
                                                         />
                                                         <label
@@ -90,6 +92,7 @@
                                                             class="help-member-type"
                                                             th:field="*{inquiryType}"
                                                             value="기업"
+                                                            required
                                                         />
                                                         <label
                                                             for="help-member-type-company"
@@ -118,6 +121,7 @@
                                                         id="help-category"
                                                         style="width: 338px"
                                                         th:field="*{inquiryCategory}"
+                                                        required
                                                     >
                                                         <option
                                                             selected value=""
@@ -179,6 +183,7 @@
                                                         class="inp-find"
                                                         style="width: 533px"
                                                         th:field="*{inquiryTitle}"
+                                                        required
                                                     />
                                                 </span>
                                             </div>
@@ -206,6 +211,7 @@
                                                         "
                                                         placeholder="문의종류 선택 후 내용을 입력해주세요."
                                                         th:field="*{inquiryContent}"
+                                                        required
                                                     ></textarea>
                                                 </span>
                                             </div>

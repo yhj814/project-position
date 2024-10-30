@@ -33,17 +33,12 @@ public class InquiryController {
         inquiryDTO.setMemberId(1L);
     }
 
-//    @PostMapping("/inquiry")
-//    public RedirectView write(InquiryDTO inquiryDTO, MultipartFile file, HttpSession session) throws Exception {
-//        Long memberId = (Long) session.getAttribute("memberId");
-//        if (memberId == null) {
-//            memberId = 1L;
-//        }
-//        inquiryDTO.setMemberId(memberId);
-//        log.info(inquiryDTO.toString());
-//        inquiryService.saveInquiry(inquiryDTO.toVO(), file);
-//        return new RedirectView("/customer-service-center/faq");
-//    }
+    @PostMapping("/inquiry")
+    public RedirectView write(InquiryDTO inquiryDTO, MultipartFile file) throws Exception {
+        inquiryDTO.setMemberId(1L);
+        inquiryService.saveInquiry(inquiryDTO, file);
+        return new RedirectView("/inquiry");
+    }
 
 //    @PostMapping("/inquiry")
 //    public RedirectView write(InquiryDTO inquiryDTO, HttpSession session) {

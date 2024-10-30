@@ -1,5 +1,6 @@
 package com.app.positionback.repository.inquiry;
 
+import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.FileVO;
 import com.app.positionback.mapper.inquiry.InquiryFileMapper;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +12,8 @@ public class InquiryFileDAO {
     private final InquiryFileMapper inquiryFileMapper;
 
     // 문의 파일 저장
-    public void saveInquiryFile(FileVO fileVO) {
-        inquiryFileMapper.insertInquiryAddFile(fileVO);
+    public void saveInquiryFile(FileDTO fileDTO) {
+        inquiryFileMapper.insertInquiryAddFile(fileDTO);
     }
 
     // 가장 최근 추가된 ID 가져오기
