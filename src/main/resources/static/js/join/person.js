@@ -29,6 +29,11 @@ const passwordMessageWarn = document.getElementById("password1-focus-msg");
 const checks = {nameCheck: false, idCheck: false, passwordCheck: false, phoneCheck: false};
 const button = document.getElementById("btn-submit");
 
+if(memberLoginType){
+    checks.idCheck = true;
+    checks.passwordCheck = true;
+}
+
 nameInput.addEventListener("blur", (e) => {
     nameMessageWarn.style.display = "none";
     if(!e.target.value) {
@@ -39,40 +44,44 @@ nameInput.addEventListener("blur", (e) => {
     checks.nameCheck = true;
 });
 
-idInput.addEventListener("blur", (e) => {
-    const emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-    idMessageRep.style.display = "none";
-    idMessageSafe.style.display = "none";
+if(!memberLoginType){
+    idInput.addEventListener("blur", (e) => {
+        const emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+        idMessageRep.style.display = "none";
+        idMessageSafe.style.display = "none";
 
-    if(!emailReg.test(e.target.value)) {
-        idMessageWarn.style.display = "block";
-        checks.idCheck = false;
-        return;
-    }
-    idMessageWarn.style.display = "none";
-
-    memberService.checkId(e.target.value, (result) => {
-        if(result) {
-            idMessageRep.style.display = "block";
+        if(!emailReg.test(e.target.value)) {
+            idMessageWarn.style.display = "block";
             checks.idCheck = false;
-        }else{
-            idMessageSafe.style.display = "block";
-            checks.idCheck = true;
+            return;
         }
+        idMessageWarn.style.display = "none";
+
+        memberService.checkId(e.target.value, (result) => {
+            if(result) {
+                idMessageRep.style.display = "block";
+                checks.idCheck = false;
+            }else{
+                idMessageSafe.style.display = "block";
+                checks.idCheck = true;
+            }
+        });
     });
-});
+}
 
-passwordInput.addEventListener("blur", (e) => {
-    const passwordReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
-    passwordMessageWarn.style.display = "none";
+if(!memberLoginType) {
+    passwordInput.addEventListener("blur", (e) => {
+        const passwordReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+        passwordMessageWarn.style.display = "none";
 
-    if(!passwordReg.test(e.target.value)) {
-        passwordMessageWarn.style.display = "block";
-        checks.passwordCheck = false;
-        return;
-    }
-    checks.passwordCheck = true;
-});
+        if (!passwordReg.test(e.target.value)) {
+            passwordMessageWarn.style.display = "block";
+            checks.passwordCheck = false;
+            return;
+        }
+        checks.passwordCheck = true;
+    });
+}
 
 phoneInput.addEventListener("blur", (e) => {
     const phoneReg = /^(01[016789]{1})-?[0-9]{3,4}-?[0-9]{4}$/;

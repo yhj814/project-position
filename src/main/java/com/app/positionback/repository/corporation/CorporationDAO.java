@@ -1,6 +1,7 @@
 package com.app.positionback.repository.corporation;
 
 import com.app.positionback.domain.corporation.CorporationVO;
+import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.mapper.corporation.CorporationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,5 +25,9 @@ public class CorporationDAO {
 
     public int findCountByCorporationEmail(String corporationEmail){
         return corporationMapper.selectCountByCorporationEmail(corporationEmail);
+    }
+
+    public Optional<CorporationVO> findByCorporationEmailAndCorporationPassword(MemberDTO memberDTO){
+        return corporationMapper.selectByCorporationEmailAndCorporationPassword(memberDTO);
     }
 }

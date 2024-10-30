@@ -18,7 +18,7 @@ article {
 }
 
 #header.main {
-    /* height: 161px; */
+     height: 72px;
 }
 
 #header.main.fixed {
@@ -90,13 +90,13 @@ article {
     overflow: hidden;
     width: 134px;
     height: 34px;
-    background-image: url("/static/images/main/saramin.png");
+    background-image: url("/images/main/saramin.png");
 }
 #header.fixed .bi .frame,
 #header.simple.bubble .bi .frame {
     width: 36px;
     height: 20px;
-    background-image: url("/static/images/main/home.png");
+    background-image: url("/images/main/home.png");
     background-repeat: no-repeat;
 }
 /* 로그인 */

@@ -20,7 +20,8 @@ public class MemberVO implements Serializable {
     private String memberAddressDetail;
     private String memberNickname;
     private String memberStatus;
-    private String memberType;
     private String memberWarningCount;
     private String memberPhone;
+    private String memberKakaoProfileUrl;
+    private String memberKakaoEmail;
 }
