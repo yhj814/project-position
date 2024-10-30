@@ -22,3 +22,26 @@ drop table tbl_notice;
 ALTER TABLE TBL_NOTICE
     add COLUMN notice_job_category_name VARCHAR(255);
 
+INSERT INTO tbl_notice (
+    corporation_id,
+    notice_title,
+    notice_career,
+    notice_education,
+    notice_work_start_date,
+    notice_work_end_date,
+    notice_work_start_time,
+    notice_work_end_time,
+    notice_end_date,
+    notice_job_category_name
+) VALUES (
+             1,  -- Example corporation ID (should be an existing ID in tbl_corporation)
+             '이건',  -- Notice title
+             '신입',  -- Career level
+             '대졸',  -- Minimum education requirement
+             '2024-11-01 09:00:00',  -- Work start date (YYYY-MM-DD HH:MM:SS)
+             '2024-12-31 18:00:00',  -- Work end date (YYYY-MM-DD HH:MM:SS)
+             '09:00:00',  -- Work start time (HH:MM:SS)
+             '18:00:00',  -- Work end time (HH:MM:SS)
+             '2024-10-31 23:59:59',  -- Notice end date (YYYY-MM-DD HH:MM:SS)
+             '소프트웨어 개발'  -- Job category name
+         );

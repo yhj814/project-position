@@ -45,6 +45,7 @@ public class NoticeController {
     // 공고 목록 조회
     @GetMapping("corporation-login-main-posting-registration")
     public void getNoticePage(@RequestParam(required = false) Integer page,Pagination pagination, Model model) {
+
         // page가 null인 경우 기본값 설정
         if (page == null) {
             page = 1; // 기본 페이지 번호
@@ -52,16 +53,14 @@ public class NoticeController {
         NoticeListDTO noticeListDTO = noticeService.getNoticesByCorporationId(page,pagination,1L); // corporationId에 맞게 조정
         model.addAttribute("notices", noticeListDTO); // "notices"라는 이름으로 데이터를 추가
     }
-//    public String getNoticeList(Model model) {
-//        List<NoticeDTO> notices = noticeService.getNoticesByCorporationId(1L); // Assuming 1L is the corporationId
-//        model.addAttribute("notices", notices);
-//        return "corporation-login-main-posting-registration";
-//    }
 
     // 공고 목록 조회 (비동기)
     @GetMapping("notices/list/{page}")
     @ResponseBody
     public NoticeListDTO getNoticeList(@PathVariable("page") Integer page, Pagination pagination) {
+        if(pagination.getOrder() == null){
+            pagination.setOrder("recent");
+        }
         // page가 null인 경우 기본값 설정
         if (page == null) {
             page = 1; // 기본 페이지 번호

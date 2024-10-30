@@ -1,5 +1,6 @@
 const noticePaging = document.querySelector(".PageBox");
 const listBody = document.querySelector('.list-body');
+const sortingSelect = document.querySelector(".sorting-select");
 
 // 공고 목록 데이터를 받아서 DOM에 추가하는 함수
 const showNoticeList = ({notices, pagination}) => {
@@ -43,7 +44,7 @@ const showNoticeList = ({notices, pagination}) => {
                     </div>
                     <div class="col support-info">
                         <button class="sri-btn-md">
-                            <span class="sri-btn-immediately">입사지원</span>
+                            <span class="sri-btn-immediately">삭제하기</span>
                         </button>
                         <p class="support-detail">
                             <span class="date">D-${daysLeft}일</span>
@@ -94,15 +95,31 @@ const showNoticeList = ({notices, pagination}) => {
         noticePaging.innerHTML = pagingText;
 };
 
-const loadNotices = (page = 1) => {
-    noticeService.getNoticeList(page, showNoticeList);
+// 공고 목록 로드 함수
+const loadNotices = (page = 1, order = 'recent') => {
+    noticeService.getNoticeList(page, order, showNoticeList);
 };
 
+// 페이지 전환 함수
 function goToPage(page) {
     globalThis.page = page;
-    history.pushState({ page }, "", `corporation-login-main-posting-registration?page=${page}`);
-    loadNotices(page);
+    const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
+    history.pushState({ page }, "", `corporation-login-main-posting-registration?page=${page}&order=${order}`);
+    loadNotices(page, order);
 }
+
+// 드롭다운 변경 시 공고 목록 로드
+sortingSelect.addEventListener("change", () => {
+    const page = 1; // 페이지를 1로 초기화
+    const order = sortingSelect.value; // 선택된 정렬 기준
+    loadNotices(page, order); // 목록을 다시 로드
+});
+
+// 페이지 로드 시 공고 목록 가져오기
+document.addEventListener('DOMContentLoaded', () => {
+    const order = sortingSelect.value; // 드롭다운에서 기본 정렬 기준 가져오기
+    loadNotices(1, order); // 기본 정렬 기준으로 목록 로드
+});
 
 // 날짜 형식을 'YYYY-MM-DD'로 변환하는 함수
 const formatDate = (dateString) => {

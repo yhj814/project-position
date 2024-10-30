@@ -669,7 +669,7 @@ ol, ul, li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/images/corporation/icon-location.png);
+    background-image: url(/images/corporation/notice-work-date.svg);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
