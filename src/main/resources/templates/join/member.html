@@ -99,6 +99,8 @@
                     <div id="join-wrapper" class="join-cont-wrap">
                         <div id="member-personal" class="member-cate">
                             <form th:action="@{/join/member}" name="frm" id="frm" method="post">
+                                <input type="hidden" name="memberLoginType" th:value="${memberDTO.memberLoginType}">
+                                <input type="hidden" name="id" th:value="${memberDTO.id}">
                                 <fieldset>
                                     <h3 class="tit-join-member">
                                         포지션 개인회원 가입
@@ -129,7 +131,7 @@
                                                 >
                                             </div>
                                             <!-- 아이디 -->
-                                            <div class="item">
+                                            <div class="item" th:if="${memberDTO.memberLoginType != 'kakao'}">
                                                 <label for="id">
                                                     <strong>이메일</strong>
                                                 </label>
@@ -170,7 +172,7 @@
                                                 </p>
                                             </div>
                                             <!-- 비밀번호 -->
-                                            <div class="item">
+                                            <div class="item" th:if="${memberDTO.memberLoginType != 'kakao'}">
                                                 <label for="password1">
                                                     <strong>비밀번호</strong>
                                                 </label>
@@ -309,6 +311,9 @@
             </div>
         </div>
     </body>
+    <script th:inline="javascript">
+        const memberLoginType = [[${memberDTO.memberLoginType}]];
+    </script>
     <script src="/js/join/service/member-service.js"></script>
     <script src="/js/join/person.js"></script>
 </html>

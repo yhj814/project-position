@@ -28,10 +28,10 @@ public class KakaoService {
             connection.setDoOutput(true);
 
             stringBuilder.append("grant_type=authorization_code");
-            stringBuilder.append("&client_id=7f45ae3dbdabcd003d1e4ff2171184c3");
+            stringBuilder.append("&client_id=1535ee6277b12554f8cb83bc32bf2338");
             stringBuilder.append("&redirect_uri=http://localhost:10000/kakao/login");
             stringBuilder.append("&code=" + code);
-            stringBuilder.append("&client_secret=pS7MeILLAPYdMo3ToOuWTX5WiecaTwsd");
+            stringBuilder.append("&client_secret=u8BjedacnZr6bg5QVMDPCAvZBAJKxKht");
 
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
             bufferedWriter.write(stringBuilder.toString());
@@ -83,11 +83,10 @@ public class KakaoService {
                 JsonElement kakaoAccount = jsonElement.getAsJsonObject().get("kakao_account").getAsJsonObject();
                 JsonElement profile = kakaoAccount.getAsJsonObject().get("profile").getAsJsonObject();
 
-//                memberDTO = new MemberDTO();
-//                memberDTO.setMemberName(profile.getAsJsonObject().get("nickname").getAsString());
-//                memberDTO.setMemberKakaoEmail(kakaoAccount.getAsJsonObject().get("email").getAsString());
-//                memberDTO.setMemberKakaoProfileUrl(profile.getAsJsonObject().get("profile_image_url").getAsString());
-//                memberDTO.setMemberLoginType(MemberLoginType.KAKAO.name());
+                memberDTO = new MemberDTO();
+                memberDTO.setMemberKakaoEmail(kakaoAccount.getAsJsonObject().get("email").getAsString());
+                memberDTO.setMemberNickname(profile.getAsJsonObject().get("nickname").getAsString());
+                memberDTO.setMemberKakaoProfileUrl(profile.getAsJsonObject().get("profile_image_url").getAsString());
 
                 bufferedReader.close();
             }

@@ -28,4 +28,20 @@ public class MemberDAO {
     public Optional<MemberVO> findByMemberEmailAndMemberPassword(MemberVO memberVO) {
         return memberMapper.selectByMemberEmailAndMemberPassword(memberVO);
     }
+    public Optional<MemberVO> findByMemberKakaoEmail(String memberKakaoEmail){
+        return memberMapper.selectByMemberKakaoEmail(memberKakaoEmail);
+    }
+    public void saveKakaoInfo(MemberVO memberVO){
+        memberMapper.insertKakaoInfo(memberVO);
+    }
+    public void updateKakaoMember(MemberVO memberVO){
+        memberMapper.updateKakaoMember(memberVO);
+    }
+    public Long findLastInsertId(){
+        return memberMapper.selectLastInsertId();
+    }
+
+    public Optional<MemberVO> findById(Long id){
+        return memberMapper.selectById(id);
+    }
 }
