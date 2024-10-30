@@ -30,8 +30,8 @@ public interface AdminMapper {
 //    public Optional<InterviewReviewDTO> selectByInterviewReviews();
 //    public Optional<CorporationReviewDTO> selectByToPositionReview();
 //    public Optional<PositionReviewDTO> selctByToCorporationReview();
-//    //  문의 관리
-//    public Optional<InquiryDTO> selectByInquiry();
+    //  문의 관리
+    public Optional<InquiryDTO> selectByInquiry();
 //    public Optional<InquiryDTO> selectByCorporateInquiry();
 //    // 신고 관리
 //    public Optional<ComplainDTO> selectByComplain();

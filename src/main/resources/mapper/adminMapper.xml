@@ -54,10 +54,10 @@
 <!--        select * from tbl_postion_review-->
 <!--    </select>-->
 
-<!--    &lt;!&ndash; 문의 관리 &ndash;&gt;-->
-<!--    <select id="selectByInquiry" resultType="InquiryDTO">-->
-<!--        select * from tbl_inquiry-->
-<!--    </select>-->
+    <!-- 문의 관리 -->
+    <select id="selectByInquiry" resultType="InquiryDTO">
+        select * from tbl_inquiry
+    </select>
 
 <!--    <select id="selectByCorporateInquiry" resultType="InquiryDTO">-->
 <!--        select * from tbl_inquiry-->
