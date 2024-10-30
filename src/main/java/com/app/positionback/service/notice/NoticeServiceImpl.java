@@ -2,8 +2,10 @@ package com.app.positionback.service.notice;
 
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
+import com.app.positionback.domain.notice.NoticeListDTO;
 import com.app.positionback.repository.notice.NoticeDAO;
 import com.app.positionback.repository.notice.NoticeFileDAO;
+import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -57,10 +59,23 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeDAO.findNoticeById(id);
     }
 
+
     // 기업이 작성한 공고 목록
     @Override
-    public List<NoticeDTO> getNoticesByCorporationId(Long corporationId) {
-        return noticeDAO.findNoticesByCorporationId(corporationId);
+    public NoticeListDTO getNoticesByCorporationId(int page, Pagination pagination, Long corporationId) {
+        NoticeListDTO noticeListDTO = new NoticeListDTO();
+        pagination.setPage(page);
+        pagination.setTotal(noticeDAO.getTotal(corporationId));
+        pagination.progress();
+        noticeListDTO.setPagination(pagination);
+        noticeListDTO.setNotices(noticeDAO.findNoticesByCorporationId(pagination,corporationId));
+        return noticeListDTO;
+    }
+
+    // 기업이 작성한 공고 목록 개수
+    @Override
+    public int getTotal(Long corporationId) {
+        return noticeDAO.getTotal(corporationId);
     }
 
     private void saveAndLinkFile(MultipartFile file, Long noticeId) throws IOException {

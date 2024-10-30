@@ -669,7 +669,7 @@ ol, ul, li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/images/corporation/icon-location.png);
+    background-image: url(/images/corporation/notice-work-date.svg);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
@@ -697,6 +697,18 @@ ol, ul, li {
     width: 16px;
     height: 16px;
     background-image: url(/images/corporation/icon-education.png);
+    background-size: cover;
+    transform: translateY(-50%);
+    content: "";
+}
+.list-recruiting .list-body .list-item .recruit-info>ul>li p.work-time:before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url(/images/corporation/work-time.svg);
     background-size: cover;
     transform: translateY(-50%);
     content: "";

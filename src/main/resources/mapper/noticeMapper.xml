@@ -43,6 +43,18 @@
         select id, corporation_id, notice_title,notice_career, notice_education, notice_end_date, created_date, updated_date, notice_work_start_date, notice_work_end_date, notice_work_start_time, notice_work_end_time, notice_job_category_name
         from tbl_notice
         where corporation_id = #{corporationId}
+        order by
+        <choose>
+            <when test="pagination.order == 'recent'.toString()">id</when>
+            <otherwise>notice_end_date</otherwise>
+        </choose>
+        desc
+        limit #{pagination.startRow}, #{pagination.rowCount}
+    </select>
+
+    <select id="selectCount">
+        select count(*) from tbl_notice
+        where corporation_id = #{corporationId}
     </select>
 
 </mapper>

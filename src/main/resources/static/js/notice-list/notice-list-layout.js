@@ -1,7 +1,11 @@
+const noticePaging = document.querySelector(".PageBox");
+const listBody = document.querySelector('.list-body');
+const sortingSelect = document.querySelector(".sorting-select");
+
 // 공고 목록 데이터를 받아서 DOM에 추가하는 함수
-const renderJobList = (notices) => {
-    const listBody = document.querySelector('.list-body');
+const showNoticeList = ({notices, pagination}) => {
     listBody.innerHTML = ''; // 목록 초기화
+    let pagingText = "";
 
     if (notices.length === 0) {
         listBody.innerHTML = '<p>현재 공고가 없습니다.</p>';
@@ -24,10 +28,7 @@ const renderJobList = (notices) => {
                                target="_blank" title="${notice.noticeTitle}">
                                 <span>${notice.noticeTitle}</span>
                             </a>
-                            <button class="scrap-on" type="button" 
-                                    title="스크랩" scraped="n" rec-idx="${notice.id}">
-                                <span class="blind">스크랩</span>
-                            </button>
+                            
                         </div>
                         <div class="job-meta">
                             <span class="job-sector">${notice.noticeJobCategoryName || '직무 미정'}</span>
@@ -43,7 +44,7 @@ const renderJobList = (notices) => {
                     </div>
                     <div class="col support-info">
                         <button class="sri-btn-md">
-                            <span class="sri-btn-immediately">입사지원</span>
+                            <span class="sri-btn-immediately">삭제하기</span>
                         </button>
                         <p class="support-detail">
                             <span class="date">D-${daysLeft}일</span>
@@ -58,8 +59,67 @@ const renderJobList = (notices) => {
 
     // 누적된 HTML 문자열을 한 번에 설정
     listBody.innerHTML = text;
+
+    // 이전 버튼
+    if (pagination.prev) {
+        pagingText += `
+        <button class="BtnType SizeS BtnPrev" onclick="goToPage(${pagination.startPage - 1})">
+            이전
+        </button>
+    `;
+    }
+
+    // 페이지 번호
+        for (let i = pagination.startPage; i <= pagination.endPage; i++) {
+            if (pagination.page === i) {
+                pagingText += `
+                <span class="BtnType SizeS active">${i}</span>
+            `;
+            } else {
+                pagingText += `
+                <span class="BtnType SizeS" onclick="goToPage(${i})">${i}</span>
+            `;
+            }
+        }
+
+    // 다음 버튼
+        if (pagination.next) {
+            pagingText += `
+            <button class="BtnType SizeS BtnNext" onclick="goToPage(${pagination.endPage + 1})">
+                다음
+            </button>
+        `;
+        }
+
+    // 페이지네이션 HTML 삽입
+        noticePaging.innerHTML = pagingText;
 };
 
+// 공고 목록 로드 함수
+const loadNotices = (page = 1, order = 'recent') => {
+    noticeService.getNoticeList(page, order, showNoticeList);
+};
+
+// 페이지 전환 함수
+function goToPage(page) {
+    globalThis.page = page;
+    const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
+    history.pushState({ page }, "", `corporation-login-main-posting-registration?page=${page}&order=${order}`);
+    loadNotices(page, order);
+}
+
+// 드롭다운 변경 시 공고 목록 로드
+sortingSelect.addEventListener("change", () => {
+    const page = 1; // 페이지를 1로 초기화
+    const order = sortingSelect.value; // 선택된 정렬 기준
+    loadNotices(page, order); // 목록을 다시 로드
+});
+
+// 페이지 로드 시 공고 목록 가져오기
+document.addEventListener('DOMContentLoaded', () => {
+    const order = sortingSelect.value; // 드롭다운에서 기본 정렬 기준 가져오기
+    loadNotices(1, order); // 기본 정렬 기준으로 목록 로드
+});
 
 // 날짜 형식을 'YYYY-MM-DD'로 변환하는 함수
 const formatDate = (dateString) => {
@@ -124,11 +184,11 @@ function calculateDaysLeft(endDate) {
 }
 
 // 공고 목록 가져오기 및 렌더링
-const loadNotices = () => {
-    noticeService.getNoticeList((notices) => {
-        renderJobList(notices);
-    });
-};
+// const loadNotices = () => {
+//     noticeService.getNoticeList((notices) => {
+//         showNoticeList(notices);
+//     });
+// };
 
-// 페이지 로드 시 공고 목록 가져오기
-document.addEventListener('DOMContentLoaded', loadNotices);
+// // 페이지 로드 시 공고 목록 가져오기
+// document.addEventListener('DOMContentLoaded', loadNotices);
