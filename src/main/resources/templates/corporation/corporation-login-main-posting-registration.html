@@ -323,13 +323,7 @@
                             >
                                 <section class="section section-type2">
                                     <div class="section-header">
-                                        <h2 class="section-tit">
-                                            진행중 공고
-                                            <span class="count"
-                                                ><strong class="num">3</strong
-                                                >건</span
-                                            >
-                                        </h2>
+                                        
                                     </div>
                                     <div class="section-content">
                                         <div class="area-sorting">
@@ -344,7 +338,9 @@
                                                     >
                                                         진행 중<span
                                                             class="Badge"
-                                                            >3</span
+                                                            id="ongoing-count"
+                                                            th:text="${ongoingCount}"
+                                                            >0</span
                                                         >
                                                     </button>
                                                 </li>
@@ -354,8 +350,8 @@
                                                         class="BtnType"
                                                         id="closed-btn"
                                                     >
-                                                        마감<span class="Badge"
-                                                            >3</span
+                                                        마감<span class="Badge" id="closed-count" th:text="${closedCount}"
+                                                            >0</span
                                                         >
                                                     </button>
                                                 </li>

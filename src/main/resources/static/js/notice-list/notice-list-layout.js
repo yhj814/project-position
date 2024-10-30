@@ -8,28 +8,24 @@ const statusInput = document.getElementById("notice-status");
 // 공고 목록 데이터를 받아서 DOM에 추가하는 함수
 const showNoticeList = ({notices, pagination}, status) => {
     listBody.innerHTML = ''; // 목록 초기화
-    let filteredNotices = [];
+    // let filteredNotices = [];
     let pagingText = "";
     console.log('Original notices:', notices); // 원본 공고 목록 로그 확인
 
-    // 상태에 따른 공고 필터링
-    if (status === 'ongoing') {
-        filteredNotices = notices.filter(notice => calculateDaysLeft(notice.noticeEndDate) > 0);
-        pagination.total = filteredNotices.length; // ongoing 상태 공고 개수 설정
-        console.log('ongoing-total:', pagination.total);
-    } else if (status === 'closed') {
-        filteredNotices = notices.filter(notice => calculateDaysLeft(notice.noticeEndDate) <= 0);
-        pagination.total = filteredNotices.length; // closed 상태 공고 개수 설정
-        console.log('closed-total:', pagination.total);
-    }
-
-    console.log('Filtered notices:', filteredNotices); // 필터링된 공고 출력
+    // // 상태에 따른 공고 필터링
+    // if (status === 'ongoing') {
+    //     filteredNotices = notices.filter(notice => calculateDaysLeft(notice.noticeEndDate) > 0);
+    // } else if (status === 'closed') {
+    //     filteredNotices = notices.filter(notice => calculateDaysLeft(notice.noticeEndDate) <= 0);
+    // }
+    //
+    // console.log('Filtered notices:', filteredNotices); // 필터링된 공고 출력
 
 
 
     let text = ''; // 텍스트 초기화
 
-    filteredNotices.forEach(notice => {
+    notices.forEach(notice => {
         // 마감일까지 남은 일수 계산
         const daysLeft = calculateDaysLeft(notice.noticeEndDate); // noticeWorkEndDate를 사용하여 남은 일수 계산
 
@@ -58,7 +54,7 @@ const showNoticeList = ({notices, pagination}, status) => {
                         </ul>
                     </div>
                     <div class="col support-info">
-                        <button class="sri-btn-md">
+                        <button class="sri-btn-md delete-btn" data-id="${notice.id}">
                             <span class="sri-btn-immediately">삭제하기</span>
                         </button>
                         <p class="support-detail">
@@ -114,6 +110,19 @@ const showNoticeList = ({notices, pagination}, status) => {
 
     // 페이지네이션 HTML 삽입
         noticePaging.innerHTML = pagingText;
+
+    // 삭제 버튼 클릭 이벤트 리스너 추가
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const noticeId = button.getAttribute('data-id'); // 공고 ID 가져오기
+            const confirmed = confirm("정말로 이 공고를 삭제하시겠습니까?"); // 삭제 확인
+            if (confirmed) {
+                await noticeService.remove(noticeId); // 공고 삭제
+                loadNotices(); // 공고 목록 새로 고침
+            }
+        });
+    });
 };
 
 /// 공고 목록 로드 함수

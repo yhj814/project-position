@@ -33,6 +33,6 @@ public interface NoticeMapper {
     public List<NoticeDTO> selectNoticesByCorporationId(@Param("pagination") Pagination pagination,@Param("corporationId") Long corporationId);
 
     // 기업이 작성한 공고 목록 전체 개수
-    public int selectCount(Long corporationId);
+    public int selectCount(@Param("pagination") Pagination pagination, Long corporationId);
 
 }
