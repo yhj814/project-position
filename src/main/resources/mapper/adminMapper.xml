@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.admin.AdminMapper">
-
+    <select id="selectAllMembers" resultType="memberDTO">
+        select id, member_name, member_email, member_password, member_address, member_address_detail, member_status, member_type, memebr_warning_count, member_phone, login_type from tbl_member
+    </select>
 </mapper>
