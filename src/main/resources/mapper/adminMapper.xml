@@ -6,35 +6,7 @@
         select id, member_name, member_email, member_password, member_address, member_address_detail, member_status, member_phone, created_date from tbl_member
     </select>
 
-<!--    <select id="selectAllMembers" resultType="memberDTO">-->
-<!--        SELECT-->
-<!--            id,-->
-<!--            member_name AS memberName,-->
-<!--            member_email AS memberEmail,-->
-<!--            member_password AS memberPassword,-->
-<!--            member_address AS memberAddress,-->
-<!--            member_address_detail AS memberAddressDetail,-->
-<!--            member_status AS memberStatus,-->
-<!--            member_phone AS memberPhone,-->
-<!--            created_date AS createdDate &#45;&#45; 필드 이름 맞추기-->
-<!--        FROM-->
-<!--            tbl_member-->
-<!--    </select>-->
-
     <select id="selectAllCorporationMembers" resultType="corporationDTO">
-        select id, corporation_name, corporation_address, cor
+        select id, corporation_name, corporation_address, corporation_address_detail, corporation_type, corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_gen, corporation_sales, corporation_code, corporation_employees_number, created_date tbl_corporation
     </select>
 </mapper>
-<!--private Long id;
-    private String corporationName;
-    private String corporationAddress;
-    private String corporationAddressDetail;
-    private String corporationType;
-    private String corporationOwner;
-    private String corporationEmail;
-    private String corporationPassword;
-    private String corporationHomepage;
-    private String corporationGen;
-    private String corporationSales;
-    private String corporationCode;
-    private String corporationEmployeesNumber;-->
