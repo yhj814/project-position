@@ -13,7 +13,7 @@
         CASE
         WHEN member_email IS NOT NULL THEN member_email
         ELSE member_kakao_email
-        END AS memberEmail,
+        END AS memberEmail,  <!-- memberEmail 필드에 두 컬럼 중 하나가 매핑 -->
         member_address,
         member_phone,
         member_status,
