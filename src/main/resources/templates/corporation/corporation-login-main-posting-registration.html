@@ -257,7 +257,7 @@
                                                         >
                                                     </div>
                                                     <p class="rank-txt">
-                                                        <strong
+                                                        <strong th:text="${categoryRankings[0].noticeJobCategoryName}"
                                                             >연구·R&amp;D</strong
                                                         >
                                                         가장 많이 채용했어요!
@@ -267,7 +267,7 @@
                                                     <span class="rank-badge"
                                                         >TOP 2</span
                                                     >
-                                                    <p class="rank-txt">
+                                                    <p class="rank-txt" th:text="${categoryRankings[1].noticeJobCategoryName}">
                                                         기획·전략
                                                     </p>
                                                 </li>
@@ -275,7 +275,7 @@
                                                     <span class="rank-badge"
                                                         >TOP 3</span
                                                     >
-                                                    <p class="rank-txt">
+                                                    <p class="rank-txt" th:text="${categoryRankings[2].noticeJobCategoryName}">
                                                         구매·자재·물류
                                                     </p>
                                                 </li>
@@ -283,7 +283,7 @@
                                                     <span class="rank-badge"
                                                         >TOP 4</span
                                                     >
-                                                    <p class="rank-txt">
+                                                    <p class="rank-txt" th:text="${categoryRankings[3].noticeJobCategoryName}">
                                                         회계·세무·재무
                                                     </p>
                                                 </li>

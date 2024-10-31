@@ -74,7 +74,19 @@
         select notice_job_category_name, count(*) as count
         from tbl_notice
         where notice_job_category_name is not null
+        <![CDATA[
+          and notice_end_date <= current_date
+        ]]>
         group by notice_job_category_name
+        order by count desc
+        limit 4
+    </select>
+
+<!--    월별 채용 순위-->
+    <select id="selectMonthRank">
+        select date_format(created_date, '%m'), count(*) as count
+        from tbl_notice
+        group by date_format(created_date, '%m')
         order by count desc
         limit 4
     </select>

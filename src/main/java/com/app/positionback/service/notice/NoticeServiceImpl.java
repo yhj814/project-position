@@ -1,6 +1,7 @@
 package com.app.positionback.service.notice;
 
 import com.app.positionback.domain.file.FileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
 import com.app.positionback.repository.notice.NoticeDAO;
@@ -16,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -80,6 +82,10 @@ public class NoticeServiceImpl implements NoticeService {
         // Pagination에 상태별 개수 추가
         pagination.setOngoingCount(ongoingCount);
         pagination.setClosedCount(closedCount);
+
+        List<NoticeCategoryRankDTO> categoryRankings = noticeDAO.getRank();
+        noticeListDTO.setCategoryRankings(categoryRankings);
+
         return noticeListDTO;
     }
 
@@ -87,6 +93,11 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public int getTotal(Pagination pagination,Long corporationId) {
         return noticeDAO.getTotal(pagination,corporationId);
+    }
+
+    @Override
+    public List<NoticeCategoryRankDTO> getNoticeCategoryRank() {
+        return noticeDAO.getRank();
     }
 
     private void saveAndLinkFile(MultipartFile file, Long noticeId) throws IOException {

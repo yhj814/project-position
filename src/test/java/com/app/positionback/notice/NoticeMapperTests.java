@@ -2,6 +2,7 @@ package com.app.positionback.notice;
 
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.mapper.notice.NoticeFileMapper;
@@ -26,13 +27,13 @@ public class NoticeMapperTests {
     // 공고 카테고리 순위 테스트
     @Test
     public void testSelectTopJobCategories() {
-        List<Map<String, Object>> topJobCategories = noticeMapper.selectTopJobCategories();
+        List<NoticeCategoryRankDTO> topJobCategories = noticeMapper.selectTopJobCategories();
 
         log.info("Top Job Categories: {}", topJobCategories);
 
         // 카테고리 이름과 개수 출력
-        for (Map<String, Object> category : topJobCategories) {
-            log.info("Category: {}, Count: {}", category.get("notice_job_category_name"), category.get("count"));
+        for (NoticeCategoryRankDTO category : topJobCategories) {
+            log.info("Category: {}, Count: {}", category.getCount(), category.getNoticeJobCategoryName());
         }
     }
 

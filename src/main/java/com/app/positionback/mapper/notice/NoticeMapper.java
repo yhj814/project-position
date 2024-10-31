@@ -4,6 +4,7 @@ import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.FileVO;
 import com.app.positionback.domain.file.NoticeFileDTO;
 import com.app.positionback.domain.file.NoticeFileVO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.utill.Pagination;
@@ -37,5 +38,5 @@ public interface NoticeMapper {
     public int selectCount(@Param("pagination") Pagination pagination, Long corporationId);
 
     // 공고 카테고리 순위
-    public List<Map<String, Object>> selectTopJobCategories();
+    public List<NoticeCategoryRankDTO> selectTopJobCategories();
 }

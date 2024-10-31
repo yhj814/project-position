@@ -13,4 +13,5 @@ import java.util.List;
 public class NoticeListDTO {
     private List<NoticeDTO> notices;
     private Pagination pagination;
+    private List<NoticeCategoryRankDTO> categoryRankings;
 }

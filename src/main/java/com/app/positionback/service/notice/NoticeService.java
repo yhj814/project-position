@@ -1,6 +1,7 @@
 package com.app.positionback.service.notice;
 
 import com.app.positionback.domain.file.FileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
 import com.app.positionback.utill.Pagination;
@@ -27,4 +28,6 @@ public interface NoticeService {
 
 //    기업별 공고 전체 목록 개수
     public int getTotal(Pagination pagination, Long corporationId);
+    // 공고 카테고리 랭킹
+    public List<NoticeCategoryRankDTO> getNoticeCategoryRank();
 }

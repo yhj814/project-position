@@ -2,6 +2,7 @@ package com.app.positionback.repository.notice;
 
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.mapper.notice.NoticeMapper;
 import com.app.positionback.utill.Pagination;
@@ -49,5 +50,9 @@ public class NoticeDAO {
         return noticeMapper.selectCount(pagination,corporationId);
     }
 
+    // 공고 카테고리 랭킹
+    public List<NoticeCategoryRankDTO> getRank(){
+        return noticeMapper.selectTopJobCategories();
+    }
 
 }

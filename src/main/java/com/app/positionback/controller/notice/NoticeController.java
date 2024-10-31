@@ -62,6 +62,7 @@ public class NoticeController {
         // Pagination에서 상태별 개수 가져오기
         model.addAttribute("ongoingCount", pagination.getOngoingCount());
         model.addAttribute("closedCount", pagination.getClosedCount());
+        model.addAttribute("categoryRankings", noticeListDTO.getCategoryRankings()); // 카테고리 순위 추가
     }
 
     // 공고 목록 조회 (비동기)
