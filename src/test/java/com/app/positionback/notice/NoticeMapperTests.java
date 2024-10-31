@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 @Slf4j
@@ -21,6 +22,19 @@ public class NoticeMapperTests {
     private NoticeMapper noticeMapper;
     @Autowired
     private NoticeFileMapper noticeFileMapper;
+
+    // 공고 카테고리 순위 테스트
+    @Test
+    public void testSelectTopJobCategories() {
+        List<Map<String, Object>> topJobCategories = noticeMapper.selectTopJobCategories();
+
+        log.info("Top Job Categories: {}", topJobCategories);
+
+        // 카테고리 이름과 개수 출력
+        for (Map<String, Object> category : topJobCategories) {
+            log.info("Category: {}, Count: {}", category.get("notice_job_category_name"), category.get("count"));
+        }
+    }
 
     // 공고 등록 테스트
     @Test

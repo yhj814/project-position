@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface NoticeMapper {
@@ -35,4 +36,6 @@ public interface NoticeMapper {
     // 기업이 작성한 공고 목록 전체 개수
     public int selectCount(@Param("pagination") Pagination pagination, Long corporationId);
 
+    // 공고 카테고리 순위
+    public List<Map<String, Object>> selectTopJobCategories();
 }
