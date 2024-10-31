@@ -24,10 +24,6 @@ public class AdminController {
     @GetMapping("admin")
     // 문의 관리 : 필터(최신순, 답변상태순), 상태 수정(답변), 상태 STATUS, 페이징 처리
     // div class = inquiryTable_row => 한 사람의 문의 내용
-<<<<<<< HEAD
-//  자바스크립트 코드에 fetch 모듈 admin서비스.js에 레이아웃
-    public void goToAdminPage() {}
-=======
     // 자바스크립트 코드에 fetch 모듈 admin서비스.js에 레이아웃
     public String goToAdminPage() {
         return "admin/admin";
@@ -46,8 +42,7 @@ public class AdminController {
         List<CorporationDTO> Corporationmembers = adminService.getCorporatationMembers();
         return ResponseEntity.ok(Corporationmembers);
     }
-    
->>>>>>> p1030-5
+
 }
 
 
