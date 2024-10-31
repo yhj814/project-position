@@ -11,7 +11,7 @@
         <title>매칭 상세보기</title>
     </head>
     <body>
-        <div id="position-wrap">
+
             <div id="position-section">
                 <div id="position-wrap">
                     <div id="content">
@@ -29,11 +29,11 @@
                                         <div class="jv-header">
                                             <div class="title-inner">
                                                 <a
-                                                    href=""
+                                                    href="/corporation"
                                                     title="(주)호호당"
                                                     class="company"
-                                                    (주)호호당
-                                                    >(주)호호당</a
+                                                    th:text="${notice.corporationName}"
+                                                    ></a
                                                 >
                                                 <button
                                                     type="button"
@@ -66,9 +66,7 @@
                                                     >
                                                 </button>
                                                 <div class="btn-apply">
-                                                    <span class="dday"
-                                                        >D-13</span
-                                                    >
+                                                    <span class="dday" id="dday-display"></span>
                                                     <button
                                                         class="position-btn-lg for-btn-event"
                                                         title="클릭하면 입사지원할 수 있는 창이 뜹니다."
@@ -91,118 +89,116 @@
                                                     <dl>
                                                         <dt>경력</dt>
                                                         <dd>
-                                                            <strong
-                                                                >경력 5년
-                                                                ↑</strong
+                                                            <strong th:text="'경력' + ${notice.noticeCareer}"
+                                                                ></strong
                                                             >
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>학력</dt>
                                                         <dd>
-                                                            <strong
-                                                                >고교졸업
-                                                                이상</strong
-                                                            ><span class="etc">
-                                                                각 모집 부문에
-                                                                따라
-                                                                상이함</span
-                                                            >
+                                                            <strong th:text="${notice.noticeEducation == '무관' ? '무관' : notice.noticeEducation + ' 이상'}"></strong>
+
+
+                                                            <!--                                                            <span class="etc">-->
+<!--                                                                각 모집 부문에-->
+<!--                                                                따라-->
+<!--                                                                상이함</span-->
+<!--                                                            >-->
                                                         </dd>
                                                     </dl>
 
-                                                    <dl>
-                                                        <dt>우대사항</dt>
-                                                        <dd class="preferred">
-                                                            <div
-                                                                class="toolTipWrap"
-                                                            >
-                                                                <button
-                                                                    type="button"
-                                                                    class="spr-jview btn-jview btn-tooltip"
-                                                                    aria-haspopup="dialog"
-                                                                    aria-expanded="false"
-                                                                >
-                                                                    <span
-                                                                        class="blind"
-                                                                        >우대사항</span
-                                                                    ><span
-                                                                        >상세보기</span
-                                                                    ><svg
-                                                                        aria-hidden="true"
-                                                                        focusable="false"
-                                                                        class="ic"
-                                                                    >
-                                                                        <use
-                                                                            xlink:href="#icon_i"
-                                                                        ></use>
-                                                                    </svg>
-                                                                </button>
-                                                                <div
-                                                                    class="toolTip"
-                                                                    role="dialog"
-                                                                    aria-label="필수사항 상세"
-                                                                >
-                                                                    <span
-                                                                        class="tail tail-top-left"
-                                                                    ></span>
-                                                                    <div
-                                                                        id="details-preferred-49199391"
-                                                                        class="toolTipCont txtLeft"
-                                                                    >
-                                                                        <ul
-                                                                            class="toolTipTxt"
-                                                                        >
-                                                                            <li>
-                                                                                <span
-                                                                                    >활동/경험</span
-                                                                                >해당직무
-                                                                                근무경험
-                                                                            </li>
-                                                                        </ul>
-                                                                        <p
-                                                                            class="txt-noti"
-                                                                        >
-                                                                            ※
-                                                                            지원부문별
-                                                                            상이할
-                                                                            수
-                                                                            있으니,
-                                                                            상세요강에서
-                                                                            확인해주세요.
-                                                                        </p>
-                                                                    </div>
-                                                                    <button
-                                                                        type="button"
-                                                                        class="btnClose"
-                                                                    >
-                                                                        <span
-                                                                            class="blind"
-                                                                            >닫기
-                                                                            -
-                                                                            우대사항
-                                                                            상세</span
-                                                                        >
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
+<!--                                                    <dl>-->
+<!--                                                        <dt>우대사항</dt>-->
+<!--                                                        <dd class="preferred">-->
+<!--                                                            <div-->
+<!--                                                                class="toolTipWrap"-->
+<!--                                                            >-->
+<!--                                                                <button-->
+<!--                                                                    type="button"-->
+<!--                                                                    class="spr-jview btn-jview btn-tooltip"-->
+<!--                                                                    aria-haspopup="dialog"-->
+<!--                                                                    aria-expanded="false"-->
+<!--                                                                >-->
+<!--                                                                    <span-->
+<!--                                                                        class="blind"-->
+<!--                                                                        >우대사항</span-->
+<!--                                                                    ><span-->
+<!--                                                                        >상세보기</span-->
+<!--                                                                    ><svg-->
+<!--                                                                        aria-hidden="true"-->
+<!--                                                                        focusable="false"-->
+<!--                                                                        class="ic"-->
+<!--                                                                    >-->
+<!--                                                                        <use-->
+<!--                                                                            xlink:href="#icon_i"-->
+<!--                                                                        ></use>-->
+<!--                                                                    </svg>-->
+<!--                                                                </button>-->
+<!--                                                                <div-->
+<!--                                                                    class="toolTip"-->
+<!--                                                                    role="dialog"-->
+<!--                                                                    aria-label="필수사항 상세"-->
+<!--                                                                >-->
+<!--                                                                    <span-->
+<!--                                                                        class="tail tail-top-left"-->
+<!--                                                                    ></span>-->
+<!--                                                                    <div-->
+<!--                                                                        id="details-preferred-49199391"-->
+<!--                                                                        class="toolTipCont txtLeft"-->
+<!--                                                                    >-->
+<!--                                                                        <ul-->
+<!--                                                                            class="toolTipTxt"-->
+<!--                                                                        >-->
+<!--                                                                            <li>-->
+<!--                                                                                <span-->
+<!--                                                                                    >활동/경험</span-->
+<!--                                                                                >해당직무-->
+<!--                                                                                근무경험-->
+<!--                                                                            </li>-->
+<!--                                                                        </ul>-->
+<!--                                                                        <p-->
+<!--                                                                            class="txt-noti"-->
+<!--                                                                        >-->
+<!--                                                                            ※-->
+<!--                                                                            지원부문별-->
+<!--                                                                            상이할-->
+<!--                                                                            수-->
+<!--                                                                            있으니,-->
+<!--                                                                            상세요강에서-->
+<!--                                                                            확인해주세요.-->
+<!--                                                                        </p>-->
+<!--                                                                    </div>-->
+<!--                                                                    <button-->
+<!--                                                                        type="button"-->
+<!--                                                                        class="btnClose"-->
+<!--                                                                    >-->
+<!--                                                                        <span-->
+<!--                                                                            class="blind"-->
+<!--                                                                            >닫기-->
+<!--                                                                            - -->
+<!--                                                                            우대사항-->
+<!--                                                                            상세</span-->
+<!--                                                                        >-->
+<!--                                                                    </button>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </dd>-->
+<!--                                                    </dl>-->
                                                 </div>
                                                 <div class="col">
                                                     <dl>
                                                         <dt>근무일시</dt>
-                                                        <dd>
-                                                            주 5일(월~금)
-                                                            08:00~17:00
-                                                        </dd>
+                                                        <dd th:if="${notice.noticeWorkStartDate.substring(0, 10) == notice.noticeWorkEndDate.substring(0, 10)}"
+                                                            th:text="${notice.noticeWorkStartDate.substring(0, 10)}"></dd>
+
+                                                        <dd th:if="${notice.noticeWorkStartDate.substring(0, 10) != notice.noticeWorkEndDate.substring(0, 10)}"
+                                                            th:text="${notice.noticeWorkStartDate.substring(0, 10)} + '~' + ${notice.noticeWorkEndDate.substring(0, 10)}"></dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>근무지역</dt>
-                                                        <dd>
-                                                            서울 종로구,
-                                                            서울전체, 강북구,
-                                                            동대문구, 중구
+                                                        <dd th:text="${notice.corporationAddress}">
+
                                                             <button
                                                                 type="button"
                                                                 class="spr-jview btn-jview btn-move-map"
@@ -329,21 +325,22 @@
                                                 상세요강
                                             </h2>
                                             <div class="cont">
-                                                <iframe
-                                                    name="iframe-content-0"
-                                                    id="iframe-content-0"
-                                                    class="iframe-content"
-                                                    width="860"
-                                                    scrolling="no"
-                                                    frameborder="0"
-                                                    marginheight="0"
-                                                    marginwidth="0"
-                                                    src="https://www.saramin.co.kr//zf_user/jobs/relay/view-detail?rec_idx=49199391&amp;rec_seq=0&amp;t_category=relay_view&amp;t_content=view_detail&amp;t_ref=area_recruit&amp;t_ref_content=grand_fix"
-                                                    title="상세요강"
-                                                    height="1966px"
-                                                >
-                                                    <!-- 공고 내용 들어가야됨 -->
-                                                </iframe>
+                                                <img src="" alt="notice-img">
+<!--                                                <iframe-->
+<!--                                                    name="iframe-content-0"-->
+<!--                                                    id="iframe-content-0"-->
+<!--                                                    class="iframe-content"-->
+<!--                                                    width="860"-->
+<!--                                                    scrolling="no"-->
+<!--                                                    frameborder="0"-->
+<!--                                                    marginheight="0"-->
+<!--                                                    marginwidth="0"-->
+<!--                                                    src="https://www.saramin.co.kr//zf_user/jobs/relay/view-detail?rec_idx=49199391&amp;rec_seq=0&amp;t_category=relay_view&amp;t_content=view_detail&amp;t_ref=area_recruit&amp;t_ref_content=grand_fix"-->
+<!--                                                    title="상세요강"-->
+<!--                                                    height="1966px"-->
+<!--                                                >-->
+<!--                                                    &lt;!&ndash; 공고 내용 들어가야됨 &ndash;&gt;-->
+<!--                                                </iframe>-->
                                             </div>
                                         </div>
                                         <!-- 근무지 위치 -->
@@ -358,10 +355,11 @@
                                             ></a>
                                             <h2 class="jv-title">근무지위치</h2>
                                             <div class="cont box">
-                                                <address class="address">
+                                                <address class="address" >
                                                     <span
                                                         class="spr-jview txt-adr"
                                                         ><span class="wrap-ic"
+
                                                             ><svg
                                                                 class="ic"
                                                                 width="20"
@@ -381,8 +379,7 @@
                                                                 ></circle>
                                                             </svg>
                                                         </span>
-                                                        (13487) 경기 성남시
-                                                        분당구 판교로256번길 7
+                                                        <span th:text="${notice.corporationAddress} + ' ' + ${notice.corporationAddressDetail}"></span>
                                                     </span>
                                                 </address>
                                                 <button
@@ -1062,7 +1059,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         <!-- 아이콘들 -->
         <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="jv_detail" fill="none">
@@ -1273,5 +1270,11 @@
             </symbol>
         </svg>
     </body>
+    <script th:inline="javascript">
+        // Thymeleaf를 사용하여 noticeEndDate 값을 JavaScript 변수에 할당
+        const noticeEndDate = [[${notice.noticeEndDate}]];
+    </script>
     <script src="/js/matching/matching-detail.js"></script>
+    <script src="/js/matching/detail/detail-layout.js"></script>
+    <script src="/js/matching/detail/detail-event.js"></script>
 </html>
