@@ -1,26 +1,21 @@
 package com.app.positionback.controller.notice;
 
-import com.app.positionback.domain.file.FileDTO;
+import com.app.positionback.domain.corporation.CorporationVO;
+import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
 import com.app.positionback.service.notice.NoticeService;
 import com.app.positionback.utill.Pagination;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,16 +23,19 @@ import java.util.UUID;
 @RequestMapping("/corporation/*")
 public class NoticeController {
     private final NoticeService noticeService;
+    private final HttpSession session;
 
 //    공고 작성 페이지 이동
     @GetMapping("corporation-login-main-write-posting")
     public void goToWriteNotice(NoticeDTO noticeDTO) {
-        noticeDTO.setCorporationId(1L);
+        CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
+        noticeDTO.setCorporationId(corporationVO.getId());
     }
 
     @PostMapping("corporation-login-main-write-posting")
     public RedirectView write(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
-        noticeDTO.setCorporationId(1L);
+        CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
+        noticeDTO.setCorporationId(corporationVO.getId());
         noticeService.saveNotice(noticeDTO, file);
         return new RedirectView("/notice/list");
     }
@@ -45,6 +43,7 @@ public class NoticeController {
     // 공고 목록 조회
     @GetMapping("corporation-login-main-posting-registration")
     public void getNoticePage(@RequestParam(required = false) Integer page,Pagination pagination, Model model) {
+        CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");;
 
         // page가 null인 경우 기본값 설정
         if (page == null) {
@@ -57,7 +56,7 @@ public class NoticeController {
             pagination.setStatus("ongoing");
         }
         // 공고 목록 조회
-        NoticeListDTO noticeListDTO = noticeService.getNoticesByCorporationId(page, pagination, 1L); // corporationId에 맞게 조정
+        NoticeListDTO noticeListDTO = noticeService.getNoticesByCorporationId(page, pagination, corporationVO.getId()); // corporationId에 맞게 조정
         model.addAttribute("notices", noticeListDTO); // "notices"라는 이름으로 데이터를 추가
 
         // Pagination에서 상태별 개수 가져오기
@@ -69,6 +68,8 @@ public class NoticeController {
     @GetMapping("notices/list/{page}")
     @ResponseBody
     public NoticeListDTO getNoticeList(@PathVariable("page") Integer page, Pagination pagination) {
+        CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");;
+
         if(pagination.getOrder() == null){
             pagination.setOrder("recent");
         }
@@ -79,15 +80,17 @@ public class NoticeController {
         if (page == null) {
             page = 1; // 기본 페이지 번호
         }
-        return noticeService.getNoticesByCorporationId(page,pagination,1L); // corporationId에 맞게 조정
+        return noticeService.getNoticesByCorporationId(page,pagination,corporationVO.getId()); // corporationId에 맞게 조정
     }
 
     @GetMapping("notices/total")
     @ResponseBody
     public int getTotalCount(@RequestParam String status) {
+        CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");;
+
         Pagination pagination = new Pagination();
         pagination.setStatus(status);
-        return noticeService.getTotal(pagination, 1L); // corporationId에 맞게 조정
+        return noticeService.getTotal(pagination, corporationVO.getId()); // corporationId에 맞게 조정
     }
 
     // 공고 상세 조회
