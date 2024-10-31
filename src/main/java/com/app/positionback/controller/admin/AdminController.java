@@ -5,15 +5,15 @@ import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.service.admin.AdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/admin/*")
 @RequiredArgsConstructor
 @Slf4j
@@ -22,27 +22,26 @@ public class AdminController {
     private final AdminService adminService;
 
     @GetMapping("admin")
-    // 문의 관리 : 필터(최신순, 답변상태순), 상태 수정(답변), 상태 STATUS, 페이징 처리
-    // div class = inquiryTable_row => 한 사람의 문의 내용
-    // 자바스크립트 코드에 fetch 모듈 admin서비스.js에 레이아웃
     public String goToAdminPage() {
         return "admin/admin";
     }
 
+    // 일반회원 정보를 조회하고 json 형식으로 반환한다.
+    // AdminService의 getMembers() 메서드를 호출하여 전체 일반 회원 정보를 가져온다.
+    // 이 메서드는 List<MemberDTO> 타입의 데이터를 반환하여 JSON으로 응답한다.
+    // 자바스크립트 코드에 fetch 모듈 admin서비스.js에 레이아웃
+
     // 일반 회원 정보 조회
-    @GetMapping("/position-api/members")
-    public ResponseEntity<List<MemberDTO>> getMembers() {
-        List<MemberDTO> members = adminService.getMembers();
-        return ResponseEntity.ok(members);
+    @GetMapping("/position/members")
+    @ResponseBody
+    public List<MemberDTO> getMembers() {
+        return adminService.getMembers();
     }
 
     // 기업 회원 정보 조회
-    @GetMapping("/position-api/corporatation-members")
-    public ResponseEntity<List<CorporationDTO>> getCorporatationMembers() {
-        List<CorporationDTO> Corporationmembers = adminService.getCorporatationMembers();
-        return ResponseEntity.ok(Corporationmembers);
+    @GetMapping("/position/corporation-members")
+    @ResponseBody
+    public List<CorporationDTO> getCorporationMembers() {
+        return adminService.getCorporationMembers();
     }
-
 }
-
-

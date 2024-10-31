@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AdminService {
     List<MemberDTO> getMembers();
-    List<CorporationDTO> getCorporatationMembers();
+    List<CorporationDTO> getCorporationMembers();
 }
