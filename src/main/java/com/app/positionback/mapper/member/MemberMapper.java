@@ -12,4 +12,9 @@ public interface MemberMapper {
     public int selectCountByMemberPhone(String memberPhone);
     public void insert(MemberVO memberVO);
     public Optional<MemberVO> selectByMemberEmailAndMemberPassword(MemberVO memberVO);
+    public Optional<MemberVO> selectByMemberKakaoEmail(String memberKakaoEmail);
+    public void insertKakaoInfo(MemberVO memberVO);
+    public void updateKakaoMember(MemberVO memberVO);
+    public Long selectLastInsertId();
+    public Optional<MemberVO> selectById(Long id);
 }

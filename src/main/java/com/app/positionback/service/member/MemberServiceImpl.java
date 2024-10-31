@@ -146,6 +146,31 @@ public class MemberServiceImpl implements MemberService {
         return fileDTO;
     }
 
+    @Override
+    public Optional<MemberVO> getKakaoMember(String memberKakaoEmail) {
+        return memberDAO.findByMemberKakaoEmail(memberKakaoEmail);
+    }
+
+    @Override
+    public void registerKakaoMember(MemberVO memberVO) {
+        memberDAO.saveKakaoInfo(memberVO);
+    }
+
+    @Override
+    public void updateKakaoMember(MemberVO memberVO) {
+        memberDAO.updateKakaoMember(memberVO);
+    }
+
+    @Override
+    public Long getLastInsertId() {
+        return memberDAO.findLastInsertId();
+    }
+
+    @Override
+    public Optional<MemberVO> getMember(Long id) {
+        return memberDAO.findById(id);
+    }
+
     private String getPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }

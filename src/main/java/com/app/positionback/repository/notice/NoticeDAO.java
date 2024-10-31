@@ -45,8 +45,8 @@ public class NoticeDAO {
         return noticeMapper.selectNoticesByCorporationId(pagination,corporationId);
     }
 
-    public int getTotal(Long corporationId) {
-        return noticeMapper.selectCount(corporationId);
+    public int getTotal(Pagination pagination,Long corporationId) {
+        return noticeMapper.selectCount(pagination,corporationId);
     }
 
 

@@ -1,2 +1,2 @@
-globalThis.page = 1;
-noticeService.getNoticeList(globalThis.page, showNoticeList)
+// globalThis.page = 1;
+// noticeService.getNoticeList(globalThis.page, showNoticeList)

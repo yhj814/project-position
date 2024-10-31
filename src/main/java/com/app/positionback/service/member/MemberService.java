@@ -19,4 +19,9 @@ public interface MemberService {
     public void join(CorporationVO corporationVO, String uuid, String path, MultipartFile file) throws IOException;
     public Optional<MemberVO> login(MemberVO memberVO);
     public FileDTO uploadFile(MultipartFile file) throws IOException;
+    public Optional<MemberVO> getKakaoMember(String memberKakaoEmail);
+    public void registerKakaoMember(MemberVO memberVO);
+    public void updateKakaoMember(MemberVO memberVO);
+    public Long getLastInsertId();
+    public Optional<MemberVO> getMember(Long id);
 }
