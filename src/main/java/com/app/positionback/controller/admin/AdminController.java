@@ -5,6 +5,7 @@ import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.service.admin.AdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/admin/*")
 @RequiredArgsConstructor
 @Slf4j
@@ -32,12 +33,14 @@ public class AdminController {
 
     // 일반 회원 정보 조회
     @GetMapping("/position/members")
+    @ResponseBody
     public List<MemberDTO> getMembers() {
         return adminService.getMembers();
     }
 
     // 기업 회원 정보 조회
     @GetMapping("/position/corporation-members")
+    @ResponseBody
     public List<CorporationDTO> getCorporationMembers() {
         return adminService.getCorporationMembers();
     }

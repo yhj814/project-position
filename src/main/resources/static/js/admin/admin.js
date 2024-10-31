@@ -460,32 +460,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// // 일반 회원 데이터를 가져오는 함수
-// const fetchMembers = async () => {
-//     try {
-//         const response = await fetch('/admin/position/members');
-//         if (!response.ok) {
-//             throw new Error('회원 정보 fetch가 실패했습니다');
-//         }
-//         const members = await response.json();
-//         renderMembers(members); // 데이터를 HTML에 표시하는 함수 호출
-//     } catch (error) {
-//         console.error(error);
-//     }
-// };
-//
-// // 기업 회원 데이터를 가져오는 함수
-// const fetchCorporationMembers = async () => {
-//     try {
-//         const response = await fetch('/admin/position/corporation-members');
-//         if (!response.ok) {
-//             throw new Error('기업 회원 정보 fetch가 실패했습니다');
-//         }
-//         const corporateMembers = await response.json();
-//         renderCorporationMembers(corporateMembers); // 데이터를 HTML에 표시하는 함수 호출
-//     } catch (error) {
-//         console.error(error);
-//     }
-// };
 
 

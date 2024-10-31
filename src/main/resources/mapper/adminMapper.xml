@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.admin.AdminMapper">
+    <!-- 일반 회원 목록 -->
+    <select id="selectAllMembers" resultType="memberDTO">
+        select id, member_name, member_email, member_password, member_address, member_address_detail, member_status, member_phone, created_date from tbl_member
+    </select>
+
 <!--    <select id="selectAllMembers" resultType="memberDTO">-->
-<!--        select id, member_name, member_email, member_password, member_address, member_address_detail, member_status, member_type, memebr_warning_count, member_phone, login_type from tbl_member-->
+<!--        SELECT-->
+<!--            id,-->
+<!--            member_name AS memberName,-->
+<!--            member_email AS memberEmail,-->
+<!--            member_password AS memberPassword,-->
+<!--            member_address AS memberAddress,-->
+<!--            member_address_detail AS memberAddressDetail,-->
+<!--            member_status AS memberStatus,-->
+<!--            member_phone AS memberPhone,-->
+<!--            created_date AS createdDate &#45;&#45; 필드 이름 맞추기-->
+<!--        FROM-->
+<!--            tbl_member-->
 <!--    </select>-->
+
+    <select id="selectAllCorporationMembers" resultType="corporationDTO">
+        select id, corporation_name, corporation_address, cor
+    </select>
 </mapper>
+<!--private Long id;
+    private String corporationName;
+    private String corporationAddress;
+    private String corporationAddressDetail;
+    private String corporationType;
+    private String corporationOwner;
+    private String corporationEmail;
+    private String corporationPassword;
+    private String corporationHomepage;
+    private String corporationGen;
+    private String corporationSales;
+    private String corporationCode;
+    private String corporationEmployeesNumber;-->

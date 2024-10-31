@@ -25,8 +25,11 @@ public class MemberDTO {
     private String memberWarningCount;
     private String memberPhone;
     private String loginType;
+    private String createdDate;
 
     public MemberVO toVO() {
         return new MemberVO(id, memberName, memberEmail, memberPassword, memberAddress, memberAddressDetail, memberNickname, memberStatus, memberType, memberWarningCount, memberPhone);
     }
 }
+
+
