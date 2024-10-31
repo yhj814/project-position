@@ -1,8 +1,6 @@
 package com.app.positionback.mapper.inquiry;
 
 import com.app.positionback.domain.file.FileDTO;
-import com.app.positionback.domain.file.FileVO;
-import com.app.positionback.domain.file.InquiryFileVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
