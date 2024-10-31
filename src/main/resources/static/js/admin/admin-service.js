@@ -91,63 +91,63 @@ const memberService = (() => {
 // }
 //
 // 데이터 로딩 실행
-memberService.fetchMembers(displayMembers); // 일반 회원 목록 표시
-memberService.fetchCorporationMembers(displayCorporationMembers); // 기업 회원 목록 표시
+// memberService.fetchMembers(displayMembers); // 일반 회원 목록 표시
+// memberService.fetchCorporationMembers(displayCorporationMembers); // 기업 회원 목록 표시
 
-const displayMembers = (members) => {
-    const memberListDiv = document.querySelector('#user-section .UserTable_container');
-
-    // 헤더 행을 제외하고 기존 데이터 행 제거
-    const existingRows = memberListDiv.querySelectorAll('.UserTable_row:not(.UserTable_header)');
-    existingRows.forEach(row => row.remove());
-
-    // 새로운 회원 데이터 행 추가
-    members.forEach(member => {
-        const memberRow = document.createElement('div');
-        memberRow.classList.add('UserTable_row');
-        memberRow.innerHTML = `
-            <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
-            <div class="UserTable_cell">${member.memberName}</div>
-            <div class="UserTable_cell">${member.createdDate}</div>
-            <div class="UserTable_cell">${member.memberEmail}</div>
-            <div class="UserTable_cell">${member.memberAdress}</div>
-            <div class="UserTable_cell">${member.memberPhone}</div>
-            <div class="UserTable_cell">${member.memberStatus}</div>
-            <div class="UserTable_cell"><button class="editBtn">수정</button></div>
-        `;
-        memberListDiv.appendChild(memberRow);
-    });
-};
-
-const displayCorporationMembers = (corporateMembers) => {
-    const corpListDiv = document.querySelector('#corporation-section .UserTable_container');
-
-    // 헤더 행을 제외하고 기존 데이터 행 제거
-    const existingRows = corpListDiv.querySelectorAll('.UserTable_row:not(.UserTable_header)');
-    existingRows.forEach(row => row.remove());
-
-    // 새로운 기업 회원 데이터 행 추가
-    corporateMembers.forEach(corporationMember => {
-        const corpRow = document.createElement('div');
-        corpRow.classList.add('UserTable_row');
-        corpRow.innerHTML = `
-            <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
-            <div class="UserTable_cell">${corporationMember.corporationName}</div>
-            <div class="UserTable_cell">${corporationMember.createdDate}</div>
-            <div class="UserTable_cell">${corporationMember.corporationEmail}</div>
-            <div class="UserTable_cell">${corporationMember.corporationAddress}</div>
-            <div class="UserTable_cell">${corporationMember.corporationGen}</div>
-            <div class="UserTable_cell">${corporationMember.corporationCode}</div>
-            <div class="UserTable_cell">${corporationMember.status}</div>
-            <div class="UserTable_cell"><button class="editBtn">수정</button></div>
-        `;
-        corpListDiv.appendChild(corpRow);
-    });
-};
-
-// 데이터 로딩 실행
-memberService.fetchMembers(displayMembers); // 일반 회원 목록 표시
-memberService.fetchCorporationMembers(displayCorporationMembers); // 기업 회원 목록 표시
+// const displayMembers = (members) => {
+//     const memberListDiv = document.querySelector('#user-section .UserTable_container');
+//
+//     // 헤더 행을 제외하고 기존 데이터 행 제거
+//     const existingRows = memberListDiv.querySelectorAll('.UserTable_row:not(.UserTable_header)');
+//     existingRows.forEach(row => row.remove());
+//
+//     // 새로운 회원 데이터 행 추가
+//     members.forEach(member => {
+//         const memberRow = document.createElement('div');
+//         memberRow.classList.add('UserTable_row');
+//         memberRow.innerHTML = `
+//             <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
+//             <div class="UserTable_cell">${member.memberName}</div>
+//             <div class="UserTable_cell">${member.createdDate}</div>
+//             <div class="UserTable_cell">${member.memberEmail}</div>
+//             <div class="UserTable_cell">${member.memberAdress}</div>
+//             <div class="UserTable_cell">${member.memberPhone}</div>
+//             <div class="UserTable_cell">${member.memberStatus}</div>
+//             <div class="UserTable_cell"><button class="editBtn">수정</button></div>
+//         `;
+//         memberListDiv.appendChild(memberRow);
+//     });
+// };
+//
+// const displayCorporationMembers = (corporateMembers) => {
+//     const corpListDiv = document.querySelector('#corporation-section .UserTable_container');
+//
+//     // 헤더 행을 제외하고 기존 데이터 행 제거
+//     const existingRows = corpListDiv.querySelectorAll('.UserTable_row:not(.UserTable_header)');
+//     existingRows.forEach(row => row.remove());
+//
+//     // 새로운 기업 회원 데이터 행 추가
+//     corporateMembers.forEach(corporationMember => {
+//         const corpRow = document.createElement('div');
+//         corpRow.classList.add('UserTable_row');
+//         corpRow.innerHTML = `
+//             <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
+//             <div class="UserTable_cell">${corporationMember.corporationName}</div>
+//             <div class="UserTable_cell">${corporationMember.createdDate}</div>
+//             <div class="UserTable_cell">${corporationMember.corporationEmail}</div>
+//             <div class="UserTable_cell">${corporationMember.corporationAddress}</div>
+//             <div class="UserTable_cell">${corporationMember.corporationGen}</div>
+//             <div class="UserTable_cell">${corporationMember.corporationCode}</div>
+//             <div class="UserTable_cell">${corporationMember.status}</div>
+//             <div class="UserTable_cell"><button class="editBtn">수정</button></div>
+//         `;
+//         corpListDiv.appendChild(corpRow);
+//     });
+// };
+//
+// // 데이터 로딩 실행
+// memberService.fetchMembers(displayMembers); // 일반 회원 목록 표시
+// memberService.fetchCorporationMembers(displayCorporationMembers); // 기업 회원 목록 표시
 
 // 일반 회원 데이터를 표시하는 함수
 const displayMembers = (members) => {
