@@ -30,9 +30,7 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public void saveNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
         noticeDAO.saveNotice(noticeDTO);
-
         Long noticeId = noticeDAO.getLastInsertedId();
-
         saveAndLinkFile(file, noticeId);
     }
 
