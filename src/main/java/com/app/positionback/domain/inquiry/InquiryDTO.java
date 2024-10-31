@@ -1,7 +1,5 @@
 package com.app.positionback.domain.inquiry;
 
-import com.app.positionback.domain.corporation.CorporationVO;
-import com.app.positionback.domain.member.MemberVO;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -23,5 +21,4 @@ public class InquiryDTO {
     public InquiryVO toVO() {
         return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, createDate, updateDate, memberId);
     }
-
 }

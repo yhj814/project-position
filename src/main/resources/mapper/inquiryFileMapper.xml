@@ -3,8 +3,8 @@
 <mapper namespace="com.app.positionback.mapper.inquiry.InquiryFileMapper">
     <!-- 파일 추가   -->
     <insert id="insertInquiryAddFile">
-        insert into tbl_file (file_name, file_path)
-        values (#{fileName}, #{filePath})
+        insert into tbl_inquiry_file (inquiry_id, id)
+        values (#{inquiryId}, #{fileId})
     </insert>
 
     <!-- 마지막으로 추가된 ID를 가져오는 쿼리 -->
