@@ -1,19 +1,21 @@
 package com.app.positionback.service.notice;
 
 import com.app.positionback.domain.file.FileDTO;
-import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
-import com.app.positionback.domain.notice.NoticeDTO;
-import com.app.positionback.domain.notice.NoticeListDTO;
+import com.app.positionback.domain.file.NoticeFileDTO;
+import com.app.positionback.domain.notice.*;
+import com.app.positionback.repository.file.FileDAO;
 import com.app.positionback.repository.notice.NoticeDAO;
 import com.app.positionback.repository.notice.NoticeFileDAO;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
+import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,24 +29,37 @@ import java.util.UUID;
 public class NoticeServiceImpl implements NoticeService {
     private final NoticeDAO noticeDAO;
     private final NoticeFileDAO noticeFileDAO;
+    private final FileDAO fileDAO;
 
     @Override
-    public void saveNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
-        noticeDAO.saveNotice(noticeDTO);
-        Long noticeId = noticeDAO.getLastInsertedId();
-        saveAndLinkFile(file, noticeId);
+    public void saveNotice(NoticeVO noticeVO, String uuid, String path, MultipartFile file) throws IOException {
+        NoticeFileDTO noticeFileDTO = new NoticeFileDTO();
+
+        // 공지사항 저장
+        noticeDAO.saveNotice(noticeVO);
+        noticeFileDTO.setNoticeId(noticeDAO.getLastInsertedId());
+
+        // 파일 저장 및 정보 생성
+        FileDTO fileDTO = saveAndLinkFile(file);
+
+        // 파일 정보 저장 및 ID 설정
+        fileDAO.save(fileDTO.toVO());
+        noticeFileDTO.setFileId(fileDAO.findLastInsertId());
+
+        // 공지사항과 파일 간의 관계 저장
+        noticeFileDAO.linkNoticeWithFile(noticeFileDTO.toVO());
     }
 
-    @Override
-    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
-        noticeDAO.updateNotice(noticeDTO);
-        Long noticeId = noticeDTO.getId();
-
-        // 기존 파일 처리 로직 (선택적 파일 삭제 또는 업데이트 가능)
-        noticeFileDAO.deleteFilesByNoticeId(noticeId);
-
-        saveAndLinkFile(file, noticeId);
-    }
+//    @Override
+//    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
+//        noticeDAO.updateNotice(noticeDTO);
+//        Long noticeId = noticeDTO.getId();
+//
+//        // 기존 파일 처리 로직 (선택적 파일 삭제 또는 업데이트 가능)
+//        noticeFileDAO.deleteFilesByNoticeId(noticeId);
+//
+//        saveAndLinkFile(file, noticeId);
+//    }
 
     @Override
     public void deleteNotice(Long id) {
@@ -86,6 +101,9 @@ public class NoticeServiceImpl implements NoticeService {
         List<NoticeCategoryRankDTO> categoryRankings = noticeDAO.getRank();
         noticeListDTO.setCategoryRankings(categoryRankings);
 
+        List<NoticeMonthRankDTO> monthRankings = noticeDAO.getMontRank();
+        noticeListDTO.setMonthRankings(monthRankings);
+
         return noticeListDTO;
     }
 
@@ -100,28 +118,32 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeDAO.getRank();
     }
 
-    private void saveAndLinkFile(MultipartFile file, Long noticeId) throws IOException {
-        if (file != null && !file.isEmpty()) {
-            String rootPath = "C:/upload/" + getPath();
-            UUID uuid = UUID.randomUUID();
+    private FileDTO saveAndLinkFile(MultipartFile file) throws IOException {
+        String rootPath = "C:/upload/" + getPath();
+        FileDTO fileDTO = new FileDTO();
+        UUID uuid = UUID.randomUUID();
 
-            File directory = new File(rootPath);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
+        fileDTO.setFilePath(getPath());
 
-            File savedFile = new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename());
-            file.transferTo(savedFile);
+        File directory = new File(rootPath);
+        if(!directory.exists()){
+            directory.mkdirs();
+        }
 
-            FileDTO fileDTO = new FileDTO();
-            fileDTO.setFilePath(getPath());
+        if(file.getContentType().startsWith("image")){
+            file.transferTo(new File(rootPath, uuid.toString() + "_" + file.getOriginalFilename()));
             fileDTO.setFileName(uuid.toString() + "_" + file.getOriginalFilename());
 
-            noticeFileDAO.saveFile(fileDTO);
-            Long fileId = noticeFileDAO.getLastInsertedId();
-
-            noticeFileDAO.linkNoticeWithFile(noticeId, fileId);
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(rootPath, "t_" + uuid.toString() + "_" + file.getOriginalFilename()));
+            Thumbnailator.createThumbnail(file.getInputStream(), fileOutputStream, 53, 68);
+            fileOutputStream.close();
         }
+
+        // 파일 크기 설정
+        String fileSize = String.format("%.2f", file.getSize() / 1024.0 / 1024.0);
+        fileDTO.setFileSize(fileSize);
+
+        return fileDTO;
     }
 
     private String getPath() {

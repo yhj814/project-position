@@ -84,9 +84,9 @@
 
 <!--    월별 채용 순위-->
     <select id="selectMonthRank">
-        select date_format(created_date, '%m'), count(*) as count
+        select date_format(created_date, '%m') as month, count(*) as count
         from tbl_notice
-        group by date_format(created_date, '%m')
+        group by month
         order by count desc
         limit 4
     </select>

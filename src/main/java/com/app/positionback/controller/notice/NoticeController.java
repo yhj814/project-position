@@ -33,11 +33,11 @@ public class NoticeController {
     }
 
     @PostMapping("corporation-login-main-write-posting")
-    public RedirectView write(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
+    public RedirectView write(NoticeDTO noticeDTO, String uuid, String path, MultipartFile file) throws IOException {
         CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
         noticeDTO.setCorporationId(corporationVO.getId());
-        noticeService.saveNotice(noticeDTO, file);
-        return new RedirectView("/notice/list");
+        noticeService.saveNotice(noticeDTO.toVO(), uuid, path, file);
+        return new RedirectView("/corporation");
     }
 
     // 공고 목록 조회
@@ -63,6 +63,7 @@ public class NoticeController {
         model.addAttribute("ongoingCount", pagination.getOngoingCount());
         model.addAttribute("closedCount", pagination.getClosedCount());
         model.addAttribute("categoryRankings", noticeListDTO.getCategoryRankings()); // 카테고리 순위 추가
+        model.addAttribute("monthRankings", noticeListDTO.getMonthRankings()); // 월별 채용 순위 추가
     }
 
     // 공고 목록 조회 (비동기)

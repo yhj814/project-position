@@ -14,4 +14,5 @@ public class NoticeListDTO {
     private List<NoticeDTO> notices;
     private Pagination pagination;
     private List<NoticeCategoryRankDTO> categoryRankings;
+    private List<NoticeMonthRankDTO> monthRankings;
 }

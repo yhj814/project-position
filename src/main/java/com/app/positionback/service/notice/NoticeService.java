@@ -4,6 +4,7 @@ import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
+import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.utill.Pagination;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,10 +13,10 @@ import java.util.List;
 
 public interface NoticeService {
     // 공고 저장
-    public void saveNotice(NoticeDTO noticeDTO, MultipartFile file)  throws IOException;
+    public void saveNotice(NoticeVO noticeVO, String uuid, String path, MultipartFile file)  throws IOException;
 
     // 공고 수정
-    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException;
+//    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException;
 
     // 공고 삭제
     public void deleteNotice(Long id);

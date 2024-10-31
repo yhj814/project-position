@@ -75,6 +75,7 @@
                                                 type="button"
                                                 class="btn-menu ga-data-layer"
                                                 data-ga-data-layer="ga-lead|company-view|tab|com-intro"
+                                                onclick="location.href='/corporation';"
                                             >
                                                 <svg class="ico">
                                                     <use
@@ -88,6 +89,7 @@
                                             <button
                                                 type="button"
                                                 class="btn-menu"
+                                                onclick="location.href='/corporation/corporation-login-main-write-posting';"
                                             >
                                                 <svg class="ico">
                                                     <use
@@ -157,7 +159,7 @@
                         <div class="main-content cont-introduce">
                             <!-- 여기 안에 들어감 -->
                             <section class="section">
-                                <h2 class="section-tit">지난 채용 순위</h2>
+                                <h2 class="section-tit">포지션 순위</h2>
                                 <div class="section-content">
                                     <div class="flex-between">
                                         <div class="box-ranking">
@@ -258,7 +260,7 @@
                                                     </div>
                                                     <p class="rank-txt">
                                                         <strong th:text="${categoryRankings[0].noticeJobCategoryName}"
-                                                            >연구·R&amp;D</strong
+                                                            ></strong
                                                         >
                                                         가장 많이 채용했어요!
                                                     </p>
@@ -268,7 +270,6 @@
                                                         >TOP 2</span
                                                     >
                                                     <p class="rank-txt" th:text="${categoryRankings[1].noticeJobCategoryName}">
-                                                        기획·전략
                                                     </p>
                                                 </li>
                                                 <li class="ranking-item">
@@ -276,7 +277,6 @@
                                                         >TOP 3</span
                                                     >
                                                     <p class="rank-txt" th:text="${categoryRankings[2].noticeJobCategoryName}">
-                                                        구매·자재·물류
                                                     </p>
                                                 </li>
                                                 <li class="ranking-item">
@@ -284,7 +284,6 @@
                                                         >TOP 4</span
                                                     >
                                                     <p class="rank-txt" th:text="${categoryRankings[3].noticeJobCategoryName}">
-                                                        회계·세무·재무
                                                     </p>
                                                 </li>
                                             </ol>
@@ -292,27 +291,130 @@
 
                                         <div class="box-ranking">
                                             <h3 class="ranking-tit">
-                                                경력별 순위
+                                                월별 채용 순위
                                             </h3>
-                                            <ul class="number-list">
-                                                <li class="emph">
-                                                    <div class="wrap-graph">
-                                                        <span class="num"
-                                                            >3<span
-                                                                class="blind"
-                                                                >건</span
-                                                            ></span
+                                            <ol class="ranking-list">
+                                                <li class="ranking-item">
+                                                    <div class="box-img">
+                                                        <svg
+                                                                class="trophy"
+                                                                width="49"
+                                                                height="48"
+                                                                viewBox="0 0 49 48"
+                                                                fill="none"
                                                         >
-                                                        <div
-                                                            class="inner-graph"
-                                                            style="height: 100%"
-                                                        ></div>
+                                                            <path
+                                                                    fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M39.5238 6.77539H47.9933C48.1815 12.4212 45.1701 23.7127 38.3945 28.2293L38.5988 24.3493C42.2633 19.6853 44.1914 13.7329 44.6049 9.59766H39.3752L39.5238 6.77539Z"
+                                                                    fill="#F1B340"
+                                                            ></path>
+                                                            <path
+                                                                    fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M8.47816 6.77539H0.00868893C-0.179522 12.4212 2.83185 23.7127 9.60742 28.2293L9.40319 24.3493C5.73867 19.6853 3.81056 13.7329 3.397 9.59766H8.62671L8.47816 6.77539Z"
+                                                                    fill="#F1B340"
+                                                            ></path>
+                                                            <rect
+                                                                    x="21.4551"
+                                                                    y="34.2129"
+                                                                    width="5.64631"
+                                                                    height="10.1624"
+                                                                    fill="#F8AF3A"
+                                                            ></rect>
+                                                            <rect
+                                                                    x="5.64648"
+                                                                    width="38.3949"
+                                                                    height="4.51662"
+                                                                    rx="2.25831"
+                                                                    fill="#FECB66"
+                                                            ></rect>
+                                                            <rect
+                                                                    x="5.64648"
+                                                                    width="22.5853"
+                                                                    height="4.51662"
+                                                                    rx="2.25831"
+                                                                    fill="#FED873"
+                                                            ></rect>
+                                                            <rect
+                                                                    x="15.3594"
+                                                                    y="43.1992"
+                                                                    width="16.6958"
+                                                                    height="4.17374"
+                                                                    rx="2.08687"
+                                                                    fill="#FFC96B"
+                                                            ></rect>
+                                                            <path
+                                                                    d="M7.9043 4.51758H40.6529V20.8887C40.6529 29.932 33.3219 37.263 24.2786 37.263C15.2353 37.263 7.9043 29.932 7.9043 20.8887V4.51758Z"
+                                                                    fill="#FCC14C"
+                                                            ></path>
+                                                            <mask
+                                                                    id="mask0-3435-56918"
+                                                                    style="
+                                                                    mask-type: alpha;
+                                                                "
+                                                                    maskUnits="userSpaceOnUse"
+                                                                    x="7"
+                                                                    y="4"
+                                                                    width="34"
+                                                                    height="34"
+                                                            >
+                                                                <path
+                                                                        d="M7.90234 4.51562H40.651V20.8868C40.651 29.9301 33.3199 37.2611 24.2767 37.2611C15.2334 37.2611 7.90234 29.9301 7.90234 20.8868V4.51562Z"
+                                                                        fill="#B88B30"
+                                                                ></path>
+                                                            </mask>
+                                                            <g
+                                                                    mask="url(#mask0-3435-56918)"
+                                                            >
+                                                                <path
+                                                                        d="M-9.03516 -5.64453H23.7135C23.7135 12.4403 9.04967 27.1009 -9.03516 27.1009V-5.64453Z"
+                                                                        fill="#FED873"
+                                                                ></path>
+                                                            </g>
+                                                            <path
+                                                                    d="M7.9043 4.51758H40.6529V6.77589L7.9043 5.64673L7.9043 4.51758Z"
+                                                                    fill="#F8B13F"
+                                                            ></path>
+                                                            <path
+                                                                    d="M24.8423 11.2891L27.1655 15.9959L32.3603 16.7506L28.6013 20.4144L29.4887 25.5877L24.8423 23.1452L20.196 25.5877L21.0834 20.4144L17.3244 16.7506L22.5192 15.9959L24.8423 11.2891Z"
+                                                                    fill="#FFF3A9"
+                                                            ></path>
+                                                        </svg>
+                                                        <span class="rank-badge"
+                                                        >TOP 1</span
+                                                        >
                                                     </div>
-                                                    <span class="txt"
-                                                        >경력</span
-                                                    >
+                                                    <p class="rank-txt">
+                                                        <strong th:text="${monthRankings[0].month} + '월'"
+                                                        ></strong>
+                                                        가장 많이 채용했어요!
+                                                    </p>
                                                 </li>
-                                            </ul>
+                                                <li class="ranking-item">
+                                                    <span class="rank-badge"
+                                                    >TOP 2</span
+                                                    >
+                                                    <p class="rank-txt" th:text="${monthRankings[1].month} + '월'">
+                                                    </p>
+                                                </li>
+                                                <li class="ranking-item">
+                                                    <span class="rank-badge"
+                                                    >TOP 3</span
+                                                    >
+                                                    <p class="rank-txt" th:text="${monthRankings[2].month} + '월'">
+
+                                                    </p>
+                                                </li>
+                                                <li class="ranking-item">
+                                                    <span class="rank-badge"
+                                                    >TOP 4</span
+                                                    >
+                                                    <p class="rank-txt" th:text="${monthRankings[3].month} + '월'">
+
+                                                    </p>
+                                                </li>
+                                            </ol>
                                         </div>
                                     </div>
                                 </div>

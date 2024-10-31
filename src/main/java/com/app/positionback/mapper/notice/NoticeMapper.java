@@ -6,6 +6,7 @@ import com.app.positionback.domain.file.NoticeFileDTO;
 import com.app.positionback.domain.file.NoticeFileVO;
 import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
+import com.app.positionback.domain.notice.NoticeMonthRankDTO;
 import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.utill.Pagination;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,7 +18,7 @@ import java.util.Map;
 @Mapper
 public interface NoticeMapper {
     // 공고등록
-    public void insertNotice(NoticeDTO noticeDTO);
+    public void insertNotice(NoticeVO noticeVO);
 
     // 마지막으로 삽입된 ID 가져오기
     public Long getLastInsertId();
@@ -39,4 +40,7 @@ public interface NoticeMapper {
 
     // 공고 카테고리 순위
     public List<NoticeCategoryRankDTO> selectTopJobCategories();
+
+    // 공고 월별 채용 순위
+    public List<NoticeMonthRankDTO> selectMonthRank();
 }
