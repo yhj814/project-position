@@ -21,7 +21,7 @@ public class AdminServiceImpl implements AdminService {
         return adminMapper.selectAllMembers();
     }
 
-    public List<CorporationDTO> getCorporatationMembers() {
+    public List<CorporationDTO> getCorporationMembers() {
         return adminMapper.selectAllCorporationMembers();
     }
 }

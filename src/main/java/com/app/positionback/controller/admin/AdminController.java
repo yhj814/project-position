@@ -28,6 +28,7 @@ public class AdminController {
     // 일반회원 정보를 조회하고 json 형식으로 반환한다.
     // AdminService의 getMembers() 메서드를 호출하여 전체 일반 회원 정보를 가져온다.
     // 이 메서드는 List<MemberDTO> 타입의 데이터를 반환하여 JSON으로 응답한다.
+    // 자바스크립트 코드에 fetch 모듈 admin서비스.js에 레이아웃
 
     // 일반 회원 정보 조회
     @GetMapping("/position/members")
@@ -38,6 +39,6 @@ public class AdminController {
     // 기업 회원 정보 조회
     @GetMapping("/position/corporation-members")
     public List<CorporationDTO> getCorporationMembers() {
-        return adminService.getCorporatationMembers();
+        return adminService.getCorporationMembers();
     }
 }
