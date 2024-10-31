@@ -1,22 +1,21 @@
 const noticePaging = document.querySelector(".PageBox");
 const listBody = document.querySelector('.list-body');
-const sortingSelect = document.querySelector(".sorting-select");
+const sortingSelect = document.querySelector(".sorting-select select");
+const ongoingBtn = document.getElementById("ongoing-btn");
+const closedBtn = document.getElementById("closed-btn");
+const statusInput = document.getElementById("notice-status");
+const loadingScreen = document.getElementById("ingRecruitLoading"); // 로딩 화면 요소
 
 // 공고 목록 데이터를 받아서 DOM에 추가하는 함수
-const showNoticeList = ({notices, pagination}) => {
+const showNoticeList = ({notices, pagination}, status) => {
     listBody.innerHTML = ''; // 목록 초기화
     let pagingText = "";
-
-    if (notices.length === 0) {
-        listBody.innerHTML = '<p>현재 공고가 없습니다.</p>';
-        return;
-    }
 
     let text = ''; // 텍스트 초기화
 
     notices.forEach(notice => {
         // 마감일까지 남은 일수 계산
-        const daysLeft = calculateDaysLeft(notice.noticeWorkEndDate); // noticeWorkEndDate를 사용하여 남은 일수 계산
+        const daysLeft = calculateDaysLeft(notice.noticeEndDate); // noticeWorkEndDate를 사용하여 남은 일수 계산
 
         text += `
             <div id="rec-${notice.id}" class="list-item">
@@ -24,7 +23,7 @@ const showNoticeList = ({notices, pagination}) => {
                     <div class="col notification-info">
                         <div class="job-tit">
                             <a class="str-tit" id="rec-link-${notice.id}" 
-                               href="/zf-user/jobs/relay/view?view-type=list&rec-idx=${notice.id}" 
+                               href="/corporation/notice-detail?id=${notice.id}" 
                                target="_blank" title="${notice.noticeTitle}">
                                 <span>${notice.noticeTitle}</span>
                             </a>
@@ -43,13 +42,19 @@ const showNoticeList = ({notices, pagination}) => {
                         </ul>
                     </div>
                     <div class="col support-info">
-                        <button class="sri-btn-md">
+                        <button class="sri-btn-md delete-btn" data-id="${notice.id}">
                             <span class="sri-btn-immediately">삭제하기</span>
                         </button>
                         <p class="support-detail">
-                            <span class="date">D-${daysLeft}일</span>
-                            <span class="deadlines">${timeForToday(notice.createdDate)} 등록</span>
-                        </p>
+                           ${
+                                daysLeft > 0
+                                    ? `<span class="date">D-${daysLeft}일</span>`
+                                    : daysLeft === 0 
+                                        ? `<span class="date">D-DAY</span>`
+                                        : ""
+                            }
+                        <span class="deadlines">${timeForToday(notice.createdDate)} 등록</span>
+                    </p>
                     </div>
                 </div>
                 <div class="similar-recruit"></div>
@@ -93,32 +98,68 @@ const showNoticeList = ({notices, pagination}) => {
 
     // 페이지네이션 HTML 삽입
         noticePaging.innerHTML = pagingText;
+
+    // 삭제 버튼 클릭 이벤트 리스너 추가
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const noticeId = button.getAttribute('data-id'); // 공고 ID 가져오기
+            const confirmed = confirm("정말로 이 공고를 삭제하시겠습니까?"); // 삭제 확인
+            if (confirmed) {
+                await noticeService.remove(noticeId); // 공고 삭제
+                loadNotices(); // 공고 목록 새로 고침
+            }
+        });
+    });
+
+    hideLoading(); // 로딩 화면 숨기기
+
 };
 
-// 공고 목록 로드 함수
-const loadNotices = (page = 1, order = 'recent') => {
-    noticeService.getNoticeList(page, order, showNoticeList);
+// 로딩 화면 표시 함수
+const showLoading = () => {
+    loadingScreen.style.display = 'block';
 };
+
+// 로딩 화면 숨김 함수
+const hideLoading = () => {
+    loadingScreen.style.display = 'none';
+};
+
+/// 공고 목록 로드 함수
+const loadNotices = (page = 1, order = 'recent', status = statusInput.value) => {
+    showLoading(); // 로딩 화면 표시
+    noticeService.getNoticeList(page, order, status, (data) => {
+        showNoticeList(data, status);
+    });
+};
+
+// 버튼 클릭 시 상태 변경 및 공고 목록 로드
+ongoingBtn.addEventListener("click", () => {
+    statusInput.value = 'ongoing'; // 상태를 진행 중으로 설정
+    loadNotices();
+});
+
+closedBtn.addEventListener("click", () => {
+    statusInput.value = 'closed'; // 상태를 마감으로 설정
+    loadNotices();
+});
 
 // 페이지 전환 함수
 function goToPage(page) {
-    globalThis.page = page;
     const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
-    history.pushState({ page }, "", `corporation-login-main-posting-registration?page=${page}&order=${order}`);
-    loadNotices(page, order);
+    const status = statusInput.value; // 현재 상태 값을 가져옵니다.
+    loadNotices(page, order, status); // 상태를 유지하면서 공고 목록 로드
 }
 
 // 드롭다운 변경 시 공고 목록 로드
 sortingSelect.addEventListener("change", () => {
-    const page = 1; // 페이지를 1로 초기화
-    const order = sortingSelect.value; // 선택된 정렬 기준
-    loadNotices(page, order); // 목록을 다시 로드
+    loadNotices(1, sortingSelect.value); // 기본 정렬 기준으로 목록 로드
 });
 
 // 페이지 로드 시 공고 목록 가져오기
 document.addEventListener('DOMContentLoaded', () => {
-    const order = sortingSelect.value; // 드롭다운에서 기본 정렬 기준 가져오기
-    loadNotices(1, order); // 기본 정렬 기준으로 목록 로드
+    loadNotices(); // 기본 정렬 기준과 상태로 목록 로드
 });
 
 // 날짜 형식을 'YYYY-MM-DD'로 변환하는 함수

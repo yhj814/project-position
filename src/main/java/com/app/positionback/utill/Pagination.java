@@ -17,6 +17,9 @@ public class Pagination {
     private boolean prev, next;
     private int total;
     private String order;
+    private String status;
+    private int ongoingCount;
+    private int closedCount;
 //        더보기 구현 시, 1개 더 가져오는 변수이다.
 //    private int moreRowcount;
 

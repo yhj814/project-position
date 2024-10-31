@@ -26,5 +26,5 @@ public interface NoticeService {
     public NoticeListDTO getNoticesByCorporationId(int page, Pagination pagination, Long corporationId);
 
 //    기업별 공고 전체 목록 개수
-    public int getTotal(Long corporationId);
+    public int getTotal(Pagination pagination, Long corporationId);
 }
