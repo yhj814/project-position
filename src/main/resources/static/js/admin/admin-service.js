@@ -38,6 +38,21 @@ const memberService = (() => {
 })();
 
 
+
+// 상태를 문자열로 변환하는 함수
+const getStatusLabel = (memberStatus) => {
+    switch (Number(memberStatus)) { // 문자열을 숫자로 변환
+        case 1:
+            return "활동중";
+        case 2:
+            return "정지";
+        case 3:
+            return "탈퇴";
+        default:
+            return ""; // 상태가 정의되지 않았을 때는 빈 문자열 반환
+    }
+};
+
 // 일반 회원 데이터를 표시하는 함수
 const displayMembers = (members) => {
     // 일반 회원 행이 표시될 컨테이너 선택
@@ -56,12 +71,12 @@ const displayMembers = (members) => {
         // 각 회원 데이터(체크박스, 이름, 생성 날짜, 이메일, 주소, 전화번호, 상태, 수정 버튼)를 포함하는 HTML 작성
         memberRow.innerHTML = `
             <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
-            <div class="UserTable_cell">${member.memberName}</div>
-            <div class="UserTable_cell">${member.createdDate}</div>
-            <div class="UserTable_cell">${member.memberEmail}</div>
-            <div class="UserTable_cell">${member.memberAdress}</div>
-            <div class="UserTable_cell">${member.memberPhone}</div>
-            <div class="UserTable_cell">${member.memberStatus}</div>
+            <div class="UserTable_cell">${member.memberName || ''}</div>
+            <div class="UserTable_cell">${member.createdDate || ''}</div>
+            <div class="UserTable_cell">${member.memberEmail || ''}</div>
+            <div class="UserTable_cell">${member.memberAddress || ''}</div>
+            <div class="UserTable_cell">${member.memberPhone || ''}</div>
+            <div class="UserTable_cell">${getStatusLabel(member.memberStatus)}</div>
             <div class="UserTable_cell"><button class="editBtn">수정</button></div>
         `;
 

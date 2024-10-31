@@ -2,11 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.admin.AdminMapper">
     <!-- 일반 회원 목록 -->
-<!--    <select id="selectAllMembers" resultType="memberDTO">-->
-<!--        select id, member_name, member_email, member_password, member_address, member_address_detail, member_status, member_phone, created_date from tbl_member-->
-<!--    </select>-->
-
-    <!-- 일반 회원 목록 -->
     <select id="selectAllMembers" resultType="memberDTO">
         SELECT id,
         member_name,
@@ -21,6 +16,7 @@
         FROM tbl_member
     </select>
 
+    <!-- 기업 회원 목록 -->
     <select id="selectAllCorporationMembers" resultType="corporationDTO">
         select id, corporation_name, corporation_address, corporation_address_detail, corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_gen, corporation_sales, corporation_code, corporation_employees_number, created_date from tbl_corporation
     </select>
