@@ -23,24 +23,26 @@
                         <div class="sidebar recommendation">
                             <div class="scroller">
                                 <div class="company-info">
-                                    <div class="box-logo">
-                                        <input type="hidden" name="uuid" id="uuid">
-                                        <input type="hidden" name="path" id="path">
-                                        <div class="TipBox">
-                                            <button type="button" class="btn-blue evtLoadExnlItem" onclick="document.getElementById('fileInput').click();">
-                                                <svg>
-                                                    <use xlink:href="#resume_plus"></use>
-                                                </svg>
-                                            </button>
+                                    <form id="uploadForm" th:action="@{/file/profile/upload}" method="post" enctype="multipart/form-data">
+                                        <div class="box-logo">
+                                            <input type="hidden" name="uuid" id="uuid">
+                                            <input type="hidden" name="path" id="path">
+                                            <div class="TipBox">
+                                                <button type="button" class="btn-blue evtLoadExnlItem" onclick="document.getElementById('fileInput').click();">
+                                                    <svg>
+                                                        <use xlink:href="#resume_plus"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <input type="file" name="file" id="fileInput" style="display: none;">
+                                            <img
+                                                    id="corporation-logo"
+                                                    src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
+                                                    width="170"
+                                                    height="38"
+                                            />
                                         </div>
-                                        <input type="file" id="fileInput" style="display: none;">
-                                        <img
-                                                id="corporation-logo"
-                                                src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
-                                                width="170"
-                                                height="38"
-                                        />
-                                    </div>
+                                    </form>
                                     <div class="box-title">
                                         <h1
                                             class="tit-company"
@@ -2638,7 +2640,11 @@
         </div>
     </body>
     <script th:inline="javascript">
-        [[${session.member}]];
+        // [[${session.member}]];
+        const fileDTO = [[${file}]];
+
+        const img = document.getElementById("corporation-logo");
+        img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
     </script>
     <script src="/js/corporation/corpoaration-login-header.js"></script>
     <script src="/js/corporation/corporation-main.js"></script>

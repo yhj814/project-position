@@ -120,7 +120,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void logo(String uuid, String path, MultipartFile file) throws IOException{
+    public void logo(String uuid, String path, MultipartFile file, Long corporationId) throws IOException{
         CorporationFileDTO corporationFileDTO = new CorporationFileDTO();
         FileDTO fileDTO = new FileDTO();
         String fileSize = String.format("%.2f", file.getSize() / 1024.0 / 1024.0);
@@ -129,12 +129,10 @@ public class MemberServiceImpl implements MemberService {
         fileDTO.setFileName(uuid + "_" + file.getOriginalFilename());
         fileDTO.setFileSize(fileSize);
 
-        corporationFileDTO.setCorporationId(corporationDAO.findLastInsertId());
-
         fileDAO.save(fileDTO.toVO());
         corporationFileDTO.setId(fileDAO.findLastInsertId());
-//        corporationType code로 추가
-        corporationFileDTO.setCorporationFileType("code");
+        corporationFileDTO.setCorporationId(corporationId);
+//        corporationFileDTO.setCorporationFileType("code");
 
         corporationFileDAO.save(corporationFileDTO.toVO());
     }

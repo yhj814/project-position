@@ -1,9 +1,11 @@
 package com.app.positionback.controller.file;
 
+import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.service.file.CorporationFileService;
 import com.app.positionback.service.file.FileService;
 import com.app.positionback.service.member.MemberService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
@@ -34,8 +36,10 @@ public class FileController {
 
     @PostMapping("profile/upload")
     @ResponseBody
-    public FileDTO uploadCompanyProfileFile(String uuid, String path,MultipartFile file) throws IOException {
-        memberService.logo(uuid, path, file);
+    public FileDTO uploadCompanyProfileFile(String uuid, String path, MultipartFile file, HttpSession session) throws IOException {
+        CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
+        Long corporationId = corporationVO.getId();
+        memberService.logo(uuid, path, file, corporationId);
         return memberService.uploadFile(file);
     }
 }

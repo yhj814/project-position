@@ -8,9 +8,15 @@
                 values (#{id}, #{corporationId},#{corporationFileType})
             </when>
             <otherwise>
-                insert into tbl_corporation_file (id, corporation_id, corperation_file_type)
+                insert into tbl_corporation_file (id, corporation_id, corporation_file_type)
                 values (#{id}, #{corporationId}, 'profile')
             </otherwise>
         </choose>
     </insert>
+
+    <select id="selectFileIdByCorporationId">
+        select * from tbl_corporation_file c
+        join tbl_file f on c.id = f.id
+        where c.corporation_id = #{corporationId}
+    </select>
 </mapper>

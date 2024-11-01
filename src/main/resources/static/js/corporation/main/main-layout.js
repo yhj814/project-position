@@ -8,8 +8,7 @@ const tipBox = document.querySelector(".TipBox");
 fileInput.addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if(file.type.startsWith("image")){
-        const formData = new FormData();
-        formData.append("file", file);
+        const formData = new FormData(document.getElementById("uploadForm"));
         const fileInfo = await corporationService.upload(formData);
         console.log(fileInfo);
         console.log(fileInfo.fileName);

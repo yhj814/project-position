@@ -102,7 +102,6 @@ public class NoticeController {
         NoticeDTO noticeDTO = noticeService.getNoticeById(id);
         FileDTO fileDTO = noticeService.getNoticeFileById(id);
 
-
         model.addAttribute("notice", noticeDTO);
         model.addAttribute("file", fileDTO);
         return "matching/matching-detail";
