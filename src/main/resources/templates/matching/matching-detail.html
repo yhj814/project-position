@@ -8,12 +8,13 @@
             href="/css/matching/matching-detail.css"
         />
         <link rel="stylesheet" href="/css/main.css" />
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?1535ee6277b12554f8cb83bc32bf2338"></script>
-<!--        <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1535ee6277b12554f8cb83bc32bf2338&libraries=services"></script>-->
+<!--        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1e0bdeafd8a8a27e472648b06cdfefc"></script>-->
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1e0bdeafd8a8a27e472648b06cdfefc&libraries=services"></script>
+
+
         <title>매칭 상세보기</title>
     </head>
     <body>
-
             <div id="position-section">
                 <div id="position-wrap">
                     <div id="content">
@@ -436,94 +437,7 @@
                                                         >지도 보기
                                                     </span>
                                                 </button>
-                                                <div
-                                                    class="layer-pop-manage layer-map"
-                                                    data-loaded="n"
-                                                >
-                                                    <h4>지도 보기</h4>
-                                                    <div class="container-map">
-                                                        <div
-                                                            class="wrap-mapapi"
-                                                            id="mapArea-0"
-                                                        >
-                                                            <div
-                                                                class="map-view-wrap"
-                                                            >
-                                                                <div
-                                                                    id="mapContainer-0"
-                                                                    class="map-view"
-                                                                >
-                                                                    <div
-                                                                        id="mapWrapper-0"
-                                                                        class="view"
-                                                                    >
-                                                                        <div
-                                                                            id="mapView-0"
-                                                                            style="
-                                                                                width: 100%;
-                                                                                height: 100%;
-                                                                            "
-                                                                        ></div>
-                                                                        <div
-                                                                            id="roadView-0"
-                                                                            style="
-                                                                                height: 100%;
-                                                                                text-align: left;
-                                                                            "
-                                                                        ></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="btn-map-switch"
-                                                                    data-seq="0"
-                                                                >
-                                                                    <button
-                                                                        type="button"
-                                                                        class="btn-mapview on"
-                                                                    >
-                                                                        지도</button
-                                                                    ><button
-                                                                        type="button"
-                                                                        class="btn-skyview"
-                                                                    >
-                                                                        스카이뷰
-                                                                    </button>
-                                                                </div>
-                                                                <div
-                                                                    class="desc"
-                                                                >
-                                                                    <div
-                                                                        class="btns"
-                                                                    >
-                                                                        <button
-                                                                            type="button"
-                                                                            class="reset"
-                                                                        >
-                                                                            지도초기화</button
-                                                                        ><button
-                                                                            type="button"
-                                                                            class="big-map"
-                                                                        >
-                                                                            크게보기
-                                                                        </button>
-                                                                        <button
-                                                                            type="button"
-                                                                            class="route"
-                                                                        >
-                                                                            길찾기
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button
-                                                        type="button"
-                                                        class="btn-layer-close"
-                                                    >
-                                                        <span>닫기</span>
-                                                    </button>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -544,18 +458,18 @@
                                                 >
                                                     <span class="txt"
                                                         >남은 기간</span
-                                                    ><span class="day">2</span
+                                                    ><span class="day" id="remaining-days">0</span
                                                     ><span class="txt-day"
                                                         >일</span
-                                                    ><span class="time"
+                                                    ><span class="time" id="remaining-time"
                                                         >02:48:34</span
                                                     >
                                                 </div>
                                                 <dl class="info-period">
                                                     <dt>시작일</dt>
-                                                    <dd>2024.10.08 11:00</dd>
+                                                    <dd id="start-date" th:text="${notice.createdDate}"></dd>
                                                     <dt class="end">마감일</dt>
-                                                    <dd>2024.10.21 17:00</dd>
+                                                    <dd id="end-date" th:text="${notice.noticeEndDate}"></dd>
                                                 </dl>
                                             </div>
                                             <dl class="guide">
@@ -1279,6 +1193,48 @@
 
         const img = document.getElementById("notice-image");
         img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+    </script>
+    <script>
+        // 함수: 남은 시간 계산
+        function calculateRemainingTime() {
+            // 시작일과 마감일 가져오기
+            const startDate = new Date(document.getElementById('start-date').textContent);
+            const endDate = new Date(document.getElementById('end-date').textContent);
+
+            // 현재 날짜와 시간 가져오기
+            const now = new Date();
+
+            // 마감일까지 남은 시간 계산
+            const remainingTime = endDate - now; // 밀리초 단위
+
+            if (remainingTime < 0) {
+                // 마감일이 지났을 경우
+                document.getElementById('remaining-days').textContent = "0";
+                document.getElementById('remaining-time').textContent = "00:00:00";
+                clearInterval(intervalId); // 타이머 정지
+                return;
+            }
+
+            // 남은 시간을 초 단위로 변환
+            const remainingSeconds = Math.floor(remainingTime / 1000);
+
+            // 일, 시간, 분, 초 계산
+            const days = Math.floor(remainingSeconds / (24 * 3600));
+            const hours = Math.floor((remainingSeconds % (24 * 3600)) / 3600);
+            const minutes = Math.floor((remainingSeconds % 3600) / 60);
+            const seconds = remainingSeconds % 60;
+
+            // HTML 요소 업데이트
+            document.getElementById('remaining-days').textContent = days;
+            document.getElementById('remaining-time').textContent =
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // 매초마다 남은 시간을 계산하는 타이머 설정
+        const intervalId = setInterval(calculateRemainingTime, 1000);
+
+        // 초기 호출: 페이지 로드 시 즉시 계산
+        calculateRemainingTime();
     </script>
     <script src="/js/matching/matching-detail.js"></script>
     <script src="/js/matching/detail/detail-layout.js"></script>
