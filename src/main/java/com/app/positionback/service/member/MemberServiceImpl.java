@@ -113,6 +113,28 @@ public class MemberServiceImpl implements MemberService {
 
         fileDAO.save(fileDTO.toVO());
         corporationFileDTO.setId(fileDAO.findLastInsertId());
+//        corporationType code로 추가
+        corporationFileDTO.setCorporationFileType("code");
+
+        corporationFileDAO.save(corporationFileDTO.toVO());
+    }
+
+    @Override
+    public void logo(String uuid, String path, MultipartFile file) throws IOException{
+        CorporationFileDTO corporationFileDTO = new CorporationFileDTO();
+        FileDTO fileDTO = new FileDTO();
+        String fileSize = String.format("%.2f", file.getSize() / 1024.0 / 1024.0);
+
+        fileDTO.setFilePath(path);
+        fileDTO.setFileName(uuid + "_" + file.getOriginalFilename());
+        fileDTO.setFileSize(fileSize);
+
+        corporationFileDTO.setCorporationId(corporationDAO.findLastInsertId());
+
+        fileDAO.save(fileDTO.toVO());
+        corporationFileDTO.setId(fileDAO.findLastInsertId());
+//        corporationType code로 추가
+        corporationFileDTO.setCorporationFileType("code");
 
         corporationFileDAO.save(corporationFileDTO.toVO());
     }

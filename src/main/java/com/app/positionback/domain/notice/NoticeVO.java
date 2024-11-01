@@ -24,4 +24,5 @@ public class NoticeVO {
     private String noticeWorkStartDate;
     private String noticeWorkEndDate;
     private String noticeJobCategoryName;
+    private int noticeReadCount;
 }

@@ -924,7 +924,7 @@ a {
     vertical-align: bottom;
 }
 .jv-howto .info-period {
-    padding: 13px 40px 0;
+    padding: 13px 31px 0;
     text-align: left;
 }
 .jv-howto .info-period dt {
@@ -942,7 +942,7 @@ a {
 .jv-howto .info-period dd {
     float: right;
     padding: 1px 0;
-    width: 130px;
+    width: 145px;
     height: 26px;
     box-sizing: border-box;
     font-size: 15px;
@@ -975,6 +975,9 @@ a {
 .jv-howto .guide > dt:first-of-type {
     margin-top: 0;
 }
+.jv-howto .guide>dd:first-of-type {
+    margin-top: 0;
+}
 .jv-howto .guide > dt {
     display: block;
     float: left;
@@ -984,13 +987,13 @@ a {
     line-height: 28px;
 }
 .jv-howto .guide > dd.method > button,
-.jv-howto .guide > dd.method > a {
+.jv-howto .guide > dd.method > p {
     display: inline-block;
     overflow: visible;
     line-height: inherit;
 }
 .jv-howto .guide > dd.method > button,
-.jv-howto .guide > dd.method > a,
+.jv-howto .guide > dd.method > p,
 .jv-howto .guide > dd.method > span {
     color: #444;
 }

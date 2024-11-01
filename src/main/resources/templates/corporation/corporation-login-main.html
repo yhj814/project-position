@@ -24,12 +24,21 @@
                             <div class="scroller">
                                 <div class="company-info">
                                     <div class="box-logo">
+                                        <input type="hidden" name="uuid" id="uuid">
+                                        <input type="hidden" name="path" id="path">
+                                        <div class="TipBox">
+                                            <button type="button" class="btn-blue evtLoadExnlItem" onclick="document.getElementById('fileInput').click();">
+                                                <svg>
+                                                    <use xlink:href="#resume_plus"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <input type="file" id="fileInput" style="display: none;">
                                         <img
-                                            id="쿠팡(주)의 기업로고"
-                                            alt="쿠팡(주)의 기업로고"
-                                            src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
-                                            width="170"
-                                            height="38"
+                                                id="corporation-logo"
+                                                src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
+                                                width="170"
+                                                height="38"
                                         />
                                     </div>
                                     <div class="box-title">
@@ -1674,6 +1683,10 @@
         <div class="company-info-svg" style="display: none">
             <svg xmlns="http://www.w3.org/2000/svg">
                 <!-- 인재풀에서 공통 사용하는 SVG 아이콘으로 9월 오픈 예정으로 svg 경로 확정 시 변경 예정 -->
+                <symbol id="resume_plus" viewBox="0 0 16 16">
+                    <rect x="7.25" y="2.5" width="1.5" height="11" fill="currentColor"></rect>
+                    <rect x="2.5" y="7.25" width="11" height="1.5" fill="currentColor"></rect>
+                </symbol>
                 <symbol id="search-tag-svg-scale" viewBox="0 0 16 16">
                     <g clip-path="url(#clip0_136_7455)">
                         <path
@@ -2629,4 +2642,6 @@
     </script>
     <script src="/js/corporation/corpoaration-login-header.js"></script>
     <script src="/js/corporation/corporation-main.js"></script>
+    <script src="/js/corporation/main/main-service.js"></script>
+    <script src="/js/corporation/main/main-layout.js"></script>
 </html>

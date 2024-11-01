@@ -200,7 +200,7 @@
                                                     </dl>
                                                     <dl>
                                                         <dt>근무지역</dt>
-                                                        <dd th:text="${notice.corporationAddress}">
+                                                        <dd th:text="${notice.corporationAddress} + ' ' + ${notice.corporationAddressDetail}">
 
                                                             <button
                                                                 type="button"
@@ -227,7 +227,7 @@
                                                     <ul class="list-meta">
                                                         <li>
                                                             조회수
-                                                            <strong>694</strong>
+                                                            <strong th:text="${notice.noticeReadCount}"></strong>
                                                         </li>
                                                         <li class="wrap-share">
                                                             <div class="share">
@@ -248,75 +248,75 @@
                                                                         >공유하기</span
                                                                     >
                                                                 </button>
-                                                                <ul
-                                                                    class="spr-jview list-share"
-                                                                >
-                                                                    <li>
-                                                                        <a
-                                                                            href=""
-                                                                            class="spr-jview facebook"
-                                                                            title="페이스북 공유하기"
-                                                                            ><span
-                                                                                class="blind"
-                                                                                >페이스북</span
-                                                                            ></a
-                                                                        >
-                                                                    </li>
-                                                                    <li>
-                                                                        <a
-                                                                            href=""
-                                                                            class="spr-jview twitter"
-                                                                            title="트위터 공유하기"
-                                                                            ><span
-                                                                                class="blind"
-                                                                                >트위터</span
-                                                                            ></a
-                                                                        >
-                                                                    </li>
-                                                                    <li>
-                                                                        <button
-                                                                            type="button"
-                                                                            class="spr-jview copy-url"
-                                                                            title="공고 주소 복사하기"
-                                                                        >
-                                                                            <span
-                                                                                class="blind"
-                                                                                >URL복사</span
-                                                                            >
-                                                                        </button>
-                                                                    </li>
-                                                                    <li>
-                                                                        <button
-                                                                            type="button"
-                                                                            class="spr-jview send-sms"
-                                                                            title="이 공고 내 폰으로 전송하기"
-                                                                        >
-                                                                            <span
-                                                                                class="blind"
-                                                                                >SMS발송</span
-                                                                            >
-                                                                        </button>
-                                                                    </li>
-                                                                </ul>
+<!--                                                                <ul-->
+<!--                                                                    class="spr-jview list-share"-->
+<!--                                                                >-->
+<!--                                                                    <li>-->
+<!--                                                                        <a-->
+<!--                                                                            href=""-->
+<!--                                                                            class="spr-jview facebook"-->
+<!--                                                                            title="페이스북 공유하기"-->
+<!--                                                                            ><span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >페이스북</span-->
+<!--                                                                            ></a-->
+<!--                                                                        >-->
+<!--                                                                    </li>-->
+<!--                                                                    <li>-->
+<!--                                                                        <a-->
+<!--                                                                            href=""-->
+<!--                                                                            class="spr-jview twitter"-->
+<!--                                                                            title="트위터 공유하기"-->
+<!--                                                                            ><span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >트위터</span-->
+<!--                                                                            ></a-->
+<!--                                                                        >-->
+<!--                                                                    </li>-->
+<!--                                                                    <li>-->
+<!--                                                                        <button-->
+<!--                                                                            type="button"-->
+<!--                                                                            class="spr-jview copy-url"-->
+<!--                                                                            title="공고 주소 복사하기"-->
+<!--                                                                        >-->
+<!--                                                                            <span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >URL복사</span-->
+<!--                                                                            >-->
+<!--                                                                        </button>-->
+<!--                                                                    </li>-->
+<!--                                                                    <li>-->
+<!--                                                                        <button-->
+<!--                                                                            type="button"-->
+<!--                                                                            class="spr-jview send-sms"-->
+<!--                                                                            title="이 공고 내 폰으로 전송하기"-->
+<!--                                                                        >-->
+<!--                                                                            <span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >SMS발송</span-->
+<!--                                                                            >-->
+<!--                                                                        </button>-->
+<!--                                                                    </li>-->
+<!--                                                                </ul>-->
                                                             </div>
                                                         </li>
                                                         <!--wmg-31267-->
-                                                        <li>
-                                                            <a
-                                                                href=""
-                                                                class="spr-jview btn-report"
-                                                                ><svg
-                                                                    aria-hidden="true"
-                                                                    focusable="false"
-                                                                    class="ic"
-                                                                >
-                                                                    <use
-                                                                        xlink:href="#icon_report"
-                                                                    ></use>
-                                                                </svg>
-                                                                신고하기
-                                                            </a>
-                                                        </li>
+<!--                                                        <li>-->
+<!--                                                            <a-->
+<!--                                                                href=""-->
+<!--                                                                class="spr-jview btn-report"-->
+<!--                                                                ><svg-->
+<!--                                                                    aria-hidden="true"-->
+<!--                                                                    focusable="false"-->
+<!--                                                                    class="ic"-->
+<!--                                                                >-->
+<!--                                                                    <use-->
+<!--                                                                        xlink:href="#icon_report"-->
+<!--                                                                    ></use>-->
+<!--                                                                </svg>-->
+<!--                                                                신고하기-->
+<!--                                                            </a>-->
+<!--                                                        </li>-->
                                                         <!-- //wmg-31267-->
                                                     </ul>
                                                 </div>
@@ -329,28 +329,12 @@
                                             </h2>
                                             <div class="cont">
                                                 <img id="notice-image" src="" alt="notice-img" width="860px" height="1400px">
-                                                <!--                                                <iframe-->
-<!--                                                    name="iframe-content-0"-->
-<!--                                                    id="iframe-content-0"-->
-<!--                                                    class="iframe-content"-->
-<!--                                                    width="860"-->
-<!--                                                    scrolling="no"-->
-<!--                                                    frameborder="0"-->
-<!--                                                    marginheight="0"-->
-<!--                                                    marginwidth="0"-->
-<!--                                                    src="https://www.saramin.co.kr//zf_user/jobs/relay/view-detail?rec_idx=49199391&amp;rec_seq=0&amp;t_category=relay_view&amp;t_content=view_detail&amp;t_ref=area_recruit&amp;t_ref_content=grand_fix"-->
-<!--                                                    title="상세요강"-->
-<!--                                                    height="1966px"-->
-<!--                                                >-->
-<!--                                                    &lt;!&ndash; 공고 내용 들어가야됨 &ndash;&gt;-->
-<!--                                                </iframe>-->
+
                                             </div>
                                         </div>
                                         <!-- 근무지 위치 -->
                                         <div
                                             class="jv-cont jv-location"
-                                            data-company-name="(주)넥슨코리아"
-                                            data-address="(13487) 경기 성남시 분당구 판교로256번길 7"
                                         >
                                             <a
                                                 class="placeholder"
@@ -475,7 +459,7 @@
                                             <dl class="guide">
                                                 <dt>지원방법</dt>
                                                 <dd class="method">
-                                                    <a href="">홈페이지 지원</a>
+                                                    <p>포지셔너 지원</p>
                                                 </dd>
                                                 <dt>접수양식</dt>
                                                 <dd class="template">
@@ -485,16 +469,16 @@
                                                             class="spr-jview btn-jview btn-tooltip"
                                                         >
                                                             <span
-                                                                >제출서류
-                                                                보기</span
-                                                            ><svg
-                                                                aria-hidden="true"
-                                                                class="ic"
+                                                                >포지션 이력서</span
                                                             >
-                                                                <use
-                                                                    xlink:href="#icon_i"
-                                                                ></use>
-                                                            </svg>
+<!--                                                            <svg-->
+<!--                                                                aria-hidden="true"-->
+<!--                                                                class="ic"-->
+<!--                                                            >-->
+<!--                                                                <use-->
+<!--                                                                    xlink:href="#icon_i"-->
+<!--                                                                ></use>-->
+<!--                                                            </svg>-->
                                                         </button>
                                                         <div class="toolTip">
                                                             <span
@@ -565,7 +549,7 @@
                                                             <a
                                                                 href=""
                                                                 class="company-name ga-data-layer"
-                                                                title="(주)넥슨코리아"
+                                                                th:text="${notice.corporationName}"
                                                             >
                                                                 (주)넥슨코리아 </a
                                                             ><button
@@ -611,82 +595,77 @@
                                                 <div class="info-area">
                                                     <dl>
                                                         <dt>대표자명</dt>
-                                                        <dd
-                                                            title="강대현/김정욱"
+                                                        <dd th:text="${notice.corporationOwner}"
                                                         >
-                                                            강대현/김정욱
                                                         </dd>
                                                     </dl>
-                                                    <dl>
-                                                        <dt>기업형태</dt>
-                                                        <dd
-                                                            title="대기업, 1000대기업, 수출입 기업"
-                                                        >
-                                                            대기업, 1000대기업,
-                                                            수출입 기업
-                                                        </dd>
-                                                    </dl>
+<!--                                                    <dl>-->
+<!--                                                        <dt>기업형태</dt>-->
+<!--                                                        <dd-->
+<!--                                                            title="대기업, 1000대기업, 수출입 기업"-->
+<!--                                                        >-->
+<!--                                                            대기업-->
+<!--                                                        </dd>-->
+<!--                                                    </dl>-->
                                                     <dl>
                                                         <dt>업종</dt>
-                                                        <dd
-                                                            title="유선 온라인 게임 소프트웨어 개발 및 공급업"
+                                                        <dd th:text="${notice.corporationBusiness}"
                                                         >
-                                                            유선 온라인 게임
-                                                            소프트웨어 개발 및
-                                                            공..
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>사원수</dt>
-                                                        <dd
-                                                            title="3,861 명 (2024년 기준)"
+                                                        <dd th:text="${notice.corporationEmployeesNumber + '명'}"
                                                         >
-                                                            3,861 명
-                                                            <span>
-                                                                (2024년
-                                                                기준)</span
-                                                            >
+<!--                                                            <span>-->
+<!--                                                                (2024년-->
+<!--                                                                기준)</span-->
+<!--                                                            >-->
                                                         </dd>
                                                     </dl>
-                                                    <dl>
-                                                        <dt>설립일</dt>
-                                                        <dd
-                                                            title="2005년 10월 11일 (업력 20년차) "
-                                                        >
-                                                            2005년 10월 11일
-                                                            <span
-                                                                >(업력 20년차)
-                                                            </span>
-                                                        </dd>
-                                                    </dl>
+<!--                                                    <dl>-->
+<!--                                                        <dt>설립일</dt>-->
+<!--                                                        <dd-->
+<!--                                                            title="2005년 10월 11일 (업력 20년차) "-->
+<!--                                                        >-->
+<!--                                                            2005년 10월 11일-->
+<!--                                                            <span-->
+<!--                                                                >(업력 20년차)-->
+<!--                                                            </span>-->
+<!--                                                        </dd>-->
+<!--                                                    </dl>-->
                                                     <dl>
                                                         <dt>매출액</dt>
-                                                        <dd
-                                                            title="2조 9,599억 9,437만원 (2023년 기준)"
-                                                        >
-                                                            2조 9,599억
-                                                            9,437만원
-                                                            <span
-                                                                >(2023년
-                                                                기준)</span
-                                                            >
+                                                        <dd th:text="${
+                                                                   notice.corporationSales >= 100000000 ?
+                                                                       (notice.corporationSales / 100000000) + '조 ' +
+                                                                       (notice.corporationSales / 10000 % 10000) + '억 ' +
+                                                                       (notice.corporationSales % 10000) + '만원' :
+                                                                   notice.corporationSales >= 10000 ?
+                                                                       (notice.corporationSales / 10000) + '억 ' +
+                                                                       (notice.corporationSales % 10000) + '만원' :
+                                                                   notice.corporationSales + '만원'
+                                                               }">
+
+
+<!--                                                            <span-->
+<!--                                                                >(2023년-->
+<!--                                                                기준)</span-->
+<!--                                                            >-->
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>홈페이지</dt>
                                                         <dd>
-                                                            <a href="">
-                                                                https://company.nexon.com/kr/
+                                                            <a th:href="${notice.corporationHomepage}" th:text="${notice.corporationHomepage}">
+
                                                             </a>
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>기업주소</dt>
-                                                        <dd
-                                                            title="경기 성남시 분당구 판교로256번길 7"
+                                                        <dd th:text="${notice.corporationAddress} + ' ' + ${notice.corporationAddressDetail}"
                                                         >
-                                                            경기 성남시 분당구
-                                                            판교로256번길 7
                                                         </dd>
                                                     </dl>
                                                 </div>
@@ -716,13 +695,14 @@
                                                             ><span
                                                                 >기업리뷰</span
                                                             ></a
-                                                        ><a
-                                                            href=""
-                                                            class="spr-jview btn-jview-new btn-link ga-data-layer"
-                                                            ><span
-                                                                >연봉정보</span
-                                                            ></a
                                                         >
+<!--                                                        <a-->
+<!--                                                            href=""-->
+<!--                                                            class="spr-jview btn-jview-new btn-link ga-data-layer"-->
+<!--                                                            ><span-->
+<!--                                                                >연봉정보</span-->
+<!--                                                            ></a-->
+<!--                                                        >-->
                                                     </div>
                                                 </div>
                                             </div>

@@ -31,4 +31,11 @@ public class FileController {
     public byte[] display(String fileName) throws IOException {
         return FileCopyUtils.copyToByteArray(new File("C:/upload", fileName));
     }
+
+    @PostMapping("profile/upload")
+    @ResponseBody
+    public FileDTO uploadCompanyProfileFile(String uuid, String path,MultipartFile file) throws IOException {
+        memberService.logo(uuid, path, file);
+        return memberService.uploadFile(file);
+    }
 }

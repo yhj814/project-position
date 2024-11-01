@@ -62,4 +62,9 @@ public class NoticeDAO {
         return noticeMapper.selectMonthRank();
     }
 
+    // readcount 증가
+    public void updateNoticeReadCount(Long id) {
+        noticeMapper.updateNoticeReadcount(id);
+    }
+
 }

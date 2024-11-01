@@ -70,6 +70,7 @@ public class NoticeServiceImpl implements NoticeService {
     // 상세보기
     @Override
     public NoticeDTO getNoticeById(Long id) {
+        noticeDAO.updateNoticeReadCount(id);
         return noticeDAO.findNoticeById(id);
     }
 

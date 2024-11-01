@@ -43,4 +43,7 @@ public interface NoticeMapper {
 
     // 공고 월별 채용 순위
     public List<NoticeMonthRankDTO> selectMonthRank();
+
+    // readcount 증가
+    public void updateNoticeReadcount(Long id);
 }

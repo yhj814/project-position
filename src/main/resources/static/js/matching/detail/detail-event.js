@@ -20,4 +20,10 @@ document.querySelector('.btn-mapview.relay-map').addEventListener('click', funct
 });
 
 
-
+// 공유버튼 누르면 url 복사
+document.querySelector(".btn-share").addEventListener('click', ()=> {
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl).then(() => {
+        alert('URL이 클립보드에 복사되었습니다.');
+    })
+})

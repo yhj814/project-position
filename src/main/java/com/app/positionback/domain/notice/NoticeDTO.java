@@ -22,6 +22,7 @@ public class NoticeDTO {
     private String noticeWorkStartDate;
     private String noticeWorkEndDate;
     private String noticeJobCategoryName;
+    private int noticeReadCount;
     private String corporationName;
     private String corporationAddress;
     private String corporationAddressDetail;
@@ -37,6 +38,6 @@ public class NoticeDTO {
     private String corporationGen; // 추가된 필드들
 
     public NoticeVO toVO(){
-        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeEndDate,createdDate,updatedDate,noticeWorkStartTime,noticeWorkEndTime,noticeWorkStartDate,noticeWorkEndDate,noticeJobCategoryName);
+        return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeEndDate,createdDate,updatedDate,noticeWorkStartTime,noticeWorkEndTime,noticeWorkStartDate,noticeWorkEndDate,noticeJobCategoryName,noticeReadCount);
     }
 }

@@ -44,6 +44,7 @@
             n.notice_work_start_date,
             n.notice_work_end_date,
             n.notice_job_category_name,
+            n.notice_read_count,
             c.id,
             c.corporation_name,
             c.corporation_address,
@@ -117,5 +118,11 @@
         order by count desc
         limit 4
     </select>
+
+    <update id="updateNoticeReadcount">
+        update tbl_notice
+        set notice_read_count = notice_read_count + 1
+        where id = #{id}
+    </update>
 
 </mapper>

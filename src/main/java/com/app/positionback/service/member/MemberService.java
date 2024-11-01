@@ -17,6 +17,7 @@ public interface MemberService {
     public String sendMessage(String memberPhone);
     public void join(MemberVO memberVO);
     public void join(CorporationVO corporationVO, String uuid, String path, MultipartFile file) throws IOException;
+    public void logo(String uuid, String path, MultipartFile file) throws IOException;
     public Optional<MemberVO> login(MemberVO memberVO);
     public FileDTO uploadFile(MultipartFile file) throws IOException;
     public Optional<MemberVO> getKakaoMember(String memberKakaoEmail);

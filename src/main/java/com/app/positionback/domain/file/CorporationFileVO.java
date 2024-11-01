@@ -12,4 +12,5 @@ import org.springframework.stereotype.Component;
 public class CorporationFileVO {
     private Long id;
     private Long corporationId;
+    private String corporationFileType;
 }
