@@ -1,6 +1,7 @@
 package com.app.positionback.controller.admin;
 
 import com.app.positionback.domain.corporation.CorporationDTO;
+import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.service.admin.AdminService;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,7 @@ public class AdminController {
     // 이 메서드는 List<MemberDTO> 타입의 데이터를 반환하여 JSON으로 응답한다.
     // 자바스크립트 코드에 fetch 모듈 admin서비스.js에 레이아웃
 
+    // 회원 관리
     // 일반 회원 정보 조회
     @GetMapping("/position/members")
     @ResponseBody
@@ -44,4 +46,48 @@ public class AdminController {
     public List<CorporationDTO> getCorporationMembers() {
         return adminService.getCorporationMembers();
     }
+
+    // 문의 관리
+    // 일반 회원 문의 정보 조회
+    @GetMapping("/position/member-inquiry")
+    @ResponseBody
+    public List<InquiryDTO> getMemberInquiry() {
+        return adminService.getMemberInquiry();
+    }
+
+    // 기업 회원 문의 정보 조회
+    @GetMapping("/position/corporation-inquiry")
+    @ResponseBody
+    public List<InquiryDTO> getCorporationInquiry() {
+        return adminService.getCorporationInquiry();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
