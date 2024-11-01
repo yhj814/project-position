@@ -680,9 +680,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-location .address {
     margin-bottom: 30px;
     font-size: 15px;
@@ -884,9 +882,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-howto .status {
     display: table-cell;
     position: relative;
@@ -1167,9 +1163,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-company .wrap-info {
     box-sizing: border-box;
     padding: 29px 29px 24px;
@@ -1402,9 +1396,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-company .tit-area .basic-info {
     width: 616px;
 }
