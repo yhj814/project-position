@@ -25,6 +25,37 @@ alter table tbl_member modify column member_address varchar(255);
 alter table tbl_member modify column member_address_detail varchar(255);
 alter table tbl_member modify column member_password varchar(255);
 
+insert into tbl_member (
+    member_name,
+    member_warning_count,
+    member_phone,
+    member_email,
+    member_kakao_email,
+    member_address,
+    member_status,
+    member_address_detail,
+    member_type
+) values (
+          '김성수',
+          '1',
+          '010-9876-5432',
+          'test@gmail.com',
+          'null',
+          '서울시 강남구',
+          '활동중',
+          '강남역 10번출구',
+          '포지셔너'
+         );
+
+
+
+
+
+
+
+
+
+
 
 
 
