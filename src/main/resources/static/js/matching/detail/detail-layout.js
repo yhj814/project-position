@@ -24,3 +24,4 @@ document.addEventListener("DOMContentLoaded", function() {
         ddayDisplay.innerHTML = `마감`;
     }
 });
+

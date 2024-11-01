@@ -5,6 +5,8 @@ import com.app.positionback.domain.file.NoticeFileDTO;
 import com.app.positionback.domain.file.NoticeFileVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface NoticeFileMapper {
 //    // 파일 등록
@@ -18,4 +20,10 @@ public interface NoticeFileMapper {
 
     // 공고에 연결된 파일 매핑 삭제
     public void deleteFilesByNoticeId(Long noticeId);
+
+    public FileDTO findFilesByNoticeId(Long noticeId);
+
+    // 공고에 연결된 fileId 조회
+   public Long selectFileIdByNoticeId(Long noticeId);
+
 }

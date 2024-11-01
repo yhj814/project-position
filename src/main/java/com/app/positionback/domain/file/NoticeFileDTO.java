@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 public class NoticeFileDTO {
     private Long fileId;
     private Long noticeId;
+    private String fileName;
+    private String filePath;
 
     public NoticeFileVO toVO() {
         return new NoticeFileVO(fileId, noticeId);

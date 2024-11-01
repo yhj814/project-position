@@ -118,6 +118,12 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeDAO.getRank();
     }
 
+    @Override
+    public FileDTO getNoticeFileById(Long noticeId) {
+        Long fileId = noticeFileDAO.getFileIdByNoticeId(noticeId);
+        return fileDAO.findById(fileId);
+    }
+
     private FileDTO saveAndLinkFile(MultipartFile file) throws IOException {
         String rootPath = "C:/upload/" + getPath();
         FileDTO fileDTO = new FileDTO();

@@ -325,8 +325,8 @@
                                                 상세요강
                                             </h2>
                                             <div class="cont">
-                                                <img src="" alt="notice-img">
-<!--                                                <iframe-->
+                                                <img id="notice-image" src="" alt="notice-img">
+                                                <!--                                                <iframe-->
 <!--                                                    name="iframe-content-0"-->
 <!--                                                    id="iframe-content-0"-->
 <!--                                                    class="iframe-content"-->
@@ -1273,6 +1273,10 @@
     <script th:inline="javascript">
         // Thymeleaf를 사용하여 noticeEndDate 값을 JavaScript 변수에 할당
         const noticeEndDate = [[${notice.noticeEndDate}]];
+        const fileDTO = [[${file}]];
+
+        const img = document.getElementById("notice-image");
+        img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
     </script>
     <script src="/js/matching/matching-detail.js"></script>
     <script src="/js/matching/detail/detail-layout.js"></script>

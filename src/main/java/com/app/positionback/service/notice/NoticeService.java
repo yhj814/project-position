@@ -31,4 +31,6 @@ public interface NoticeService {
     public int getTotal(Pagination pagination, Long corporationId);
     // 공고 카테고리 랭킹
     public List<NoticeCategoryRankDTO> getNoticeCategoryRank();
+
+    public FileDTO getNoticeFileById(Long noticeId);
 }

@@ -1,6 +1,7 @@
 package com.app.positionback.controller.notice;
 
 import com.app.positionback.domain.corporation.CorporationVO;
+import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
@@ -99,7 +100,11 @@ public class NoticeController {
     @GetMapping("notice-detail")
     public String getNoticeDetail(@RequestParam("id")Long id, Model model) {
         NoticeDTO noticeDTO = noticeService.getNoticeById(id);
+        FileDTO fileDTO = noticeService.getNoticeFileById(id);
+
+
         model.addAttribute("notice", noticeDTO);
+        model.addAttribute("file", fileDTO);
         return "matching/matching-detail";
     }
 //

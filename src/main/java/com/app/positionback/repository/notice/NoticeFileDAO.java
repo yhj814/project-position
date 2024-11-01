@@ -7,6 +7,8 @@ import com.app.positionback.mapper.notice.NoticeFileMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class NoticeFileDAO {
@@ -30,6 +32,11 @@ public class NoticeFileDAO {
     // 공고 ID로 파일 매핑 삭제
     public void deleteFilesByNoticeId(Long noticeId) {
         noticeFileMapper.deleteFilesByNoticeId(noticeId);
+    }
+
+    // 공고 파일 id로 가져오기
+    public Long getFileIdByNoticeId(Long noticeId) {
+        return noticeFileMapper.selectFileIdByNoticeId(noticeId);
     }
 
 }
