@@ -37,4 +37,27 @@ alter table tbl_inquiry add column memebr_kakao_email varchar(255);
 alter table tbl_inquiry drop column memebr_kakao_email;
 alter table tbl_inquiry add column member_kakao_email varchar(255);
 
+# insert into tbl_inquiry (
+#     inquiry_type,
+#     inquiry_category,
+#     inquiry_title,
+#     inquiry_content,
+#     member_id,
+#     member_email,
+#     member_kakao_email
+# ) values ('기업',
+#           '제안사항',
+#           '제안 사항이 있어요',
+#           '포지션 관련 제안해요',
+#           4,
+#           null,
+#           'koreait@kakao.com');
+
+
+
+
+
+
+                                                                                                                                      )
+
 

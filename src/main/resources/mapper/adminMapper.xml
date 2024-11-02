@@ -30,8 +30,8 @@
                inquiry_category,
                inquiry_title,
                inquiry_content,
-               created_date AS createDate,
-               updated_date AS updateDate,
+               created_date AS createdDate,
+               updated_date AS updatedDate,
                CASE
                    WHEN member_email IS NOT NULL THEN member_email
                    ELSE member_kakao_email
@@ -47,8 +47,8 @@
                inquiry_category,
                inquiry_title,
                inquiry_content,
-               created_date AS createDate,
-               updated_date AS updateDate,
+               created_date AS createdDate,
+               updated_date AS updatedDate,
                CASE
                    WHEN member_email IS NOT NULL THEN member_email
                    ELSE member_kakao_email

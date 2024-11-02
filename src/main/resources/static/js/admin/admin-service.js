@@ -271,22 +271,23 @@ const displayMemberInquiries = (inquiries) => {
     const memberInquiryDiv = document.querySelector('#inquiry-section .memberinquiryTable_container');
 
     // 기존 행 삭제
-    const existingRows = memberInquiryDiv.querySelectorAll('.InquiryTable_row:not(.InquiryTable_header)');
+    const existingRows = memberInquiryDiv.querySelectorAll('.inquiryTable_row:not(.inquiryTable_header)');
     existingRows.forEach(row => row.remove());
 
     inquiries.forEach(inquiry => {
         const inquiryRow = document.createElement('div');
-        inquiryRow.classList.add('InquiryTable_row');
+        inquiryRow.classList.add('inquiryTable_row');
 
         // 일반 문의 데이터(체크박스, 문의 유형, 생성 날짜, 제목, 내용, 이메일, 수정 버튼)를 포함하는 HTML 작성
         inquiryRow.innerHTML = `
-            <div class="InquiryTable_cell"><input type="checkbox" class="inquiryCheckbox" /></div>
-            <div class="InquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.createdDate || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.inquiryContent || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.memberEmail || ''}</div>
-            <div class="InquiryTable_cell"><button class="editBtn">수정</button></div>
+            <div class="inquiryTable_cell"><input type="checkbox" class="inquiryCheckbox" /></div>
+            <div class="inquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.createdDate || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.inquiryContent || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.memberEmail || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.inquiryStatus || ''}</div>
+            <div class="inquiryTable_cell"><button class="editBtn">수정</button></div>
         `;
 
         memberInquiryDiv.appendChild(inquiryRow);
@@ -298,22 +299,23 @@ const displayCorporationInquiries = (inquiries) => {
     const corporationInquiryDiv = document.querySelector('#inquiry-section .corporationinquiryTable_container');
 
     // 기존 행 삭제
-    const existingRows = corporationInquiryDiv.querySelectorAll('.InquiryTable_row:not(.InquiryTable_header)');
+    const existingRows = corporationInquiryDiv.querySelectorAll('.inquiryTable_row:not(.inquiryTable_header)');
     existingRows.forEach(row => row.remove());
 
     inquiries.forEach(inquiry => {
         const inquiryRow = document.createElement('div');
-        inquiryRow.classList.add('InquiryTable_row');
+        inquiryRow.classList.add('inquiryTable_row');
 
         // 기업 문의 데이터(체크박스, 문의 유형, 생성 날짜, 제목, 내용, 이메일, 수정 버튼)를 포함하는 HTML 작성
         inquiryRow.innerHTML = `
-            <div class="InquiryTable_cell"><input type="checkbox" class="inquiryCheckbox" /></div>
-            <div class="InquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.createdDate || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.inquiryContent || ''}</div>
-            <div class="InquiryTable_cell">${inquiry.memberEmail || ''}</div>
-            <div class="InquiryTable_cell"><button class="editBtn">수정</button></div>
+            <div class="inquiryTable_cell"><input type="checkbox" class="inquiryCheckbox" /></div>
+            <div class="inquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.createdDate || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.inquiryContent || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.memberEmail || ''}</div>
+            <div class="inquiryTable_cell">${inquiry.inquiryStatus || ''}</div>
+            <div class="inquiryTable_cell"><button class="editBtn">수정</button></div>
         `;
 
         corporationInquiryDiv.appendChild(inquiryRow);
