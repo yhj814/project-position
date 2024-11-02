@@ -8,7 +8,6 @@
             href="/css/matching/matching-detail.css"
         />
         <link rel="stylesheet" href="/css/main.css" />
-<!--        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1e0bdeafd8a8a27e472648b06cdfefc"></script>-->
         <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1e0bdeafd8a8a27e472648b06cdfefc&libraries=services"></script>
 
 
@@ -579,17 +578,12 @@
                                                         </h3>
                                                     </div>
                                                     <div class="logo">
-                                                        <a
-                                                            href=""
+                                                        <div
                                                             class="img ga-data-layer"
                                                             ><img
-                                                                id="(주)넥슨코리아"
-                                                                alt="(주)넥슨코리아"
-                                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/6933_logo.jpg"
-                                                                class="img"
-                                                                width="145"
-                                                                height="50"
-                                                        /></a>
+                                                                id="logo-img"
+
+                                                        /></div>
                                                     </div>
                                                 </div>
                                                 <div class="info-area">
@@ -1170,9 +1164,12 @@
         // Thymeleaf를 사용하여 noticeEndDate 값을 JavaScript 변수에 할당
         const noticeEndDate = [[${notice.noticeEndDate}]];
         const fileDTO = [[${file}]];
+        const logoFile = [[${logoFile}]];
 
         const img = document.getElementById("notice-image");
+        const logoImg = document.getElementById("logo-img");
         img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+        logoImg.src =`/file/display?fileName=${logoFile.filePath}/${logoFile.fileName}`;
     </script>
     <script>
         // 함수: 남은 시간 계산

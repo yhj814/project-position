@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
-            href="/static/css/corporation/corporation-login-main-manage-posting.css"
+            href="/css/corporation/corporation-login-main-manage-posting.css"
         />
-        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/css/main.css" />
         <title>공고, 지원자 관리</title>
     </head>
     <body>
@@ -44,12 +44,6 @@
                                         <button
                                             type="button"
                                             class="interested-corp ga-data-layer interested-on"
-                                            csn="RzBaRnNqKzJuWVdVeHNDLzlFVjcrQT09"
-                                            del-fl="n"
-                                            first-nudge="off"
-                                            onclick="try{Saramin.btnJob('favor', this, '', 'company-view');}catch(e){}"
-                                            aria-pressed="true"
-                                            class="interested_corp ga_data_layer interested_on"
                                         >
                                             <svg
                                                 width="16"
@@ -75,8 +69,7 @@
                                             <button
                                                 type="button"
                                                 class="btn-menu ga-data-layer"
-                                                data-ga-data-layer="ga-lead|company-view|tab|com-intro"
-                                                class="btn_menu ga_data_layer"
+                                                onclick="location.href='/corporation';"
                                             >
                                                 <svg class="ico">
                                                     <use
@@ -90,6 +83,7 @@
                                             <button
                                                 type="button"
                                                 class="btn-menu"
+                                                onclick="location.href='/corporation/corporation-login-main-write-posting';"
                                             >
                                                 <svg class="ico">
                                                     <use
@@ -102,22 +96,39 @@
                                                 >
                                             </button>
                                         </li>
-                                        <li
-                                            class="menu-item ga-data-layer selected"
-                                        >
+                                        <li class="menu-item ga-data-layer">
                                             <button
-                                                type="button"
-                                                class="btn-menu ga-data-layer"
+                                                    type="button"
+                                                    class="btn-menu ga-data-layer"
+                                                    onclick="location.href='/corporation/corporation-login-main-posting-registration';"
                                             >
                                                 <svg class="ico">
                                                     <use
-                                                        xlink:href="#ico-person"
+                                                            xlink:href="#ico-supporting"
                                                     ></use>
                                                 </svg>
-                                                공고·지원자 관리
+                                                공고 관리
 
                                                 <span class="badge badge-new"
-                                                    >N</span
+                                                >N</span
+                                                >
+                                            </button>
+                                        </li>
+                                        <li class="menu-item ga-data-layer selected">
+                                            <button
+                                                    type="button"
+                                                    class="btn-menu ga-data-layer"
+                                                    onclick="location.href='/corporation/management';"
+                                            >
+                                                <svg class="ico">
+                                                    <use
+                                                            xlink:href="#ico-person"
+                                                    ></use>
+                                                </svg>
+                                                지원자 관리
+
+                                                <span class="badge badge-new"
+                                                >N</span
                                                 >
                                             </button>
                                         </li>
@@ -669,7 +680,7 @@
                                                                 type="button"
                                                                 class="btn-report -ai-report"
                                                                 data-recruitapply-idx="391601183"
-                                                            >
+                                                            ><svg></svg>
                                                                 경쟁력분석
                                                             </button>
                                                         </div>
@@ -822,7 +833,7 @@
                                                                 type="button"
                                                                 class="btn-report -ai-report"
                                                                 data-recruitapply-idx="391601183"
-                                                            >
+                                                            ><svg></svg>
                                                                 경쟁력분석
                                                             </button>
                                                         </div>
@@ -975,7 +986,7 @@
                                                                 type="button"
                                                                 class="btn-report -ai-report"
                                                                 data-recruitapply-idx="391601183"
-                                                            >
+                                                            ><svg></svg>
                                                                 경쟁력분석
                                                             </button>
                                                         </div>
@@ -1121,11 +1132,15 @@
                                                                 >미열람</span
                                                             >
                                                             <button
-                                                                type="button"
-                                                                class="btn-report -ai-report"
-                                                                data-recruitapply-idx="391601183"
+                                                                    type="button"
+                                                                    class="btn-report -ai-report"
+                                                                    data-recruitapply-idx="391601183"
                                                             >
-                                                                경쟁력분석
+                                                                <svg aria-hidden="true" focusable="false" class="ic">
+                                                                    <use xlink:href="#icon_report"></use>
+                                                                </svg>
+
+                                                                신고하기
                                                             </button>
                                                         </div>
                                                     </div>
@@ -1405,6 +1420,22 @@
         <div class="company-info-svg" style="display: none">
             <svg xmlns="http://www.w3.org/2000/svg">
                 <!-- 인재풀에서 공통 사용하는 SVG 아이콘으로 9월 오픈 예정으로 svg 경로 확정 시 변경 예정 -->
+                <symbol id="icon_report" fill="none">
+                    <path
+                            d="M0.5 11C0.5 10.7239 0.723858 10.5 1 10.5H11C11.2761 10.5 11.5 10.7239 11.5 11V12C11.5 12.2761 11.2761 12.5 11 12.5H1C0.723858 12.5 0.5 12.2761 0.5 12V11Z"
+                            stroke="#8491A7"
+                    ></path>
+                    <path
+                            d="M10.5 10V5C10.5 2.51472 8.48528 0.5 6 0.5V0.5C3.51472 0.5 1.5 2.51472 1.5 5V10"
+                            stroke="#8491A7"
+                    ></path>
+                    <path
+                            d="M3.5 5.49999C3.5 4.5 4 3 5.5 3"
+                            stroke="#949494"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                    ></path>
+                </symbol>
                 <symbol id="search-tag-svg-scale" viewBox="0 0 16 16">
                     <g clip-path="url(#clip0-136-7455)">
                         <path
@@ -2355,5 +2386,5 @@
             </svg>
         </div>
     </body>
-    <script src="/static/js/corporation/corporation-login-main-manage-posting.js"></script>
+    <script src="/js/corporation/corporation-login-main-manage-posting.js"></script>
 </html>

@@ -38,7 +38,6 @@ public class FileController {
     @PostMapping("profile/upload")
     @ResponseBody
     public FileDTO uploadCompanyProfileFile(MultipartFile file) throws IOException {
-
         return memberService.uploadFile(file);
     }
 

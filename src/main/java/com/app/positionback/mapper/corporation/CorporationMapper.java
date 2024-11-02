@@ -13,4 +13,5 @@ public interface CorporationMapper {
     public Long selectLastInsertId();
     public int selectCountByCorporationEmail(String corporationEmail);
     public Optional<CorporationVO> selectByCorporationEmailAndCorporationPassword(MemberDTO memberDTO);
+    public List<ApplyDTO> selectApplyByCorporationId(Long corporationId);
 }
