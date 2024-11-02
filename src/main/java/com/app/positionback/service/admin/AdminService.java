@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface AdminService {
     // 회원 관리
-    List<MemberDTO> getMembers(Pagination pagination);
-    List<CorporationDTO> getCorporationMembers(Pagination pagination);
+    List<MemberDTO> getMembers();
+    List<CorporationDTO> getCorporationMembers();
     // 문의 관리
-    List<InquiryDTO> getMemberInquiry(Pagination pagination);
-    List<InquiryDTO> getCorporationInquiry(Pagination pagination);
+    List<InquiryDTO> getMemberInquiry();
+    List<InquiryDTO> getCorporationInquiry();
 }

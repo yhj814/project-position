@@ -196,75 +196,134 @@ const inquiryService = (() => {
 // })();
 
 
-// 일반 회원 문의 데이터를 표시하는 함수
-const displayMemberInquiry = (inquiries) => {
-    // 일반 회원 행이 표시될 컨테이너 선택
-    const memberInquirtListDiv = document.querySelector('#inquiry-section .inquiryTable_container');
-
-    // 기존의 데이터 행을 삭제하여 새로운 데이터를 표시하기 전에 깨끗한 상태로 만듦 (헤더 행 제외)
-    const existingRows = memberInquirtListDiv.querySelectorAll('.inquiryTable_row:not(.inquiryTable_header)');
-    existingRows.forEach(row => row.remove());
-
-    // `inquiries` 배열 내의 각 회원 객체를 반복하며 새 행 생성
-    inquiries.forEach(inquiry => {
-        // 각 회원에 대한 새 행을 생성
-        const memberInquiryRow = document.createElement('div');
-        memberInquiryRow.classList.add('inquiryTable_row'); // 행에 스타일 클래스 추가
-
-        // 각 회원 데이터(체크박스, 이름, 생성 날짜, 이메일, 주소, 전화번호, 상태, 수정 버튼)를 포함하는 HTML 작성
-        memberInquiryRow.innerHTML = `
-            <div class="inquiryTable_cell"><input type="checkbox" class="userCheckbox" /></div>
-            <div class="inquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
-            <div class="inquiryTable_cell">${inquiry.createdDate || ''}</div>
-            <div class="inquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
-            <div class="inquiryTable_cell">${inquiry.inquiryContent || ''}</div>
-            <div class="inquiryTable_cell">${inquiry.memberEmail || ''}</div>
-            <div class="inquiryTable_cell">${getStatusinquiry(inquiry.memberStatus)}</div>
-            <div class="UserTable_cell"><button class="editBtn">수정</button></div>
-        `;
-
-        // 새로 생성한 회원 행을 컨테이너에 추가
-        memberInquirtListDiv.appendChild(memberInquiryRow);
-    });
-};
-
-// 기업 회원 문의 데이터를 표시하는 함수
-const displayCorporationInquiry = (corporateInquiries) => {
-    // 기업 회원 행이 표시될 컨테이너 선택
-    const corpInquiryListDiv = document.querySelector('#corporation-section .UserTable_container');
-
-    // 기존의 데이터 행을 삭제하여 새로운 데이터를 표시하기 전에 깨끗한 상태로 만듦 (헤더 행 제외)
-    const existingRows = corpInquiryListDiv.querySelectorAll('.UserTable_row:not(.UserTable_header)');
-    existingRows.forEach(row => row.remove());
-
-    // `corporateInquiries` 배열 내의 각 기업 회원 객체를 반복하며 새 행 생성
-    corporateInquiries.forEach(corporationInquiry => {
-        // 각 기업 회원에 대한 새 행을 생성
-        const corpRow = document.createElement('div');
-        corpRow.classList.add('UserTable_row'); // 행에 스타일 클래스 추가
-
-        // 각 기업 회원 데이터(체크박스, 회사 이름, 가입 날짜, 이메일, 주소, 전화번호, 사업자 번호, 상태, 수정 버튼)를 포함하는 HTML 작성
-        corpRow.innerHTML = `
-            <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
-            <div class="UserTable_cell">${inquiry.inquiryCategory || ''}</div>
-            <div class="UserTable_cell">${inquiry.createdDate || ''}</div>
-            <div class="UserTable_cell">${inquiry.inquiryTitle || ''}</div>
-            <div class="UserTable_cell">${inquiry.inquiryContent || ''}</div>
-            <div class="UserTable_cell">${inquiry.memberEmail || ''}</div>
-            <div class="UserTable_cell">${getStatusinquiry(inquiry.memberStatus)}</div>
-            <div class="UserTable_cell"><button class="editBtn">수정</button></div>
-        `;
-
-        // 새로 생성한 기업 회원 행을 컨테이너에 추가
-        corpInquiryListDiv.appendChild(corpRow);
-    });
-};
+// // 일반 회원 문의 데이터를 표시하는 함수
+// const displayMemberInquiry = (inquiries) => {
+//     // 일반 회원 행이 표시될 컨테이너 선택
+//     const memberInquirtListDiv = document.querySelector('#inquiry-section .inquiryTable_container');
+//
+//     // 기존의 데이터 행을 삭제하여 새로운 데이터를 표시하기 전에 깨끗한 상태로 만듦 (헤더 행 제외)
+//     const existingRows = memberInquirtListDiv.querySelectorAll('.inquiryTable_row:not(.inquiryTable_header)');
+//     existingRows.forEach(row => row.remove());
+//
+//     // `inquiries` 배열 내의 각 회원 객체를 반복하며 새 행 생성
+//     inquiries.forEach(inquiry => {
+//         // 각 회원에 대한 새 행을 생성
+//         const memberInquiryRow = document.createElement('div');
+//         memberInquiryRow.classList.add('inquiryTable_row'); // 행에 스타일 클래스 추가
+//
+//         // 각 회원 데이터(체크박스, 이름, 생성 날짜, 이메일, 주소, 전화번호, 상태, 수정 버튼)를 포함하는 HTML 작성
+//         memberInquiryRow.innerHTML = `
+//             <div class="inquiryTable_cell"><input type="checkbox" class="userCheckbox" /></div>
+//             <div class="inquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
+//             <div class="inquiryTable_cell">${inquiry.createdDate || ''}</div>
+//             <div class="inquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
+//             <div class="inquiryTable_cell">${inquiry.inquiryContent || ''}</div>
+//             <div class="inquiryTable_cell">${inquiry.memberEmail || ''}</div>
+//             <div class="inquiryTable_cell">${getStatusinquiry(inquiry.memberStatus)}</div>
+//             <div class="UserTable_cell"><button class="editBtn">수정</button></div>
+//         `;
+//
+//         // 새로 생성한 회원 행을 컨테이너에 추가
+//         memberInquirtListDiv.appendChild(memberInquiryRow);
+//     });
+// };
+//
+// // 기업 회원 문의 데이터를 표시하는 함수
+// const displayCorporationInquiry = (corporateInquiries) => {
+//     // 기업 회원 행이 표시될 컨테이너 선택
+//     const corpInquiryListDiv = document.querySelector('#corporation-section .UserTable_container');
+//
+//     // 기존의 데이터 행을 삭제하여 새로운 데이터를 표시하기 전에 깨끗한 상태로 만듦 (헤더 행 제외)
+//     const existingRows = corpInquiryListDiv.querySelectorAll('.UserTable_row:not(.UserTable_header)');
+//     existingRows.forEach(row => row.remove());
+//
+//     // `corporateInquiries` 배열 내의 각 기업 회원 객체를 반복하며 새 행 생성
+//     corporateInquiries.forEach(corporationInquiry => {
+//         // 각 기업 회원에 대한 새 행을 생성
+//         const corpRow = document.createElement('div');
+//         corpRow.classList.add('UserTable_row'); // 행에 스타일 클래스 추가
+//
+//         // 각 기업 회원 데이터(체크박스, 회사 이름, 가입 날짜, 이메일, 주소, 전화번호, 사업자 번호, 상태, 수정 버튼)를 포함하는 HTML 작성
+//         corpRow.innerHTML = `
+//             <div class="UserTable_cell"><input type="checkbox" class="userCheckbox" /></div>
+//             <div class="UserTable_cell">${inquiry.inquiryCategory || ''}</div>
+//             <div class="UserTable_cell">${inquiry.createdDate || ''}</div>
+//             <div class="UserTable_cell">${inquiry.inquiryTitle || ''}</div>
+//             <div class="UserTable_cell">${inquiry.inquiryContent || ''}</div>
+//             <div class="UserTable_cell">${inquiry.memberEmail || ''}</div>
+//             <div class="UserTable_cell">${getStatusinquiry(inquiry.memberStatus)}</div>
+//             <div class="UserTable_cell"><button class="editBtn">수정</button></div>
+//         `;
+//
+//         // 새로 생성한 기업 회원 행을 컨테이너에 추가
+//         corpInquiryListDiv.appendChild(corpRow);
+//     });
+// };
 //
 // // 데이터 불러오기 및 표시 실행
 // // 일반 회원 문의 데이터를 불러와 표시하기 위해 `fetchMemberInquiry` 호출
 // inquiryService.fetchMemberInquiry(displayMemberInquiry)
 // // 기업 회원 문의 데이터를 불러와 표기하기 위해 `fetchCorporationInquiry` 호출
 // inquiryService.fetchCorporationInquiry(displayCorporationInquiry)
+
+// 일반 문의 데이터를 표시하는 함수
+const displayMemberInquiries = (inquiries) => {
+    const memberInquiryDiv = document.querySelector('#inquiry-section .memberinquiryTable_container');
+
+    // 기존 행 삭제
+    const existingRows = memberInquiryDiv.querySelectorAll('.InquiryTable_row:not(.InquiryTable_header)');
+    existingRows.forEach(row => row.remove());
+
+    inquiries.forEach(inquiry => {
+        const inquiryRow = document.createElement('div');
+        inquiryRow.classList.add('InquiryTable_row');
+
+        // 일반 문의 데이터(체크박스, 문의 유형, 생성 날짜, 제목, 내용, 이메일, 수정 버튼)를 포함하는 HTML 작성
+        inquiryRow.innerHTML = `
+            <div class="InquiryTable_cell"><input type="checkbox" class="inquiryCheckbox" /></div>
+            <div class="InquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.createdDate || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.inquiryContent || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.memberEmail || ''}</div>
+            <div class="InquiryTable_cell"><button class="editBtn">수정</button></div>
+        `;
+
+        memberInquiryDiv.appendChild(inquiryRow);
+    });
+};
+
+// 기업 문의 데이터를 표시하는 함수
+const displayCorporationInquiries = (inquiries) => {
+    const corporationInquiryDiv = document.querySelector('#inquiry-section .corporationinquiryTable_container');
+
+    // 기존 행 삭제
+    const existingRows = corporationInquiryDiv.querySelectorAll('.InquiryTable_row:not(.InquiryTable_header)');
+    existingRows.forEach(row => row.remove());
+
+    inquiries.forEach(inquiry => {
+        const inquiryRow = document.createElement('div');
+        inquiryRow.classList.add('InquiryTable_row');
+
+        // 기업 문의 데이터(체크박스, 문의 유형, 생성 날짜, 제목, 내용, 이메일, 수정 버튼)를 포함하는 HTML 작성
+        inquiryRow.innerHTML = `
+            <div class="InquiryTable_cell"><input type="checkbox" class="inquiryCheckbox" /></div>
+            <div class="InquiryTable_cell">${inquiry.inquiryCategory || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.createdDate || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.inquiryTitle || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.inquiryContent || ''}</div>
+            <div class="InquiryTable_cell">${inquiry.memberEmail || ''}</div>
+            <div class="InquiryTable_cell"><button class="editBtn">수정</button></div>
+        `;
+
+        corporationInquiryDiv.appendChild(inquiryRow);
+    });
+};
+
+// 데이터 불러오기 및 표시
+inquiryService.fetchMemberInquiry(displayMemberInquiries);
+inquiryService.fetchCorporationInquiry(displayCorporationInquiries);
+
 
 
 

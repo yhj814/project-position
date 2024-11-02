@@ -22,21 +22,21 @@ public class AdminServiceImpl implements AdminService {
 
     // 회원 관리
     // 일반 회원 정보 조회
-    public List<MemberDTO> getMembers(Pagination pagination) {
-        return adminDAO.memberInformation(pagination);
+    public List<MemberDTO> getMembers() {
+        return adminDAO.memberInformation();
     }
 
     // 기업 회원 정보 조회
-    public List<CorporationDTO> getCorporationMembers(Pagination pagination) {
-        return adminDAO.corporationInformation(pagination);
+    public List<CorporationDTO> getCorporationMembers() {
+        return adminDAO.corporationInformation();
     }
 
     // 문의 관리
-    public List<InquiryDTO> getMemberInquiry(Pagination pagination) {
-        return adminDAO.memberInquiry(pagination);
+    public List<InquiryDTO> getMemberInquiry() {
+        return adminDAO.memberInquiry();
     }
 
-    public List<InquiryDTO> getCorporationInquiry(Pagination pagination) {
-        return adminDAO.corporationInquiry(pagination);
+    public List<InquiryDTO> getCorporationInquiry() {
+        return adminDAO.corporationInquiry();
     }
 }

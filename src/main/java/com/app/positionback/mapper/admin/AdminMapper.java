@@ -11,9 +11,9 @@ import java.util.List;
 @Mapper
 public interface AdminMapper {
     // 회원 관리
-    public List<MemberDTO> selectAllMembers(Pagination pagination);
-    public List<CorporationDTO> selectAllCorporationMembers(Pagination pagination);
+    public List<MemberDTO> selectAllMembers();
+    public List<CorporationDTO> selectAllCorporationMembers();
     // 문의 관리
-    public List<InquiryDTO> selectAllMemberInquiry(Pagination pagination);
-    public List<InquiryDTO> selectAllCorporationInquiry(Pagination pagination);
+    public List<InquiryDTO> selectAllMemberInquiry();
+    public List<InquiryDTO> selectAllCorporationInquiry();
 }

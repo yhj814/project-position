@@ -37,30 +37,30 @@ public class AdminController {
     // 일반 회원 정보 조회
     @GetMapping("/position/members")
     @ResponseBody
-    public List<MemberDTO> getMembers(Pagination pagination) {
-        return adminService.getMembers(pagination);
+    public List<MemberDTO> getMembers() {
+        return adminService.getMembers();
     }
 
     // 기업 회원 정보 조회
     @GetMapping("/position/corporation-members")
     @ResponseBody
-    public List<CorporationDTO> getCorporationMembers(Pagination pagination) {
-        return adminService.getCorporationMembers(pagination);
+    public List<CorporationDTO> getCorporationMembers() {
+        return adminService.getCorporationMembers();
     }
 
     // 문의 관리
     // 일반 회원 문의 정보 조회
     @GetMapping("/position/member-inquiry")
     @ResponseBody
-    public List<InquiryDTO> getMemberInquiry(Pagination pagination) {
-        return adminService.getMemberInquiry(pagination);
+    public List<InquiryDTO> getMemberInquiry() {
+        return adminService.getMemberInquiry();
     }
 
     // 기업 회원 문의 정보 조회
     @GetMapping("/position/corporation-inquiry")
     @ResponseBody
-    public List<InquiryDTO> getCorporationInquiry(Pagination pagination) {
-        return adminService.getCorporationInquiry(pagination);
+    public List<InquiryDTO> getCorporationInquiry() {
+        return adminService.getCorporationInquiry();
     }
 
 

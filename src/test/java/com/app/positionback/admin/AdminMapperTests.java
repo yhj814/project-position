@@ -22,11 +22,11 @@ public class AdminMapperTests {
 
     @Test
     public void testSelectAllMembers() {
-        List<MemberDTO> members = adminMapper.selectAllMembers(new Pagination());
+        List<MemberDTO> members = adminMapper.selectAllMembers();
     }
 
     @Test
     public void testSelectAllCorporationMembers() {
-        List<CorporationDTO> corporations = adminMapper.selectAllCorporationMembers(new Pagination());
+        List<CorporationDTO> corporations = adminMapper.selectAllCorporationMembers();
     }
 }

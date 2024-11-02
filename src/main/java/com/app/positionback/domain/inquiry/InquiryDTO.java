@@ -19,6 +19,6 @@ public class InquiryDTO {
     private String memberEmail;
 
     public InquiryVO toVO() {
-        return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, createDate, updateDate, memberId);
+        return new InquiryVO(id, inquiryType, inquiryCategory, inquiryTitle, inquiryContent, createDate, updateDate, memberId, memberEmail);
     }
 }

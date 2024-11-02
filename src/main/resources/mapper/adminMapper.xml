@@ -25,15 +25,35 @@
     <!-- 문의 관리 -->
     <!-- 일반 문의 -->
     <select id="selectAllMemberInquiry" resultType="inquiryDTO">
-        select id,
-        created_date,
-        inquiry_title,
-        inquiry_content,
-        CASE
-        WHEN member_email IS NOT NULL THEN member_email
-        ELSE member_kakao_email
-        END AS memberEmail  <!-- memberEmail 필드에 두 컬럼 중 하나가 매핑 -->
-        from tbl_inquiry
+        SELECT id,
+               inquiry_type,
+               inquiry_category,
+               inquiry_title,
+               inquiry_content,
+               created_date AS createDate,
+               updated_date AS updateDate,
+               CASE
+                   WHEN member_email IS NOT NULL THEN member_email
+                   ELSE member_kakao_email
+                   END AS memberEmail
+        FROM tbl_inquiry
+        WHERE inquiry_type = '개인'
     </select>
 
+    <!-- 기업 문의 -->
+    <select id="selectAllCorporationInquiry" resultType="inquiryDTO">
+        SELECT id,
+               inquiry_type,
+               inquiry_category,
+               inquiry_title,
+               inquiry_content,
+               created_date AS createDate,
+               updated_date AS updateDate,
+               CASE
+                   WHEN member_email IS NOT NULL THEN member_email
+                   ELSE member_kakao_email
+                   END AS memberEmail
+        FROM tbl_inquiry
+        WHERE inquiry_type = '기업'
+    </select>
 </mapper>
