@@ -169,6 +169,33 @@ const inquiryService = (() => {
     return { fetchMemberInquiry: fetchMemberInquiry, fetchCorporationInquiry: fetchCorporationInquiry };
 })();
 
+// const inquiryService = (() => {
+//     // 공통 fetch 함수
+//     const fetchInquiries = async (url, callback) => {
+//         try {
+//             const response = await fetch(url);
+//             if (!response.ok) throw new Error(`${url} 요청 실패`);
+//             const data = await response.json();
+//             if (callback) callback(data);
+//         } catch (error) {
+//             console.error("오류입니다:", error);
+//         }
+//     };
+//
+//     // 일반 회원 문의 fetch
+//     const fetchMemberInquiry = (callback) => {
+//         fetchInquiries('/admin/position/member-inquiry', callback);
+//     };
+//
+//     // 기업 회원 문의 fetch
+//     const fetchCorporationInquiry = (callback) => {
+//         fetchInquiries('/admin/position/corporation-inquiry', callback);
+//     };
+//
+//     return { fetchMemberInquiry, fetchCorporationInquiry };
+// })();
+
+
 // 일반 회원 문의 데이터를 표시하는 함수
 const displayMemberInquiry = (inquiries) => {
     // 일반 회원 행이 표시될 컨테이너 선택

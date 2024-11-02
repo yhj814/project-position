@@ -4,6 +4,7 @@ import com.app.positionback.domain.corporation.CorporationDTO;
 import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.service.admin.AdminService;
+import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -36,30 +37,30 @@ public class AdminController {
     // 일반 회원 정보 조회
     @GetMapping("/position/members")
     @ResponseBody
-    public List<MemberDTO> getMembers() {
-        return adminService.getMembers();
+    public List<MemberDTO> getMembers(Pagination pagination) {
+        return adminService.getMembers(pagination);
     }
 
     // 기업 회원 정보 조회
     @GetMapping("/position/corporation-members")
     @ResponseBody
-    public List<CorporationDTO> getCorporationMembers() {
-        return adminService.getCorporationMembers();
+    public List<CorporationDTO> getCorporationMembers(Pagination pagination) {
+        return adminService.getCorporationMembers(pagination);
     }
 
     // 문의 관리
     // 일반 회원 문의 정보 조회
     @GetMapping("/position/member-inquiry")
     @ResponseBody
-    public List<InquiryDTO> getMemberInquiry() {
-        return adminService.getMemberInquiry();
+    public List<InquiryDTO> getMemberInquiry(Pagination pagination) {
+        return adminService.getMemberInquiry(pagination);
     }
 
     // 기업 회원 문의 정보 조회
     @GetMapping("/position/corporation-inquiry")
     @ResponseBody
-    public List<InquiryDTO> getCorporationInquiry() {
-        return adminService.getCorporationInquiry();
+    public List<InquiryDTO> getCorporationInquiry(Pagination pagination) {
+        return adminService.getCorporationInquiry(pagination);
     }
 
 

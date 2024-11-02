@@ -3,6 +3,7 @@ package com.app.positionback.admin;
 import com.app.positionback.domain.corporation.CorporationDTO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.mapper.admin.AdminMapper;
+import com.app.positionback.utill.Pagination;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,11 @@ public class AdminMapperTests {
 
     @Test
     public void testSelectAllMembers() {
-        List<MemberDTO> members = adminMapper.selectAllMembers();
+        List<MemberDTO> members = adminMapper.selectAllMembers(new Pagination());
     }
 
     @Test
     public void testSelectAllCorporationMembers() {
-        List<CorporationDTO> corporations = adminMapper.selectAllCorporationMembers();
+        List<CorporationDTO> corporations = adminMapper.selectAllCorporationMembers(new Pagination());
     }
 }

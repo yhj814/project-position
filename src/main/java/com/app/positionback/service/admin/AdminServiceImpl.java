@@ -4,6 +4,8 @@ import com.app.positionback.domain.corporation.CorporationDTO;
 import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.mapper.admin.AdminMapper;
+import com.app.positionback.repository.admin.AdminDAO;
+import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -16,23 +18,25 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class AdminServiceImpl implements AdminService {
-    private final AdminMapper adminMapper;
+    private final AdminDAO adminDAO;
 
     // 회원 관리
-    public List<MemberDTO> getMembers() {
-        return adminMapper.selectAllMembers();
+    // 일반 회원 정보 조회
+    public List<MemberDTO> getMembers(Pagination pagination) {
+        return adminDAO.memberInformation(pagination);
     }
 
-    public List<CorporationDTO> getCorporationMembers() {
-        return adminMapper.selectAllCorporationMembers();
+    // 기업 회원 정보 조회
+    public List<CorporationDTO> getCorporationMembers(Pagination pagination) {
+        return adminDAO.corporationInformation(pagination);
     }
 
     // 문의 관리
-    public List<InquiryDTO> getMemberInquiry() {
-        return adminMapper.selectAllMemberInquiry();
+    public List<InquiryDTO> getMemberInquiry(Pagination pagination) {
+        return adminDAO.memberInquiry(pagination);
     }
 
-    public List<InquiryDTO> getCorporationInquiry() {
-        return adminMapper.selectAllCorporationInquiry();
+    public List<InquiryDTO> getCorporationInquiry(Pagination pagination) {
+        return adminDAO.corporationInquiry(pagination);
     }
 }
