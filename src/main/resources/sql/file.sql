@@ -10,4 +10,5 @@ create table tbl_file(
 select *
 from tbl_file;
 
+
 alter table  tbl_file add(file_size varchar(255) not null);

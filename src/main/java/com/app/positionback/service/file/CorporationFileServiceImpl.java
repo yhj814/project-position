@@ -22,9 +22,9 @@ public class CorporationFileServiceImpl implements CorporationFileService {
         corporationFileDAO.save(corporationFileVO);
     }
 
-    @Override
-    public FileDTO getCorporationFile(Long corporationId) {
-        Long fileId = corporationFileDAO.getFileIdByCorporationId(corporationId);
-        return fileDAO.findById(fileId);
-    }
+//    @Override
+//    public FileDTO getCorporationFile(Long corporationId) {
+//        Long fileId = corporationFileDAO.getFileIdByCorporationId(corporationId);
+//        return fileDAO.findById(fileId);
+//    }
 }

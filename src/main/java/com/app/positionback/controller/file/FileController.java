@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,10 +37,16 @@ public class FileController {
 
     @PostMapping("profile/upload")
     @ResponseBody
-    public FileDTO uploadCompanyProfileFile(String uuid, String path, MultipartFile file, HttpSession session) throws IOException {
+    public FileDTO uploadCompanyProfileFile(MultipartFile file) throws IOException {
+
+        return memberService.uploadFile(file);
+    }
+
+    @PostMapping("profile/upload1")
+    public RedirectView uploadCompanyProfile(@RequestParam String uuid, @RequestParam String path, MultipartFile file, HttpSession session) throws IOException {
         CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
         Long corporationId = corporationVO.getId();
         memberService.logo(uuid, path, file, corporationId);
-        return memberService.uploadFile(file);
+        return  new RedirectView("/corporation");
     }
 }

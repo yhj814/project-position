@@ -23,7 +23,7 @@
                         <div class="sidebar recommendation">
                             <div class="scroller">
                                 <div class="company-info">
-                                    <form id="uploadForm" th:action="@{/file/profile/upload}" method="post" enctype="multipart/form-data">
+                                    <form id="uploadForm" th:action="@{/file/profile/upload1}" method="post" enctype="multipart/form-data">
                                         <div class="box-logo">
                                             <input type="hidden" name="uuid" id="uuid">
                                             <input type="hidden" name="path" id="path">
@@ -37,7 +37,7 @@
                                             <input type="file" name="file" id="fileInput" style="display: none;">
                                             <img
                                                     id="corporation-logo"
-                                                    src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
+                                                    src="/images/corporation/logo-default.png"
                                                     width="170"
                                                     height="38"
                                             />
@@ -2644,7 +2644,15 @@
         const fileDTO = [[${file}]];
 
         const img = document.getElementById("corporation-logo");
-        img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+        const tipBox = document.querySelector(".TipBox");
+
+        if (fileDTO && fileDTO.filePath && fileDTO.fileName) {
+            // 파일 정보가 존재할 경우
+            img.src = `/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+            tipBox.style.display = 'none'; // TipBox 숨기기
+        }
+
+        // img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
     </script>
     <script src="/js/corporation/corpoaration-login-header.js"></script>
     <script src="/js/corporation/corporation-main.js"></script>

@@ -15,7 +15,8 @@
     </insert>
 
     <select id="selectFileIdByCorporationId">
-        select * from tbl_corporation_file c
+        select c.id, c.corporation_file_type, c.corporation_id, f.id,f.file_size,f.file_path,f.file_name,f.updated_date,f.created_date
+        from tbl_corporation_file c
         join tbl_file f on c.id = f.id
         where c.corporation_id = #{corporationId}
     </select>
