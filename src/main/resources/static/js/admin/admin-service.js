@@ -327,33 +327,3 @@ inquiryService.fetchMemberInquiry(displayMemberInquiries);
 inquiryService.fetchCorporationInquiry(displayCorporationInquiries);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
