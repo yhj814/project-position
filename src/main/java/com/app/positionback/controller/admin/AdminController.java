@@ -1,8 +1,19 @@
 package com.app.positionback.controller.admin;
 
+import com.app.positionback.domain.apply.ApplyDTO;
+import com.app.positionback.domain.complain.ComplainDTO;
 import com.app.positionback.domain.corporation.CorporationDTO;
+import com.app.positionback.domain.evaluation.EvaluationCorporationDTO;
+import com.app.positionback.domain.evaluation.EvaluationPositionerDTO;
 import com.app.positionback.domain.inquiry.InquiryDTO;
+import com.app.positionback.domain.interview.InterviewDTO;
+import com.app.positionback.domain.interviewreview.InterviewReviewDTO;
 import com.app.positionback.domain.member.MemberDTO;
+import com.app.positionback.domain.notice.NoticeDTO;
+import com.app.positionback.domain.payment.PaymentDTO;
+import com.app.positionback.domain.position.PositionDTO;
+import com.app.positionback.domain.post.PostDTO;
+import com.app.positionback.domain.reply.ReplyDTO;
 import com.app.positionback.service.admin.AdminService;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +61,74 @@ public class AdminController {
         return adminService.getCorporationMembers(pagination);
     }
 
+    // 지원 현황 관리
+    // 지원 현황
+    @GetMapping("/position/apply")
+    @ResponseBody
+    public List<ApplyDTO> getApplys () {
+        return adminService.getApplys();
+    }
+    // 면접 현황
+    @GetMapping("/position/interview")
+    @ResponseBody
+    public List<InterviewDTO> getInterviews(){
+        return adminService.getInterviews();
+    }
+    // 인턴십 현황
+    @GetMapping("/position/position")
+    @ResponseBody
+    public List<PositionDTO> getPositions(){
+        return adminService.getPositions();
+    }
+
+    // 결제 관리
+    // 지원료 결제
+    @GetMapping("/position/payment")
+    @ResponseBody
+    public List<PaymentDTO> getPayments(){
+        return adminService.getPayments();
+    }
+
+    // 작성 관리
+    // 공고 작성
+    @GetMapping("/position/notice")
+    @ResponseBody
+    public List<NoticeDTO> getNotices(){
+        return adminService.getNotices();
+    }
+    // 게시글 작성
+    @GetMapping("/position/post")
+    @ResponseBody
+    public List<PostDTO> getPosts(){
+        return adminService.getPosts();
+    }
+    // 댓글 작성
+    @GetMapping("/position/reply")
+    @ResponseBody
+    public List<ReplyDTO> getReplys(){
+        return adminService.getReplys();
+    }
+
+    // 후기 관리
+    // 면접 후기
+    @GetMapping("/position/interview-review")
+    @ResponseBody
+    public List<InterviewReviewDTO> getInterviewReviews(){
+        return adminService.getInterviewReviews();
+    }
+    // 인턴십 후기(기업)
+    @GetMapping("/position/evaluation-corporation")
+    @ResponseBody
+    public List<EvaluationCorporationDTO> getEvaluationCorporations(){
+        return adminService.getEvaluationCorporations();
+    }
+    // 인턴십 후기(인턴)
+    @GetMapping("/position/evaluation-positioner")
+    @ResponseBody
+    public List<EvaluationPositionerDTO> getEvaluationPositioners(){
+        return adminService.getEvaluationPositioners();
+    }
+
     // 문의 관리
     // 일반 회원 문의 정보 조회
     @GetMapping("/position/member-inquiry")
@@ -66,6 +145,16 @@ public class AdminController {
         pagination.progress();
         return adminService.getCorporationInquiry(pagination);
     }
+
+    // 신고 관리
+    // 기업 후기 신고
+    @GetMapping("/position/complain")
+    @ResponseBody
+    public List<ComplainDTO> getComplains() {
+        return adminService.getComplains();
+    }
+
+
 
 
 

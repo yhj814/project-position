@@ -1,20 +1,23 @@
-package com.app.positionback.domain.post;
+package com.app.positionback.domain.reply;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @ToString
+@Getter @Setter @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostVO {
+public class ReplyDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long memberId;
-    private String postTitle;
-    private String postContent;
-    private String postReadCount;
+    private Long postId;
+    private String replyContent;
     private String createdDate;
     private String updatedDate;
+
+    public ReplyVO toVO() {
+        return new ReplyVO(id, memberId, postId, replyContent, createdDate, updatedDate);
+    }
 }

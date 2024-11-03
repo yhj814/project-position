@@ -1,4 +1,4 @@
-package com.app.positionback.domain.post;
+package com.app.positionback.domain.evaluation;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -8,13 +8,8 @@ import org.springframework.stereotype.Component;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostVO {
+public class EvaluationPositionerVO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long memberId;
-    private String postTitle;
-    private String postContent;
-    private String postReadCount;
-    private String createdDate;
-    private String updatedDate;
 }

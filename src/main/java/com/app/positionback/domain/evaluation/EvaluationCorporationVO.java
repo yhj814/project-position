@@ -1,4 +1,4 @@
-package com.app.positionback.domain.reply;
+package com.app.positionback.domain.evaluation;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -8,12 +8,11 @@ import org.springframework.stereotype.Component;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReplyVO {
+public class EvaluationCorporationVO {
     @EqualsAndHashCode.Include
     private Long id;
-    private Long memberId;
-    private Long postId;
-    private String replyContent;
-    private String createdDate;
-    private String updatedDate;
+    private Long corporationId;
 }
+
+//id bigint unsigned auto_increment primary key,  # 기본 키
+//    corporation_id bigint unsigned not null ,
