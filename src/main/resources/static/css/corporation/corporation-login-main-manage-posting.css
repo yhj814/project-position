@@ -181,7 +181,7 @@ button.interested-corp {
     height: 16px;
     border: 0;
     vertical-align: middle;
-    background: url(/static/images/corporation/sp-interested-corp.png) 0 1px
+    background: url(/images/corporation/sp-interested-corp.png) 0 1px
         no-repeat;
     cursor: pointer;
     -overflow: hidden;
@@ -710,7 +710,7 @@ li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/icon-location.png);
+    background-image: url(/images/corporation/icon-location.png);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
@@ -725,7 +725,7 @@ li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/icon-career.png);
+    background-image: url(/images/corporation/icon-career.png);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
@@ -743,7 +743,7 @@ li {
     left: 0;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/icon-education.png);
+    background-image: url(/images/corporation/icon-education.png);
     background-size: cover;
     transform: translateY(-50%);
     content: "";
@@ -1013,7 +1013,7 @@ li {
     left: 0;
     width: 16px;
     height: 16px;
-    background: url(/static/images/corporation/regist.svg);
+    background: url(/images/corporation/regist.svg);
     content: "";
 }
 .col-summary .attached .data {
@@ -1058,13 +1058,13 @@ li {
     font-size: 13px;
     line-height: 18px;
 }
-.col-summary .btn-report:before {
+.col-summary .btn-report svg {
     display: inline-block;
     margin-right: 8px;
     width: 16px;
     height: 16px;
     vertical-align: top;
-    background: url(/static/images/corporation/competition.svg);
+    background: url(/images/corporation/competition.svg);
     content: "";
 }
 .list-status {
@@ -1260,7 +1260,7 @@ label {
 .spr-review:before {
     display: inline-block;
     vertical-align: top;
-    background: url(/static/images/interview-review/spr_review_190220.png);
+    background: url(/images/interview-review/spr_review_190220.png);
 }
 .review.difficulty {
     padding-left: 52px;
@@ -1379,3 +1379,26 @@ label {
     margin-top: 20px;
 }
 
+.col-summary .btn-report .ic {
+    margin-right: 5px;
+    width: 12px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.sidebar .company-navi .menu-list .btn-menu .badge {
+    display: inline-flex;
+    margin-left: 8px;
+    padding: 0 6px;
+    height: 20px;
+    border-radius: 20px;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: bold;
+    background: var(--blue90);
+    align-items: center;
+}
+
+.sidebar .company-navi .menu-list .btn-menu .badge-new {
+    background: var(--green90);
+}

@@ -6,4 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CorporationFileMapper {
     public void insert(CorporationFileVO corporationFileVO);
+    public Long selectFileIdByCorporationId(Long corporationId);
 }

@@ -1,8 +1,10 @@
 package com.app.positionback.service.notice;
 
 import com.app.positionback.domain.file.FileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
+import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.utill.Pagination;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,10 +13,10 @@ import java.util.List;
 
 public interface NoticeService {
     // 공고 저장
-    public void saveNotice(NoticeDTO noticeDTO, MultipartFile file)  throws IOException;
+    public void saveNotice(NoticeVO noticeVO, String uuid, String path, MultipartFile file)  throws IOException;
 
     // 공고 수정
-    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException;
+//    public void updateNotice(NoticeDTO noticeDTO, MultipartFile file) throws IOException;
 
     // 공고 삭제
     public void deleteNotice(Long id);
@@ -27,4 +29,8 @@ public interface NoticeService {
 
 //    기업별 공고 전체 목록 개수
     public int getTotal(Pagination pagination, Long corporationId);
+    // 공고 카테고리 랭킹
+    public List<NoticeCategoryRankDTO> getNoticeCategoryRank();
+
+    public FileDTO getNoticeFileById(Long noticeId);
 }

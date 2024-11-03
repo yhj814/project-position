@@ -16,7 +16,6 @@ public class NoticeVO {
     private String noticeTitle;
     private String noticeCareer;
     private String noticeEducation;
-    private String noticeWordLocation;
     private String noticeEndDate;
     private String createdDate;
     private String updatedDate;
@@ -25,4 +24,5 @@ public class NoticeVO {
     private String noticeWorkStartDate;
     private String noticeWorkEndDate;
     private String noticeJobCategoryName;
+    private int noticeReadCount;
 }

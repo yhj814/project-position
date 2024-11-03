@@ -2,7 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.file.CorporationFileMapper">
     <insert id="insert">
-        insert into tbl_corporation_file (id, corporation_id)
-        values (#{id}, #{corporationId})
+        <choose>
+            <when test="corporationFileType == 'code'">
+                insert into tbl_corporation_file (id, corporation_id, corporation_file_type)
+                values (#{id}, #{corporationId},#{corporationFileType})
+            </when>
+            <otherwise>
+                insert into tbl_corporation_file (id, corporation_id, corporation_file_type)
+                values (#{id}, #{corporationId}, 'profile')
+            </otherwise>
+        </choose>
     </insert>
+
+    <select id="selectFileIdByCorporationId">
+        select c.id, c.corporation_file_type, c.corporation_id, f.id,f.file_size,f.file_path,f.file_name,f.updated_date,f.created_date
+        from tbl_corporation_file c
+        join tbl_file f on c.id = f.id
+        where c.corporation_id = #{corporationId}
+    </select>
 </mapper>

@@ -1,9 +1,13 @@
 package com.app.positionback.controller.notice;
 
 import com.app.positionback.domain.corporation.CorporationVO;
+import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.notice.NoticeListDTO;
+import com.app.positionback.service.corporation.CorporationService;
+import com.app.positionback.service.file.CorporationFileService;
+import com.app.positionback.service.member.MemberService;
 import com.app.positionback.service.notice.NoticeService;
 import com.app.positionback.utill.Pagination;
 import jakarta.servlet.http.HttpSession;
@@ -23,6 +27,7 @@ import java.io.IOException;
 @RequestMapping("/corporation/*")
 public class NoticeController {
     private final NoticeService noticeService;
+    private final CorporationService corporationService;
     private final HttpSession session;
 
 //    공고 작성 페이지 이동
@@ -33,11 +38,11 @@ public class NoticeController {
     }
 
     @PostMapping("corporation-login-main-write-posting")
-    public RedirectView write(NoticeDTO noticeDTO, MultipartFile file) throws IOException {
+    public RedirectView write(NoticeDTO noticeDTO, String uuid, String path, MultipartFile file) throws IOException {
         CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
         noticeDTO.setCorporationId(corporationVO.getId());
-        noticeService.saveNotice(noticeDTO, file);
-        return new RedirectView("/notice/list");
+        noticeService.saveNotice(noticeDTO.toVO(), uuid, path, file);
+        return new RedirectView("/corporation");
     }
 
     // 공고 목록 조회
@@ -62,6 +67,8 @@ public class NoticeController {
         // Pagination에서 상태별 개수 가져오기
         model.addAttribute("ongoingCount", pagination.getOngoingCount());
         model.addAttribute("closedCount", pagination.getClosedCount());
+        model.addAttribute("categoryRankings", noticeListDTO.getCategoryRankings()); // 카테고리 순위 추가
+        model.addAttribute("monthRankings", noticeListDTO.getMonthRankings()); // 월별 채용 순위 추가
     }
 
     // 공고 목록 조회 (비동기)
@@ -97,7 +104,12 @@ public class NoticeController {
     @GetMapping("notice-detail")
     public String getNoticeDetail(@RequestParam("id")Long id, Model model) {
         NoticeDTO noticeDTO = noticeService.getNoticeById(id);
+        FileDTO fileDTO = noticeService.getNoticeFileById(id);
+        FileDTO fileLogo = corporationService.getCorporationFileById(noticeDTO.getCorporationId());
+
         model.addAttribute("notice", noticeDTO);
+        model.addAttribute("file", fileDTO);
+        model.addAttribute("logoFile", fileLogo);
         return "matching/matching-detail";
     }
 //

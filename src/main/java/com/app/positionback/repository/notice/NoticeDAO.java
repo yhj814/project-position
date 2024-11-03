@@ -2,7 +2,10 @@ package com.app.positionback.repository.notice;
 
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
+import com.app.positionback.domain.notice.NoticeMonthRankDTO;
+import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.mapper.notice.NoticeMapper;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +19,8 @@ public class NoticeDAO {
     private final NoticeMapper noticeMapper;
 
     // 새로운 공고 저장
-    public void saveNotice(NoticeDTO noticeDTO) {
-        noticeMapper.insertNotice(noticeDTO);
+    public void saveNotice(NoticeVO noticeVO) {
+        noticeMapper.insertNotice(noticeVO);
     }
 
     // 마지막으로 삽입된 공고 ID 가져오기
@@ -49,5 +52,19 @@ public class NoticeDAO {
         return noticeMapper.selectCount(pagination,corporationId);
     }
 
+    // 공고 카테고리 랭킹
+    public List<NoticeCategoryRankDTO> getRank(){
+        return noticeMapper.selectTopJobCategories();
+    }
+
+    // 공고 월별 채용 순위
+    public List<NoticeMonthRankDTO> getMontRank(){
+        return noticeMapper.selectMonthRank();
+    }
+
+    // readcount 증가
+    public void updateNoticeReadCount(Long id) {
+        noticeMapper.updateNoticeReadcount(id);
+    }
 
 }

@@ -8,10 +8,12 @@
             href="/css/matching/matching-detail.css"
         />
         <link rel="stylesheet" href="/css/main.css" />
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1e0bdeafd8a8a27e472648b06cdfefc&libraries=services"></script>
+
+
         <title>매칭 상세보기</title>
     </head>
     <body>
-        <div id="position-wrap">
             <div id="position-section">
                 <div id="position-wrap">
                     <div id="content">
@@ -29,11 +31,11 @@
                                         <div class="jv-header">
                                             <div class="title-inner">
                                                 <a
-                                                    href=""
+                                                    href="/corporation"
                                                     title="(주)호호당"
                                                     class="company"
-                                                    (주)호호당
-                                                    >(주)호호당</a
+                                                    th:text="${notice.corporationName}"
+                                                    ></a
                                                 >
                                                 <button
                                                     type="button"
@@ -66,9 +68,7 @@
                                                     >
                                                 </button>
                                                 <div class="btn-apply">
-                                                    <span class="dday"
-                                                        >D-13</span
-                                                    >
+                                                    <span class="dday" id="dday-display"></span>
                                                     <button
                                                         class="position-btn-lg for-btn-event"
                                                         title="클릭하면 입사지원할 수 있는 창이 뜹니다."
@@ -91,118 +91,116 @@
                                                     <dl>
                                                         <dt>경력</dt>
                                                         <dd>
-                                                            <strong
-                                                                >경력 5년
-                                                                ↑</strong
+                                                            <strong th:text="'경력' + ${notice.noticeCareer}"
+                                                                ></strong
                                                             >
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>학력</dt>
                                                         <dd>
-                                                            <strong
-                                                                >고교졸업
-                                                                이상</strong
-                                                            ><span class="etc">
-                                                                각 모집 부문에
-                                                                따라
-                                                                상이함</span
-                                                            >
+                                                            <strong th:text="${notice.noticeEducation == '무관' ? '무관' : notice.noticeEducation + ' 이상'}"></strong>
+
+
+                                                            <!--                                                            <span class="etc">-->
+<!--                                                                각 모집 부문에-->
+<!--                                                                따라-->
+<!--                                                                상이함</span-->
+<!--                                                            >-->
                                                         </dd>
                                                     </dl>
 
-                                                    <dl>
-                                                        <dt>우대사항</dt>
-                                                        <dd class="preferred">
-                                                            <div
-                                                                class="toolTipWrap"
-                                                            >
-                                                                <button
-                                                                    type="button"
-                                                                    class="spr-jview btn-jview btn-tooltip"
-                                                                    aria-haspopup="dialog"
-                                                                    aria-expanded="false"
-                                                                >
-                                                                    <span
-                                                                        class="blind"
-                                                                        >우대사항</span
-                                                                    ><span
-                                                                        >상세보기</span
-                                                                    ><svg
-                                                                        aria-hidden="true"
-                                                                        focusable="false"
-                                                                        class="ic"
-                                                                    >
-                                                                        <use
-                                                                            xlink:href="#icon_i"
-                                                                        ></use>
-                                                                    </svg>
-                                                                </button>
-                                                                <div
-                                                                    class="toolTip"
-                                                                    role="dialog"
-                                                                    aria-label="필수사항 상세"
-                                                                >
-                                                                    <span
-                                                                        class="tail tail-top-left"
-                                                                    ></span>
-                                                                    <div
-                                                                        id="details-preferred-49199391"
-                                                                        class="toolTipCont txtLeft"
-                                                                    >
-                                                                        <ul
-                                                                            class="toolTipTxt"
-                                                                        >
-                                                                            <li>
-                                                                                <span
-                                                                                    >활동/경험</span
-                                                                                >해당직무
-                                                                                근무경험
-                                                                            </li>
-                                                                        </ul>
-                                                                        <p
-                                                                            class="txt-noti"
-                                                                        >
-                                                                            ※
-                                                                            지원부문별
-                                                                            상이할
-                                                                            수
-                                                                            있으니,
-                                                                            상세요강에서
-                                                                            확인해주세요.
-                                                                        </p>
-                                                                    </div>
-                                                                    <button
-                                                                        type="button"
-                                                                        class="btnClose"
-                                                                    >
-                                                                        <span
-                                                                            class="blind"
-                                                                            >닫기
-                                                                            -
-                                                                            우대사항
-                                                                            상세</span
-                                                                        >
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
+<!--                                                    <dl>-->
+<!--                                                        <dt>우대사항</dt>-->
+<!--                                                        <dd class="preferred">-->
+<!--                                                            <div-->
+<!--                                                                class="toolTipWrap"-->
+<!--                                                            >-->
+<!--                                                                <button-->
+<!--                                                                    type="button"-->
+<!--                                                                    class="spr-jview btn-jview btn-tooltip"-->
+<!--                                                                    aria-haspopup="dialog"-->
+<!--                                                                    aria-expanded="false"-->
+<!--                                                                >-->
+<!--                                                                    <span-->
+<!--                                                                        class="blind"-->
+<!--                                                                        >우대사항</span-->
+<!--                                                                    ><span-->
+<!--                                                                        >상세보기</span-->
+<!--                                                                    ><svg-->
+<!--                                                                        aria-hidden="true"-->
+<!--                                                                        focusable="false"-->
+<!--                                                                        class="ic"-->
+<!--                                                                    >-->
+<!--                                                                        <use-->
+<!--                                                                            xlink:href="#icon_i"-->
+<!--                                                                        ></use>-->
+<!--                                                                    </svg>-->
+<!--                                                                </button>-->
+<!--                                                                <div-->
+<!--                                                                    class="toolTip"-->
+<!--                                                                    role="dialog"-->
+<!--                                                                    aria-label="필수사항 상세"-->
+<!--                                                                >-->
+<!--                                                                    <span-->
+<!--                                                                        class="tail tail-top-left"-->
+<!--                                                                    ></span>-->
+<!--                                                                    <div-->
+<!--                                                                        id="details-preferred-49199391"-->
+<!--                                                                        class="toolTipCont txtLeft"-->
+<!--                                                                    >-->
+<!--                                                                        <ul-->
+<!--                                                                            class="toolTipTxt"-->
+<!--                                                                        >-->
+<!--                                                                            <li>-->
+<!--                                                                                <span-->
+<!--                                                                                    >활동/경험</span-->
+<!--                                                                                >해당직무-->
+<!--                                                                                근무경험-->
+<!--                                                                            </li>-->
+<!--                                                                        </ul>-->
+<!--                                                                        <p-->
+<!--                                                                            class="txt-noti"-->
+<!--                                                                        >-->
+<!--                                                                            ※-->
+<!--                                                                            지원부문별-->
+<!--                                                                            상이할-->
+<!--                                                                            수-->
+<!--                                                                            있으니,-->
+<!--                                                                            상세요강에서-->
+<!--                                                                            확인해주세요.-->
+<!--                                                                        </p>-->
+<!--                                                                    </div>-->
+<!--                                                                    <button-->
+<!--                                                                        type="button"-->
+<!--                                                                        class="btnClose"-->
+<!--                                                                    >-->
+<!--                                                                        <span-->
+<!--                                                                            class="blind"-->
+<!--                                                                            >닫기-->
+<!--                                                                            - -->
+<!--                                                                            우대사항-->
+<!--                                                                            상세</span-->
+<!--                                                                        >-->
+<!--                                                                    </button>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </dd>-->
+<!--                                                    </dl>-->
                                                 </div>
                                                 <div class="col">
                                                     <dl>
                                                         <dt>근무일시</dt>
-                                                        <dd>
-                                                            주 5일(월~금)
-                                                            08:00~17:00
-                                                        </dd>
+                                                        <dd th:if="${notice.noticeWorkStartDate.substring(0, 10) == notice.noticeWorkEndDate.substring(0, 10)}"
+                                                            th:text="${notice.noticeWorkStartDate.substring(0, 10)}"></dd>
+
+                                                        <dd th:if="${notice.noticeWorkStartDate.substring(0, 10) != notice.noticeWorkEndDate.substring(0, 10)}"
+                                                            th:text="${notice.noticeWorkStartDate.substring(0, 10)} + '~' + ${notice.noticeWorkEndDate.substring(0, 10)}"></dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>근무지역</dt>
-                                                        <dd>
-                                                            서울 종로구,
-                                                            서울전체, 강북구,
-                                                            동대문구, 중구
+                                                        <dd th:text="${notice.corporationAddress} + ' ' + ${notice.corporationAddressDetail}">
+
                                                             <button
                                                                 type="button"
                                                                 class="spr-jview btn-jview btn-move-map"
@@ -228,7 +226,7 @@
                                                     <ul class="list-meta">
                                                         <li>
                                                             조회수
-                                                            <strong>694</strong>
+                                                            <strong th:text="${notice.noticeReadCount}"></strong>
                                                         </li>
                                                         <li class="wrap-share">
                                                             <div class="share">
@@ -249,75 +247,75 @@
                                                                         >공유하기</span
                                                                     >
                                                                 </button>
-                                                                <ul
-                                                                    class="spr-jview list-share"
-                                                                >
-                                                                    <li>
-                                                                        <a
-                                                                            href=""
-                                                                            class="spr-jview facebook"
-                                                                            title="페이스북 공유하기"
-                                                                            ><span
-                                                                                class="blind"
-                                                                                >페이스북</span
-                                                                            ></a
-                                                                        >
-                                                                    </li>
-                                                                    <li>
-                                                                        <a
-                                                                            href=""
-                                                                            class="spr-jview twitter"
-                                                                            title="트위터 공유하기"
-                                                                            ><span
-                                                                                class="blind"
-                                                                                >트위터</span
-                                                                            ></a
-                                                                        >
-                                                                    </li>
-                                                                    <li>
-                                                                        <button
-                                                                            type="button"
-                                                                            class="spr-jview copy-url"
-                                                                            title="공고 주소 복사하기"
-                                                                        >
-                                                                            <span
-                                                                                class="blind"
-                                                                                >URL복사</span
-                                                                            >
-                                                                        </button>
-                                                                    </li>
-                                                                    <li>
-                                                                        <button
-                                                                            type="button"
-                                                                            class="spr-jview send-sms"
-                                                                            title="이 공고 내 폰으로 전송하기"
-                                                                        >
-                                                                            <span
-                                                                                class="blind"
-                                                                                >SMS발송</span
-                                                                            >
-                                                                        </button>
-                                                                    </li>
-                                                                </ul>
+<!--                                                                <ul-->
+<!--                                                                    class="spr-jview list-share"-->
+<!--                                                                >-->
+<!--                                                                    <li>-->
+<!--                                                                        <a-->
+<!--                                                                            href=""-->
+<!--                                                                            class="spr-jview facebook"-->
+<!--                                                                            title="페이스북 공유하기"-->
+<!--                                                                            ><span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >페이스북</span-->
+<!--                                                                            ></a-->
+<!--                                                                        >-->
+<!--                                                                    </li>-->
+<!--                                                                    <li>-->
+<!--                                                                        <a-->
+<!--                                                                            href=""-->
+<!--                                                                            class="spr-jview twitter"-->
+<!--                                                                            title="트위터 공유하기"-->
+<!--                                                                            ><span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >트위터</span-->
+<!--                                                                            ></a-->
+<!--                                                                        >-->
+<!--                                                                    </li>-->
+<!--                                                                    <li>-->
+<!--                                                                        <button-->
+<!--                                                                            type="button"-->
+<!--                                                                            class="spr-jview copy-url"-->
+<!--                                                                            title="공고 주소 복사하기"-->
+<!--                                                                        >-->
+<!--                                                                            <span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >URL복사</span-->
+<!--                                                                            >-->
+<!--                                                                        </button>-->
+<!--                                                                    </li>-->
+<!--                                                                    <li>-->
+<!--                                                                        <button-->
+<!--                                                                            type="button"-->
+<!--                                                                            class="spr-jview send-sms"-->
+<!--                                                                            title="이 공고 내 폰으로 전송하기"-->
+<!--                                                                        >-->
+<!--                                                                            <span-->
+<!--                                                                                class="blind"-->
+<!--                                                                                >SMS발송</span-->
+<!--                                                                            >-->
+<!--                                                                        </button>-->
+<!--                                                                    </li>-->
+<!--                                                                </ul>-->
                                                             </div>
                                                         </li>
                                                         <!--wmg-31267-->
-                                                        <li>
-                                                            <a
-                                                                href=""
-                                                                class="spr-jview btn-report"
-                                                                ><svg
-                                                                    aria-hidden="true"
-                                                                    focusable="false"
-                                                                    class="ic"
-                                                                >
-                                                                    <use
-                                                                        xlink:href="#icon_report"
-                                                                    ></use>
-                                                                </svg>
-                                                                신고하기
-                                                            </a>
-                                                        </li>
+<!--                                                        <li>-->
+<!--                                                            <a-->
+<!--                                                                href=""-->
+<!--                                                                class="spr-jview btn-report"-->
+<!--                                                                ><svg-->
+<!--                                                                    aria-hidden="true"-->
+<!--                                                                    focusable="false"-->
+<!--                                                                    class="ic"-->
+<!--                                                                >-->
+<!--                                                                    <use-->
+<!--                                                                        xlink:href="#icon_report"-->
+<!--                                                                    ></use>-->
+<!--                                                                </svg>-->
+<!--                                                                신고하기-->
+<!--                                                            </a>-->
+<!--                                                        </li>-->
                                                         <!-- //wmg-31267-->
                                                     </ul>
                                                 </div>
@@ -329,28 +327,13 @@
                                                 상세요강
                                             </h2>
                                             <div class="cont">
-                                                <iframe
-                                                    name="iframe-content-0"
-                                                    id="iframe-content-0"
-                                                    class="iframe-content"
-                                                    width="860"
-                                                    scrolling="no"
-                                                    frameborder="0"
-                                                    marginheight="0"
-                                                    marginwidth="0"
-                                                    src="https://www.saramin.co.kr//zf_user/jobs/relay/view-detail?rec_idx=49199391&amp;rec_seq=0&amp;t_category=relay_view&amp;t_content=view_detail&amp;t_ref=area_recruit&amp;t_ref_content=grand_fix"
-                                                    title="상세요강"
-                                                    height="1966px"
-                                                >
-                                                    <!-- 공고 내용 들어가야됨 -->
-                                                </iframe>
+                                                <img id="notice-image" src="" alt="notice-img" width="860px" height="1400px">
+
                                             </div>
                                         </div>
                                         <!-- 근무지 위치 -->
                                         <div
                                             class="jv-cont jv-location"
-                                            data-company-name="(주)넥슨코리아"
-                                            data-address="(13487) 경기 성남시 분당구 판교로256번길 7"
                                         >
                                             <a
                                                 class="placeholder"
@@ -358,10 +341,11 @@
                                             ></a>
                                             <h2 class="jv-title">근무지위치</h2>
                                             <div class="cont box">
-                                                <address class="address">
+                                                <address class="address" >
                                                     <span
                                                         class="spr-jview txt-adr"
                                                         ><span class="wrap-ic"
+
                                                             ><svg
                                                                 class="ic"
                                                                 width="20"
@@ -381,8 +365,7 @@
                                                                 ></circle>
                                                             </svg>
                                                         </span>
-                                                        (13487) 경기 성남시
-                                                        분당구 판교로256번길 7
+                                                        <span th:text="${notice.corporationAddress} + ' ' + ${notice.corporationAddressDetail}"></span>
                                                     </span>
                                                 </address>
                                                 <button
@@ -437,94 +420,7 @@
                                                         >지도 보기
                                                     </span>
                                                 </button>
-                                                <div
-                                                    class="layer-pop-manage layer-map"
-                                                    data-loaded="n"
-                                                >
-                                                    <h4>지도 보기</h4>
-                                                    <div class="container-map">
-                                                        <div
-                                                            class="wrap-mapapi"
-                                                            id="mapArea-0"
-                                                        >
-                                                            <div
-                                                                class="map-view-wrap"
-                                                            >
-                                                                <div
-                                                                    id="mapContainer-0"
-                                                                    class="map-view"
-                                                                >
-                                                                    <div
-                                                                        id="mapWrapper-0"
-                                                                        class="view"
-                                                                    >
-                                                                        <div
-                                                                            id="mapView-0"
-                                                                            style="
-                                                                                width: 100%;
-                                                                                height: 100%;
-                                                                            "
-                                                                        ></div>
-                                                                        <div
-                                                                            id="roadView-0"
-                                                                            style="
-                                                                                height: 100%;
-                                                                                text-align: left;
-                                                                            "
-                                                                        ></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="btn-map-switch"
-                                                                    data-seq="0"
-                                                                >
-                                                                    <button
-                                                                        type="button"
-                                                                        class="btn-mapview on"
-                                                                    >
-                                                                        지도</button
-                                                                    ><button
-                                                                        type="button"
-                                                                        class="btn-skyview"
-                                                                    >
-                                                                        스카이뷰
-                                                                    </button>
-                                                                </div>
-                                                                <div
-                                                                    class="desc"
-                                                                >
-                                                                    <div
-                                                                        class="btns"
-                                                                    >
-                                                                        <button
-                                                                            type="button"
-                                                                            class="reset"
-                                                                        >
-                                                                            지도초기화</button
-                                                                        ><button
-                                                                            type="button"
-                                                                            class="big-map"
-                                                                        >
-                                                                            크게보기
-                                                                        </button>
-                                                                        <button
-                                                                            type="button"
-                                                                            class="route"
-                                                                        >
-                                                                            길찾기
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button
-                                                        type="button"
-                                                        class="btn-layer-close"
-                                                    >
-                                                        <span>닫기</span>
-                                                    </button>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -545,24 +441,24 @@
                                                 >
                                                     <span class="txt"
                                                         >남은 기간</span
-                                                    ><span class="day">2</span
+                                                    ><span class="day" id="remaining-days">0</span
                                                     ><span class="txt-day"
                                                         >일</span
-                                                    ><span class="time"
+                                                    ><span class="time" id="remaining-time"
                                                         >02:48:34</span
                                                     >
                                                 </div>
                                                 <dl class="info-period">
                                                     <dt>시작일</dt>
-                                                    <dd>2024.10.08 11:00</dd>
+                                                    <dd id="start-date" th:text="${notice.createdDate}"></dd>
                                                     <dt class="end">마감일</dt>
-                                                    <dd>2024.10.21 17:00</dd>
+                                                    <dd id="end-date" th:text="${notice.noticeEndDate}"></dd>
                                                 </dl>
                                             </div>
                                             <dl class="guide">
                                                 <dt>지원방법</dt>
                                                 <dd class="method">
-                                                    <a href="">홈페이지 지원</a>
+                                                    <p>포지셔너 지원</p>
                                                 </dd>
                                                 <dt>접수양식</dt>
                                                 <dd class="template">
@@ -572,16 +468,16 @@
                                                             class="spr-jview btn-jview btn-tooltip"
                                                         >
                                                             <span
-                                                                >제출서류
-                                                                보기</span
-                                                            ><svg
-                                                                aria-hidden="true"
-                                                                class="ic"
+                                                                >포지션 이력서</span
                                                             >
-                                                                <use
-                                                                    xlink:href="#icon_i"
-                                                                ></use>
-                                                            </svg>
+<!--                                                            <svg-->
+<!--                                                                aria-hidden="true"-->
+<!--                                                                class="ic"-->
+<!--                                                            >-->
+<!--                                                                <use-->
+<!--                                                                    xlink:href="#icon_i"-->
+<!--                                                                ></use>-->
+<!--                                                            </svg>-->
                                                         </button>
                                                         <div class="toolTip">
                                                             <span
@@ -652,7 +548,7 @@
                                                             <a
                                                                 href=""
                                                                 class="company-name ga-data-layer"
-                                                                title="(주)넥슨코리아"
+                                                                th:text="${notice.corporationName}"
                                                             >
                                                                 (주)넥슨코리아 </a
                                                             ><button
@@ -682,98 +578,88 @@
                                                         </h3>
                                                     </div>
                                                     <div class="logo">
-                                                        <a
-                                                            href=""
+                                                        <div
                                                             class="img ga-data-layer"
                                                             ><img
-                                                                id="(주)넥슨코리아"
-                                                                alt="(주)넥슨코리아"
-                                                                src="https://webpds.saramin.co.kr/pds/united_company/logo/6933_logo.jpg"
-                                                                class="img"
-                                                                width="145"
-                                                                height="50"
-                                                        /></a>
+                                                                id="logo-img"
+
+                                                        /></div>
                                                     </div>
                                                 </div>
                                                 <div class="info-area">
                                                     <dl>
                                                         <dt>대표자명</dt>
-                                                        <dd
-                                                            title="강대현/김정욱"
+                                                        <dd th:text="${notice.corporationOwner}"
                                                         >
-                                                            강대현/김정욱
                                                         </dd>
                                                     </dl>
-                                                    <dl>
-                                                        <dt>기업형태</dt>
-                                                        <dd
-                                                            title="대기업, 1000대기업, 수출입 기업"
-                                                        >
-                                                            대기업, 1000대기업,
-                                                            수출입 기업
-                                                        </dd>
-                                                    </dl>
+<!--                                                    <dl>-->
+<!--                                                        <dt>기업형태</dt>-->
+<!--                                                        <dd-->
+<!--                                                            title="대기업, 1000대기업, 수출입 기업"-->
+<!--                                                        >-->
+<!--                                                            대기업-->
+<!--                                                        </dd>-->
+<!--                                                    </dl>-->
                                                     <dl>
                                                         <dt>업종</dt>
-                                                        <dd
-                                                            title="유선 온라인 게임 소프트웨어 개발 및 공급업"
+                                                        <dd th:text="${notice.corporationBusiness}"
                                                         >
-                                                            유선 온라인 게임
-                                                            소프트웨어 개발 및
-                                                            공..
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>사원수</dt>
-                                                        <dd
-                                                            title="3,861 명 (2024년 기준)"
+                                                        <dd th:text="${notice.corporationEmployeesNumber + '명'}"
                                                         >
-                                                            3,861 명
-                                                            <span>
-                                                                (2024년
-                                                                기준)</span
-                                                            >
+<!--                                                            <span>-->
+<!--                                                                (2024년-->
+<!--                                                                기준)</span-->
+<!--                                                            >-->
                                                         </dd>
                                                     </dl>
-                                                    <dl>
-                                                        <dt>설립일</dt>
-                                                        <dd
-                                                            title="2005년 10월 11일 (업력 20년차) "
-                                                        >
-                                                            2005년 10월 11일
-                                                            <span
-                                                                >(업력 20년차)
-                                                            </span>
-                                                        </dd>
-                                                    </dl>
+<!--                                                    <dl>-->
+<!--                                                        <dt>설립일</dt>-->
+<!--                                                        <dd-->
+<!--                                                            title="2005년 10월 11일 (업력 20년차) "-->
+<!--                                                        >-->
+<!--                                                            2005년 10월 11일-->
+<!--                                                            <span-->
+<!--                                                                >(업력 20년차)-->
+<!--                                                            </span>-->
+<!--                                                        </dd>-->
+<!--                                                    </dl>-->
                                                     <dl>
                                                         <dt>매출액</dt>
-                                                        <dd
-                                                            title="2조 9,599억 9,437만원 (2023년 기준)"
-                                                        >
-                                                            2조 9,599억
-                                                            9,437만원
-                                                            <span
-                                                                >(2023년
-                                                                기준)</span
-                                                            >
+                                                        <dd th:text="${
+                                                                   notice.corporationSales >= 100000000 ?
+                                                                       (notice.corporationSales / 100000000) + '조 ' +
+                                                                       (notice.corporationSales / 10000 % 10000) + '억 ' +
+                                                                       (notice.corporationSales % 10000) + '만원' :
+                                                                   notice.corporationSales >= 10000 ?
+                                                                       (notice.corporationSales / 10000) + '억 ' +
+                                                                       (notice.corporationSales % 10000) + '만원' :
+                                                                   notice.corporationSales + '만원'
+                                                               }">
+
+
+<!--                                                            <span-->
+<!--                                                                >(2023년-->
+<!--                                                                기준)</span-->
+<!--                                                            >-->
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>홈페이지</dt>
                                                         <dd>
-                                                            <a href="">
-                                                                https://company.nexon.com/kr/
+                                                            <a th:href="${notice.corporationHomepage}" th:text="${notice.corporationHomepage}">
+
                                                             </a>
                                                         </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>기업주소</dt>
-                                                        <dd
-                                                            title="경기 성남시 분당구 판교로256번길 7"
+                                                        <dd th:text="${notice.corporationAddress} + ' ' + ${notice.corporationAddressDetail}"
                                                         >
-                                                            경기 성남시 분당구
-                                                            판교로256번길 7
                                                         </dd>
                                                     </dl>
                                                 </div>
@@ -803,13 +689,14 @@
                                                             ><span
                                                                 >기업리뷰</span
                                                             ></a
-                                                        ><a
-                                                            href=""
-                                                            class="spr-jview btn-jview-new btn-link ga-data-layer"
-                                                            ><span
-                                                                >연봉정보</span
-                                                            ></a
                                                         >
+<!--                                                        <a-->
+<!--                                                            href=""-->
+<!--                                                            class="spr-jview btn-jview-new btn-link ga-data-layer"-->
+<!--                                                            ><span-->
+<!--                                                                >연봉정보</span-->
+<!--                                                            ></a-->
+<!--                                                        >-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -1062,7 +949,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         <!-- 아이콘들 -->
         <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="jv_detail" fill="none">
@@ -1273,5 +1160,60 @@
             </symbol>
         </svg>
     </body>
+    <script th:inline="javascript">
+        // Thymeleaf를 사용하여 noticeEndDate 값을 JavaScript 변수에 할당
+        const noticeEndDate = [[${notice.noticeEndDate}]];
+        const fileDTO = [[${file}]];
+        const logoFile = [[${logoFile}]];
+
+        const img = document.getElementById("notice-image");
+        const logoImg = document.getElementById("logo-img");
+        img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+        logoImg.src =`/file/display?fileName=${logoFile.filePath}/${logoFile.fileName}`;
+    </script>
+    <script>
+        // 함수: 남은 시간 계산
+        function calculateRemainingTime() {
+            // 시작일과 마감일 가져오기
+            const startDate = new Date(document.getElementById('start-date').textContent);
+            const endDate = new Date(document.getElementById('end-date').textContent);
+
+            // 현재 날짜와 시간 가져오기
+            const now = new Date();
+
+            // 마감일까지 남은 시간 계산
+            const remainingTime = endDate - now; // 밀리초 단위
+
+            if (remainingTime < 0) {
+                // 마감일이 지났을 경우
+                document.getElementById('remaining-days').textContent = "0";
+                document.getElementById('remaining-time').textContent = "00:00:00";
+                clearInterval(intervalId); // 타이머 정지
+                return;
+            }
+
+            // 남은 시간을 초 단위로 변환
+            const remainingSeconds = Math.floor(remainingTime / 1000);
+
+            // 일, 시간, 분, 초 계산
+            const days = Math.floor(remainingSeconds / (24 * 3600));
+            const hours = Math.floor((remainingSeconds % (24 * 3600)) / 3600);
+            const minutes = Math.floor((remainingSeconds % 3600) / 60);
+            const seconds = remainingSeconds % 60;
+
+            // HTML 요소 업데이트
+            document.getElementById('remaining-days').textContent = days;
+            document.getElementById('remaining-time').textContent =
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // 매초마다 남은 시간을 계산하는 타이머 설정
+        const intervalId = setInterval(calculateRemainingTime, 1000);
+
+        // 초기 호출: 페이지 로드 시 즉시 계산
+        calculateRemainingTime();
+    </script>
     <script src="/js/matching/matching-detail.js"></script>
+    <script src="/js/matching/detail/detail-layout.js"></script>
+    <script src="/js/matching/detail/detail-event.js"></script>
 </html>

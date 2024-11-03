@@ -13,4 +13,8 @@ public class CorporationFileDAO {
     public void save(CorporationFileVO corporationFileVO){
         corporationFileMapper.insert(corporationFileVO);
     }
+
+    public Long getFileIdByCorporationId(Long corporationId){
+        return corporationFileMapper.selectFileIdByCorporationId(corporationId);
+    }
 }

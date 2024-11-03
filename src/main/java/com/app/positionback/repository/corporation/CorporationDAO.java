@@ -1,11 +1,14 @@
 package com.app.positionback.repository.corporation;
 
+import com.app.positionback.domain.apply.ApplyDTO;
 import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.mapper.corporation.CorporationMapper;
+import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -29,5 +32,13 @@ public class CorporationDAO {
 
     public Optional<CorporationVO> findByCorporationEmailAndCorporationPassword(MemberDTO memberDTO){
         return corporationMapper.selectByCorporationEmailAndCorporationPassword(memberDTO);
+    }
+
+    public List<ApplyDTO> findApplyByCorporationId(Pagination pagination, Long corporationId){
+        return corporationMapper.selectApplyByCorporationId(pagination, corporationId);
+    }
+
+    public int getTotal(Pagination pagination, Long corporationId){
+        return corporationMapper.selectCount(pagination, corporationId);
     }
 }

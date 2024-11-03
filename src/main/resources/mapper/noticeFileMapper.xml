@@ -12,4 +12,11 @@
         where notice_id = #{noticeId}
     </delete>
 
+    <select id="selectFileIdByNoticeId">
+        select n.id, n.notice_id, f.file_name, f.file_path, f.file_size, f.created_date, f.updated_date
+        from tbl_notice_file n
+        join tbl_file f on n.id = f.id
+        where n.notice_id = #{noticeId}
+    </select>
+
 </mapper>
