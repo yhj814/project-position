@@ -1461,13 +1461,13 @@ video {
 /* 첫번째 열 */
 .inquiry-headerCell:nth-child(2),
 .inquiryTable_cell:nth-child(2) {
-    width: 10%;
+    width: 12%;
 }
 
 /* 두번째 열 */
 .inquiry-headerCell:nth-child(3),
 .inquiryTable_cell:nth-child(3) {
-    width: 10%;
+    width: 12%;
 }
 
 /* 세번째 열 */
@@ -1500,7 +1500,7 @@ video {
 /* 여섯번째 열 */
 .inquiry-headerCell:nth-child(7),
 .inquiryTable_cell:nth-child(7) {
-    width: 13%;
+    width: 9%;
 }
 
 /* 일곱 열 */

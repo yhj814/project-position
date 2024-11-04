@@ -45,3 +45,4 @@ public class InquiryController {
         return "customer-service-center/faq";
     }
 }
+
