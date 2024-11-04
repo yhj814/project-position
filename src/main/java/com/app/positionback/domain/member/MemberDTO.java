@@ -22,11 +22,13 @@ public class MemberDTO {
     private String memberNickname;
     private String memberStatus;
     private String memberType;
-    private String memberWarningCount;
+    private String memberComplainCount;
     private String memberPhone;
     private String memberKakaoProfileUrl;
     private String memberKakaoEmail;
     private String memberLoginType;
+    private String createdDate;
+    private String updatedDate;
 
 //    기업
     private String corporationName;
@@ -43,6 +45,7 @@ public class MemberDTO {
     private String corporationEmployeesNumber;
 
     public MemberVO toVO() {
-        return new MemberVO(id, memberName, memberEmail, memberPassword, memberAddress, memberAddressDetail, memberNickname, memberStatus, memberWarningCount, memberPhone, memberKakaoProfileUrl, memberKakaoEmail);
+        return new MemberVO(id, memberName,memberEmail,memberPassword,memberAddress,memberAddressDetail,memberNickname,memberStatus,
+                memberComplainCount,memberPhone,memberKakaoProfileUrl,memberKakaoEmail,createdDate,updatedDate);
     }
 }
