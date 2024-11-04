@@ -24,13 +24,6 @@ public class MemberDTO {
     private String memberType;
     private String memberComplainCount;
     private String memberPhone;
-<<<<<<< HEAD
-    private String loginType;
-    private String createdDate;
-
-    public MemberVO toVO() {
-        return new MemberVO(id, memberName, memberEmail, memberPassword, memberAddress, memberAddressDetail, memberNickname, memberStatus, memberType, memberWarningCount, memberPhone);
-=======
     private String memberKakaoProfileUrl;
     private String memberKakaoEmail;
     private String memberLoginType;
@@ -54,7 +47,6 @@ public class MemberDTO {
     public MemberVO toVO() {
         return new MemberVO(id, memberName,memberEmail,memberPassword,memberAddress,memberAddressDetail,memberNickname,memberStatus,
                 memberComplainCount,memberPhone,memberKakaoProfileUrl,memberKakaoEmail,createdDate,updatedDate);
->>>>>>> newtest
     }
 }
 

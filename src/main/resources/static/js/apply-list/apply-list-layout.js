@@ -6,7 +6,7 @@ const statusInput = document.getElementById("apply-status");
 const loadingScreen = document.getElementById("ingRecruitLoading"); // 로딩 화면 요소
 const sortingSelect = document.querySelector(".InpBox.sorting-select");
 
-const showApplyList = ({applies, pagination},status) =>{
+const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
     listBody.innerHTML='';
     let pagingText = "";
 
@@ -14,14 +14,14 @@ const showApplyList = ({applies, pagination},status) =>{
 
     applies.forEach(apply => {
 
-        if (status === 'ongoing') {
+        // if (statusInput.value === 'ongoing') {
             text += `
              <div class="list-status">
                 <div class="row -apply-list" id="apply-list-${apply.id}">
                     <div class="col-summary">
                         <strong class="corp">
                             <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
-                                ${apply.corporationName}
+                                ${apply.memberName}
                             </a>
                         </strong>
                         <div class="recruit">
@@ -37,7 +37,7 @@ const showApplyList = ({applies, pagination},status) =>{
                         </div>
                         <div class="status">
                             <em class="txt-status">${apply.applyStatus}</em>
-                            <span class="txt-sub">미열람</span>
+                            <span class="txt-sub">${formatDate(apply.noticeEndDate)}</span>
                             <button type="button" class="btn-report -ai-report">
                                 <svg></svg> 경쟁력분석
                             </button>
@@ -45,9 +45,9 @@ const showApplyList = ({applies, pagination},status) =>{
                     </div>
                     <div class="col-btns">
                         <div class="action">
-                            <span class="date-end">${formatDate(apply.noticeEndDate)}</span>
+                            <span class="date-end"></span>
                         </div>
-                        <button type="button" class="BtnType SizeM -apply-cancel">지원합격</button>
+                        <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.id}">지원합격</button>
                         <button type="button" class="btn-history -applicant-history">지원내역</button>
                     </div>
     
@@ -66,9 +66,9 @@ const showApplyList = ({applies, pagination},status) =>{
                 </div>
             </div>
             `;
-        } else if (status === 'closed') {
-            text=``
-        }
+        // } else if (statusInput.value === 'closed') {
+        //     text=``
+        // }
     });
     listBody.innerHTML = text;
 
@@ -105,6 +105,19 @@ const showApplyList = ({applies, pagination},status) =>{
 
     // 페이지네이션 HTML 삽입
     applyPaging.innerHTML = pagingText;
+
+    const updateButtons = document.querySelectorAll('.-apply-cancel');
+    updateButtons.forEach(button =>{
+        button.addEventListener('click', async () => {
+            const applyId = button.getAttribute('data-id'); // 지원 ID 가져오기
+            const confirmed = confirm("정말로 합격처리 하시겠습니까?"); // 삭제 확인
+            const newStatus = '면접 예정';
+            if(confirmed){
+                await applyService.update({id: applyId, applyStatus:newStatus});
+                loadApplies(); // 업데이트된 상태를 표시하기 위해 리스트를 새로 로드
+            }
+        });
+    });
     hideLoading(); // 로딩 화면 숨기기
 
 };
@@ -121,6 +134,7 @@ const hideLoading = () => {
 
 /// 공고 목록 로드 함수
 const loadApplies = (page = 1, order = 'recent', status = statusInput.value) => {
+    console.log(statusInput.value);
     showLoading(); // 로딩 화면 표시
     applyService.getApplyList(page, order, status, (data) => {
         showApplyList(data, status);
@@ -140,15 +154,15 @@ closedBtn.addEventListener("click", () => {
 
 // 페이지 전환 함수
 function goToPage(page) {
-    const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
+    // const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
     const status = statusInput.value; // 현재 상태 값을 가져옵니다.
-    loadApplies(page, order, status); // 상태를 유지하면서 공고 목록 로드
+    loadApplies(page, status); // 상태를 유지하면서 공고 목록 로드
 }
 
 // 드롭다운 변경 시 공고 목록 로드
-sortingSelect.addEventListener("change", () => {
-    loadApplies(1, sortingSelect.value); // 기본 정렬 기준으로 목록 로드
-});
+// sortingSelect.addEventListener("change", () => {
+//     loadApplies(1, sortingSelect.value); // 기본 정렬 기준으로 목록 로드
+// });
 
 // 페이지 로드 시 공고 목록 가져오기
 document.addEventListener('DOMContentLoaded', () => {

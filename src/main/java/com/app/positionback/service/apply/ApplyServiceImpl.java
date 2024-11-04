@@ -1,6 +1,7 @@
 package com.app.positionback.service.apply;
 
 import com.app.positionback.domain.apply.ApplyListDTO;
+import com.app.positionback.domain.apply.ApplyVO;
 import com.app.positionback.repository.apply.ApplyDAO;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,7 @@ public class ApplyServiceImpl implements ApplyService{
         int closedCount = applyDAO.getTotal(closedPagination,corporationId);
 
         pagination.setOngoingCount(ongoingCount);
-        pagination.setOngoingCount(closedCount);
+        pagination.setClosedCount(closedCount);
 
 
         return applyListDTO;
@@ -42,5 +43,10 @@ public class ApplyServiceImpl implements ApplyService{
     @Override
     public int getTotal(Pagination pagination, Long corporationId) {
         return applyDAO.getTotal(pagination,corporationId);
+    }
+
+    @Override
+    public void setApplyStatus(ApplyVO applyVO) {
+        applyDAO.updateApplyStatus(applyVO);
     }
 }
