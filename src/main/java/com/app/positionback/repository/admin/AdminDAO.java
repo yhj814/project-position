@@ -27,10 +27,11 @@ public class AdminDAO {
     private final AdminMapper adminMapper;
 
     // 회원 관리
-    // 일반 회원 정보 전체 조회
+    // 일반 회원 조회
     public List<MemberDTO> memberInformation(Pagination pagination) {
         return adminMapper.selectAllMembers(pagination);
     }
+
     // 기업 회원 정보 전체 조회
     public List<CorporationDTO> corporationInformation(Pagination pagination) {
         return adminMapper.selectAllCorporationMembers(pagination);
