@@ -10,4 +10,10 @@
     <select id="selectLastInsertId" resultType="long">
         select last_insert_id()
     </select>
+
+    <select id="selectById">
+        select id, file_name, file_path, created_date, updated_date, file_size
+        from tbl_file
+        where id = #{id}
+    </select>
 </mapper>

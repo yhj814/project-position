@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 public class CorporationFileDTO {
     private Long id;
     private Long corporationId;
+    private String corporationFileType;
 
     public CorporationFileVO toVO(){
-        return new CorporationFileVO(id, corporationId);
+        return new CorporationFileVO(id, corporationId,corporationFileType);
     }
 }

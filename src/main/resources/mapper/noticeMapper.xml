@@ -32,11 +32,39 @@
     </delete>
 
     <select id="selectNoticeById" resultType="com.app.positionback.domain.notice.NoticeDTO">
-        select id, corporation_id, notice_title, notice_career, notice_education, notice_end_date,
-         notice_work_start_time, notice_work_end_time,
-        notice_work_start_date, notice_work_end_date, notice_job_category_name
-        from tbl_notice
-        where id = #{id}
+        select
+            n.id,
+            n.corporation_id,
+            n.notice_title,
+            n.notice_career,
+            n.notice_education,
+            n.notice_end_date,
+            n.notice_work_start_time,
+            n.notice_work_end_time,
+            n.notice_work_start_date,
+            n.notice_work_end_date,
+            n.notice_job_category_name,
+            n.notice_read_count,
+            c.id,
+            c.corporation_name,
+            c.corporation_address,
+            c.corporation_address_detail,
+            c.corporation_business,
+            c.corporation_type,
+            c.corporation_employees_number,
+            c.corporation_sales,
+            c.corporation_owner,
+            c.corporation_email,
+            c.corporation_password,
+            c.corporation_homepage,
+            c.corporation_read_count,
+            c.created_date,
+            c.updated_date,
+            c.corporation_code,
+            c.corporation_gen
+            from tbl_notice n
+            join tbl_corporation c on n.corporation_id = c.id
+        where n.id = #{id}
     </select>
 
     <select id="selectNoticesByCorporationId" resultType="com.app.positionback.domain.notice.NoticeDTO">
@@ -68,5 +96,33 @@
             <![CDATA[ and notice_end_date > current_date
         ]]></if>
     </select>
+
+<!--    카테고리 상위 4개 -->
+    <select id="selectTopJobCategories">
+        select notice_job_category_name, count(*) as count
+        from tbl_notice
+        where notice_job_category_name is not null
+        <![CDATA[
+          and notice_end_date <= current_date
+        ]]>
+        group by notice_job_category_name
+        order by count desc
+        limit 4
+    </select>
+
+<!--    월별 채용 순위-->
+    <select id="selectMonthRank">
+        select date_format(created_date, '%m') as month, count(*) as count
+        from tbl_notice
+        group by month
+        order by count desc
+        limit 4
+    </select>
+
+    <update id="updateNoticeReadcount">
+        update tbl_notice
+        set notice_read_count = notice_read_count + 1
+        where id = #{id}
+    </update>
 
 </mapper>

@@ -499,6 +499,23 @@ button.interested-corp {
     border-radius: 12px;
     background: var(--gray30);
 }
+
+.sidebar .company-navi .menu-list .btn-menu .badge {
+    display: inline-flex;
+    margin-left: 8px;
+    padding: 0 6px;
+    height: 20px;
+    border-radius: 20px;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: bold;
+    background: var(--blue90);
+    align-items: center;
+}
+
+.sidebar .company-navi .menu-list .btn-menu .badge-new {
+    background: var(--green90);
+}
 .TabBox .Select .BtnType:after {
     background-color: var(--gray100);
 }

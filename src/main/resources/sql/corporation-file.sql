@@ -3,6 +3,7 @@ use positionback;
 
 create table tbl_corporation_file(
     id bigint unsigned auto_increment primary key ,
+    corporation_file_type varchar(255) default 'code', #profile
     corporation_id bigint unsigned not null,
     constraint fk_corporation_file_file foreign key (id)
                 references  tbl_file(id),
@@ -11,4 +12,3 @@ create table tbl_corporation_file(
 );
 
 select * from tbl_corporation_file;
-

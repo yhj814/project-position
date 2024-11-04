@@ -1,5 +1,6 @@
 package com.app.positionback.mapper.file;
 
+import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.FileVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -7,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface FileMapper {
     public void insert(FileVO fileVO);
     public Long selectLastInsertId();
+    public FileDTO selectById(Long id);
 }

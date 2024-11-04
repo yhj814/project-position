@@ -99,14 +99,14 @@ prevButton.addEventListener("click", () => {
 // 초기 상태 업데이트
 updateSlider();
 
-// 닫기 버튼 선택
-const closeButton = document.getElementById("pop-login-layer-close");
-// 로그인 팝업 레이어 선택
-const loginLayer = document.getElementById("wrap-quick-apply-layer");
-
-// 닫기 버튼 클릭 이벤트 리스너
-closeButton.addEventListener("click", function () {
-    document.body.style.overflow = "auto";
-    // 로그인 팝업을 숨김
-    loginLayer.style.display = "none";
-});
+// // 닫기 버튼 선택
+// const closeButton = document.getElementById("pop-login-layer-close");
+// // 로그인 팝업 레이어 선택
+// const loginLayer = document.getElementById("wrap-quick-apply-layer");
+//
+// // 닫기 버튼 클릭 이벤트 리스너
+// closeButton.addEventListener("click", function () {
+//     document.body.style.overflow = "auto";
+//     // 로그인 팝업을 숨김
+//     loginLayer.style.display = "none";
+// });

@@ -680,9 +680,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-location .address {
     margin-bottom: 30px;
     font-size: 15px;
@@ -884,9 +882,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-howto .status {
     display: table-cell;
     position: relative;
@@ -928,7 +924,7 @@ a {
     vertical-align: bottom;
 }
 .jv-howto .info-period {
-    padding: 13px 40px 0;
+    padding: 13px 31px 0;
     text-align: left;
 }
 .jv-howto .info-period dt {
@@ -946,7 +942,7 @@ a {
 .jv-howto .info-period dd {
     float: right;
     padding: 1px 0;
-    width: 130px;
+    width: 145px;
     height: 26px;
     box-sizing: border-box;
     font-size: 15px;
@@ -979,6 +975,9 @@ a {
 .jv-howto .guide > dt:first-of-type {
     margin-top: 0;
 }
+.jv-howto .guide>dd:first-of-type {
+    margin-top: 0;
+}
 .jv-howto .guide > dt {
     display: block;
     float: left;
@@ -988,13 +987,13 @@ a {
     line-height: 28px;
 }
 .jv-howto .guide > dd.method > button,
-.jv-howto .guide > dd.method > a {
+.jv-howto .guide > dd.method > p {
     display: inline-block;
     overflow: visible;
     line-height: inherit;
 }
 .jv-howto .guide > dd.method > button,
-.jv-howto .guide > dd.method > a,
+.jv-howto .guide > dd.method > p,
 .jv-howto .guide > dd.method > span {
     color: #444;
 }
@@ -1167,9 +1166,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-company .wrap-info {
     box-sizing: border-box;
     padding: 29px 29px 24px;
@@ -1402,9 +1399,7 @@ a {
     border: 1px solid #ebebeb;
     border-radius: 12px;
 }
-.jv-cont > .cont {
-    position: relative;
-}
+
 .jv-company .tit-area .basic-info {
     width: 616px;
 }
@@ -1989,4 +1984,9 @@ body {
 .area-btns .btn .name {
     display: inline-block;
     vertical-align: top;
+}
+
+#logo-img{
+    width: 100%;
+    height: 100%;
 }

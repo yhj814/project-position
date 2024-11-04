@@ -37,4 +37,3 @@ public class ApplyDTO {
     private String memberNickname;
 
 }
-

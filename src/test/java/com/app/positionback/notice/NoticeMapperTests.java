@@ -2,7 +2,9 @@ package com.app.positionback.notice;
 
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
+import com.app.positionback.domain.notice.NoticeCategoryRankDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
+import com.app.positionback.domain.notice.NoticeMonthRankDTO;
 import com.app.positionback.domain.notice.NoticeVO;
 import com.app.positionback.mapper.notice.NoticeFileMapper;
 import com.app.positionback.mapper.notice.NoticeMapper;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 @Slf4j
@@ -22,23 +25,49 @@ public class NoticeMapperTests {
     @Autowired
     private NoticeFileMapper noticeFileMapper;
 
-    // 공고 등록 테스트
+    // 공고 카테고리 순위 테스트
     @Test
-    public void testInsertNotice() {
-        NoticeDTO noticeDTO = new NoticeDTO();
-        noticeDTO.setCorporationId(1L);
-        noticeDTO.setNoticeTitle("Software Engineer");
-        noticeDTO.setNoticeCareer("3 years");
-        noticeDTO.setNoticeEducation("Bachelor's Degree");
-        noticeDTO.setNoticeEndDate("2024-01-31");
-        noticeDTO.setNoticeWorkStartTime("09:00");
-        noticeDTO.setNoticeWorkEndTime("18:00");
-        noticeDTO.setNoticeWorkStartDate("2024-01-31");
-        noticeDTO.setNoticeWorkEndDate("2024-01-31");
+    public void testSelectMonthRank() {
+        List<NoticeMonthRankDTO> monthRankDTO = noticeMapper.selectMonthRank();
 
-        noticeMapper.insertNotice(noticeDTO);
-        log.info("Inserted notice with ID: {}", noticeMapper.getLastInsertId());
+        log.info("Top Job Categories: {}", monthRankDTO);
+
+        // 카테고리 이름과 개수 출력
+        for (NoticeMonthRankDTO monthRank : monthRankDTO) {
+            log.info("Category: {}, Count: {}", monthRank.getCount(), monthRank.getMonth());
+        }
     }
+
+    // 공고 카테고리 순위 테스트
+    @Test
+    public void testSelectTopJobCategories() {
+        List<NoticeCategoryRankDTO> topJobCategories = noticeMapper.selectTopJobCategories();
+
+        log.info("Top Job Categories: {}", topJobCategories);
+
+        // 카테고리 이름과 개수 출력
+        for (NoticeCategoryRankDTO category : topJobCategories) {
+            log.info("Category: {}, Count: {}", category.getCount(), category.getNoticeJobCategoryName());
+        }
+    }
+
+    // 공고 등록 테스트
+//    @Test
+//    public void testInsertNotice() {
+//        NoticeDTO noticeDTO = new NoticeDTO();
+//        noticeDTO.setCorporationId(1L);
+//        noticeDTO.setNoticeTitle("Software Engineer");
+//        noticeDTO.setNoticeCareer("3 years");
+//        noticeDTO.setNoticeEducation("Bachelor's Degree");
+//        noticeDTO.setNoticeEndDate("2024-01-31");
+//        noticeDTO.setNoticeWorkStartTime("09:00");
+//        noticeDTO.setNoticeWorkEndTime("18:00");
+//        noticeDTO.setNoticeWorkStartDate("2024-01-31");
+//        noticeDTO.setNoticeWorkEndDate("2024-01-31");
+//
+//        noticeMapper.insertNotice(noticeDTO);
+//        log.info("Inserted notice with ID: {}", noticeMapper.getLastInsertId());
+//    }
 
     // 공고 수정 테스트
     @Test

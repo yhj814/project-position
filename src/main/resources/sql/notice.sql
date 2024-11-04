@@ -20,7 +20,7 @@ select * from tbl_notice;
 
 drop table tbl_notice;
 ALTER TABLE TBL_NOTICE
-    add COLUMN notice_job_category_name VARCHAR(255);
+    add COLUMN notice_read_count int default 0;
 
 INSERT INTO tbl_notice (
     corporation_id,
