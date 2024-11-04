@@ -527,7 +527,7 @@ const displayPosts = (posts) => {
 // 댓글 데이터를 표시하는 함수
 const displayReplys = (replys) => {
     // 댓글이 표시될 컨테이너 선택
-    const replyListDiv = document.querySelector('#reply-section .ReplyTable_container');
+    const replyListDiv = document.querySelector('#Reply-section .ReplyTable_container');
 
     // 새로운 데이터를 추가하기 위해 기존의 데이터 제거 (헤더 행 제외)
     const existingRows = replyListDiv.querySelectorAll('.ReplyTable_row:not(.ReplyTable_header)');
