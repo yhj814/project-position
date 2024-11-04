@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class ApplyDTO {
     @EqualsAndHashCode.Include
+    private Long id;
     private Long noticeId;
     private Long resumeId;
     private String applyType;

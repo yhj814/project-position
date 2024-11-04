@@ -1,5 +1,6 @@
 # 지원 테이블
 create table tbl_apply(
+        id bigint unsigned auto_increment primary key,
         notice_id bigint unsigned not null,
         resume_id bigint unsigned not null ,
         apply_type varchar(255) not null,  #지원 부문
@@ -20,8 +21,11 @@ INSERT INTO tbl_apply (
     apply_type,
     apply_status
 ) VALUES (
-             98,                    -- notice_id (tbl_notice 테이블의 공고 ID)
+             97,                    -- notice_id (tbl_notice 테이블의 공고 ID)
              3,                    -- resume_id (tbl_resume 테이블의 이력서 ID)
              '프론트엔드 개발자',   -- apply_type (지원 부문)
              '지원 완료'            -- apply_status (기본값이 '지원 완료'이므로 생략 가능)
          );
+
+ALTER TABLE tbl_apply
+    ADD COLUMN id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY;

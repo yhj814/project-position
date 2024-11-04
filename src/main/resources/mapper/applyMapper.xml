@@ -8,7 +8,7 @@
         m.member_name ,
         m.member_email,
         m.member_nickname,
-        r.id ,
+        a.id ,
         a.apply_type ,
         a.apply_status ,
         n.notice_career ,
@@ -32,7 +32,7 @@
         where
         c.id = #{corporationId}
         <if test="pagination.status == 'closed'">
-            <![CDATA[ and a.apply_status = '지원 완료' ]]>
+            <![CDATA[ and a.apply_status = '면접 예정' ]]>
         </if>
         <if test="pagination.status == 'ongoing'">
             <![CDATA[ and a.apply_status = '지원 완료' ]]>
@@ -61,10 +61,17 @@
         where
         c.id = #{corporationId}
         <if test="pagination.status == 'closed'">
-            <![CDATA[ and a.apply_status = '지원 완료' ]]>
+            <![CDATA[ and a.apply_status = '면접 예정' ]]>
         </if>
         <if test="pagination.status == 'ongoing'">
             <![CDATA[ and a.apply_status = '지원 완료' ]]>
         </if>
     </select>
+
+    <update id="updateApplyStatus">
+        update tbl_apply
+        set apply_status = #{applyStatus}
+        where id = #{id}
+    </update>
+
 </mapper>

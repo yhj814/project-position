@@ -1,6 +1,7 @@
 package com.app.positionback.repository.apply;
 
 import com.app.positionback.domain.apply.ApplyDTO;
+import com.app.positionback.domain.apply.ApplyVO;
 import com.app.positionback.mapper.apply.ApplyMapper;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,9 @@ public class ApplyDAO {
 
     public int getTotal(Pagination pagination, Long corporationId){
         return applyMapper.selectCount(pagination, corporationId);
+    }
+
+    public void updateApplyStatus(ApplyVO applyVO){
+        applyMapper.updateApplyStatus(applyVO);
     }
 }

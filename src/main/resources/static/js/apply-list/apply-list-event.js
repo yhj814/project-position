@@ -26,4 +26,5 @@ listBody.addEventListener("click", (e) => {
             button.classList.add("active"); // 클릭된 버튼에 active 클래스 추가
         }
     }
+
 });
