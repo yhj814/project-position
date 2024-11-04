@@ -14,7 +14,7 @@
                created_date
         FROM tbl_member
         ORDER BY created_date DESC
-            LIMIT #{pagination.startRow}, #{pagination.rowCount}
+            limit #{pagination.startRow}, #{pagination.rowCount}
     </select>
 
     <!-- 기업 회원 목록 페이징 -->
@@ -69,6 +69,15 @@
         WHERE inquiry_type = '기업'
         ORDER BY createdDate DESC
             LIMIT #{pagination.startRow}, #{pagination.rowCount}
+    </select>
+
+    <select id="selectAllApply" resultType="ApplyDTO">
+        select apply.id, apply.apply_type, apply.apply_status, apply.created_date,
+               c.corporation_name, n.notice_title
+        from tbl_apply apply
+                 join tbl_notice n on apply.notice_id = n.id
+                 join tbl_corporation c on n.corporation_id = c.id
+        order by apply.created_date desc
     </select>
 
 </mapper>

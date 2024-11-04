@@ -411,28 +411,28 @@ const noticeService = (() => {
 // 공고 데이터를 표시하는 함수
 const displayNotices = (notices) => {
     // 공고가 표시될 컨테이너 선택
-    const noticeListDiv = document.querySelector('#Notice-section .noticeTable_container');
+    const noticeListDiv = document.querySelector('#announcement-section .announcementTable_container');
 
     // 기존 데이터 제거 (헤더 행 제외)
-    const existingRows = noticeListDiv.querySelectorAll('.noticeTable_row:not(.noticeTable_header)');
+    const existingRows = noticeListDiv.querySelectorAll('.announcementTable_row:not(.announcementTable_header)');
     existingRows.forEach(row => row.remove());
 
     // `notices` 배열 내의 각 공고 데이터를 반복하여 새 행 생성
     notices.forEach(notice => {
         const noticeRow = document.createElement('div');
-        noticeRow.classList.add('noticeTable_row');
+        noticeRow.classList.add('announcementTable_row');
 
         // 각 공고 데이터 (기업명, 공고일, 공고 제목, 작성자 이름, 전화번호, 공고 상태)를 포함하는 HTML 작성
         noticeRow.innerHTML = `
-            <div class="noticeTable_cell"><input type="checkbox" class="noticeCheckbox" /></div>
-            <div class="noticeTable_cell">${notice.corporationName || ''}</div>
-            <div class="noticeTable_cell">${notice.noticeDate || ''}</div>
-            <div class="noticeTable_cell">${notice.noticeTitle || ''}</div>
-            <div class="noticeTable_cell">${notice.authorName || ''}</div>
-            <div class="noticeTable_cell">${notice.authorPhone || ''}</div>
-            <div class="noticeTable_cell">${notice.noticeType || ''}</div>
-            <div class="noticeTable_cell">${notice.noticeStatus || ''}</div>
-            <div class="noticeTable_cell"><button class="editBtn">수정</button></div>
+            <div class="announcementTable_cell"><input type="checkbox" class="announcementCheckbox" /></div>
+            <div class="announcementTable_cell">${notice.corporationName || ''}</div>
+            <div class="announcementTable_cell">${notice.noticeDate || ''}</div>
+            <div class="announcementTable_cell">${notice.noticeTitle || ''}</div>
+            <div class="announcementTable_cell">${notice.authorName || ''}</div>
+            <div class="announcementTable_cell">${notice.authorPhone || ''}</div>
+            <div class="announcementTable_cell">${notice.noticeType || ''}</div>
+            <div class="announcementTable_cell">${notice.noticeStatus || ''}</div>
+            <div class="announcementTable_cell"><button class="editBtn">수정</button></div>
         `;
 
         // 새로 생성한 공고 행을 컨테이너에 추가
@@ -527,26 +527,27 @@ const displayPosts = (posts) => {
 // 댓글 데이터를 표시하는 함수
 const displayReplys = (replys) => {
     // 댓글이 표시될 컨테이너 선택
-    const replyListDiv = document.querySelector('#Reply-section .ReplyTable_container');
+    const replyListDiv = document.querySelector('#reply-section .PostTable_container');
 
     // 새로운 데이터를 추가하기 위해 기존의 데이터 제거 (헤더 행 제외)
-    const existingRows = replyListDiv.querySelectorAll('.ReplyTable_row:not(.ReplyTable_header)');
+    const existingRows = replyListDiv.querySelectorAll('.PostTable_row:not(.PostTable_header)');
     existingRows.forEach(row => row.remove());
 
     // `replys` 배열 내의 각 댓글 객체를 반복하며 새 행 생성
     replys.forEach(reply => {
         // 각 댓글에 대한 새 행을 생성
         const replyRow = document.createElement('div');
-        replyRow.classList.add('ReplyTable_row'); // 행에 스타일 클래스 추가
+        replyRow.classList.add('PostTable_row'); // 행에 스타일 클래스 추가
 
         // 각 댓글 데이터(체크박스, 작성일, 작성자, 댓글 내용, 상태, 수정 버튼)를 포함하는 HTML 작성
         replyRow.innerHTML = `
-            <div class="ReplyTable_cell"><input type="checkbox" class="replyCheckbox" /></div>
-            <div class="ReplyTable_cell">${reply.createdDate || ''}</div>
-            <div class="ReplyTable_cell">${reply.author || ''}</div>
-            <div class="ReplyTable_cell">${reply.content || ''}</div>
-            <div class="ReplyTable_cell">${getStatusLabel(reply.status) || ''}</div>
-            <div class="ReplyTable_cell"><button class="editBtn">수정</button></div>
+            <div class="PostTable_cell"><input type="checkbox" class="PostCheckbox" /></div>
+            <div class="PostTable_cell">${reply.communityType || ''}</div>
+            <div class="PostTable_cell">${reply.createdDate || ''}</div>
+            <div class="PostTable_celll">${reply.postTitle || ''}</div>
+            <div class="PostTable_cell">${reply.replyContent || ''}</div>
+            <div class="PostTable_cell">${getStatusLabel(reply.membername) || ''}</div>
+            <div class="PostTable_cell"><button class="editBtn">수정</button></div>
         `;
 
         // 새로 생성한 댓글 행을 컨테이너에 추가
