@@ -45,3 +45,5 @@ INSERT INTO tbl_notice (
              '2024-10-31 23:59:59',  -- Notice end date (YYYY-MM-DD HH:MM:SS)
              '소프트웨어 개발'  -- Job category name
          );
+
+

@@ -4,11 +4,11 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @ToString
+@Getter @Setter @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostVO {
+public class PostDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long memberId;
@@ -17,4 +17,8 @@ public class PostVO {
     private String postReadCount;
     private String createdDate;
     private String updatedDate;
+
+    public PostVO toVO() {
+        return new PostVO(id, memberId, postTitle, postContent, postReadCount, createdDate, updatedDate);
+    }
 }

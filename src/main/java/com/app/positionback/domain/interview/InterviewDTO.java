@@ -4,14 +4,19 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter @Setter @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class InterviewVO {
+public class InterviewDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long corporationId;
     private Long resumeId;
     private String interviewDate;
-    private String interviewStatus;
+    private String interviewStatus = "면접 예정";
+
+    public InterviewVO toVO() {
+        return new InterviewVO(id, corporationId, resumeId, interviewDate, interviewStatus);
+    }
 }

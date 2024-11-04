@@ -1,130 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/css/main.css" />
-        <link
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
             rel="stylesheet"
             href="/css/customer-service-center/inquiry.css"
-        />
-        <title>문의하기</title>
-    </head>
-    <body>
-        <div id="position-section" class="has-banner">
-            <div id="position-wrap">
-                <div id="content">
-                    <div class="wrap-title-recruit">
-                        <h1 class="title-common">문의하기</h1>
-                    </div>
-                    <div class="help-find help-lost wrap-help">
-                        <div class="cont-find">
-                            <form th:action="@{/customer-service-center/inquiry}" method="post" th:object="${inquiryDTO}"id="write-form" enctype="multipart/form-data">
-                                <fieldset>
-                                    <p class="desc-find-type2">
-                                        평일 09시 에서 17시까지 문의하신 내용은
-                                        당일 답변해드립니다.
-                                        <br />
-                                        17시 이후에 문의하신 내용은 다음날에
-                                        답변, 주말에 문의하신 내용은 그 다음주
-                                        월요일에 답변해 드립니다.
-                                    </p>
-                                    <ul class="list-find">
-                                        <li>
-                                            <div class="wrap-lab">
+    />
+    <title>문의하기</title>
+</head>
+<body>
+<div id="position-section" class="has-banner">
+    <div id="position-wrap">
+        <div id="content">
+            <div class="wrap-title-recruit">
+                <h1 class="title-common">문의하기</h1>
+            </div>
+            <div class="help-find help-lost wrap-help">
+                <div class="cont-find">
+                    <form th:action="@{/customer-service-center/inquiry}" method="post" th:object="${inquiryDTO}"id="write-form">
+                        <fieldset>
+                            <p class="desc-find-type2">
+                                평일 09시 에서 17시까지 문의하신 내용은
+                                당일 답변해드립니다.
+                                <br />
+                                17시 이후에 문의하신 내용은 다음날에
+                                답변, 주말에 문의하신 내용은 그 다음주
+                                월요일에 답변해 드립니다.
+                            </p>
+                            <ul class="list-find">
+                                <li>
+                                    <div class="wrap-lab">
                                                 <span class="ico-required">
                                                 </span>
-                                                <label
-                                                    for="help-email"
-                                                    class="lab-find"
-                                                >
-                                                    이메일
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
+                                        <label
+                                                for="help-email"
+                                                class="lab-find"
+                                        >
+                                            이메일
+                                        </label>
+                                    </div>
+                                    <div class="wrap-input">
                                                 <span class="box-input">
                                                     <!-- 로그인한 이메일 들어오는곳 원래 readonly로 되어있음 -->
                                                     <input
-                                                        type="text"
-                                                        id="help-email"
-                                                        class="inp-find"
-                                                        name="memberEmail"
-                                                        th:value="${inquiryDTO.memberEmail}"
-                                                        autocomplete="off"
-                                                        readonly="readonly"
-                                                        required
+                                                            type="text"
+                                                            id="help-email"
+                                                            class="inp-find"
+                                                            name="memberEmail"
+                                                            th:value="${inquiryDTO.memberEmail}"
+                                                            autocomplete="off"
+                                                            readonly="readonly"
                                                     />
                                                 </span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-lab">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wrap-lab">
                                                 <span class="ico-required">
                                                 </span>
-                                                <label class="lab-find">
-                                                    구분
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
+                                        <label class="lab-find">
+                                            구분
+                                        </label>
+                                    </div>
+                                    <div class="wrap-input">
                                                 <span class="choice-input">
                                                     <span class="inp-rdo">
                                                         <input
-                                                            type="radio"
-                                                            name="inquiryType"
-                                                            id="help-member-type-person"
-                                                            class="help-member-type"
-                                                            th:field="*{inquiryType}"
-                                                            value="개인"
-                                                            required
-                                                            checked
+                                                                type="radio"
+                                                                name="inquiryType"
+                                                                id="help-member-type-person"
+                                                                class="help-member-type"
+                                                                th:field="*{inquiryType}"
+                                                                value="개인"
+                                                                checked
                                                         />
                                                         <label
-                                                            for="help-member-type-person"
-                                                            class="lbl"
-                                                            >개인</label
+                                                                for="help-member-type-person"
+                                                                class="lbl"
+                                                        >개인</label
                                                         >
                                                     </span>
                                                     <span class="inp-rdo">
                                                         <input
-                                                            type="radio"
-                                                            name="inquiryType"
-                                                            id="help-member-type-company"
-                                                            class="help-member-type"
-                                                            th:field="*{inquiryType}"
-                                                            value="기업"
-                                                            required
+                                                                type="radio"
+                                                                name="inquiryType"
+                                                                id="help-member-type-company"
+                                                                class="help-member-type"
+                                                                th:field="*{inquiryType}"
+                                                                value="기업"
                                                         />
                                                         <label
-                                                            for="help-member-type-company"
-                                                            class="lbl"
-                                                            >기업</label
+                                                                for="help-member-type-company"
+                                                                class="lbl"
+                                                        >기업</label
                                                         >
                                                     </span>
                                                 </span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-lab">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wrap-lab">
                                                 <span class="ico-required">
                                                 </span>
-                                                <label
-                                                    for="help-category"
-                                                    class="lab-find"
-                                                >
-                                                    문의종류
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
+                                        <label
+                                                for="help-category"
+                                                class="lab-find"
+                                        >
+                                            문의종류
+                                        </label>
+                                    </div>
+                                    <div class="wrap-input">
                                                 <span class="position-input2">
                                                     <select
-                                                        name="inquiryCategory"
-                                                        id="help-category"
-                                                        style="width: 338px"
-                                                        th:field="*{inquiryCategory}"
-                                                        required
+                                                            name="inquiryCategory"
+                                                            id="help-category"
+                                                            style="width: 338px"
+                                                            th:field="*{inquiryCategory}"
                                                     >
                                                         <option
-                                                            selected value=""
+                                                                selected value=""
                                                         >
                                                             선택해주세요
                                                         </option>
@@ -161,177 +157,175 @@
                                                         </option>
                                                     </select>
                                                 </span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-lab">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wrap-lab">
                                                 <span class="ico-required">
                                                 </span>
-                                                <label
-                                                    for="help-title"
-                                                    class="lab-find"
-                                                >
-                                                    제목
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
+                                        <label
+                                                for="help-title"
+                                                class="lab-find"
+                                        >
+                                            제목
+                                        </label>
+                                    </div>
+                                    <div class="wrap-input">
                                                 <span class="box-input">
                                                     <input
-                                                        type="text"
-                                                        name="inquiryTitle"
-                                                        id="help-title"
-                                                        class="inp-find"
-                                                        style="width: 533px"
-                                                        th:field="*{inquiryTitle}"
-                                                        required
+                                                            type="text"
+                                                            name="inquiryTitle"
+                                                            id="help-title"
+                                                            class="inp-find"
+                                                            style="width: 533px"
+                                                            th:field="*{inquiryTitle}"
                                                     />
                                                 </span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-lab">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wrap-lab">
                                                 <span class="ico-required">
                                                 </span>
-                                                <label
-                                                    for="help-desc"
-                                                    class="lab-find"
-                                                >
-                                                    내용
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
+                                        <label
+                                                for="help-desc"
+                                                class="lab-find"
+                                        >
+                                            내용
+                                        </label>
+                                    </div>
+                                    <div class="wrap-input">
                                                 <span class="box-input">
                                                     <textarea
-                                                        name="inquiryContent"
-                                                        id="help-desc"
-                                                        class="inp-find textarea"
-                                                        style="
+                                                            name="inquiryContent"
+                                                            id="help-desc"
+                                                            class="inp-find textarea"
+                                                            style="
                                                             width: 533px;
                                                             height: 120px;
                                                         "
-                                                        placeholder="문의종류 선택 후 내용을 입력해주세요."
-                                                        th:field="*{inquiryContent}"
-                                                        required
+                                                            placeholder="문의종류 선택 후 내용을 입력해주세요."
+                                                            th:field="*{inquiryContent}"
                                                     ></textarea>
                                                 </span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-lab">
-                                                <label
-                                                    for="help-upload"
-                                                    class="lab-find"
-                                                >
-                                                    파일첨부
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
-                                                <div class="uploads">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wrap-lab">
+                                        <label
+                                                for="help-upload"
+                                                class="lab-find"
+                                        >
+                                            파일첨부
+                                        </label>
+                                    </div>
+                                    <div class="wrap-input">
+                                        <div class="uploads">
                                                     <span class="info-upload">
                                                         <span
-                                                            class="txt-upload"
+                                                                class="txt-upload"
                                                         ></span>
                                                         <button
-                                                            type="button"
-                                                            class="btn-delete btn-delete"
+                                                                type="button"
+                                                                class="btn-delete btn-delete"
                                                         ></button>
                                                     </span>
-                                                </div>
-                                                <div class="wrap-file">
-                                                    <input
-                                                        type="file"
-                                                        id="help-upload"
-                                                        class="inp-upload"
-                                                        title="파일 업로드"
-                                                        name="file"
-                                                    />
-                                                    <label
-                                                        for="help-upload"
-                                                        class="btn-basic2 type03"
-                                                        >파일 첨부하기</label
-                                                    >
-                                                </div>
-                                                <p class="noti-inp">
-                                                    10MB 이하의 hwp, pdf, zip,
-                                                    MS Office 파일, 이미지
-                                                    파일(JPG, GIF, PNG, BMP) 만
-                                                    등록 가능합니다.
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="noti-find">
-                                        <h3 class="noti-title">
-                                            [개인정보 수집·이용에 대한 안내]
-                                        </h3>
-                                        <p class="desc-find-type2">
-                                            (주)POISTION은 이용자 문의를 처리하기
-                                            위해 다음과 같이 개인정보를 수집 및
-                                            이용하며, 이용자의 개인정보를
-                                            안전하게 취급하는데 최선을 다하고
-                                            있습니다.
-                                        </p>
-                                        <ul class="list-noti">
-                                            <li>① 수집항목 : 이메일 주소</li>
-                                            <li>
-                                                ② 수집·이용목적 : 문의에 따른
-                                                원활한 상담 제공
-                                            </li>
-                                            <li>
-                                                ③ 보유 및 이용기간 :
-                                                <strong
-                                                    >문의 처리 후 3년간
-                                                    보관</strong
-                                                >
-                                            </li>
-                                        </ul>
-                                        <p class="desc-find-type2">
-                                            위 동의를 거부 할 권리가 있으며 동의
-                                            거부 시 문의하기 이용이 제한됩니다.
-                                            <br />
-                                            이외의 방법으로 문의하시려면
-                                            이메일(help@position.co.kr)을 통하여
-                                            문의하시기 바랍니다.
-                                        </p>
-                                        <div class="check-agree">
-                                            <div class="position-input3">
-                                                <input
-                                                    type="checkbox"
-                                                    id="agree-chk"
-                                                />
-                                                <label for="agree-chk"
-                                                    >위의 ‘개인정보 수집 및
-                                                    이용‘에 동의합니다.</label
-                                                >
-                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- 취소 문의버튼 -->
-                                    <div class="wrap-link">
-                                        <a href="">
-                                            <button
-                                                class="btn-biggest-type03"
-                                                id="help-cancel"
-                                                type="button"
+                                        <div class="wrap-file">
+                                            <input
+                                                    type="file"
+                                                    id="help-upload"
+                                                    class="inp-upload"
+                                                    title="파일 업로드"
+                                                    name="uploaded-file"
+                                            />
+                                            <label
+                                                    for="help-upload"
+                                                    class="btn-basic2 type03"
+                                            >파일 첨부하기</label
                                             >
-                                                취소하기
-                                            </button>
-                                        </a>
-                                        <button
-                                            type="submit"
-                                            class="btn-biggest-type01"
-                                            id="help-send"
-                                        >
-                                            문의하기
-                                        </button>
+                                        </div>
+                                        <p class="noti-inp">
+                                            10MB 이하의 hwp, pdf, zip,
+                                            MS Office 파일, 이미지
+                                            파일(JPG, GIF, PNG, BMP) 만
+                                            등록 가능합니다.
+                                        </p>
                                     </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
+                                </li>
+                            </ul>
+                            <div class="noti-find">
+                                <h3 class="noti-title">
+                                    [개인정보 수집·이용에 대한 안내]
+                                </h3>
+                                <p class="desc-find-type2">
+                                    (주)POISTION은 이용자 문의를 처리하기
+                                    위해 다음과 같이 개인정보를 수집 및
+                                    이용하며, 이용자의 개인정보를
+                                    안전하게 취급하는데 최선을 다하고
+                                    있습니다.
+                                </p>
+                                <ul class="list-noti">
+                                    <li>① 수집항목 : 이메일 주소</li>
+                                    <li>
+                                        ② 수집·이용목적 : 문의에 따른
+                                        원활한 상담 제공
+                                    </li>
+                                    <li>
+                                        ③ 보유 및 이용기간 :
+                                        <strong
+                                        >문의 처리 후 3년간
+                                            보관</strong
+                                        >
+                                    </li>
+                                </ul>
+                                <p class="desc-find-type2">
+                                    위 동의를 거부 할 권리가 있으며 동의
+                                    거부 시 문의하기 이용이 제한됩니다.
+                                    <br />
+                                    이외의 방법으로 문의하시려면
+                                    이메일(help@position.co.kr)을 통하여
+                                    문의하시기 바랍니다.
+                                </p>
+                                <div class="check-agree">
+                                    <div class="position-input3">
+                                        <input
+                                                type="checkbox"
+                                                id="agree-chk"
+                                        />
+                                        <label for="agree-chk"
+                                        >위의 ‘개인정보 수집 및
+                                            이용‘에 동의합니다.</label
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 취소 문의버튼 -->
+                            <div class="wrap-link">
+                                <a href="">
+                                    <button
+                                            class="btn-biggest-type03"
+                                            id="help-cancel"
+                                            type="button"
+                                    >
+                                        취소하기
+                                    </button>
+                                </a>
+                                <button
+                                        type="submit"
+                                        class="btn-biggest-type01"
+                                        id="help-send"
+                                >
+                                    문의하기
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
-    </body>
-    <script src="/js/customer-service-center/inquiry.js"></script>
+    </div>
+</div>
+</body>
+<script src="/js/customer-service-center/inquiry.js"></script>
 </html>

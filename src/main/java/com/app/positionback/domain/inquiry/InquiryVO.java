@@ -16,4 +16,5 @@ public class InquiryVO {
     private String createDate;
     private String updateDate;
     private Long memberId;
+    private String memberEmail;
 }

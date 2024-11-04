@@ -4,10 +4,11 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter @Setter @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentVO {
+public class PaymentDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private String paymentAmount;
@@ -17,4 +18,8 @@ public class PaymentVO {
     private String updatedDate;
     private Long noticeId;
     private Long memberId;
+
+    public PaymentVO toVO() {
+        return new PaymentVO(id, paymentAmount, paymentStatus, paymentMethod, createdDate, updatedDate, noticeId, memberId);
+    }
 }

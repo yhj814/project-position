@@ -23,6 +23,7 @@ public class CorporationDTO {
     private String corporationSales;
     private String corporationCode;
     private String corporationEmployeesNumber;
+    private String createdDate;
 
     public  CorporationVO toVO() {
         return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,
