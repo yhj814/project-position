@@ -43,6 +43,7 @@ public class ApplyDTO {
     private String evaluationOverall;
     private String evaluationDifficulty;
     private String evaluationResult;
+    private Long positionerReviewId;
     private String questionContent;
     private String answerContent;
 

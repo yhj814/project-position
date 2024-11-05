@@ -29,17 +29,18 @@ INSERT INTO tbl_apply (
 
 ALTER TABLE tbl_apply
     ADD COLUMN id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY;
-
+drop view view_apply_list;
 create view view_apply_list as
 select
+    c.id AS corporation_id,
     c.corporation_name,
     n.notice_title,
     m.member_name,
     m.member_email,
     m.member_nickname,
     a.id as apply_id,
-    a.apply_type,
-    a.apply_status,
+    a.apply_type ,
+    a.apply_status as apply_status,
     n.notice_career,
     n.notice_education,
     n.notice_work_start_date,

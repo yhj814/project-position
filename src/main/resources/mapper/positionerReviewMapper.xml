@@ -37,6 +37,16 @@
         order by
             pr.created_date desc
     </select>
+
+    <select id="selectApplyReviewQuestion">
+        SELECT
+            pq.question_content,
+            pq.answer_content
+        FROM
+            tbl_positioner_question pq
+        WHERE
+            pq.positioner_review_id = #{positionerReviewId}
+    </select>
 </mapper>
 
 

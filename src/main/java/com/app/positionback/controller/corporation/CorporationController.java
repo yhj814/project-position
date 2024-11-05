@@ -4,9 +4,11 @@ import com.app.positionback.domain.apply.ApplyListDTO;
 import com.app.positionback.domain.apply.ApplyVO;
 import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.file.FileDTO;
+import com.app.positionback.domain.review.PositionReviewListDTO;
 import com.app.positionback.repository.apply.ApplyDAO;
 import com.app.positionback.service.apply.ApplyService;
 import com.app.positionback.service.corporation.CorporationService;
+import com.app.positionback.service.review.ReviewService;
 import com.app.positionback.utill.Pagination;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -14,12 +16,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class CorporationController {
 
     private final CorporationService corporationService;
     private final ApplyService applyService;
+    private final ReviewService reviewService;
     private final HttpSession session;
 
 //    기업 메인페이지
@@ -73,6 +78,13 @@ public class CorporationController {
             page = 1; // 기본 페이지 번호
         }
         return applyService.getApplyByCorporationId(page,pagination,corporationVO.getId());
+    }
+
+    // 기업에게 작성한 후기에서 질문 가져오기
+    @GetMapping("/review/question")
+    @ResponseBody
+    public List<PositionReviewListDTO> getReviewQuestion(Long positionerReviewId){
+        return reviewService.getPositionReviewList(positionerReviewId);
     }
 
     @GetMapping("/apply/total")

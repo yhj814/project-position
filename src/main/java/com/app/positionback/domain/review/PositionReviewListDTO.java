@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 @ToString
 public class PositionReviewListDTO {
-    private List<PositionReviewDTO> positionReviews;
-    private Pagination pagination;
+    private String questionContent;
+    private String answerContent;
+//    private List<PositionReviewDTO> positionReviews;
+//    private Pagination pagination;
 }

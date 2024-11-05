@@ -199,7 +199,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                 <span class="date-end"></span>
                             </div>
                             <button type="button" class="BtnType SizeM -apply-cancel">후기작성(인턴십)</button>
-                            <button type="button" class="btn-history -applicant-history">후기내역</button>
+                            <button type="button" id="reviewBtn" class="btn-history -applicant-history" data-review-id="${apply.positionerReviewId}">후기내역</button>
                         </div>
 
                         <div class="col-history" style="display: none">
@@ -244,15 +244,11 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                 </div>
                                 <!-- 인턴십 질문 -->
 
-                                <div class="info-view">
+                                <div class="info-view" id="review-questions-${apply.id}">
                                     <strong class="tit-view"></strong>
                                     <ul class="list-question">
-                                        ${apply.questionContent.map((question, index) => `
-                                    <li>${question}</li>
-                                    <ul class="list-item-1">
-                                        <li>${apply.answerContent[index]}</li>
                                     </ul>
-                                `).join('')}
+                                    <ul class="list-item-1">
                                     </ul>
                                 </div>
                                 <!-- 특이사항 -->
@@ -270,6 +266,8 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
         }
     });
     listBody.innerHTML = text;
+
+
 
     // 이전 버튼
     if (pagination.prev) {
@@ -327,6 +325,9 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
             }
         });
     });
+
+    // 모든 버튼에 클릭 이벤트 리스너 추가
+
 
     hideLoading(); // 로딩 화면 숨기기
 
