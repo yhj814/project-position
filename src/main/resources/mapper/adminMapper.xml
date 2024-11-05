@@ -5,16 +5,26 @@
 
     <!-- 일반 회원 목록 페이징 -->
     <select id="selectAllMembers" resultType="memberDTO">
-        SELECT id,
+        select id,
                member_name,
                CASE WHEN member_email IS NOT NULL THEN member_email ELSE member_kakao_email END AS memberEmail,
                member_address,
                member_phone,
                member_status,
                created_date
-        FROM tbl_member
-        ORDER BY created_date DESC
-            limit #{pagination.startRow}, #{pagination.rowCount}
+        from tbl_member
+        order by
+        <choose>
+            <when test="pagination.order == 'name'">member_name</when>
+            <when test="pagination.order == 'status'">member_status</when>
+            <otherwise>created_date</otherwise>
+        </choose>
+        desc
+        limit #{pagination.startRow}, #{pagination.rowCount}
+    </select>
+
+    <select id="selectMemberTotal">
+        select count(*) from tbl_member
     </select>
 
     <!-- 기업 회원 목록 페이징 -->
@@ -29,6 +39,10 @@
         FROM tbl_corporation
         ORDER BY created_date DESC
             LIMIT #{pagination.startRow}, #{pagination.rowCount}
+    </select>
+
+    <select id="selectCorporationTotal">
+        select count(*) from tbl_corporation
     </select>
 
     <!-- 문의 관리 -->

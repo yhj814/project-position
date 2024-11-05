@@ -37,10 +37,21 @@ public class AdminServiceImpl implements AdminService {
         return adminDAO.memberInformation(pagination);
     }
 
+    // 일반 회원 전체 인원
+    public int getMemberTotal() {
+        return adminDAO.getMemberTotal();
+    }
+
     // 기업 회원 정보 조회
     public List<CorporationDTO> getCorporationMembers(Pagination pagination) {
         return adminDAO.corporationInformation(pagination);
     }
+
+    // 기업 회원 전체 인원
+    public int getCorporationTotal() {
+        return adminDAO.getCorporationTotal();
+    }
+
 
     // 지원 현황 관리
     // 지원 현황
