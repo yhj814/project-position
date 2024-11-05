@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ApplyDTO {
     @EqualsAndHashCode.Include
-    private Long id;
+    private Long applyId;
     private Long noticeId;
     private Long resumeId;
     private String applyType;

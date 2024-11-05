@@ -58,7 +58,7 @@
     <update id="updateApplyStatus">
         update tbl_apply
         set apply_status = #{applyStatus}
-        where id = #{id}
+        where id = #{applyId}
     </update>
 
 

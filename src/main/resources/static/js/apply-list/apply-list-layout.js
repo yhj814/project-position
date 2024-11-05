@@ -19,7 +19,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
         if (statusInput.value === 'ongoing') {
             text += `
              <div class="list-status">
-                <div class="row -apply-list" id="apply-list-${apply.id}">
+                <div class="row -apply-list" id="apply-list-${apply.applyId}">
                     <div class="col-summary">
                         <strong class="corp">
                             <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
@@ -27,7 +27,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             </a>
                         </strong>
                         <div class="recruit">
-                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
                                 <span class="division">${apply.noticeTitle}</span>
                                 <div class="TipBox">
                                     <span>${apply.noticeJobCategoryName}</span>
@@ -49,7 +49,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                         <div class="action">
                             <span class="date-end"></span>
                         </div>
-                        <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.id}">지원합격</button>
+                        <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.applyId}">지원합격</button>
                         <button type="button" class="btn-history -applicant-history">지원내역</button>
                     </div>
     
@@ -71,7 +71,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
         } else if (statusInput.value === 'closed') {
             text += `
              <div class="list-status">
-                <div class="row -apply-list" id="apply-list-${apply.id}">
+                <div class="row -apply-list" id="apply-list-${apply.applyId}">
                     <div class="col-summary">
                         <strong class="corp">
                             <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
@@ -79,7 +79,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             </a>
                         </strong>
                         <div class="recruit">
-                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
                                 <span class="division">${apply.noticeTitle}</span>
                                 <div class="TipBox">
                                     <span>${apply.noticeJobCategoryName}</span>
@@ -101,7 +101,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                         <div class="action">
                             <span class="date-end"></span>
                         </div>
-                        <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.id}">면접합격</button>
+                        <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.applyId}">면접합격</button>
                         <button type="button" class="btn-history -applicant-history">지원내역</button>
                     </div>
     
@@ -123,7 +123,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
         } else if (statusInput.value === 'position') {
             text += `
             <div class="list-status">
-                <div class="row -apply-list" id="apply-list-${apply.id}">
+                <div class="row -apply-list" id="apply-list-${apply.applyId}">
         
                     <div class="col-summary">
                         <strong class="corp">
@@ -132,7 +132,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             </a>
                         </strong>
                         <div class="recruit">
-                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
                                 <span class="division">${apply.noticeTitle}</span>
                                 <div class="TipBox">
                                     <span>${apply.noticeJobCategoryName}</span>
@@ -164,7 +164,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
         }  else if (statusInput.value === 'review') {
             text +=`
                 <div class="list-status">
-                    <div class="row -apply-list" id="apply-list-${apply.id}">
+                    <div class="row -apply-list" id="apply-list-${apply.applyId}">
             
                         <div class="col-summary">
                             <strong class="corp">
@@ -173,7 +173,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                 </a>
                             </strong>
                             <div class="recruit">
-                                <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                                <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
                                     <span class="division">${apply.noticeTitle}</span>
                                     <div class="TipBox">
                                         <span>${apply.noticeJobCategoryName}</span>
@@ -244,7 +244,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                 </div>
                                 <!-- 인턴십 질문 -->
 
-                                <div class="info-view" id="review-questions-${apply.id}">
+                                <div class="info-view" id="review-questions-${apply.applyId}">
                                     <strong class="tit-view"></strong>
                                     <ul class="list-question">
                                     </ul>
@@ -309,6 +309,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
             const applyId = button.getAttribute('data-id'); // 지원 ID 가져오기
             let newStatus = '';
 
+
             // statusInput 값에 따라 newStatus 설정
             if (statusInput.value === 'ongoing') {
                 newStatus = '면접 예정';
@@ -317,10 +318,10 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
             } else if (statusInput.value === 'position') {
                 newStatus = '인턴십 완료';
             }
-
+            console.log(`지원 ID: ${applyId}, 새 상태: ${newStatus}`);
             const confirmed = confirm(`정말로 '${newStatus}' 상태로 변경하시겠습니까?`); // 상태 변경 확인
             if (confirmed) {
-                await applyService.update({ id: applyId, applyStatus: newStatus });
+                await applyService.update({ applyId: applyId, applyStatus: newStatus });
                 loadApplies(); // 업데이트된 상태를 표시하기 위해 리스트를 새로 로드
             }
         });

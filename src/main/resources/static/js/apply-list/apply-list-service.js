@@ -8,16 +8,16 @@ const applyService = (() => {
             callback(applies);
         }
     };
-    // // 후기 질문 조회
-    // const getReviewQuestions = async (positionerReviewId, callback) => {
-    //     const response = await fetch(`/review/question?positionerReviewId=${positionerReviewId}`);
-    //
-    //     const questions = await response.json();
-    //     if (callback) {
-    //         callback(questions);
-    //     }
-    //
-    // };
+    // 후기 질문 조회
+    const getReviewQuestions = async (positionerReviewId, callback) => {
+        const response = await fetch(`/review/question?positionerReviewId=${positionerReviewId}`);
+
+        const questions = await response.json();
+        if (callback) {
+            callback(questions);
+        }
+
+    };
 
     // const remove = async (id) => {
     //     await fetch(`/corporation/notice/delete/${id}`, {
@@ -55,5 +55,5 @@ const applyService = (() => {
         document.getElementById('review-count').textContent = reviewCount; // 후기 개수 업데이트
     };
 
-    return { getApplyList: getApplyList, update:update};
+    return { getApplyList: getApplyList, update:update,getReviewQuestions:getReviewQuestions};
 })()
