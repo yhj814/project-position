@@ -2,6 +2,8 @@ const applyPaging = document.querySelector(".PageBox");
 const listBody = document.querySelector('.list-recruiting');
 const ongoingBtn = document.getElementById("ongoing-btn");
 const closedBtn = document.getElementById("closed-btn");
+const positionBtn = document.getElementById("position-btn");
+const reviewBtn = document.getElementById("review-btn");
 const statusInput = document.getElementById("apply-status");
 const loadingScreen = document.getElementById("ingRecruitLoading"); // 로딩 화면 요소
 const sortingSelect = document.querySelector(".InpBox.sorting-select");
@@ -14,7 +16,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
 
     applies.forEach(apply => {
 
-        // if (statusInput.value === 'ongoing') {
+        if (statusInput.value === 'ongoing') {
             text += `
              <div class="list-status">
                 <div class="row -apply-list" id="apply-list-${apply.id}">
@@ -66,9 +68,206 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                 </div>
             </div>
             `;
-        // } else if (statusInput.value === 'closed') {
-        //     text=``
-        // }
+        } else if (statusInput.value === 'closed') {
+            text += `
+             <div class="list-status">
+                <div class="row -apply-list" id="apply-list-${apply.id}">
+                    <div class="col-summary">
+                        <strong class="corp">
+                            <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
+                                ${apply.memberName}
+                            </a>
+                        </strong>
+                        <div class="recruit">
+                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                                <span class="division">${apply.noticeTitle}</span>
+                                <div class="TipBox">
+                                    <span>${apply.noticeJobCategoryName}</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="attached">
+                            <button type="button" class="data -file-down-resume">이력서</button>
+                        </div>
+                        <div class="status">
+                            <em class="txt-status">${apply.applyStatus}</em>
+                            <span class="txt-sub">${formatDate(apply.noticeEndDate)}</span>
+                            <button type="button" class="btn-report -ai-report">
+                                <svg></svg> 경쟁력분석
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-btns">
+                        <div class="action">
+                            <span class="date-end"></span>
+                        </div>
+                        <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.id}">면접합격</button>
+                        <button type="button" class="btn-history -applicant-history">지원내역</button>
+                    </div>
+    
+                    <div class="col-history" style="display: none">
+                        <ol class="timeline">
+                            <li class="now">
+                                <span class="date">${formatDate(apply.createdDate)}</span>
+                                <span class="desc">
+                                    <strong>${apply.applyStatus}</strong>
+                                    <span>지원서류<button type="button" class="txt">이력서</button></span>
+                                    <span>지원 완료<button type="button" class="txt">지원 취소</button></span>
+                                </span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            `;
+        } else if (statusInput.value === 'position') {
+            text += `
+            <div class="list-status">
+                <div class="row -apply-list" id="apply-list-${apply.id}">
+        
+                    <div class="col-summary">
+                        <strong class="corp">
+                            <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
+                                ${apply.memberName}
+                            </a>
+                        </strong>
+                        <div class="recruit">
+                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                                <span class="division">${apply.noticeTitle}</span>
+                                <div class="TipBox">
+                                    <span>${apply.noticeJobCategoryName}</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="attached">
+                            <button type="button" class="data -file-down-resume" onclick="document.getElementById('fileInput').click();">이수증 업로드</button>
+                            <input type="file" name="file" id="fileInput" style="display: none;">
+                        </div>
+                        <div class="status">
+                            <em class="txt-status">${apply.applyStatus}</em>
+                            <span class="txt-sub">미열람</span>
+                            <button type="button" class="btn-report -ai-report">
+                                <svg></svg> 경쟁력분석
+                            </button>
+                        </div>
+                    </div>
+        
+                    <div class="col-btns" id="col-btn">
+                        <div class="action" >
+                            <span class="date-end"></span>
+                        </div>
+                        <button type="button" class="BtnType SizeM -apply-cancel">후기작성(인턴십)</button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }  else if (statusInput.value === 'review') {
+            text +=`
+                <div class="list-status">
+                    <div class="row -apply-list" id="apply-list-${apply.id}">
+            
+                        <div class="col-summary">
+                            <strong class="corp">
+                                <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
+                                    ${apply.memberName}
+                                </a>
+                            </strong>
+                            <div class="recruit">
+                                <a href="/zf-user/jobs/relay/view?rec-idx=${apply.id}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                                    <span class="division">${apply.noticeTitle}</span>
+                                    <div class="TipBox">
+                                        <span>${apply.noticeJobCategoryName}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="attached">
+                                <button type="button" class="data -file-down-resume">이력서</button>
+                            </div>
+                            <div class="status">
+                                <em class="txt-status">${apply.applyStatus}</em>
+                                <span class="txt-sub">미열람</span>
+                                <button type="button" class="btn-report -ai-report">
+                                    <svg aria-hidden="true" focusable="false" class="ic">
+                                        <use xlink:href="#icon_report"></use>
+                                    </svg>
+                                    신고하기
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-btns">
+                            <div class="action">
+                                <span class="date-end"></span>
+                            </div>
+                            <button type="button" class="BtnType SizeM -apply-cancel">후기작성(인턴십)</button>
+                            <button type="button" class="btn-history -applicant-history">후기내역</button>
+                        </div>
+
+                        <div class="col-history" style="display: none">
+                            <div class="view-cont" style="display: block;">
+                                <!-- 이모티콘있는곳 -->
+                                <div class="info-emoticon">
+                                    <dl class="review">
+                                        <dt>전반적 평가</dt>
+                                        <dd class="spr-review smile">${apply.evaluationOverall}</dd>
+                                    </dl>
+                                    <dl class="review difficulty">
+                                        <dt>난이도</dt>
+                                        <dd class="spr-review">${apply.evaluationDifficulty}</dd>
+                                    </dl>
+                                    <dl class="review result">
+                                        <dt>결과</dt>
+                                        <dd class="spr-review smile">${apply.evaluationResult}</dd>
+                                    </dl>
+                                </div>
+                                <!-- 인턴십 유형 -->
+                                <div class="info-view">
+                                    <strong class="tit-view">인턴십 유형</strong>
+                                    <ul class="list-item">
+                                        <li>${apply.noticeJobCategoryName}</li>
+                                    </ul>
+                                </div>
+                                <!-- 인턴십 팀원 수 -->
+                                <div class="info-view">
+                                    <strong class="tit-view">팀원 수</strong>
+                                    <ul class="list-item">
+                                        <li>팀원 5명</li>
+                                    </ul>
+                                </div>
+                                <!-- 진행 및 업무 내용 -->
+                                <div class="info-view">
+                                    <strong class="tit-view">업무 내용 및 진행 방식</strong>
+                                    <p class="txt-desc">
+                                        프로젝트 회의 참여 및 코드 리뷰 수행.<br />
+                                        팀원들과의 원활한 소통이 필요하며, 적극적인 피드백을 통해 발전 가능.<br />
+                                        주 1회 팀 회의 진행, 개별 업무는 자유롭게 진행 가능.
+                                    </p>
+                                </div>
+                                <!-- 인턴십 질문 -->
+
+                                <div class="info-view">
+                                    <strong class="tit-view"></strong>
+                                    <ul class="list-question">
+                                        ${apply.questionContent.map((question, index) => `
+                                    <li>${question}</li>
+                                    <ul class="list-item-1">
+                                        <li>${apply.answerContent[index]}</li>
+                                    </ul>
+                                `).join('')}
+                                    </ul>
+                                </div>
+                                <!-- 특이사항 -->
+                                <div class="info-view">
+                                    <strong class="tit-view">TIP 및 특이사항</strong>
+                                    <p class="txt-desc">
+                                        ${apply.positionerReviewTips}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                `;
+        }
     });
     listBody.innerHTML = text;
 
@@ -107,17 +306,28 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
     applyPaging.innerHTML = pagingText;
 
     const updateButtons = document.querySelectorAll('.-apply-cancel');
-    updateButtons.forEach(button =>{
+    updateButtons.forEach(button => {
         button.addEventListener('click', async () => {
             const applyId = button.getAttribute('data-id'); // 지원 ID 가져오기
-            const confirmed = confirm("정말로 합격처리 하시겠습니까?"); // 삭제 확인
-            const newStatus = '면접 예정';
-            if(confirmed){
-                await applyService.update({id: applyId, applyStatus:newStatus});
+            let newStatus = '';
+
+            // statusInput 값에 따라 newStatus 설정
+            if (statusInput.value === 'ongoing') {
+                newStatus = '면접 예정';
+            } else if (statusInput.value === 'closed') {
+                newStatus = '면접 합격';
+            } else if (statusInput.value === 'position') {
+                newStatus = '인턴십 완료';
+            }
+
+            const confirmed = confirm(`정말로 '${newStatus}' 상태로 변경하시겠습니까?`); // 상태 변경 확인
+            if (confirmed) {
+                await applyService.update({ id: applyId, applyStatus: newStatus });
                 loadApplies(); // 업데이트된 상태를 표시하기 위해 리스트를 새로 로드
             }
         });
     });
+
     hideLoading(); // 로딩 화면 숨기기
 
 };
@@ -152,9 +362,19 @@ closedBtn.addEventListener("click", () => {
     loadApplies();
 });
 
+positionBtn.addEventListener("click", () => {
+    statusInput.value = 'position'; // 상태를 마감으로 설정
+    loadApplies();
+});
+
+reviewBtn.addEventListener("click", () => {
+    statusInput.value = 'review'; // 상태를 마감으로 설정
+    loadApplies();
+});
+
 // 페이지 전환 함수
 function goToPage(page) {
-    // const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다.
+    // const order = sortingSelect.value; // 드롭다운에서 선택된 정렬 기준을 가져옵니다. 추가할떄 아래에도 order 추가
     const status = statusInput.value; // 현재 상태 값을 가져옵니다.
     loadApplies(page, status); // 상태를 유지하면서 공고 목록 로드
 }

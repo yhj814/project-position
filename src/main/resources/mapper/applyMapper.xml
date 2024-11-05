@@ -18,7 +18,16 @@
         n.notice_work_start_time ,
         n.notice_work_end_time ,
         n.notice_end_date ,
-        n.notice_job_category_name
+        n.notice_job_category_name,
+        pr.id ,
+        pr.positioner_review_tips,
+        pr.created_date ,
+        pr.updated_date ,
+        e.evaluation_overall,
+        e.evaluation_difficulty,
+        e.evaluation_result,
+        pq.question_content,
+        pq.answer_content
         from
         tbl_apply a
         join
@@ -29,6 +38,14 @@
         tbl_resume r on a.resume_id = r.id
         join
         tbl_member m on r.member_id = m.id
+        left join
+        tbl_positioner_review pr on pr.apply_id = a.id
+        left join
+        tbl_positioner_question pq on pr.id = pq.positioner_review_id
+        left join
+        tbl_evaluation_positioner ep on pr.id = ep.positioner_review_id
+        left join
+        tbl_evaluation e on ep.id = e.id
         where
         c.id = #{corporationId}
         <if test="pagination.status == 'closed'">
@@ -37,9 +54,15 @@
         <if test="pagination.status == 'ongoing'">
             <![CDATA[ and a.apply_status = '지원 완료' ]]>
         </if>
+        <if test="pagination.status == 'position'">
+            <![CDATA[ and a.apply_status = '면접 합격' ]]>
+        </if>
+        <if test="pagination.status == 'review'">
+            <![CDATA[ and a.apply_status = '인턴십 완료' ]]>
+        </if>
         order by
         <choose>
-            <when test="pagination.order == 'recent'.toString()">id</when>
+            <when test="pagination.order == 'recent'.toString()">a.id</when>
             <otherwise>notice_end_date</otherwise>
         </choose>
         desc
@@ -65,6 +88,12 @@
         </if>
         <if test="pagination.status == 'ongoing'">
             <![CDATA[ and a.apply_status = '지원 완료' ]]>
+        </if>
+        <if test="pagination.status == 'position'">
+            <![CDATA[ and a.apply_status = '면접 합격' ]]>
+        </if>
+        <if test="pagination.status == 'review'">
+            <![CDATA[ and a.apply_status = '인턴십 완료' ]]>
         </if>
     </select>
 

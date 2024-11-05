@@ -4,6 +4,8 @@ package com.app.positionback.domain.apply;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Getter @Setter @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -36,5 +38,12 @@ public class ApplyDTO {
     private String memberName;
     private String memberEmail;
     private String memberNickname;
+
+    private String positionerReviewTips;
+    private String evaluationOverall;
+    private String evaluationDifficulty;
+    private String evaluationResult;
+    private String questionContent;
+    private String answerContent;
 
 }

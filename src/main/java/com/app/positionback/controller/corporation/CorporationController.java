@@ -21,7 +21,6 @@ public class CorporationController {
     private final CorporationService corporationService;
     private final ApplyService applyService;
     private final HttpSession session;
-    private final ApplyDAO applyDAO;
 
 //    기업 메인페이지
     @GetMapping("/corporation")
@@ -54,6 +53,8 @@ public class CorporationController {
         // Pagination에서 상태별 개수 가져오기
         model.addAttribute("ongoingCount", pagination.getOngoingCount());
         model.addAttribute("closedCount", pagination.getClosedCount());
+        model.addAttribute("positionCount", pagination.getPositionCount());
+        model.addAttribute("reviewCount", pagination.getReviewCount());
     }
 //  기업 지원 목록 페이지 (비동기)
     @GetMapping("/applies/list/{page}")

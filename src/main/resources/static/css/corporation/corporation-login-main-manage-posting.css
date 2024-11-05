@@ -1255,6 +1255,7 @@ label {
     left: 0;
     width: 33px;
     height: 33px;
+     background-position: -40px -40px;
     content: "";
 }
 .spr-review:before {
@@ -1299,11 +1300,7 @@ label {
     height: 44px;
     background-position: -40px -80px;
 }
- .info-emoticon .review dd:before {
-    position: absolute;
-    left: 0;
-    content: "";
-}
+
  .info-view {
     padding: 9px 0;
     font-size: 15px;
@@ -1401,4 +1398,8 @@ label {
 
 .sidebar .company-navi .menu-list .btn-menu .badge-new {
     background: var(--green90);
+}
+
+div#col-btn {
+    padding: 0 89px 0 163px;
 }

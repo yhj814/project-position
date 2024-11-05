@@ -33,8 +33,18 @@ public class ApplyServiceImpl implements ApplyService{
         closedPagination.setStatus("closed");
         int closedCount = applyDAO.getTotal(closedPagination,corporationId);
 
+        Pagination postitionPagination = new Pagination();
+        postitionPagination.setStatus("position");
+        int paginationCount = applyDAO.getTotal(postitionPagination,corporationId);
+
+        Pagination reviewPagination = new Pagination();
+        reviewPagination.setStatus("review");
+        int reviewCount = applyDAO.getTotal(reviewPagination,corporationId);
+
         pagination.setOngoingCount(ongoingCount);
         pagination.setClosedCount(closedCount);
+        pagination.setPositionCount(paginationCount);
+        pagination.setReviewCount(reviewCount);
 
 
         return applyListDTO;
