@@ -55,9 +55,7 @@ select
     pr.updated_date as review_updated_date,
     e.evaluation_overall,
     e.evaluation_difficulty,
-    e.evaluation_result,
-    pq.question_content,
-    pq.answer_content
+    e.evaluation_result
 from
     tbl_apply a
         join
@@ -73,6 +71,4 @@ from
         left join
     tbl_evaluation_positioner ep on pr.id = ep.positioner_review_id
         left join
-    tbl_evaluation e on ep.id = e.id
-        left join
-    tbl_positioner_question pq on pr.id = pq.positioner_review_id;
+    tbl_evaluation e on ep.id = e.id;

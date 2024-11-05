@@ -245,7 +245,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                 <!-- 인턴십 질문 -->
 
                                 <div class="info-view" id="review-questions-${apply.applyId}">
-                                    <strong class="tit-view"></strong>
+                                    <strong class="tit-view">인턴십 질문</strong>
                                     <ul class="list-question">
                                     </ul>
                                     <ul class="list-item-1">
@@ -327,8 +327,39 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
         });
     });
 
-    // 모든 버튼에 클릭 이벤트 리스너 추가
+    // 버튼 클릭 이벤트 리스너 추가
+    document.querySelectorAll('.btn-history').forEach(button => {
+        button.addEventListener('click', async (event) => {
+            const positionerReviewId = event.currentTarget.dataset.reviewId;
+            // 버튼이 속한 applyId를 가져옵니다.
+            const applyId = event.currentTarget.closest('.row.-apply-list').id.split('-')[2];
 
+            // 질문과 답변을 가져옵니다.
+            await applyService.getReviewQuestions(positionerReviewId, (questions) => {
+                // review-questions-${applyId}에 대한 부모 요소 선택
+                const reviewContainer = document.querySelector(`#review-questions-${applyId}`);
+
+                // 기존의 내용을 비웁니다.
+                reviewContainer.innerHTML = '';
+
+                // 질문과 답변 추가
+                questions.forEach(question => {
+                    // HTML 문자열을 만들어 추가
+                    reviewContainer.innerHTML += `
+                    <div class="info-view">
+                        <strong class="tit-view"></strong>
+                        <ul class="list-question">
+                            <li>${question.questionContent}</li>
+                        </ul>
+                        <ul class="list-item-1">
+                            <li>${question.answerContent}</li>
+                        </ul>
+                    </div>
+                `;
+                });
+            });
+        });
+    });
 
     hideLoading(); // 로딩 화면 숨기기
 
