@@ -1,5 +1,6 @@
 package com.app.positionback.service.apply;
 
+import com.app.positionback.domain.apply.ApplyDTO;
 import com.app.positionback.domain.apply.ApplyListDTO;
 import com.app.positionback.domain.apply.ApplyVO;
 import com.app.positionback.domain.file.CertificationFileDTO;
@@ -20,6 +21,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -39,7 +41,19 @@ public class ApplyServiceImpl implements ApplyService{
         pagination.setTotal(applyDAO.getTotal(pagination,corporationId));
         pagination.progress();
         applyListDTO.setPagination(pagination);
-        applyListDTO.setApplies(applyDAO.findApplyByCorporationId(pagination,corporationId));
+
+        // 지원 목록 가져오기
+        List<ApplyDTO> applies = applyDAO.findApplyByCorporationId(pagination, corporationId);
+
+        // 각 지원 항목에 파일을 추가
+        applies.forEach(apply -> {
+            // applyId에 해당하는 파일을 가져와 설정
+            apply.setFile(certificationFileDAO.getFileIdByApplyId(apply.getApplyId()).orElse(null));
+        });
+
+        applyListDTO.setApplies(applies);
+
+//        applyListDTO.setApplies(applyDAO.findApplyByCorporationId(pagination,corporationId));
 
         Pagination ongoingPagination = new Pagination();
         ongoingPagination.setStatus("ongoing");

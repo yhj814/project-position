@@ -1,6 +1,8 @@
 package com.app.positionback.domain.apply;
 
 
+import com.app.positionback.domain.file.CertificationFileDTO;
+import com.app.positionback.domain.file.CertificationFileVO;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -46,5 +48,7 @@ public class ApplyDTO {
     private Long positionerReviewId;
     private String questionContent;
     private String answerContent;
+
+    private CertificationFileVO file; // 파일을 저장할 필드
 
 }
