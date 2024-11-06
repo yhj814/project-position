@@ -41,6 +41,7 @@ const displayMembers = (members) => {
 
         // 새로 생성한 회원 행을 컨테이너에 추가
         memberListDiv.appendChild(memberRow);
+        
     });
 };
 
