@@ -8,6 +8,7 @@ import com.app.positionback.domain.review.PositionReviewListDTO;
 import com.app.positionback.repository.apply.ApplyDAO;
 import com.app.positionback.service.apply.ApplyService;
 import com.app.positionback.service.corporation.CorporationService;
+import com.app.positionback.service.member.MemberService;
 import com.app.positionback.service.review.ReviewService;
 import com.app.positionback.utill.Pagination;
 import jakarta.servlet.http.HttpSession;
@@ -15,7 +16,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -41,6 +45,7 @@ public class CorporationController {
     @GetMapping("/corporation/management")
     public void goToManagement(@RequestParam(required = false) Integer page, Pagination pagination, Model model){
         CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
+//        FileDTO fileDTO = corporationService.getApplyFileById(corporationVO.getId());
         // page가 null인 경우 기본값 설정
         if (page == null) {
             page = 1; // 기본 페이지 번호
@@ -101,5 +106,17 @@ public class CorporationController {
     @ResponseBody
     public void updateApplyStatus(@RequestBody ApplyVO applyVO){
         applyService.setApplyStatus(applyVO);
+    }
+
+//    기업이 이수증 올려주는 것
+    @PostMapping("/certification/upload")
+    public RedirectView uploadCertificationFile(@RequestParam String uuid, @RequestParam String path, MultipartFile file, @RequestParam Long applyId) throws IOException {
+        applyService.uploadCertificationFile(uuid, path, file, applyId);
+        return new RedirectView("/corporation/management");
+    }
+
+    @PostMapping("/file/certification/upload")
+    public void uploadCertificationFile(MultipartFile file) throws IOException {
+        ;
     }
 }

@@ -36,6 +36,14 @@ const applyService = (() => {
         });
         updateCounts();
     }
+    const upload = async (formData) => {
+        const response = await fetch("/file/profile/upload", {
+            method: "post",
+            body: formData
+        });
+        const file = await response.json();
+        return file;
+    }
 
     const updateCounts = async () => {
         // 각 상태에 대한 개수를 다시 조회
@@ -55,5 +63,5 @@ const applyService = (() => {
         document.getElementById('review-count').textContent = reviewCount; // 후기 개수 업데이트
     };
 
-    return { getApplyList: getApplyList, update:update,getReviewQuestions:getReviewQuestions};
+    return { getApplyList: getApplyList, update:update,getReviewQuestions:getReviewQuestions, upload: upload};
 })()

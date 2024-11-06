@@ -7,6 +7,7 @@ const reviewBtn = document.getElementById("review-btn");
 const statusInput = document.getElementById("apply-status");
 const loadingScreen = document.getElementById("ingRecruitLoading"); // 로딩 화면 요소
 const sortingSelect = document.querySelector(".InpBox.sorting-select");
+const uploadBtn = document.getElementById("uploadBtn");
 
 const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
     listBody.innerHTML='';
@@ -126,30 +127,35 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                 <div class="row -apply-list" id="apply-list-${apply.applyId}">
         
                     <div class="col-summary">
-                        <strong class="corp">
-                            <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
-                                ${apply.memberName}
-                            </a>
-                        </strong>
-                        <div class="recruit">
-                            <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
-                                <span class="division">${apply.noticeTitle}</span>
-                                <div class="TipBox">
-                                    <span>${apply.noticeJobCategoryName}</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="attached">
-                            <button type="button" class="data -file-down-resume" onclick="document.getElementById('fileInput').click();">이수증 업로드</button>
-                            <input type="file" name="file" id="fileInput" style="display: none;">
-                        </div>
-                        <div class="status">
-                            <em class="txt-status">${apply.applyStatus}</em>
-                            <span class="txt-sub">미열람</span>
-                            <button type="button" class="btn-report -ai-report">
-                                <svg></svg> 경쟁력분석
-                            </button>
-                        </div>
+                        <form id="uploadForm-${apply.applyId}" action="/certification/upload" method="post" enctype="multipart/form-data">
+                            <strong class="corp">
+                                <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
+                                    ${apply.memberName}
+                                </a>
+                            </strong>
+                            <div class="recruit">
+                                <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
+                                    <span class="division">${apply.noticeTitle}</span>
+                                    <div class="TipBox">
+                                        <span>${apply.noticeJobCategoryName}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="attached">
+                                <button type="button" class="data -file-down-resume" id="uploadBtn" onclick="document.getElementById('fileInput-${apply.applyId}').click();">이수증 업로드</button>
+                                <input type="file" name="file" id="fileInput-${apply.applyId}" style="display: none;">
+                                <input type="hidden" name="uuid" id="uuid-${apply.applyId}">
+                                <input type="hidden" name="path" id="path-${apply.applyId}">
+                                <input type="hidden" name="applyId" value="${apply.applyId}">
+                            </div>
+                            <div class="status">
+                                <em class="txt-status">${apply.applyStatus}</em>
+                                <span class="txt-sub">미열람</span>
+                                <button type="button" class="btn-report -ai-report">
+                                    <svg></svg> 경쟁력분석
+                                </button>
+                            </div>
+                        </form>
                     </div>
         
                     <div class="col-btns" id="col-btn">
@@ -246,10 +252,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
 
                                 <div class="info-view" id="review-questions-${apply.applyId}">
                                     <strong class="tit-view">인턴십 질문</strong>
-                                    <ul class="list-question">
-                                    </ul>
-                                    <ul class="list-item-1">
-                                    </ul>
+                                    
                                 </div>
                                 <!-- 특이사항 -->
                                 <div class="info-view">
@@ -342,12 +345,19 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                 // 기존의 내용을 비웁니다.
                 reviewContainer.innerHTML = '';
 
+                // 첫 번째 요소인지 확인하기 위한 변수
+                let isFirst = true;
+
                 // 질문과 답변 추가
                 questions.forEach(question => {
+
+                    // 첫 번째 요소일 때만 "인턴십 질문"을 strong 태그에 추가
+                    const strongContent = isFirst ? '인턴십 질문' : '';
+
                     // HTML 문자열을 만들어 추가
                     reviewContainer.innerHTML += `
                     <div class="info-view">
-                        <strong class="tit-view"></strong>
+                        <strong class="tit-view">${strongContent}</strong>
                         <ul class="list-question">
                             <li>${question.questionContent}</li>
                         </ul>
@@ -356,8 +366,39 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                         </ul>
                     </div>
                 `;
+
+                    // 첫 번째 요소 처리 후 isFirst를 false로 설정
+                    isFirst = false;
                 });
             });
+        });
+    });
+
+    // 모든 파일 input 요소에 이벤트 리스너 추가
+    document.querySelectorAll("input[type='file'][id^='fileInput-']").forEach(fileInput => {
+        fileInput.addEventListener("change", async (e) => {
+            const applyId = e.target.id.split('-')[1]; // applyId 추출
+            const file = e.target.files[0];
+
+            if (file.type.startsWith("image")) {
+                const formData = new FormData(document.getElementById(`uploadForm-${applyId}`));
+                formData.append("file", file);
+
+                // 파일 업로드 요청
+                const fileInfo = await applyService.upload(formData);
+                console.log("File Info:", fileInfo);
+
+                // uuid와 path 값을 업데이트
+                document.getElementById(`uuid-${applyId}`).value = fileInfo.fileName.split("_")[0];
+                document.getElementById(`path-${applyId}`).value = fileInfo.filePath;
+                uploadBtn.style.display = 'none';
+
+                // 폼 자동 제출
+                document.getElementById(`uploadForm-${applyId}`).submit();
+            } else {
+                alert("이미지 파일이 아닙니다.");
+                e.target.value = "";
+            }
         });
     });
 

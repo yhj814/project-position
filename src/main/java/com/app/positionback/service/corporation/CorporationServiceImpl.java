@@ -6,6 +6,7 @@ import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.member.MemberDTO;
 import com.app.positionback.repository.corporation.CorporationDAO;
+import com.app.positionback.repository.file.CertificationFileDAO;
 import com.app.positionback.repository.file.CorporationFileDAO;
 import com.app.positionback.repository.file.FileDAO;
 import com.app.positionback.repository.member.MemberDAO;
@@ -25,6 +26,7 @@ import java.util.Optional;
 public class CorporationServiceImpl implements CorporationService {
     private final CorporationDAO corporationDAO;
     private final CorporationFileDAO corporationFileDAO;
+    private final CertificationFileDAO certificationFileDAO;
     private final FileDAO fileDAO;
 
     @Override
@@ -50,6 +52,12 @@ public class CorporationServiceImpl implements CorporationService {
     @Override
     public FileDTO getCorporationFileById(Long corporationId) {
         Long fileId = corporationFileDAO.getFileIdByCorporationId(corporationId);
+        return fileDAO.findById(fileId);
+    }
+
+    @Override
+    public FileDTO getApplyFileById(Long applyId) {
+        Long fileId = certificationFileDAO.getFileIdByApplyId(applyId);
         return fileDAO.findById(fileId);
     }
 }

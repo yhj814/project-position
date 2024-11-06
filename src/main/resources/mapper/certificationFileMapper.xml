@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.positionback.mapper.file.CertificationFileMapper">
+    <insert id="insertApplyFile">
+        insert into tbl_certification_file (apply_id, id)
+        values (#{applyId}, #{fileId})
+    </insert>
+
+    <!-- 특정 지원에 연결된 파일 삭제 -->
+    <delete id="deleteFilesByApplyId">
+        delete from tbl_certification_file
+        where apply_id = #{applyId}
+    </delete>
+
+    <select id="selectFileIdByApplyId">
+        select c.id, c.apply_id, f.file_name, f.file_path, f.file_size, f.created_date, f.updated_date
+        from tbl_certification_file c
+                 join tbl_file f on c.id = f.id
+        where c.apply_id = #{applyId}
+    </select>
+</mapper>

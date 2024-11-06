@@ -9,7 +9,6 @@ import com.app.positionback.domain.member.MemberVO;
 import com.app.positionback.exception.LoginFailException;
 import com.app.positionback.repository.file.CorporationFileDAO;
 import com.app.positionback.service.corporation.CorporationService;
-import com.app.positionback.service.file.CorporationFileService;
 import com.app.positionback.service.file.FileService;
 import com.app.positionback.service.member.MemberService;
 import jakarta.servlet.http.HttpSession;
