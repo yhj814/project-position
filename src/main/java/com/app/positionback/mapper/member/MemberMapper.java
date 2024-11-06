@@ -17,4 +17,5 @@ public interface MemberMapper {
     public void updateKakaoMember(MemberVO memberVO);
     public Long selectLastInsertId();
     public Optional<MemberVO> selectById(Long id);
+    public void incrementComplainCount(Long id);
 }

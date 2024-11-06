@@ -6,10 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 @ToString
+@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
-@AllArgsConstructor
-public class ComplainVO {
+public class ComplainDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private String complainTitle;
@@ -19,4 +18,8 @@ public class ComplainVO {
     private Long memberId;
     private String createdDate;
     private String updatedDate;
+
+    public ComplainVO toVO() {
+        return new ComplainVO(id,complainTitle,complainContent,complainStatus,corporationId,memberId,createdDate, updatedDate);
+    }
 }

@@ -44,4 +44,7 @@ public class MemberDAO {
     public Optional<MemberVO> findById(Long id){
         return memberMapper.selectById(id);
     }
+    public void incrementComplaintCount(Long id){
+        memberMapper.incrementComplainCount(id);
+    }
 }
