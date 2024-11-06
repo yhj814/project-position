@@ -6,19 +6,14 @@
     <!-- 일반 회원 목록 페이징 -->
     <select id="selectAllMembers" resultType="memberDTO">
         select id,
-        member_name,
-        CASE WHEN member_email IS NOT NULL THEN member_email ELSE member_kakao_email END AS memberEmail,
-        member_address,
-        member_phone,
-        member_status,
-        created_date
+               member_name,
+               CASE WHEN member_email IS NOT NULL THEN member_email ELSE member_kakao_email END AS memberEmail,
+               member_address,
+               member_phone,
+               member_status,
+               created_date
         from tbl_member
-        order by
-        <choose>
-            <when test="pagination.order == 'status'">member_status</when>
-            <otherwise>created_date</otherwise>
-        </choose>
-        desc
+        order by created_date desc
         limit #{pagination.startRow}, #{pagination.rowCount}
     </select>
 

@@ -20,7 +20,7 @@ import java.util.List;
 
 public interface AdminService {
     // 회원 관리
-    public List<MemberDTO> getMembers(Pagination pagination);
+    public List<MemberDTO> getMembers(int page, Pagination pagination);
     public int getMemberTotal();
     public List<CorporationDTO> getCorporationMembers(Pagination pagination);
     public int getCorporationTotal();

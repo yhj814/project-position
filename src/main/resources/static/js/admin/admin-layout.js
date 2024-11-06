@@ -1,19 +1,6 @@
-// // 일반 회원 데이터를 표시하는 함수
-// // 상태를 문자열로 변환하는 함수
-// const getStatusLabel = (memberStatus) => {
-//     switch (Number(memberStatus)) { // 문자열을 숫자로 변환
-//         case 1:
-//             return "활동중";
-//         case 2:
-//             return "정지";
-//         case 3:
-//             return "탈퇴";
-//         default:
-//             return ""; // 상태가 정의되지 않았을 때는 빈 문자열 반환
-//     }
-// };
+// 일반 회원 데이터를 표시하는 함수
 
-const displayMembers = (members) => {
+const displayMembers = (members, pagination) => {
     // 일반 회원 행이 표시될 컨테이너 선택
     const memberListDiv = document.querySelector('#user-section .UserTable_container');
 
@@ -43,7 +30,41 @@ const displayMembers = (members) => {
         memberListDiv.appendChild(memberRow);
 
     });
+
+    // 페이지네이션 업데이트
+    let pagingText = ``;
+    const paginationList = document.querySelector(".pagination-list");
+
+    // 페이지 번호 버튼을 동적으로 생성
+    for (let i = pagination.startPage; i <= pagination.endPage; i++) {
+        if (pagination.page === i) {
+            pagingText += `<li class="pagination-page active"><span>${i}</span></li>`;
+        } else {
+            pagingText += `<li class="pagination-page"><a href="#" onclick="loadPage(${i}); return false;">${i}</a></li>`;
+        }
+    }
+
+    paginationList.innerHTML = pagingText;
+
+    // 기존 페이지 번호 삭제 후 새로운 페이지 번호 삽입
+    const existingPages = paginationList.querySelectorAll(".pagination-page");
+    existingPages.forEach(page => page.remove());
+
+    // 다음 버튼이 있는지 확인한 후 페이지 번호 삽입
+    const nextButton = paginationList.querySelector(".pagination-next");
+    if (nextButton) {
+        nextButton.insertAdjacentHTML("beforebegin", pagingText);
+    }
 };
+
+// 페이지를 로드하고 회원 목록을 업데이트하는 함수
+const loadPage = (page) => {
+    memberService.fetchMembers(page, (data) => {
+        displayMembers(data.members); // 회원 목록 표시
+        updatePagination(data.pagination); // 페이지네이션 업데이트
+    });
+};
+
 
 // 기업 회원 데이터를 표시하는 함수
 const displayCorporationMembers = (corporateMembers) => {
@@ -77,10 +98,5 @@ const displayCorporationMembers = (corporateMembers) => {
     });
 };
 
-// 데이터 불러오기 및 표시 실행
-// 일반 회원 데이터를 불러와 표시하기 위해 `fetchMembers` 호출
-memberService.fetchMembers(displayMembers);
 
-// 기업 회원 데이터를 불러와 표시하기 위해 `fetchCorporationMembers` 호출
-memberService.fetchCorporationMembers(displayCorporationMembers);
 

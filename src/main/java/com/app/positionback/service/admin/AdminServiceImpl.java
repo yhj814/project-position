@@ -33,8 +33,10 @@ public class AdminServiceImpl implements AdminService {
 
     // 회원 관리
     // 일반 회원 정보 조회
-    public List<MemberDTO> getMembers(Pagination pagination) {
+    public List<MemberDTO> getMembers(int page, Pagination pagination) {
+        pagination.setPage(page);
         pagination.setTotal(adminDAO.getMemberTotal());
+        pagination.progress();
         return adminDAO.memberInformation(pagination);
     }
 

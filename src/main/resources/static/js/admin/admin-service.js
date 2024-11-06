@@ -3,15 +3,17 @@
 // memberService 객체 생성
 const memberService = (() => {
     // 일반 회원 데이터를 서버에서 가져오는 비동기
-    const fetchMembers = async (callback) => {
+    const fetchMembers = async (page, callback) => {
         try {
             // /admin/position/members 경로로 GET 요청
-            const response = await fetch('/admin/position/members');
+            page = page || 1;
+            const response = await fetch(`/admin/position/members/${page}`);
 
             // 응답 실패 상태일 경우 에러 메시지
             if (!response.ok) throw new Error('회원 정보 fetch 실패');
             // 응답 데이터를 json으로 받음
             const members = await response.json();
+
             // 콜백 함수가 생길 경우, 가져온 데이터를 콜백 함수에 전달
             if (callback) {
                 callback(members);
@@ -38,6 +40,7 @@ const memberService = (() => {
 
     return { fetchMembers: fetchMembers, fetchCorporationMembers: fetchCorporationMembers };
 })();
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
