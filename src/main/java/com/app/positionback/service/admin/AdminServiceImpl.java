@@ -34,6 +34,7 @@ public class AdminServiceImpl implements AdminService {
     // 회원 관리
     // 일반 회원 정보 조회
     public List<MemberDTO> getMembers(Pagination pagination) {
+        pagination.setTotal(adminDAO.getMemberTotal());
         return adminDAO.memberInformation(pagination);
     }
 
@@ -44,6 +45,7 @@ public class AdminServiceImpl implements AdminService {
 
     // 기업 회원 정보 조회
     public List<CorporationDTO> getCorporationMembers(Pagination pagination) {
+        pagination.setTotal(adminDAO.getCorporationTotal());
         return adminDAO.corporationInformation(pagination);
     }
 

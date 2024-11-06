@@ -27,6 +27,7 @@ public class MemberDTO {
     private String memberKakaoProfileUrl;
     private String memberKakaoEmail;
     private String memberLoginType;
+    private String createdDate;
 
     //    기업
     private String corporationName;

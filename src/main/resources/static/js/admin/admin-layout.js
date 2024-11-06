@@ -1,17 +1,17 @@
-// 일반 회원 데이터를 표시하는 함수
-// 상태를 문자열로 변환하는 함수
-const getStatusLabel = (memberStatus) => {
-    switch (Number(memberStatus)) { // 문자열을 숫자로 변환
-        case 1:
-            return "활동중";
-        case 2:
-            return "정지";
-        case 3:
-            return "탈퇴";
-        default:
-            return ""; // 상태가 정의되지 않았을 때는 빈 문자열 반환
-    }
-};
+// // 일반 회원 데이터를 표시하는 함수
+// // 상태를 문자열로 변환하는 함수
+// const getStatusLabel = (memberStatus) => {
+//     switch (Number(memberStatus)) { // 문자열을 숫자로 변환
+//         case 1:
+//             return "활동중";
+//         case 2:
+//             return "정지";
+//         case 3:
+//             return "탈퇴";
+//         default:
+//             return ""; // 상태가 정의되지 않았을 때는 빈 문자열 반환
+//     }
+// };
 
 const displayMembers = (members) => {
     // 일반 회원 행이 표시될 컨테이너 선택
@@ -35,13 +35,13 @@ const displayMembers = (members) => {
             <div class="UserTable_cell">${member.memberEmail || ''}</div>
             <div class="UserTable_cell">${member.memberAddress || ''}</div>
             <div class="UserTable_cell">${member.memberPhone || ''}</div>
-            <div class="UserTable_cell">${getStatusLabel(member.memberStatus) || ''}</div>
+            <div class="UserTable_cell">${member.memberStatus || ''}</div>
             <div class="UserTable_cell"><button class="editBtn">수정</button></div>
         `;
 
         // 새로 생성한 회원 행을 컨테이너에 추가
         memberListDiv.appendChild(memberRow);
-        
+
     });
 };
 
