@@ -1016,6 +1016,18 @@ li {
     background: url(/images/corporation/regist.svg);
     content: "";
 }
+
+.col-summary .attached.upload:before {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 1px;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/person/spr/input_check_radio.png) no-repeat -200px -40px;
+    content: "";
+}
 .col-summary .attached .data {
     display: inline-block;
     position: relative;

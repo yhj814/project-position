@@ -9,12 +9,18 @@ import com.app.positionback.repository.file.CertificationFileDAO;
 import com.app.positionback.repository.file.FileDAO;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
+import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @Service
 @Primary
@@ -71,19 +77,42 @@ public class ApplyServiceImpl implements ApplyService{
     }
 
     @Override
-    public void uploadCertificationFile(String uuid, String path, MultipartFile file, Long applyId) throws IOException {
-        CertificationFileDTO certificationFileDTO = new CertificationFileDTO();
+    public void uploadCertificationFile(MultipartFile file, Long applyId) throws IOException {
+        String rootPath = "C:/upload/" + getPath();
         FileDTO fileDTO = new FileDTO();
-        String fileSize = String.format("%.2f", file.getSize() / 1024.0 / 1024.0);
+        CertificationFileDTO certificationFileDTO = new CertificationFileDTO();
 
-        fileDTO.setFilePath(path);
-        fileDTO.setFileName(uuid + "_" + file.getOriginalFilename());
+        // UUID 생성 및 파일 경로 설정
+        UUID uuid = UUID.randomUUID();
+        fileDTO.setFilePath(getPath());
+        String uniqueFileName = uuid.toString() + "_" + file.getOriginalFilename();
+
+        // 디렉토리 생성
+        File directory = new File(rootPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // 파일 저장
+        if (file.getContentType().startsWith("image")) {
+            // 원본 이미지 저장
+            file.transferTo(new File(rootPath, uniqueFileName));
+            fileDTO.setFileName(uniqueFileName);
+        }
+
+        // 파일 크기 설정
+        String fileSize = String.format("%.2f", file.getSize() / 1024.0 / 1024.0); // MB 단위로 파일 크기 설정
         fileDTO.setFileSize(fileSize);
+
+        // 파일 정보 저장
         fileDAO.save(fileDTO.toVO());
 
+        // CertificationFileDTO 설정 및 저장
         certificationFileDTO.setFileId(fileDAO.findLastInsertId());
         certificationFileDTO.setApplyId(applyId);
-
         certificationFileDAO.save(certificationFileDTO.toVO());
+    }
+    private String getPath(){
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
 }

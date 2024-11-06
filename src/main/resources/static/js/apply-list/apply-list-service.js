@@ -37,12 +37,12 @@ const applyService = (() => {
         updateCounts();
     }
     const upload = async (formData) => {
-        const response = await fetch("/file/profile/upload", {
+        const response = await fetch("/certification/upload", {
             method: "post",
             body: formData
         });
-        const file = await response.json();
-        return file;
+
+        return;
     }
 
     const updateCounts = async () => {

@@ -11,6 +11,6 @@ public interface ApplyService {
     public ApplyListDTO getApplyByCorporationId(int page, Pagination pagination, Long corporationId);
     public int getTotal(Pagination pagination, Long corporationId);
     public void setApplyStatus(ApplyVO applyVO);
-    public void uploadCertificationFile(String uuid, String path, MultipartFile file, Long applyId) throws IOException;
+    public void uploadCertificationFile(MultipartFile file, Long applyId) throws IOException;
 
 }

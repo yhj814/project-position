@@ -127,7 +127,6 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                 <div class="row -apply-list" id="apply-list-${apply.applyId}">
         
                     <div class="col-summary">
-                        <form id="uploadForm-${apply.applyId}" action="/certification/upload" method="post" enctype="multipart/form-data">
                             <strong class="corp">
                                 <a href="/zf-user/company-info/view?csn=${apply.corporationId}" target="-blank">
                                     ${apply.memberName}
@@ -142,7 +141,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                 </a>
                             </div>
                             <div class="attached">
-                                <button type="button" class="data -file-down-resume" id="uploadBtn" onclick="document.getElementById('fileInput-${apply.applyId}').click();">이수증 업로드</button>
+                                <button type="button" class="data -file-down-resume" id="uploadBtn-${apply.applyId}" onclick="document.getElementById('fileInput-${apply.applyId}').click();">이수증 업로드</button>
                                 <input type="file" name="file" id="fileInput-${apply.applyId}" style="display: none;">
                                 <input type="hidden" name="uuid" id="uuid-${apply.applyId}">
                                 <input type="hidden" name="path" id="path-${apply.applyId}">
@@ -155,7 +154,6 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                     <svg></svg> 경쟁력분석
                                 </button>
                             </div>
-                        </form>
                     </div>
         
                     <div class="col-btns" id="col-btn">
@@ -381,20 +379,21 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
             const file = e.target.files[0];
 
             if (file.type.startsWith("image")) {
-                const formData = new FormData(document.getElementById(`uploadForm-${applyId}`));
+                const formData = new FormData();
                 formData.append("file", file);
+                formData.append("applyId", applyId);
 
                 // 파일 업로드 요청
-                const fileInfo = await applyService.upload(formData);
-                console.log("File Info:", fileInfo);
+                await applyService.upload(formData);
 
-                // uuid와 path 값을 업데이트
-                document.getElementById(`uuid-${applyId}`).value = fileInfo.fileName.split("_")[0];
-                document.getElementById(`path-${applyId}`).value = fileInfo.filePath;
-                uploadBtn.style.display = 'none';
+                // 버튼 텍스트를 "등록 완료"로 변경
+                const uploadBtn = document.getElementById(`uploadBtn-${applyId}`);
+                uploadBtn.textContent = "등록 완료";
+                uploadBtn.disabled = true;  // 버튼 비활성화 (선택 사항)
 
-                // 폼 자동 제출
-                document.getElementById(`uploadForm-${applyId}`).submit();
+                // 'attached' 클래스를 가진 부모 요소에 'upload' 클래스 추가
+                const attachedDiv = document.querySelector(`#apply-list-${applyId} .attached`);
+                attachedDiv.classList.add('upload');  // 'upload' 클래스 추가
             } else {
                 alert("이미지 파일이 아닙니다.");
                 e.target.value = "";

@@ -110,9 +110,9 @@ public class CorporationController {
 
 //    기업이 이수증 올려주는 것
     @PostMapping("/certification/upload")
-    public RedirectView uploadCertificationFile(@RequestParam String uuid, @RequestParam String path, MultipartFile file, @RequestParam Long applyId) throws IOException {
-        applyService.uploadCertificationFile(uuid, path, file, applyId);
-        return new RedirectView("/corporation/management");
+    @ResponseBody
+    public void uploadCertificationFile(MultipartFile file, @RequestParam Long applyId) throws IOException {
+        applyService.uploadCertificationFile(file, applyId);
     }
 
     @PostMapping("/file/certification/upload")

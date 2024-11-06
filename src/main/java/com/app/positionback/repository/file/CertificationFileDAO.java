@@ -7,6 +7,8 @@ import com.app.positionback.mapper.file.CorporationFileMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class CertificationFileDAO {
@@ -16,7 +18,7 @@ public class CertificationFileDAO {
         certificationFileMapper.insertApplyFile(certificationFileVO);
     }
 
-    public Long getFileIdByApplyId(Long applyId){
+    public Optional<CertificationFileVO> getFileIdByApplyId(Long applyId){
         return certificationFileMapper.selectFileIdByApplyId(applyId);
     }
 }
