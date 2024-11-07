@@ -40,9 +40,9 @@ document.addEventListener("click", () => {
     });
 });
 
-document.getElementById("help-send").addEventListener("click", (e) => {
-    location.href = `/customer-service-center/faq`;
-});
+// document.getElementById("help-send").addEventListener("click", (e) => {
+//     location.href = `/customer-service-center/faq`;
+// });
 
 document.querySelectorAll('#help-category option').forEach(option => {
     option.addEventListener('click', (e) => {

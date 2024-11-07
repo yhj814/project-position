@@ -37,6 +37,7 @@ public class ApplyDTO {
     private String noticeJobCategoryName;
 
     // Member (Applicant) information
+    private Long memberId;
     private String memberName;
     private String memberEmail;
     private String memberNickname;

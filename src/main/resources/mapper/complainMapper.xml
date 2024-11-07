@@ -4,8 +4,8 @@
 
     <!-- 신고 등록 -->
     <insert id="insertComplain">
-        insert into tbl_complain (complain_title, complain_content, complain_status, corporation_id, member_id, created_date, updated_date)
-        values (#{complainTitle}, #{complainContent}, #{complainStatus}, #{corporationId}, #{memberId}, current_date, current_date);
+        insert into tbl_complain (complain_title, complain_content, complain_status,complain_type, corporation_id, member_id)
+        values (#{complainTitle}, #{complainContent}, '신고 대기',#{complainType}, #{corporationId}, #{memberId});
     </insert>
 
     <!-- 특정 회원의 신고 목록 조회 -->

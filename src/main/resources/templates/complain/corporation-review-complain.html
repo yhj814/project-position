@@ -13,13 +13,16 @@
     <body>
         <div id="position-section" class="has-banner">
             <div id="position-wrap">
+
                 <div id="content">
                     <div class="wrap-title-recruit">
                         <h1 class="title-common">신고하기</h1>
                     </div>
                     <div class="help-find help-lost wrap-help">
                         <div class="cont-find">
-                            <form action="" id="write-form">
+                            <form th:action="@{/corporation/complain}" method="post" th:object="${complainDTO}" enctype="multipart/form-data" name="complainDTO">
+                                <input type="hidden" name="corporationId" th:value="${apply.corporationId}">
+                                <input type="hidden" name="memberId" th:value="${apply.memberId}">
                                 <fieldset>
                                     <p class="desc-find-type2">
                                         평일 09시 에서 17시까지 문의하신 내용은
@@ -49,7 +52,7 @@
                                                         id="help-email"
                                                         class="inp-find"
                                                         name="help-email"
-                                                        value="yhh725@naver.com"
+                                                        th:value="${apply.corporationName}"
                                                         autocomplete="off"
                                                         readonly="readonly"
                                                     />
@@ -74,6 +77,8 @@
                                                         name="help-reported-name"
                                                         id="help-reported-name"
                                                         class="inp-find"
+                                                        th:value="${apply.memberName}"
+                                                        readonly="readonly"
                                                         placeholder="피신고자 이름을 입력해주세요."
                                                     />
                                                 </span>
@@ -94,9 +99,12 @@
                                             <div class="wrap-input">
                                                 <span class="position-input2">
                                                     <select
+                                                        th:field="*{complainType}"
                                                         name="help-category"
+                                                        class="complain-type"
                                                         id="help-category"
                                                         style="width: 338px"
+                                                        required
                                                     >
                                                         <option
                                                             selected=""
@@ -105,16 +113,16 @@
                                                             선택해주세요
                                                         </option>
                                                         <!-- 복붙 -->
-                                                        <option value="">
+                                                        <option value="부적절한 내용">
                                                             부적절한 내용
                                                         </option>
-                                                        <option value="">
+                                                        <option value="허위 정보">
                                                             허위 정보
                                                         </option>
-                                                        <option value="">
+                                                        <option value="스팸/광고성 리뷰">
                                                             스팸/광고성 리뷰
                                                         </option>
-                                                        <option value="">
+                                                        <option value="개인정보 노출">
                                                             개인정보 노출
                                                         </option>
                                                     </select>
@@ -139,7 +147,9 @@
                                                         name="help-title"
                                                         id="help-title"
                                                         class="inp-find"
+                                                        th:field="*{complainTitle}"
                                                         style="width: 533px"
+                                                        required
                                                     />
                                                 </span>
                                             </div>
@@ -161,11 +171,13 @@
                                                         name="help-content"
                                                         id="help-desc"
                                                         class="inp-find textarea"
+                                                        th:field="*{complainContent}"
                                                         style="
                                                             width: 533px;
                                                             height: 120px;
                                                         "
                                                         placeholder="문의종류 선택 후 내용을 입력해주세요."
+                                                        required
                                                     ></textarea>
                                                 </span>
                                             </div>
@@ -288,4 +300,49 @@
         </div>
     </body>
     <script src="/js/customer-service-center/inquiry.js"></script>
+    <script>
+        document.getElementById("help-send").addEventListener("click", (event) => {
+            // 유효성 검사
+            const complainType = document.getElementById("help-category");
+            const complainTitle = document.getElementById("help-title");
+            const complainContent = document.getElementById("help-desc");
+            const agreeChk = document.getElementById("agree-chk");
+
+            // complainType 검사
+            if (!complainType.value) {
+                alert("문의종류를 선택해주세요.");
+                complainType.focus();
+                event.preventDefault();
+                return;
+            }
+
+            // complainTitle 검사
+            if (!complainTitle.value.trim()) {
+                alert("제목을 입력해주세요.");
+                complainTitle.focus();
+                event.preventDefault();
+                return;
+            }
+
+            // complainContent 검사
+            if (!complainContent.value.trim()) {
+                alert("내용을 입력해주세요.");
+                complainContent.focus();
+                event.preventDefault();
+                return;
+            }
+
+            // agreeChk 검사 (체크박스 확인)
+            if (!agreeChk.checked) {
+                alert("개인정보 수집 및 이용에 동의해 주세요.");
+                event.preventDefault();
+                return;
+            }
+
+            // 모든 검사를 통과하면 폼을 제출
+            alert("신고가 완료되었습니다.");
+        });
+
+    </script>
+
 </html>

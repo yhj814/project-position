@@ -142,7 +142,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             </div> 
                             ${apply.file ? `
                             <div class="attached upload">
-                                <button type="button" class="data -file-down-resume" id="uploadBtn-${apply.applyId}" onclick="document.getElementById('fileInput-${apply.applyId}').click();">등록 완료</button>
+                                <button type="button" class="data -file-down-resume" id="uploadBtn-${apply.applyId}" disabled>등록 완료</button>
                                 <input type="file" name="file" id="fileInput-${apply.applyId}" style="display: none;">
                                 <input type="hidden" name="uuid" id="uuid-${apply.applyId}">
                                 <input type="hidden" name="path" id="path-${apply.applyId}">
@@ -199,7 +199,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             <div class="status">
                                 <em class="txt-status">${apply.applyStatus}</em>
                                 <span class="txt-sub">미열람</span>
-                                <button type="button" class="btn-report -ai-report">
+                                <button type="button" class="btn-report -ai-report complain-btn" data-id="${apply.applyId}">
                                     <svg aria-hidden="true" focusable="false" class="ic">
                                         <use xlink:href="#icon_report"></use>
                                     </svg>

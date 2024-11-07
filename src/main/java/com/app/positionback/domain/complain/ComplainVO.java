@@ -15,6 +15,7 @@ public class ComplainVO {
     private String complainTitle;
     private String complainContent;
     private String complainStatus;
+    private String complainType;
     private Long corporationId;
     private Long memberId;
     private String createdDate;

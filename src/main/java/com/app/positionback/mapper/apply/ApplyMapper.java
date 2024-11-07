@@ -13,4 +13,5 @@ public interface ApplyMapper {
     public List<ApplyDTO> selectApplyByCorporationId(@Param("pagination") Pagination pagination, Long corporationId);
     public int selectCount(@Param("pagination") Pagination pagination, Long corporationId);
     public void updateApplyStatus(ApplyVO applyVO);
+    public ApplyDTO selectApplyById(Long applyId);
 }

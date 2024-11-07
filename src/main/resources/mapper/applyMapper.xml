@@ -61,6 +61,10 @@
         where id = #{applyId}
     </update>
 
-
+    <select id="selectApplyById" >
+        select *
+        from view_apply_list
+        where apply_id = #{applyId}
+    </select>
 
 </mapper>

@@ -35,6 +35,7 @@ select
     c.id AS corporation_id,
     c.corporation_name,
     n.notice_title,
+    m.id as member_id,
     m.member_name,
     m.member_email,
     m.member_nickname,

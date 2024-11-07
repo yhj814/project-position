@@ -14,12 +14,13 @@ public class ComplainDTO {
     private String complainTitle;
     private String complainContent;
     private String complainStatus;
+    private String complainType;
     private Long corporationId;
     private Long memberId;
     private String createdDate;
     private String updatedDate;
 
     public ComplainVO toVO() {
-        return new ComplainVO(id,complainTitle,complainContent,complainStatus,corporationId,memberId,createdDate, updatedDate);
+        return new ComplainVO(id,complainTitle,complainContent,complainStatus,complainType,corporationId,memberId,createdDate, updatedDate);
     }
 }

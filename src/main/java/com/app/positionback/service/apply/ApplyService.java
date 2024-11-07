@@ -1,5 +1,6 @@
 package com.app.positionback.service.apply;
 
+import com.app.positionback.domain.apply.ApplyDTO;
 import com.app.positionback.domain.apply.ApplyListDTO;
 import com.app.positionback.domain.apply.ApplyVO;
 import com.app.positionback.utill.Pagination;
@@ -12,5 +13,5 @@ public interface ApplyService {
     public int getTotal(Pagination pagination, Long corporationId);
     public void setApplyStatus(ApplyVO applyVO);
     public void uploadCertificationFile(MultipartFile file, Long applyId) throws IOException;
-
+    public ApplyDTO getApplyById(Long applyId);
 }

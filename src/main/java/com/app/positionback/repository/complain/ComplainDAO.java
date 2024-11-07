@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class ComplainDAO {
-    private ComplainMapper complainMapper;
+    private final ComplainMapper complainMapper;
 
     // 신고 등록
     public void saveComplain(ComplainVO complainVO) {

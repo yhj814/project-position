@@ -126,6 +126,12 @@ public class ApplyServiceImpl implements ApplyService{
         certificationFileDTO.setApplyId(applyId);
         certificationFileDAO.save(certificationFileDTO.toVO());
     }
+
+    @Override
+    public ApplyDTO getApplyById(Long applyId) {
+        return applyDAO.findApplyById(applyId);
+    }
+
     private String getPath(){
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
