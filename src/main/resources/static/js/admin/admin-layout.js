@@ -34,6 +34,8 @@ const showMemberList = ({ members, pagination }) => {
     // 기존의 하드코딩된 헤더를 덮어쓰지 않고 멤버 목록을 추가
     MemberListLayout.innerHTML = text;
 
+    console.log("Total pages:", pagination.totalPages);
+
     // 페이지 버튼 생성
     let pagingText = '';
 
@@ -76,7 +78,7 @@ const showMemberList = ({ members, pagination }) => {
     // 마지막 페이지로 이동하는 버튼
     pagingText += `
         <li class="pagination-last ${pagination.currentPage === pagination.totalPages ? 'disabled' : ''}">
-            <a href="#" class="pagination-last-link" onclick="goToPage(${pagination.totalPages})" rel="nofollow">
+            <a href="#" class="pagination-last-link" onclick="goToPage(${pagination.realEnd})" rel="nofollow">
                 <span class="pagination-last-icon" aria-hidden="true">»</span>
             </a>
         </li>
