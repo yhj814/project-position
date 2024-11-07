@@ -46,7 +46,7 @@ public class AdminController {
     // 일반 회원 정보 조회
     @GetMapping("/position/members/{page}")
     @ResponseBody
-    public MemberListDTO getMembers(@PathVariable("page") int page, Pagination pagination) {
+    public MemberListDTO getMembers(@PathVariable("page") Integer page, Pagination pagination) {
 //        // 정렬 조건이 비어 있으면 기본 정렬 기준을 "recent"로 설정합니다.
 //        if (pagination.getOrder() == null) {
 //            pagination.setOrder("recent");

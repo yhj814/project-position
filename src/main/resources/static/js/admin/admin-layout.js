@@ -92,19 +92,26 @@ const goToPage = async (page) => {
         const response = await fetch(`/admin/position/members/${page}`);
         const data = await response.json();
 
-        // 새로운 데이터를 받아 목록을 다시 렌더링
+        // 페이지 번호를 업데이트하여 active 상태를 유지
+        data.pagination.currentPage = page;
         showMemberList(data);
     } catch (error) {
         console.error(`페이지 ${page} 로딩 중 오류 발생:`, error);
     }
 };
+
 // // 페이지 이동 함수
-// const goToPage = (page) => {
-//     // 페이지 이동 로직 추가
-//     console.log(`Navigating to page ${page}`);
+// const goToPage = async (page) => {
+//     try {
+//         const response = await fetch(`/admin/position/members/${page}`);
+//         const data = await response.json();
+//
+//         // 새로운 데이터를 받아 목록을 다시 렌더링
+//         showMemberList(data);
+//     } catch (error) {
+//         console.error(`페이지 ${page} 로딩 중 오류 발생:`, error);
+//     }
 // };
-
-
 
 // const MemberListLayout = document.querySelector(".UserTable_row")
 // const MemberListPaging = document.querySelector(".pagination-list")
