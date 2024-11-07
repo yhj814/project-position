@@ -5,6 +5,8 @@ create table tbl_apply(
         resume_id bigint unsigned not null ,
         apply_type varchar(255) not null,  #지원 부문
         apply_status varchar(255) default '지원 완료',
+        created_date datetime default current_timestamp,
+        updated_date datetime default  current_timestamp,
         constraint fk_apply_notice foreign key (notice_id)
             references tbl_notice(id),
         constraint fk_apply_resume foreign key (resume_id)
@@ -12,6 +14,9 @@ create table tbl_apply(
 );
 select *
 from tbl_apply;
+ALTER TABLE tbl_apply
+    ADD COLUMN created_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ADD COLUMN updated_date DATETIME DEFAULT CURRENT_TIMESTAMP;
 
 use positionback;
 
@@ -42,6 +47,8 @@ select
     a.id as apply_id,
     a.apply_type ,
     a.apply_status as apply_status,
+    a.created_date,
+    a.updated_date,
     n.notice_career,
     n.notice_education,
     n.notice_work_start_date,

@@ -30,6 +30,10 @@ listBody.addEventListener("click", (e) => {
         const applyId = e.target.closest(".complain-btn").getAttribute("data-id");
         location.href = `/corporation/complain?id=${applyId}`;
     }
+    if(e.target.classList.contains("write-review")){
+        const applyId = e.target.closest(".write-review").getAttribute("data-id");
+        location.href = `/corporation/position-review?id=${applyId}`;
+    }
 
 });
 

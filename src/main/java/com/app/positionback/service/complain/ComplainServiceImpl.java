@@ -17,11 +17,13 @@ public class ComplainServiceImpl implements ComplainService {
     @Override
     public void registerComplain(ComplainVO complainVO) {
         complainDAO.saveComplain(complainVO);
-        memberDAO.incrementComplaintCount(complainVO.getMemberId());
+//        멤버 신고 누적 횟수 증가는 관리자에서
+//        memberDAO.incrementComplaintCount(complainVO.getMemberId());
     }
 
     @Override
     public void changeComplainStatus(ComplainVO complainVO) {
         complainDAO.updateComplainStatus(complainVO);
+//        memberDAO.incrementComplaintCount(complainVO.getMemberId());
     }
 }

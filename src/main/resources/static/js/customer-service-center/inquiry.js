@@ -1,25 +1,25 @@
 // 파일 업로드시 파일 이름 나오는 이벤트
-document.addEventListener("DOMContentLoaded", () => {
-    const fileInput = document.getElementById("help-upload");
-    const fileNameDisplay = document.querySelector(".txt-upload");
-    const deleteButton = document.querySelector(".btn-delete");
-
-    fileInput.addEventListener("change", () => {
-        const file = fileInput.files[0];
-        if (file) {
-            fileNameDisplay.textContent = file.name;
-            fileNameDisplay.style.display = "inline-block";
-            deleteButton.style.display = "inline-block";
-        }
-    });
-
-    deleteButton.addEventListener("click", () => {
-        fileInput.value = "";
-        fileNameDisplay.textContent = "";
-        fileNameDisplay.style.display = "none";
-        deleteButton.style.display = "none";
-    });
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     const fileInput = document.getElementById("help-upload");
+//     const fileNameDisplay = document.querySelector(".txt-upload");
+//     const deleteButton = document.querySelector(".btn-delete");
+//
+//     fileInput.addEventListener("change", () => {
+//         const file = fileInput.files[0];
+//         if (file) {
+//             fileNameDisplay.textContent = file.name;
+//             fileNameDisplay.style.display = "inline-block";
+//             deleteButton.style.display = "inline-block";
+//         }
+//     });
+//
+//     deleteButton.addEventListener("click", () => {
+//         fileInput.value = "";
+//         fileNameDisplay.textContent = "";
+//         fileNameDisplay.style.display = "none";
+//         deleteButton.style.display = "none";
+//     });
+// });
 // 체크박스 누를시 이미지 왔다갔다하는 이벤트
 document.addEventListener("click", () => {
     const checkboxes = document.querySelectorAll(

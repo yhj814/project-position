@@ -182,49 +182,7 @@
                                                 </span>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="wrap-lab">
-                                                <label
-                                                    for="help-upload"
-                                                    class="lab-find"
-                                                >
-                                                    파일첨부
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
-                                                <div class="uploads">
-                                                    <span class="info-upload">
-                                                        <span
-                                                            class="txt-upload"
-                                                        ></span>
-                                                        <button
-                                                            type="button"
-                                                            class="btn-delete btn-delete"
-                                                        ></button>
-                                                    </span>
-                                                </div>
-                                                <div class="wrap-file">
-                                                    <input
-                                                        type="file"
-                                                        id="help-upload"
-                                                        class="inp-upload"
-                                                        title="파일 업로드"
-                                                        name="uploaded-file"
-                                                    />
-                                                    <label
-                                                        for="help-upload"
-                                                        class="btn-basic2 type03"
-                                                        >파일 첨부하기</label
-                                                    >
-                                                </div>
-                                                <p class="noti-inp">
-                                                    10MB 이하의 hwp, pdf, zip,
-                                                    MS Office 파일, 이미지
-                                                    파일(JPG, GIF, PNG, BMP) 만
-                                                    등록 가능합니다.
-                                                </p>
-                                            </div>
-                                        </li>
+
                                     </ul>
                                     <div class="noti-find">
                                         <h3 class="noti-title">
@@ -274,7 +232,7 @@
                                     </div>
                                     <!-- 취소 문의버튼 -->
                                     <div class="wrap-link">
-                                        <a href="">
+
                                             <button
                                                 class="btn-biggest-type03"
                                                 id="help-cancel"
@@ -282,7 +240,7 @@
                                             >
                                                 취소하기
                                             </button>
-                                        </a>
+
                                         <button
                                             type="submit"
                                             class="btn-biggest-type01"
@@ -300,49 +258,5 @@
         </div>
     </body>
     <script src="/js/customer-service-center/inquiry.js"></script>
-    <script>
-        document.getElementById("help-send").addEventListener("click", (event) => {
-            // 유효성 검사
-            const complainType = document.getElementById("help-category");
-            const complainTitle = document.getElementById("help-title");
-            const complainContent = document.getElementById("help-desc");
-            const agreeChk = document.getElementById("agree-chk");
-
-            // complainType 검사
-            if (!complainType.value) {
-                alert("문의종류를 선택해주세요.");
-                complainType.focus();
-                event.preventDefault();
-                return;
-            }
-
-            // complainTitle 검사
-            if (!complainTitle.value.trim()) {
-                alert("제목을 입력해주세요.");
-                complainTitle.focus();
-                event.preventDefault();
-                return;
-            }
-
-            // complainContent 검사
-            if (!complainContent.value.trim()) {
-                alert("내용을 입력해주세요.");
-                complainContent.focus();
-                event.preventDefault();
-                return;
-            }
-
-            // agreeChk 검사 (체크박스 확인)
-            if (!agreeChk.checked) {
-                alert("개인정보 수집 및 이용에 동의해 주세요.");
-                event.preventDefault();
-                return;
-            }
-
-            // 모든 검사를 통과하면 폼을 제출
-            alert("신고가 완료되었습니다.");
-        });
-
-    </script>
-
+    <script src="/js/complain/complain-event.js"></script>
 </html>

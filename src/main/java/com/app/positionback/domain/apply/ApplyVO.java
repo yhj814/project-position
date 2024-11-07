@@ -17,4 +17,6 @@ public class ApplyVO {
     private Long resumeId;
     private String applyType;
     private String applyStatus;
+    private String createdDate;
+    private String updatedDate;
 }

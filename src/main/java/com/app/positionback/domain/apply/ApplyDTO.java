@@ -20,6 +20,8 @@ public class ApplyDTO {
     private Long resumeId;
     private String applyType;
     private String applyStatus;
+    private String createdDate;
+    private String updatedDate;
 
     // Corporation information
     private String corporationName;

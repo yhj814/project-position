@@ -129,7 +129,31 @@ public class ApplyServiceImpl implements ApplyService{
 
     @Override
     public ApplyDTO getApplyById(Long applyId) {
-        return applyDAO.findApplyById(applyId);
+        ApplyDTO applyDTO = applyDAO.findApplyById(applyId);
+
+        // 기존 String 값에서 LocalDate로 변환 (예: "2024-11-01 00:00:00")
+        String noticeWorkStartDateString = applyDTO.getNoticeWorkStartDate();
+        String noticeWorkEndDateString = applyDTO.getNoticeWorkEndDate();
+
+        // 날짜 부분만 추출 (예: "2024-11-01")
+        String startDatePart = noticeWorkStartDateString.split(" ")[0];
+        String endDatePart = noticeWorkEndDateString.split(" ")[0];
+
+        // "yyyy-MM-dd" 형식으로 날짜 파싱
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate noticeWorkStartDate = LocalDate.parse(startDatePart, inputFormatter);
+        LocalDate noticeWorkEndDate = LocalDate.parse(endDatePart, inputFormatter);
+
+        // LocalDate를 "2024년 11월 1일" 형식으로 포맷
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일");
+        String formattedStartDate = noticeWorkStartDate.format(outputFormatter);
+        String formattedEndDate = noticeWorkEndDate.format(outputFormatter);
+
+        // 포맷된 날짜를 applyDTO에 설정
+        applyDTO.setNoticeWorkStartDate(formattedStartDate);
+        applyDTO.setNoticeWorkEndDate(formattedEndDate);
+
+        return applyDTO;
     }
 
     private String getPath(){

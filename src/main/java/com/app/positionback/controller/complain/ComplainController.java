@@ -26,13 +26,11 @@ public class ComplainController {
     public String insertComplain(ComplainDTO complainDTO, Long id, Model model) {
         ApplyDTO applyDTO = applyService.getApplyById(id);
         model.addAttribute("apply", applyDTO);
-        log.info("Apply data: {}", applyDTO);
         return "/complain/corporation-review-complain";
     }
 
     @PostMapping("/corporation/complain")
     public RedirectView saveComplain(ComplainDTO complainDTO) {
-        log.info("Received complainDTO: {}", complainDTO);
         complainService.registerComplain(complainDTO.toVO());
         return new RedirectView("/corporation");
     }

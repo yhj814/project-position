@@ -30,42 +30,25 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                         <div class="recruit">
                             <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
                                 <span class="division">${apply.noticeTitle}</span>
-                                <div class="TipBox">
+                                <div class="TipBox resume-btn">
                                     <span>${apply.noticeJobCategoryName}</span>
+                                    <button type="button" class="data -file-down-resume">이력서</button>
                                 </div>
                             </a>
                         </div>
-                        <div class="attached">
-                            <button type="button" class="data -file-down-resume">이력서</button>
-                        </div>
+                       
                         <div class="status">
                             <em class="txt-status">${apply.applyStatus}</em>
-                            <span class="txt-sub">${formatDate(apply.noticeEndDate)}</span>
-                            <button type="button" class="btn-report -ai-report">
-                                <svg></svg> 경쟁력분석
-                            </button>
+                            <span class="txt-sub">${formatDate(apply.createdDate)}</span>
                         </div>
                     </div>
-                    <div class="col-btns">
+                    <div class="col-btns col-btn">
                         <div class="action">
                             <span class="date-end"></span>
                         </div>
                         <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.applyId}">지원합격</button>
-                        <button type="button" class="btn-history -applicant-history">지원내역</button>
                     </div>
     
-                    <div class="col-history" style="display: none">
-                        <ol class="timeline">
-                            <li class="now">
-                                <span class="date">${formatDate(apply.createdDate)}</span>
-                                <span class="desc">
-                                    <strong>${apply.applyStatus}</strong>
-                                    <span>지원서류<button type="button" class="txt">이력서</button></span>
-                                    <span>지원 완료<button type="button" class="txt">지원 취소</button></span>
-                                </span>
-                            </li>
-                        </ol>
-                    </div>
                 </div>
             </div>
             `;
@@ -82,41 +65,23 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                         <div class="recruit">
                             <a href="/zf-user/jobs/relay/view?rec-idx=${apply.applyId}&view-type=apply-status&t-ref=apply-status-list&t-ref-content=generic" target="-blank">
                                 <span class="division">${apply.noticeTitle}</span>
-                                <div class="TipBox">
+                                <div class="TipBox resume-btn">
                                     <span>${apply.noticeJobCategoryName}</span>
+                                    <button type="button" class="data -file-down-resume">이력서</button>
                                 </div>
                             </a>
                         </div>
-                        <div class="attached">
-                            <button type="button" class="data -file-down-resume">이력서</button>
-                        </div>
+                       
                         <div class="status">
                             <em class="txt-status">${apply.applyStatus}</em>
-                            <span class="txt-sub">${formatDate(apply.noticeEndDate)}</span>
-                            <button type="button" class="btn-report -ai-report">
-                                <svg></svg> 경쟁력분석
-                            </button>
+                            <span class="txt-sub">${formatDate(apply.createdDate)}</span>
                         </div>
                     </div>
-                    <div class="col-btns">
+                    <div class="col-btns col-btn">
                         <div class="action">
                             <span class="date-end"></span>
                         </div>
                         <button type="button" class="BtnType SizeM -apply-cancel" data-id="${apply.applyId}">면접합격</button>
-                        <button type="button" class="btn-history -applicant-history">지원내역</button>
-                    </div>
-    
-                    <div class="col-history" style="display: none">
-                        <ol class="timeline">
-                            <li class="now">
-                                <span class="date">${formatDate(apply.createdDate)}</span>
-                                <span class="desc">
-                                    <strong>${apply.applyStatus}</strong>
-                                    <span>지원서류<button type="button" class="txt">이력서</button></span>
-                                    <span>지원 완료<button type="button" class="txt">지원 취소</button></span>
-                                </span>
-                            </li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -140,6 +105,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                     </div>
                                 </a>
                             </div> 
+                            
                             ${apply.file ? `
                             <div class="attached upload">
                                 <button type="button" class="data -file-down-resume" id="uploadBtn-${apply.applyId}" disabled>등록 완료</button>
@@ -160,16 +126,14 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             <div class="status">
                                 <em class="txt-status">${apply.applyStatus}</em>
                                 <span class="txt-sub">미열람</span>
-                                <button type="button" class="btn-report -ai-report">
-                                    <svg></svg> 경쟁력분석
-                                </button>
+                                
                             </div>
                     </div>
-                    <div class="col-btns" id="col-btn">
+                    <div class="col-btns col-btn">
                         <div class="action" >
                             <span class="date-end"></span>
                         </div>
-                        <button type="button" class="BtnType SizeM -apply-cancel">후기작성(인턴십)</button>
+                        <button type="button" class="BtnType SizeM -apply-cancel write-review" data-id="${apply.applyId}">후기작성(인턴십)</button>
                     </div>
                 </div>
             </div>
@@ -211,7 +175,7 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             <div class="action">
                                 <span class="date-end"></span>
                             </div>
-                            <button type="button" class="BtnType SizeM -apply-cancel">후기작성(인턴십)</button>
+                            <button type="button" class="BtnType SizeM -apply-cancel write-review" data-id="${apply.applyId}">후기작성(인턴십)</button>
                             <button type="button" id="reviewBtn" class="btn-history -applicant-history" data-review-id="${apply.positionerReviewId}">후기내역</button>
                         </div>
 
@@ -315,26 +279,29 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
 
     const updateButtons = document.querySelectorAll('.-apply-cancel');
     updateButtons.forEach(button => {
-        button.addEventListener('click', async () => {
-            const applyId = button.getAttribute('data-id'); // 지원 ID 가져오기
-            let newStatus = '';
+        if (statusInput.value !== 'position' && statusInput.value !== 'review') {
+            button.addEventListener('click', async () => {
+                const applyId = button.getAttribute('data-id'); // 지원 ID 가져오기
+                let newStatus = '';
 
 
-            // statusInput 값에 따라 newStatus 설정
-            if (statusInput.value === 'ongoing') {
-                newStatus = '면접 예정';
-            } else if (statusInput.value === 'closed') {
-                newStatus = '면접 합격';
-            } else if (statusInput.value === 'position') {
-                newStatus = '인턴십 완료';
-            }
-            console.log(`지원 ID: ${applyId}, 새 상태: ${newStatus}`);
-            const confirmed = confirm(`정말로 '${newStatus}' 상태로 변경하시겠습니까?`); // 상태 변경 확인
-            if (confirmed) {
-                await applyService.update({ applyId: applyId, applyStatus: newStatus });
-                loadApplies(); // 업데이트된 상태를 표시하기 위해 리스트를 새로 로드
-            }
-        });
+                // statusInput 값에 따라 newStatus 설정
+                if (statusInput.value === 'ongoing') {
+                    newStatus = '면접 예정';
+                } else if (statusInput.value === 'closed') {
+                    newStatus = '면접 합격';
+                }
+                // else if (statusInput.value === 'position') {
+                //     newStatus = '인턴십 완료';
+                // }
+                console.log(`지원 ID: ${applyId}, 새 상태: ${newStatus}`);
+                const confirmed = confirm(`정말로 '${newStatus}' 상태로 변경하시겠습니까?`); // 상태 변경 확인
+                if (confirmed) {
+                    await applyService.update({applyId: applyId, applyStatus: newStatus});
+                    loadApplies(); // 업데이트된 상태를 표시하기 위해 리스트를 새로 로드
+                }
+            });
+        }
     });
 
     // 버튼 클릭 이벤트 리스너 추가

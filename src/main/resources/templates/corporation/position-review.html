@@ -11,7 +11,9 @@
         />
     </head>
     <body>
-        <header></header>
+    <form th:action="@{/corporation/position-review}" method="post" th:object="${corporationReviewDTO}" name="corporationReviewForm">
+        <input type="hidden" name="applyId" th:value="${apply.applyId}">
+    <header></header>
         <div
             id="interview-write-sri-section"
             class="interview-write-layout-full"
@@ -88,6 +90,7 @@
                                                                 id="companyName"
                                                                 class="interview-write-Typo"
                                                                 title="기업명"
+                                                                th:text="${apply.corporationName}"
                                                             >
                                                                 기업명 정보
                                                                 들어가야됨
@@ -130,6 +133,7 @@
                                                                 id="companyName"
                                                                 class="interview-write-Typo"
                                                                 title="포지셔너"
+                                                                th:text="${apply.memberName}"
                                                             >
                                                                 포지셔너 이름
                                                                 정보 들어가야됨
@@ -172,6 +176,7 @@
                                                                 id="companyName"
                                                                 class="interview-write-Typo"
                                                                 title="직무·직업"
+                                                                th:text="${apply.noticeJobCategoryName}"
                                                             >
                                                                 경험한 포지션에
                                                                 대한 직무·직업
@@ -212,127 +217,13 @@
                                                             </span>
                                                         </strong>
                                                     </th>
-                                                    <td
-                                                        class="interview-write-txtLeft"
-                                                    >
-                                                        <div
-                                                            class="interview-write-range-option"
-                                                        >
-                                                            <span
-                                                                class="interview-write-inpSel"
-                                                            >
-                                                                <select
-                                                                    name="interview-date-year"
-                                                                    id="interviewDateYear"
-                                                                    title="연도 선택"
-                                                                >
-                                                                    <option
-                                                                        value
-                                                                    >
-                                                                        연도
-                                                                        선택
-                                                                    </option>
-                                                                    <option
-                                                                        value="2021"
-                                                                    >
-                                                                        2021년
-                                                                    </option>
-                                                                    <option
-                                                                        value="2022"
-                                                                    >
-                                                                        2022년
-                                                                    </option>
-                                                                    <option
-                                                                        value="2023"
-                                                                    >
-                                                                        2023년
-                                                                    </option>
-                                                                    <option
-                                                                        value="2024"
-                                                                    >
-                                                                        2024년
-                                                                    </option>
-                                                                </select>
-                                                            </span>
-                                                            <span
-                                                                class="interview-write-inpSel"
-                                                            >
-                                                                <select
-                                                                    name="interview-date-month"
-                                                                    id="interviewDateMonth"
-                                                                    title="월 선택"
-                                                                >
-                                                                    <option
-                                                                        value
-                                                                    >
-                                                                        월 선택
-                                                                    </option>
-                                                                    <option
-                                                                        value="01"
-                                                                    >
-                                                                        01월
-                                                                    </option>
-                                                                    <option
-                                                                        value="02"
-                                                                    >
-                                                                        02월
-                                                                    </option>
-                                                                    <option
-                                                                        value="03"
-                                                                    >
-                                                                        03월
-                                                                    </option>
-                                                                    <option
-                                                                        value="04"
-                                                                    >
-                                                                        04월
-                                                                    </option>
-                                                                    <option
-                                                                        value="05"
-                                                                    >
-                                                                        05월
-                                                                    </option>
-                                                                    <option
-                                                                        value="06"
-                                                                    >
-                                                                        06월
-                                                                    </option>
-                                                                    <option
-                                                                        value="07"
-                                                                    >
-                                                                        07월
-                                                                    </option>
-                                                                    <option
-                                                                        value="08"
-                                                                    >
-                                                                        08월
-                                                                    </option>
-                                                                    <option
-                                                                        value="09"
-                                                                    >
-                                                                        09월
-                                                                    </option>
-                                                                    <option
-                                                                        value="10"
-                                                                    >
-                                                                        10월
-                                                                    </option>
-                                                                    <option
-                                                                        value="11"
-                                                                    >
-                                                                        11월
-                                                                    </option>
-                                                                    <option
-                                                                        value="12"
-                                                                    >
-                                                                        12월
-                                                                    </option>
-                                                                </select>
-                                                            </span>
+                                                    <td class="interview-write-txtLeft">
+                                                        <div class="interview-write-auto-search">
+                                                            <div class="interview-write-Typo"  th:text="${apply.noticeWorkStartDate} + ' ~ ' + ${apply.noticeWorkEndDate}"></div>
                                                         </div>
-                                                        <em
-                                                            class="interview-write-msgInvalid interview-write-msgInterviewDate interview-write-hide"
-                                                        ></em>
+
+                                                        <em class="interview-write-msgInvalid interview-write-msgJobCategory interview-write-hide">필수
+                                                            항목입니다.</em>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -645,6 +536,7 @@
                 </div>
             </div>
         </div>
+    </form>
     </body>
     <script src="/js/corporation/interview-review-write.js"></script>
 </html>

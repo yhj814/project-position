@@ -994,9 +994,7 @@ li {
     display: block;
     color: var(--gray100);
 }
-.TipBox {
-    position: relative;
-}
+
 .col-summary .recruit .TipBox > span {
     display: inline-block;
     height: 24px;
@@ -1087,7 +1085,7 @@ li {
     position: absolute;
 }
 .list-status .col-btns {
-    bottom: 130px;
+    bottom: 105px;
     left: 550px;
     padding: 0 132px 0 108px;
     width: 380px;
@@ -1412,6 +1410,35 @@ label {
     background: var(--green90);
 }
 
-div#col-btn {
+.col-btns.col-btn {
     padding: 0 89px 0 163px;
+}
+
+.-file-down-resume{
+    display:flex;
+    margin-right: 61px;
+    padding: 4px 4px 4px 6px;
+    color: var(--gray80);
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: top;
+    text-align: left;
+}
+.resume-btn:after {
+    position: absolute;
+    top: 5px;
+    right: 106px;
+    width: 16px;
+    height: 16px;
+    background: url(/images/corporation/regist.svg);
+    content: "";
+}
+
+
+.TipBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* 좌측과 우측 끝으로 요소들을 배치 */
+    margin-top: 5px;
 }
