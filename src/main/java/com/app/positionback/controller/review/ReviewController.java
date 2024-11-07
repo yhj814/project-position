@@ -1,6 +1,7 @@
 package com.app.positionback.controller.review;
 
 import com.app.positionback.domain.apply.ApplyDTO;
+import com.app.positionback.domain.evaluation.EvaluationDTO;
 import com.app.positionback.domain.evaluation.EvaluationVO;
 import com.app.positionback.domain.review.CorporationReviewDTO;
 import com.app.positionback.service.apply.ApplyService;
@@ -24,17 +25,18 @@ public class ReviewController {
     private final ApplyService applyService;
 
     @GetMapping("/corporation/position-review")
-    public void goToPositionReview(CorporationReviewDTO corporationReviewDTO, EvaluationVO evaluationVO,
+    public void goToPositionReview(CorporationReviewDTO corporationReviewDTO,
                                    Long id, Model model) {
         ApplyDTO applyDTO = applyService.getApplyById(id);
 //        applyDTO.setNoticeWorkStartDate(String.valueOf(new Date()));
+
         model.addAttribute("apply", applyDTO);
     }
 
     @PostMapping("/corporation/position-review")
-    public RedirectView createReview(CorporationReviewDTO corporationReviewDTO, EvaluationVO evaluationVO, Long applyId) {
+    public RedirectView createReview(CorporationReviewDTO corporationReviewDTO,  Long applyId) {
 
-        reviewService.addCorporationReview(corporationReviewDTO, evaluationVO, applyId);
+        reviewService.addCorporationReview(corporationReviewDTO,  applyId);
         return new RedirectView("/corporation");
     }
 }

@@ -2,6 +2,7 @@ package com.app.positionback.service.review;
 
 import com.app.positionback.domain.evaluation.EvaluationCorporationDTO;
 import com.app.positionback.domain.evaluation.EvaluationCorporationVO;
+import com.app.positionback.domain.evaluation.EvaluationDTO;
 import com.app.positionback.domain.evaluation.EvaluationVO;
 import com.app.positionback.domain.review.CorporationReviewDTO;
 import com.app.positionback.domain.review.CorporationReviewVO;
@@ -33,10 +34,14 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public void addCorporationReview(CorporationReviewDTO corporationReviewDTO, EvaluationVO evaluationVO, Long applyId) {
+    public void addCorporationReview(CorporationReviewDTO corporationReviewDTO, Long applyId) {
         EvaluationCorporationDTO evaluationCorporationDTO = new EvaluationCorporationDTO();
+        EvaluationDTO evaluationDTO = new EvaluationDTO();
+
         // 평가 정보 삽입
-        evaluationDAO.saveEvaluation(evaluationVO);
+        evaluationDTO.setEvaluationOverall(corporationReviewDTO.getEvaluationOverall()); // 리뷰에서 긍정적, 부정적 값
+        evaluationDTO.setEvaluationDifficulty(corporationReviewDTO.getEvaluationDifficulty()); // 리뷰에서 난이도 값
+        evaluationDAO.saveEvaluation(evaluationDTO.toVO());
         evaluationCorporationDTO.setEvaluationId(evaluationDAO.findLastInsertId());
 
         // 리뷰 정보 삽입

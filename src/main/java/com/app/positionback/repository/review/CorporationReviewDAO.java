@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class CorporationReviewDAO {
-    private CorporationReviewMapper corporationReviewMapper;
+    private final CorporationReviewMapper corporationReviewMapper;
 
     public void saveCorporationReview(CorporationReviewVO corporationReviewVO) {
         corporationReviewMapper.insertCorporationReview(corporationReviewVO);

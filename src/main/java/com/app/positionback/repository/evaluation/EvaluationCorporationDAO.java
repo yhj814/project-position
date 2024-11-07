@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class EvaluationCorporationDAO {
-    private EvaluationCorporationMapper evaluationCorporationMapper;
+    private final EvaluationCorporationMapper evaluationCorporationMapper;
 
     public void saveEvaluationCorporation(EvaluationCorporationVO evaluationCorporationVO) {
         evaluationCorporationMapper.insertEvaluationCorporation(evaluationCorporationVO);

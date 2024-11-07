@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class EvaluationDAO {
-    private EvaluationMapper evaluationMapper;
+    private final EvaluationMapper evaluationMapper;
 
     public void saveEvaluation(EvaluationVO evaluationVO) {
         evaluationMapper.insertEvaluation(evaluationVO);

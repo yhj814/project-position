@@ -130,7 +130,7 @@
                                                             class="interview-write-auto-search"
                                                         >
                                                             <div
-                                                                id="companyName"
+                                                                id="memberName"
                                                                 class="interview-write-Typo"
                                                                 title="포지셔너"
                                                                 th:text="${apply.memberName}"
@@ -152,7 +152,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="jobCategory"
+                                                            for="noticeJobCategoryName"
                                                             class="interview-write-tit-item"
                                                         >
                                                             직무·직업
@@ -173,7 +173,7 @@
                                                             class="interview-write-auto-search"
                                                         >
                                                             <div
-                                                                id="companyName"
+                                                                id="noticeJobCategoryName"
                                                                 class="interview-write-Typo"
                                                                 title="직무·직업"
                                                                 th:text="${apply.noticeJobCategoryName}"
@@ -280,10 +280,10 @@
                                                                 class="interview-write-inOption"
                                                             >
                                                                 <input
-                                                                    type="radio"
-                                                                    name="evaluation"
-                                                                    id="evaluation1"
-                                                                    value="1"
+                                                                        th:field="*{evaluationOverall}"
+                                                                        type="radio"
+                                                                        id="evaluation1"
+                                                                        value="긍정적"
                                                                 />
                                                                 <label
                                                                     for="evaluation1"
@@ -295,10 +295,10 @@
                                                                 class="interview-write-inOption"
                                                             >
                                                                 <input
-                                                                    type="radio"
-                                                                    name="evaluation"
-                                                                    id="evaluation2"
-                                                                    value="2"
+                                                                        th:field="*{evaluationOverall}"
+                                                                        type="radio"
+                                                                        id="evaluation2"
+                                                                        value="보통"
                                                                 />
                                                                 <label
                                                                     for="evaluation2"
@@ -310,10 +310,10 @@
                                                                 class="interview-write-inOption"
                                                             >
                                                                 <input
-                                                                    type="radio"
-                                                                    name="evaluation"
-                                                                    id="evaluation3"
-                                                                    value="3"
+                                                                        th:field="*{evaluationOverall}"
+                                                                        type="radio"
+                                                                        id="evaluation3"
+                                                                        value="부정적"
                                                                 />
                                                                 <label
                                                                     for="evaluation3"
@@ -358,10 +358,11 @@
                                                                 class="interview-write-inOption"
                                                             >
                                                                 <input
+                                                                    th:field="*{evaluationDifficulty}"
                                                                     type="radio"
-                                                                    name="difficult"
+                                                                    name="evaluationDifficulty"
                                                                     id="difficult1"
-                                                                    value="1"
+                                                                    value="쉬움"
                                                                 />
                                                                 <label
                                                                     for="difficult1"
@@ -373,10 +374,11 @@
                                                                 class="interview-write-inOption"
                                                             >
                                                                 <input
+                                                                    th:field="*{evaluationDifficulty}"
                                                                     type="radio"
-                                                                    name="difficult"
+                                                                    name="evaluationDifficulty"
                                                                     id="difficult2"
-                                                                    value="2"
+                                                                    value="보통"
                                                                 />
                                                                 <label
                                                                     for="difficult2"
@@ -388,10 +390,11 @@
                                                                 class="interview-write-inOption"
                                                             >
                                                                 <input
+                                                                    th:field="*{evaluationDifficulty}"
                                                                     type="radio"
-                                                                    name="difficult"
+                                                                    name="evaluationDifficulty"
                                                                     id="difficult3"
-                                                                    value="3"
+                                                                    value="어려움"
                                                                 />
                                                                 <label
                                                                     for="difficult3"
@@ -409,7 +412,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="interviewDetails"
+                                                            for="reviewContent"
                                                             class="interview-write-tit-item"
                                                         >
                                                             업무 내용 및
@@ -433,8 +436,9 @@
                                                             class="interview-write-textarea"
                                                         >
                                                             <textarea
-                                                                name="contents"
-                                                                id="interviewDetails"
+                                                                th:field="*{reviewContent}"
+                                                                name="reviewContent"
+                                                                id="reviewContent"
                                                                 class="interview-write-tf-input"
                                                                 title="전형 및 면접 진행방식"
                                                                 cols="25"
@@ -468,7 +472,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="interviewDetails"
+                                                            for="reviewTips"
                                                             class="interview-write-tit-item"
                                                         >
                                                             TIP 및 특이사항
@@ -489,8 +493,9 @@
                                                             class="interview-write-textarea"
                                                         >
                                                             <textarea
-                                                                name="contents"
-                                                                id="interviewDetails"
+                                                                th:field="*{reviewTips}"
+                                                                name="reviewTips"
+                                                                id="reviewTips"
                                                                 class="interview-write-tf-input"
                                                                 title="전형 및 면접 진행방식"
                                                                 cols="25"
@@ -524,7 +529,7 @@
                                 </div>
                                 <div class="interview-write-review-write">
                                     <button
-                                        type="button"
+                                        type="submit"
                                         class="interview-write-btn-confirm"
                                     >
                                         등록 요청
