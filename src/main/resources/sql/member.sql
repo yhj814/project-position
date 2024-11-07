@@ -7,10 +7,12 @@ create table tbl_member(
     member_password varchar(255) not null,
     member_address varchar(255) not null,
     member_address_detail varchar(255) not null,
-    member_nickname varchar(255) default '포지셔너',
+    member_nickname varchar(255) ,
     member_status varchar(255) default '활동중',
-    member_type varchar(255) default '포지셔너',
-    member_warning_count int default 0, # 신고 누적 횟수
+    member_complain_count int default 0, # 신고 누적 횟수
+    member_kakao_email varchar(255),
+    member_kakao_profile_url varchar(255),
+    member_phone varchar(255),
     created_date datetime default current_timestamp,
     updated_date datetime default  current_timestamp
 );
@@ -21,15 +23,16 @@ delete from tbl_member;
 
 alter table  tbl_member add(created_date datetime default current_timestamp);
 alter table  tbl_member add(updated_date datetime default current_timestamp);
-alter table  tbl_member add(member_warning_count int default 0);
+alter table  tbl_member add(member_complain_count int default 0);
 alter table tbl_member add(member_kakao_email varchar(255));
 alter table tbl_member add(member_kakao_profile_url varchar(255));
-alter table tbl_member modify column member_phone varchar(255);
+alter table tbl_member add(member_phone varchar(255));
 alter table tbl_member modify column member_address_detail varchar(255);
 alter table tbl_member modify column member_password varchar(255);
 alter table tbl_member drop column member_type;
 
 
+<<<<<<< HEAD
 INSERT INTO tbl_member (
     member_name,
     member_phone,
@@ -72,4 +75,28 @@ INSERT INTO tbl_member (
 
 
 
+=======
+-- First new entry
+INSERT INTO tbl_member (
+    member_name,
+    member_email,
+    member_password,
+    member_address,
+    member_address_detail,
+    member_nickname,
+    member_kakao_email,
+    member_kakao_profile_url,
+    member_phone
+) VALUES (
+             'Alice Johnson',
+             'alicej@example.com',
+             'alicepass123',
+             '789 Oak St',
+             'Floor 3',
+             'alicej',
+             'alicejohnson@kakao.com',
+             'http://example.com/alice-profile.jpg',
+             '555-123-4567'
+         );
+>>>>>>> newtest
 

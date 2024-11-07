@@ -52,22 +52,4 @@ public class CorporationServiceImpl implements CorporationService {
         Long fileId = corporationFileDAO.getFileIdByCorporationId(corporationId);
         return fileDAO.findById(fileId);
     }
-
-    @Override
-    public ApplyListDTO getApplyByCorporationId(int page, Pagination pagination, Long corporationId) {
-        ApplyListDTO applyListDTO = new ApplyListDTO();
-        pagination.setPage(page);
-        pagination.setTotal(corporationDAO.getTotal(pagination,corporationId));
-        pagination.progress();
-        applyListDTO.setPagination(pagination);
-        applyListDTO.setApplies(corporationDAO.findApplyByCorporationId(pagination,corporationId));
-
-
-        return applyListDTO;
-    }
-
-    @Override
-    public int getTotal(Pagination pagination, Long corporationId) {
-        return corporationDAO.getTotal(pagination,corporationId);
-    }
 }

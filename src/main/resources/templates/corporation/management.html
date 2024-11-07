@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="/css/corporation/corporation-login-main-manage-posting.css"
+        />
+        <link rel="stylesheet" href="/css/main.css" />
+        <title>공고, 지원자 관리</title>
+    </head>
+    <body>
+        <div id="sri-section" class="layout-full">
+            <div id="sri-wrap">
+                <div id="content">
+                    <div class="wrap-company-view fixed">
+                        <div class="sidebar recommendation">
+                            <div class="scroller">
+                                <div class="company-info">
+                                    <div class="box-logo">
+                                        <img
+                                            id="쿠팡(주)의 기업로고"
+                                            alt="쿠팡(주)의 기업로고"
+                                            src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
+                                            width="170"
+                                            height="38"
+                                        />
+                                    </div>
+                                    <div class="box-title">
+                                        <h1
+                                            class="tit-company"
+                                            title="쿠팡(주)"
+                                        >
+                                            쿠팡(주)<span class="txt-info"
+                                                >기업정보</span
+                                            >
+                                        </h1>
+                                        <p class="txt-job">전자상거래 소매업</p>
+                                    </div>
+                                    <div class="box-btns">
+                                        <!-- onclick부분 나중에 js 작업 할 때 참고하기 
+                                            interested-on되면 하트-->
+                                        <button
+                                            type="button"
+                                            class="interested-corp ga-data-layer interested-on"
+                                        >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                class="icon-interested"
+                                            >
+                                                <path
+                                                    d="M6.02498 12.7861L5.64593 12.4305L5.26661 12.0676L4.9045 11.7145L4.57727 11.3886L4.30315 11.1078L4.09798 10.8878L3.60986 10.3434L3.3016 9.99345L3.02797 9.67542L2.79004 9.38984L2.58897 9.13749L2.42437 8.91736L2.35722 8.8214C2.09522 8.43618 1.89245 8.04622 1.73708 7.6185C1.41094 6.38491 1.4304 5.39882 1.73942 4.62739C2.06107 3.82442 2.56896 3.24401 3.25465 2.87112C3.97841 2.47923 4.74412 2.39639 5.56989 2.63105C6.18765 2.82443 6.71818 3.1964 7.16412 3.7682L7.29598 3.94787L7.58589 4.37863L8.00062 4.99485L8.41545 4.3787L8.71259 3.93737C9.13803 3.32866 9.65597 2.91815 10.2666 2.68825L10.4462 2.62682C11.2606 2.39707 12.0242 2.47999 12.7465 2.87106C13.4323 3.24395 13.9403 3.82439 14.262 4.62745C14.5705 5.39767 14.5909 6.3831 14.2537 7.6522C14.1088 8.04661 13.9058 8.43727 13.6424 8.82404C13.6227 8.85295 13.6015 8.88333 13.5787 8.9152L13.4124 9.13756L13.2113 9.38998L12.9737 9.67507L12.549 10.1656L12.1189 10.6483L12.1177 10.6497L11.8097 10.99L11.569 11.2414L11.2664 11.5467L10.7343 12.0681L10.3555 12.4306L9.97658 12.786L9.61564 13.1169L9.28863 13.4077C9.1893 13.4942 9.09986 13.57 9.0226 13.6331C9.02237 13.6333 9.02214 13.6335 9.02192 13.6336L8.00223 14.461L7.999 14.4634L6.85007 13.5257C6.76132 13.4504 6.66238 13.3642 6.55569 13.2693L6.20886 12.9558C6.20844 12.9554 6.20801 12.955 6.20759 12.9546C6.148 12.9 6.08733 12.844 6.02592 12.787C6.02561 12.7867 6.0253 12.7864 6.02498 12.7861Z"
+                                                    fill="white"
+                                                    stroke="#8491A7"
+                                                ></path>
+                                            </svg>
+                                            <span>3.2만+ 관심기업</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <nav class="company-navi">
+                                    <ul class="menu-list">
+                                        <!-- li가 selected되면 -->
+                                        <li class="menu-item">
+                                            <button
+                                                type="button"
+                                                class="btn-menu ga-data-layer"
+                                                onclick="location.href='/corporation';"
+                                            >
+                                                <svg class="ico">
+                                                    <use
+                                                        xlink:href="#ico-building"
+                                                    ></use>
+                                                </svg>
+                                                기업소개
+                                            </button>
+                                        </li>
+                                        <li class="menu-item">
+                                            <button
+                                                type="button"
+                                                class="btn-menu"
+                                                onclick="location.href='/corporation/corporation-login-main-write-posting';"
+                                            >
+                                                <svg class="ico">
+                                                    <use
+                                                        xlink:href="#ico-supporting"
+                                                    ></use>
+                                                </svg>
+                                                공고 등록
+                                                <span class="badge"
+                                                    >진행중</span
+                                                >
+                                            </button>
+                                        </li>
+                                        <li class="menu-item ga-data-layer">
+                                            <button
+                                                    type="button"
+                                                    class="btn-menu ga-data-layer"
+                                                    onclick="location.href='/corporation/corporation-login-main-posting-registration';"
+                                            >
+                                                <svg class="ico">
+                                                    <use
+                                                            xlink:href="#ico-supporting"
+                                                    ></use>
+                                                </svg>
+                                                공고 관리
+
+                                                <span class="badge badge-new"
+                                                >N</span
+                                                >
+                                            </button>
+                                        </li>
+                                        <li class="menu-item ga-data-layer selected">
+                                            <button
+                                                    type="button"
+                                                    class="btn-menu ga-data-layer"
+                                                    onclick="location.href='/corporation/management';"
+                                            >
+                                                <svg class="ico">
+                                                    <use
+                                                            xlink:href="#ico-person"
+                                                    ></use>
+                                                </svg>
+                                                지원자 관리
+
+                                                <span class="badge badge-new"
+                                                >N</span
+                                                >
+                                            </button>
+                                        </li>
+                                        <li class="menu-item">
+                                            <button
+                                                type="button"
+                                                class="btn-menu ga-data-layer"
+                                            >
+                                                <svg class="ico">
+                                                    <use
+                                                        xlink:href="#ico-chart"
+                                                    ></use>
+                                                </svg>
+                                                문의하기
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- <div class="banner"></div> -->
+                            </div>
+                        </div>
+                        <div class="main-content cont-introduce">
+                            <!-- 여기 안에 들어감 -->
+                            <section class="section">
+                                <!-- 뒤로가기 버튼 사이에 간격 필요 -->
+                                <h2 class="section-tit" id="first-tit">
+                                    공고 정보
+                                </h2>
+                            </section>
+                            <div
+                                class="box-company-view recruit-ing"
+                                id="company-info-recruit-info-ing"
+                            >
+                                <section class="section section-type2">
+                                    <div class="section-header">
+                                        <h2 class="section-tit">
+                                            진행중 공고
+                                            <span class="count"
+                                                ><strong class="num">3</strong
+                                                >건</span
+                                            >
+                                        </h2>
+                                    </div>
+                                    <div class="section-content">
+                                        <div class="area-sorting">
+                                            <input type="hidden" id="apply-status" value="ongoing" />
+                                            <ul class="TabBox">
+                                                <li class="Select">
+                                                    <button
+                                                        type="button"
+                                                        class="BtnType"
+                                                        id="ongoing-btn"
+                                                    >
+                                                        지원<span class="Badge"
+                                                                id="ongoing-count"
+                                                                th:text="${ongoingCount}"
+                                                            >3</span
+                                                        >
+                                                    </button>
+                                                </li>
+                                                <li class="">
+                                                    <button
+                                                        type="button"
+                                                        class="BtnType"
+                                                        id="closed-btn"
+                                                    >
+                                                        면접<span class="Badge"
+                                                                id="closed-count"
+                                                                th:text="${closedCount}"
+                                                            >3</span
+                                                        >
+                                                    </button>
+                                                </li>
+                                                <li class="">
+                                                    <button
+                                                        type="button"
+                                                        class="BtnType"
+                                                    >
+                                                        인턴쉽<span
+                                                            class="Badge"
+                                                            >3</span
+                                                        >
+                                                    </button>
+                                                </li>
+                                                <li class="">
+                                                    <button
+                                                        type="button"
+                                                        class="BtnType"
+                                                    >
+                                                        후기<span class="Badge"
+                                                            >3</span
+                                                        >
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div
+                                            class="selecter"
+                                            style="
+                                                margin-left: 630px;
+                                                margin-bottom: 10px;
+                                            "
+                                        >
+                                            <div class="InpBox sorting-select">
+                                                <select name="">
+                                                    <option value="recent">
+                                                        알람여부 전체
+                                                    </option>
+                                                    <option value="closing-dt">
+                                                        열람
+                                                    </option>
+                                                    <option value="read-cnt">
+                                                        미열람
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="InpBox sorting-select">
+                                                <select name="">
+                                                    <option value="recent">
+                                                        마감여부 전체
+                                                    </option>
+                                                    <option value="closing-dt">
+                                                        진행중
+                                                    </option>
+                                                    <option value="read-cnt">
+                                                        마감
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="area-recruiting">
+                                            <div
+                                                class="wrap-loading"
+                                                id="ingRecruitLoading"
+                                                style="display: none"
+                                            >
+                                                <div class="LoadingImg">
+                                                    <div
+                                                        class="LoadingCircle LoadingCircleC1"
+                                                    ></div>
+                                                    <div
+                                                        class="LoadingCircle LoadingCircleC2"
+                                                    ></div>
+                                                    <div
+                                                        class="LoadingCircle LoadingCircleC3"
+                                                    ></div>
+                                                </div>
+                                                <strong class="loading-tit"
+                                                    >공고를 불러오고
+                                                    있습니다</strong
+                                                >
+                                                <p class="loading-txt">
+                                                    잠시만 기다려주세요
+                                                </p>
+                                            </div>
+                                            <!-- 지원, 면접, 인턴쉽이냐에 따라 아래 내용이 달라져요 참고해주세요 -->
+                                            <section class="list-recruiting">
+                                                <div class="list-status">
+                                                    <div
+                                                        class="row -apply-list"
+                                                        id="apply-list-3"
+                                                    >
+                                                        <!-- disabled 추가시 비활성 -->
+
+                                                        <div class="col-summary">
+                                                            <strong class="corp">
+                                                                <a
+                                                                    href="/zf-user/company-info/view?csn=1298122435"
+                                                                    target="-blank"
+                                                                >
+                                                                    ㈜지아이티
+                                                                </a>
+                                                            </strong>
+                                                            <div class="recruit">
+                                                                <a
+                                                                    href="/zf-user/jobs/relay/view?rec-idx=49191684&amp;view-type=apply-status&amp;t-ref=apply-status-list&amp;t-ref-content=generic"
+                                                                    target="-blank"
+                                                                >
+                                                                    <span
+                                                                        class="division"
+                                                                        >재무(자금/재무결산)</span
+                                                                    >
+
+                                                                    <div
+                                                                        class="TipBox"
+                                                                    >
+                                                                        <span
+                                                                            class=""
+                                                                            >현대자동차그룹
+                                                                            (주)지아이티
+                                                                            재경부문(자금/재무결산)
+                                                                            채용</span
+                                                                        >
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="attached">
+                                                                ::before
+                                                                <button
+                                                                    type="button"
+                                                                    class="data -file-down-resume"
+                                                                >
+                                                                    이력서
+                                                                </button>
+                                                            </div>
+                                                            <div class="status">
+                                                                <em
+                                                                    class="txt-status"
+                                                                >
+                                                                    지원완료
+                                                                </em>
+                                                                <span
+                                                                    class="txt-sub"
+                                                                    >미열람</span
+                                                                >
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-report -ai-report"
+                                                                ><svg></svg>
+                                                                    경쟁력분석
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-btns">
+                                                            <div class="action">
+                                                                <span
+                                                                    class="date-end"
+                                                                ></span>
+                                                            </div>
+                                                            <button
+                                                                type="button"
+                                                                class="BtnType SizeM -apply-cancel"
+                                                            >
+                                                                지원합격
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                class="btn-history -applicant-history"
+                                                            >
+                                                                지원내역
+                                                            </button>
+                                                        </div>
+
+                                                        <!--  주목! js에서 data-recruitapply-idx로 구분합니다 알아두세요!!!!! -->
+
+                                                        <div
+                                                            class="col-history"
+                                                            style="display: none"
+                                                        >
+                                                            <ol class="timeline">
+                                                                <li class="now">
+                                                                    <span
+                                                                        class="date"
+                                                                        >2024.10.17
+                                                                        13:37:30</span
+                                                                    >
+                                                                    <span
+                                                                        class="desc"
+                                                                    >
+                                                                        <strong
+                                                                            >지원
+                                                                            완료</strong
+                                                                        >
+                                                                        <span
+                                                                            >지원서류<button
+                                                                                type="button"
+                                                                                class="txt"
+                                                                            >
+                                                                                이력서
+                                                                            </button></span
+                                                                        ><span
+                                                                            >지원
+                                                                            완료<button
+                                                                                type="button"
+                                                                                class="txt"
+                                                                            >
+                                                                                지원
+                                                                                취소
+                                                                            </button></span
+                                                                        >
+                                                                    </span>
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-status">
+                                                    <div
+                                                        class="row -apply-list"
+                                                        id="apply-list"
+                                                    >
+                                                        <!-- disabled 추가시 비활성 -->
+
+                                                        <div class="col-summary">
+                                                            <strong class="corp">
+                                                                <a
+                                                                    href="/zf-user/company-info/view?csn=1298122435"
+                                                                    target="-blank"
+                                                                >
+                                                                    ㈜지아이티
+                                                                </a>
+                                                            </strong>
+                                                            <div class="recruit">
+                                                                <a
+                                                                    href="/zf-user/jobs/relay/view?rec-idx=49191684&amp;view-type=apply-status&amp;t-ref=apply-status-list&amp;t-ref-content=generic"
+                                                                    target="-blank"
+                                                                >
+                                                                    <span
+                                                                        class="division"
+                                                                        >재무(자금/재무결산)</span
+                                                                    >
+
+                                                                    <div
+                                                                        class="TipBox"
+                                                                    >
+                                                                        <span
+                                                                            class=""
+                                                                            >현대자동차그룹
+                                                                            (주)지아이티
+                                                                            재경부문(자금/재무결산)
+                                                                            채용</span
+                                                                        >
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="attached">
+                                                                ::before
+                                                                <button
+                                                                    type="button"
+                                                                    class="data -file-down-resume"
+                                                                >
+                                                                    이력서
+                                                                </button>
+                                                            </div>
+                                                            <div class="status">
+                                                                <em
+                                                                    class="txt-status"
+                                                                >
+                                                                    지원완료
+                                                                </em>
+                                                                <span
+                                                                    class="txt-sub"
+                                                                    >미열람</span
+                                                                >
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-report -ai-report"
+                                                                ><svg></svg>
+                                                                    경쟁력분석
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-btns">
+                                                            <div class="action">
+                                                                <span
+                                                                    class="date-end"
+                                                                ></span>
+                                                            </div>
+                                                            <button
+                                                                type="button"
+                                                                class="BtnType SizeM -apply-cancel"
+                                                            >
+                                                                지원취소
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                class="btn-history -applicant-history"
+                                                            >
+                                                                지원내역
+                                                            </button>
+                                                        </div>
+
+                                                        <!--  주목! js에서 data-recruitapply-idx로 구분합니다 알아두세요!!!!! -->
+
+                                                        <div
+                                                            class="col-history"
+                                                            style="display: none"
+                                                        >
+                                                            <ol class="timeline">
+                                                                <li class="now">
+                                                                    <span
+                                                                        class="date"
+                                                                        >2024.10.17
+                                                                        13:37:30</span
+                                                                    >
+                                                                    <span
+                                                                        class="desc"
+                                                                    >
+                                                                        <strong
+                                                                            >지원
+                                                                            완료</strong
+                                                                        >
+                                                                        <span
+                                                                            >지원서류<button
+                                                                                type="button"
+                                                                                class="txt"
+                                                                            >
+                                                                                이력서
+                                                                            </button></span
+                                                                        ><span
+                                                                            >지원
+                                                                            완료<button
+                                                                                type="button"
+                                                                                class="txt"
+                                                                            >
+                                                                                지원
+                                                                                취소
+                                                                            </button></span
+                                                                        >
+                                                                    </span>
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-status">
+                                                    <div
+                                                        class="row -apply-list"
+                                                        id="apply-list1"
+                                                    >
+                                                        <!-- disabled 추가시 비활성 -->
+
+                                                        <div class="col-summary">
+                                                            <strong class="corp">
+                                                                <a
+                                                                    href="/zf-user/company-info/view?csn=1298122435"
+                                                                    target="-blank"
+                                                                >
+                                                                    ㈜지아이티
+                                                                </a>
+                                                            </strong>
+                                                            <div class="recruit">
+                                                                <a
+                                                                    href="/zf-user/jobs/relay/view?rec-idx=49191684&amp;view-type=apply-status&amp;t-ref=apply-status-list&amp;t-ref-content=generic"
+                                                                    target="-blank"
+                                                                >
+                                                                    <span
+                                                                        class="division"
+                                                                        >재무(자금/재무결산)</span
+                                                                    >
+
+                                                                    <div
+                                                                        class="TipBox"
+                                                                    >
+                                                                        <span
+                                                                            class=""
+                                                                            >현대자동차그룹
+                                                                            (주)지아이티
+                                                                            재경부문(자금/재무결산)
+                                                                            채용</span
+                                                                        >
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="attached">
+                                                                ::before
+                                                                <button
+                                                                    type="button"
+                                                                    class="data -file-down-resume"
+                                                                >
+                                                                    이력서
+                                                                </button>
+                                                            </div>
+                                                            <div class="status">
+                                                                <em
+                                                                    class="txt-status"
+                                                                >
+                                                                    지원완료
+                                                                </em>
+                                                                <span
+                                                                    class="txt-sub"
+                                                                    >미열람</span
+                                                                >
+                                                                <button
+                                                                    type="button"
+                                                                    class="btn-report -ai-report"
+                                                                ><svg></svg>
+                                                                    경쟁력분석
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-btns">
+                                                            <div class="action">
+                                                                <span
+                                                                    class="date-end"
+                                                                ></span>
+                                                            </div>
+                                                            <button
+                                                                type="button"
+                                                                class="BtnType SizeM -apply-cancel"
+                                                            >
+                                                                후기작성(인턴쉽)
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                class="btn-history -applicant-history"
+                                                            >
+                                                                지원내역
+                                                            </button>
+                                                        </div>
+
+                                                        <!--  주목! js에서 data-recruitapply-idx로 구분합니다 알아두세요!!!!! -->
+
+                                                        <div
+                                                            class="col-history"
+                                                            style="display: none"
+                                                            data-recruitapply-idx="391601185"
+                                                        >
+                                                            <ol class="timeline">
+                                                                <li class="now">
+                                                                    <span
+                                                                        class="date"
+                                                                        >2024.10.17
+                                                                        13:37:30</span
+                                                                    >
+                                                                    <span
+                                                                        class="desc"
+                                                                    >
+                                                                        <strong
+                                                                            >지원
+                                                                            완료</strong
+                                                                        >
+                                                                        <input
+                                                                            type="file"
+                                                                        />
+
+                                                                        <span
+                                                                            >지원
+                                                                            완료<button
+                                                                                type="button"
+                                                                                class="txt"
+                                                                            >
+                                                                                지원
+                                                                                취소
+                                                                            </button></span
+                                                                        >
+                                                                    </span>
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-status">
+                                                    <div
+                                                        class="row -apply-list"
+                                                        id="apply-list-39"
+                                                    >
+                                                        <!-- disabled 추가시 비활성 -->
+
+                                                        <div class="col-summary">
+                                                            <strong class="corp">
+                                                                <a
+                                                                    href="/zf-user/company-info/view?csn=1298122435"
+                                                                    target="-blank"
+                                                                >
+                                                                    ㈜지아이티
+                                                                </a>
+                                                            </strong>
+                                                            <div class="recruit">
+                                                                <a
+                                                                    href="/zf-user/jobs/relay/view?rec-idx=49191684&amp;view-type=apply-status&amp;t-ref=apply-status-list&amp;t-ref-content=generic"
+                                                                    target="-blank"
+                                                                >
+                                                                    <span
+                                                                        class="division"
+                                                                        >재무(자금/재무결산)</span
+                                                                    >
+
+                                                                    <div
+                                                                        class="TipBox"
+                                                                    >
+                                                                        <span
+                                                                            class=""
+                                                                            >현대자동차그룹
+                                                                            (주)지아이티
+                                                                            재경부문(자금/재무결산)
+                                                                            채용</span
+                                                                        >
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="attached">
+                                                                ::before
+                                                                <button
+                                                                    type="button"
+                                                                    class="data -file-down-resume"
+                                                                >
+                                                                    이력서
+                                                                </button>
+                                                            </div>
+                                                            <div class="status">
+                                                                <em
+                                                                    class="txt-status"
+                                                                >
+                                                                    지원완료
+                                                                </em>
+                                                                <span
+                                                                    class="txt-sub"
+                                                                    >미열람</span
+                                                                >
+                                                                <button
+                                                                        type="button"
+                                                                        class="btn-report -ai-report"
+                                                                >
+                                                                    <svg aria-hidden="true" focusable="false" class="ic">
+                                                                        <use xlink:href="#icon_report"></use>
+                                                                    </svg>
+
+                                                                    신고하기
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-btns">
+                                                            <div class="action">
+                                                                <span
+                                                                    class="date-end"
+                                                                ></span>
+                                                            </div>
+                                                            <button
+                                                                type="button"
+                                                                class="BtnType SizeM -apply-cancel"
+                                                            >
+                                                                후기작성(인턴쉽)
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                class="btn-history -applicant-history"
+                                                            >
+                                                                지원내역
+                                                            </button>
+                                                        </div>
+
+                                                        <!--  주목! js에서 data-recruitapply-idx로 구분합니다 알아두세요!!!!! -->
+
+                                                        <div
+                                                            class="col-history"
+                                                            style="display: none"
+                                                        >
+                                                            <div
+                                                                class="view-cont"
+                                                                style="
+                                                                    display: block;
+                                                                "
+                                                            >
+                                                                <!-- 이모티콘있는곳 -->
+                                                                <div
+                                                                    class="info-emoticon"
+                                                                >
+                                                                    <dl
+                                                                        class="review"
+                                                                    >
+                                                                        <dt>
+                                                                            전반적
+                                                                            평가
+                                                                        </dt>
+                                                                        <dd
+                                                                            class="spr-review smile"
+                                                                        >
+                                                                            매우
+                                                                            긍정적
+                                                                        </dd>
+                                                                    </dl>
+                                                                    <dl
+                                                                        class="review difficulty"
+                                                                    >
+                                                                        <dt>
+                                                                            난이도
+                                                                        </dt>
+                                                                        <dd
+                                                                            class="spr-review"
+                                                                        >
+                                                                            보통
+                                                                        </dd>
+                                                                    </dl>
+                                                                    <dl
+                                                                        class="review result"
+                                                                    >
+                                                                        <dt>
+                                                                            결과
+                                                                        </dt>
+                                                                        <dd
+                                                                            class="spr-review smile"
+                                                                        >
+                                                                            합격
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <!-- 인턴십 유형 -->
+                                                                <div
+                                                                    class="info-view"
+                                                                >
+                                                                    <strong
+                                                                        class="tit-view"
+                                                                        >인턴십
+                                                                        유형</strong
+                                                                    >
+                                                                    <ul
+                                                                        class="list-item"
+                                                                    >
+                                                                        <li>
+                                                                            프로그래밍
+                                                                            인턴십
+                                                                        </li>
+                                                                        <li>
+                                                                            디자인
+                                                                            인턴십
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <!-- 인턴십 팀원 수 -->
+                                                                <div
+                                                                    class="info-view"
+                                                                >
+                                                                    <strong
+                                                                        class="tit-view"
+                                                                        >팀원
+                                                                        수</strong
+                                                                    >
+                                                                    <ul
+                                                                        class="list-item"
+                                                                    >
+                                                                        <li>
+                                                                            팀원 5명
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <!-- 진행 및 업무 내용 -->
+                                                                <div
+                                                                    class="info-view"
+                                                                >
+                                                                    <strong
+                                                                        class="tit-view"
+                                                                        >업무 내용
+                                                                        및 진행
+                                                                        방식</strong
+                                                                    >
+                                                                    <p
+                                                                        class="txt-desc"
+                                                                    >
+                                                                        프로젝트
+                                                                        회의 참여 및
+                                                                        코드 리뷰
+                                                                        수행.
+                                                                        <br />
+                                                                        팀원들과의
+                                                                        원활한
+                                                                        소통이
+                                                                        필요하며,
+                                                                        적극적인
+                                                                        피드백을
+                                                                        통해 발전
+                                                                        가능.
+                                                                        <br />
+                                                                        주 1회 팀
+                                                                        회의 진행,
+                                                                        개별 업무는
+                                                                        자유롭게
+                                                                        진행 가능.
+                                                                    </p>
+                                                                </div>
+                                                                <!-- 인턴십 질문 -->
+                                                                <div
+                                                                    class="info-view"
+                                                                >
+                                                                    <strong
+                                                                        class="tit-view"
+                                                                        >인턴십
+                                                                        질문</strong
+                                                                    >
+                                                                    <ul
+                                                                        class="list-question"
+                                                                    >
+                                                                        <li>
+                                                                            어떤
+                                                                            기술
+                                                                            스택을
+                                                                            사용하나요?
+                                                                        </li>
+                                                                    </ul>
+                                                                    <!-- 여기가 목록들 -->
+                                                                    <ul
+                                                                        class="list-item-1"
+                                                                    >
+                                                                        <li>
+                                                                            Java,
+                                                                            Spring
+                                                                            Boot,
+                                                                            MySQL
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div
+                                                                    class="info-view"
+                                                                >
+                                                                    <strong
+                                                                        class="tit-view"
+                                                                    ></strong>
+                                                                    <ul
+                                                                        class="list-question"
+                                                                    >
+                                                                        <li>
+                                                                            인턴십
+                                                                            기간은
+                                                                            얼마나
+                                                                            되나요?
+                                                                        </li>
+                                                                    </ul>
+                                                                    <!-- 여기가 목록들 -->
+                                                                    <ul
+                                                                        class="list-item-1"
+                                                                    >
+                                                                        <li>
+                                                                            3개월
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- 특이사항 -->
+                                                                <div
+                                                                    class="info-view"
+                                                                >
+                                                                    <strong
+                                                                        class="tit-view"
+                                                                        >TIP 및
+                                                                        특이사항</strong
+                                                                    >
+                                                                    <p
+                                                                        class="txt-desc"
+                                                                    >
+                                                                        적극적으로
+                                                                        질문하고
+                                                                        배우려는
+                                                                        자세가
+                                                                        중요합니다.
+                                                                        또한,
+                                                                        팀원들과의
+                                                                        협업을 통해
+                                                                        많은 것을
+                                                                        배울 수
+                                                                        있습니다.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <div class="similar-recruit"></div>
+
+                                            <div class="PageBox">
+                                                <button
+                                                    class="BtnType SizeS BtnPrev"
+                                                >
+                                                    이전
+                                                </button>
+                                                <span
+                                                    class="BtnType SizeS active"
+                                                    >1</span
+                                                >
+                                                <span class="BtnType SizeS"
+                                                    >2</span
+                                                >
+                                                <button
+                                                    class="BtnType SizeS BtnNext"
+                                                >
+                                                    다음
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 닫기 -->
+        <!-- company-info-svg -->
+        <div class="company-info-svg" style="display: none">
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <symbol id="icon_report" fill="none">
+                    <path
+                            d="M0.5 11C0.5 10.7239 0.723858 10.5 1 10.5H11C11.2761 10.5 11.5 10.7239 11.5 11V12C11.5 12.2761 11.2761 12.5 11 12.5H1C0.723858 12.5 0.5 12.2761 0.5 12V11Z"
+                            stroke="#8491A7"
+                    ></path>
+                    <path
+                            d="M10.5 10V5C10.5 2.51472 8.48528 0.5 6 0.5V0.5C3.51472 0.5 1.5 2.51472 1.5 5V10"
+                            stroke="#8491A7"
+                    ></path>
+                    <path
+                            d="M3.5 5.49999C3.5 4.5 4 3 5.5 3"
+                            stroke="#949494"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                    ></path>
+                </symbol>
+                <symbol id="ico-building" fill="none" viewBox="0 0 24 24">
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M4.6 19.26V4.8h10.3v6.275a1.581 1.581 0 0 0-.002.069v8.116H4.6Zm10.298 1.6H4.5a1.5 1.5 0 0 1-1.5-1.5V4.7a1.5 1.5 0 0 1 1.5-1.5H15a1.5 1.5 0 0 1 1.5 1.5v4.944h3.544a1.5 1.5 0 0 1 1.5 1.5v8.216a1.5 1.5 0 0 1-1.5 1.5h-5.146Zm1.602-1.6h3.444v-8.016H16.5v8.016ZM6.7 8.296a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm.75 2.56a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"
+                            fill="#292E41"
+                    ></path>
+                </symbol>
+                <symbol id="ico-person" fill="none" viewBox="0 0 24 24">
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M6.81 4.826a3.026 3.026 0 1 1 6.053 0 3.026 3.026 0 0 1-6.052 0ZM9.838.2a4.626 4.626 0 1 0 0 9.252 4.626 4.626 0 0 0 0-9.252Zm-2.04 10.647a6.8 6.8 0 0 0-6.8 6.8v.326a.8.8 0 1 0 1.6 0v-.326a5.2 5.2 0 0 1 5.2-5.2h4.297a5.2 5.2 0 0 1 5.2 5.2v.326a.8.8 0 1 0 1.6 0v-.326a6.8 6.8 0 0 0-6.8-6.8H7.796Z"
+                            fill="#292E41"
+                    ></path>
+                </symbol>
+                <symbol id="ico-supporting" fill="none" viewBox="0 0 24 24">
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M3.898 2.2a2 2 0 0 0-2 2v14.6a2 2 0 0 0 2 2h7.6a.8.8 0 1 0 0-1.6h-7.6a.4.4 0 0 1-.4-.4V4.2c0-.22.18-.4.4-.4h11.9a.4.4 0 0 1 .4.4v4.3a.8.8 0 0 0 1.6 0V4.2a2 2 0 0 0-2-2h-11.9ZM6.5 7a.8.8 0 1 0 0 1.6h6.6a.8.8 0 0 0 0-1.6H6.5Zm0 3.31a.8.8 0 1 0 0 1.6h3.9a.8.8 0 0 0 0-1.6H6.5Zm11.352.721a.95.95 0 0 0-1.704 0l-1.115 2.261-2.495.363a.95.95 0 0 0-.526 1.62l1.805 1.76-.426 2.484a.95.95 0 0 0 1.378 1.001l2.231-1.173 2.231 1.173a.95.95 0 0 0 1.379-1.001l-.426-2.485 1.805-1.76a.95.95 0 0 0-.527-1.62l-2.494-.362-1.116-2.26Zm-1.602 3.184.75-1.52.75 1.52a.95.95 0 0 0 .716.52l1.678.244-1.214 1.183a.95.95 0 0 0-.274.841l.287 1.671-1.5-.789a.95.95 0 0 0-.885 0l-1.5.79.286-1.672a.95.95 0 0 0-.273-.84l-1.214-1.184 1.678-.244a.95.95 0 0 0 .715-.52Z"
+                            fill="#292E41"
+                    ></path>
+                </symbol>
+
+                <symbol id="ico-chart" fill="none" viewBox="0 0 24 24">
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M10.998 4.6v13.8h2V4.6h-2Zm-.4-1.6a1.2 1.2 0 0 0-1.2 1.2v14.6a1.2 1.2 0 0 0 1.2 1.2h2.8a1.2 1.2 0 0 0 1.2-1.2V4.2a1.2 1.2 0 0 0-1.2-1.2h-2.8ZM4.8 14.248V18.4h2v-4.152h-2Zm-.4-1.6a1.2 1.2 0 0 0-1.2 1.2V18.8A1.2 1.2 0 0 0 4.4 20h2.8a1.2 1.2 0 0 0 1.2-1.2v-4.952a1.2 1.2 0 0 0-1.2-1.2H4.4ZM17.198 18.4v-8.286h2V18.4h-2Zm-1.6-8.686a1.2 1.2 0 0 1 1.2-1.2h2.8a1.2 1.2 0 0 1 1.2 1.2V18.8a1.2 1.2 0 0 1-1.2 1.2h-2.8a1.2 1.2 0 0 1-1.2-1.2V9.714Z"
+                            fill="#292E41"
+                    ></path>
+                </symbol>
+            </svg>
+        </div>
+    </body>
+    <script src="/js/corporation/corporation-login-main-manage-posting.js"></script>
+    <script src="/js/apply-list/apply-list-service.js"></script>
+    <script src="/js/apply-list/apply-list-layout.js"></script>
+    <script src="/js/apply-list/apply-list-event.js"></script>
+</html>

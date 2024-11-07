@@ -13,3 +13,13 @@ create table tbl_resume(
 );
 
 select * from tbl_resume;
+
+INSERT INTO tbl_resume (
+    member_id,
+    education_id,
+    job_categoryC_id
+) VALUES (
+             3,    -- member_id (tbl_member 테이블의 회원 ID)
+             1,    -- education_id (tbl_education 테이블의 교육 ID)
+             1     -- job_categoryC_id (tbl_job_categoryC 테이블의 직업 분류 ID)
+         );

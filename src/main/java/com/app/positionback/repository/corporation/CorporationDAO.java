@@ -34,11 +34,5 @@ public class CorporationDAO {
         return corporationMapper.selectByCorporationEmailAndCorporationPassword(memberDTO);
     }
 
-    public List<ApplyDTO> findApplyByCorporationId(Pagination pagination, Long corporationId){
-        return corporationMapper.selectApplyByCorporationId(pagination, corporationId);
-    }
 
-    public int getTotal(Pagination pagination, Long corporationId){
-        return corporationMapper.selectCount(pagination, corporationId);
-    }
 }
