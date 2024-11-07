@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // TabBox 클릭 이벤트 설정
     const tabBox = document.querySelector(".TabBox");
     if (tabBox) {
-        tabBox.addEventListener("click", function (event) {
+        tabBox.addEventListener("click",  (event) => {
             const clickedButton = event.target.closest(".BtnType");
 
             if (clickedButton) {
@@ -21,53 +21,46 @@ document.addEventListener("DOMContentLoaded", function () {
                 clickedButton.parentElement.classList.add("Select");
 
                 // 로딩 화면 보이기
-                const loadingDiv = document.getElementById("ingRecruitLoading");
-                if (loadingDiv) {
-                    loadingDiv.style.display = "block";
-
-                    // 공고 데이터 불러오는 시간 시뮬레이션 (300ms)
-                    setTimeout(() => {
-                        loadingDiv.style.display = "none";
-                    }, 300);
-                }
+                // const loadingDiv = document.getElementById("ingRecruitLoading");
+                // if (loadingDiv) {
+                //     loadingDiv.style.display = "block";
+                //
+                //     // 공고 데이터 불러오는 시간 시뮬레이션 (300ms)
+                //     setTimeout(() => {
+                //         loadingDiv.style.display = "none";
+                //     }, 300);
+                // }
             }
         });
     }
 
-    const buttons = document.querySelectorAll(".btn-history");
+    // const buttons = document.querySelectorAll(".btn-history");
+    // const histories = document.querySelectorAll(".col-history");
+    //
+    // buttons.forEach((button, index) => {
+    //     button.addEventListener("click",  ()=> {
+    //         // 버튼의 인덱스를 사용하여 관련 col-history 요소 찾기
+    //         const historyDiv = histories[index];
+    //
+    //         // 현재 보여지고 있는지 확인
+    //         const isVisible = historyDiv.style.display === "block";
+    //
+    //         // 현재 클릭된 항목 외에 모든 .col-history 숨기기 및 버튼 스타일 원상태로
+    //         histories.forEach((history) => {
+    //             history.style.display = "none"; // 모든 col-history 숨기기
+    //         });
+    //         buttons.forEach((btn) => {
+    //             btn.classList.remove("active"); // 모든 버튼에서 active 클래스 제거
+    //         });
+    //
+    //         // 현재 클릭된 항목 토글 (열려 있으면 닫고, 닫혀 있으면 엶)
+    //         if (isVisible) {
+    //             historyDiv.style.display = "none"; // 이미 열려 있으면 닫기
+    //         } else {
+    //             historyDiv.style.display = "block"; // 닫혀 있으면 열기
+    //             button.classList.add("active"); // 클릭한 버튼에 active 클래스 추가
+    //         }
+    //     });
+    // });
 
-    buttons.forEach((button) => {
-        button.addEventListener("click", function () {
-            // 클릭된 버튼의 data-recruitapply-idx 값 가져오기
-            const recruitApplyIdx = button.getAttribute(
-                "data-recruitapply-idx"
-            );
-
-            // 해당 data-recruitapply-idx 값을 가진 .col-history 찾기
-            const historyDiv = document.querySelector(
-                `.col-history[data-recruitapply-idx="${recruitApplyIdx}"]`
-            );
-
-            // 현재 보여지고 있는지 확인
-            const isVisible = historyDiv.style.display === "block";
-
-            // 현재 클릭된 항목 외에 모든 .col-history 숨기기 및 버튼 스타일 원상태로
-            document.querySelectorAll(".col-history").forEach((history) => {
-                if (history !== historyDiv) {
-                    history.style.display = "none";
-                }
-            });
-            document.querySelectorAll(".btn-history").forEach((btn) => {
-                btn.classList.remove("active"); // 버튼에서 active 클래스 제거
-            });
-
-            // 현재 클릭된 항목 토글 (열려 있으면 닫고, 닫혀 있으면 엶)
-            if (isVisible) {
-                historyDiv.style.display = "none"; // 이미 열려 있으면 닫기
-            } else {
-                historyDiv.style.display = "block"; // 닫혀 있으면 열기
-                button.classList.add("active"); // 버튼에 active 클래스 추가
-            }
-        });
-    });
 });
