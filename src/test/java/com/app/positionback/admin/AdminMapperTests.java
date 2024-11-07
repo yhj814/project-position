@@ -20,13 +20,23 @@ public class AdminMapperTests {
     @Test
     public void testAdminMapper() {}
 
+    // 일반 회원 목록 MapperTests
     @Test
     public void testSelectAllMembers() {
-        List<MemberDTO> members = adminMapper.selectAllMembers(new Pagination());
+        Pagination pagination = new Pagination();
+        pagination.setTotal(adminMapper.selectMemberTotal());
+        pagination.progress();
+        log.info("{}, {}", pagination.getStartRow(), pagination.getRowCount());
+        adminMapper.selectAllMembers(pagination);
     }
 
+    // 기업 회원 목록 MapperTests
     @Test
     public void testSelectAllCorporationMembers() {
-        List<CorporationDTO> corporations = adminMapper.selectAllCorporationMembers(new Pagination());
+        Pagination pagination = new Pagination();
+        pagination.setTotal(adminMapper.selectCorporationTotal());
+        pagination.progress();
+        log.info("{}, {}", pagination.getStartRow(), pagination.getRowCount());
+        adminMapper.selectAllCorporationMembers(pagination);
     }
 }

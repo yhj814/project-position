@@ -9,6 +9,7 @@ import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.interview.InterviewDTO;
 import com.app.positionback.domain.interviewreview.InterviewReviewDTO;
 import com.app.positionback.domain.member.MemberDTO;
+import com.app.positionback.domain.member.MemberListDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.payment.PaymentDTO;
 import com.app.positionback.domain.position.PositionDTO;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public interface AdminService {
     // 회원 관리
-    public List<MemberDTO> getMembers(int page, Pagination pagination);
+    public MemberListDTO getMembers(int page, Pagination pagination);
     public int getMemberTotal();
     public List<CorporationDTO> getCorporationMembers(Pagination pagination);
     public int getCorporationTotal();

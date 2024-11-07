@@ -9,6 +9,7 @@ import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.interview.InterviewDTO;
 import com.app.positionback.domain.interviewreview.InterviewReviewDTO;
 import com.app.positionback.domain.member.MemberDTO;
+import com.app.positionback.domain.member.MemberListDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.payment.PaymentDTO;
 import com.app.positionback.domain.position.PositionDTO;
@@ -33,11 +34,14 @@ public class AdminServiceImpl implements AdminService {
 
     // 회원 관리
     // 일반 회원 정보 조회
-    public List<MemberDTO> getMembers(int page, Pagination pagination) {
+    public MemberListDTO getMembers(int page, Pagination pagination) {
+        MemberListDTO memberListDTO = new MemberListDTO();
         pagination.setPage(page);
         pagination.setTotal(adminDAO.getMemberTotal());
         pagination.progress();
-        return adminDAO.memberInformation(pagination);
+        memberListDTO.setPagination(pagination);
+        memberListDTO.setMembers(adminDAO.memberInformation(pagination));
+        return memberListDTO;
     }
 
     // 일반 회원 전체 인원
