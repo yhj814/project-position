@@ -10,6 +10,12 @@
     <select id="selectLastInsertId" resultType="long">
         select last_insert_id()
     </select>
+
+    <select id="selectByApplyId">
+        select id, review_content, review_tips, apply_id
+        from tbl_corporation_review
+        where apply_id = #{applyId}
+    </select>
 </mapper>
 
 

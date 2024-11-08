@@ -133,7 +133,11 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                         <div class="action" >
                             <span class="date-end"></span>
                         </div>
-                        <button type="button" class="BtnType SizeM -apply-cancel write-review" data-id="${apply.applyId}">후기작성(인턴십)</button>
+                        ${apply.corporationReview ?`
+                        <button type="button" class="BtnType SizeM -apply-cancel write-review upload" data-id="${apply.applyId}" disabled>후기작성 완료</button>
+                        ` : `
+                          <button type="button" class="BtnType SizeM -apply-cancel write-review" data-id="${apply.applyId}" > 후기작성(인턴십)</button>
+                        `}
                     </div>
                 </div>
             </div>
@@ -157,9 +161,23 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                                     </div>
                                 </a>
                             </div>
-                            <div class="attached">
-                                <button type="button" class="data -file-down-resume">이력서</button>
+                            ${apply.file ? `
+                            <div class="attached upload">
+                                <button type="button" class="data -file-down-resume" id="uploadBtn-${apply.applyId}" disabled>등록 완료</button>
+                                <input type="file" name="file" id="fileInput-${apply.applyId}" style="display: none;">
+                                <input type="hidden" name="uuid" id="uuid-${apply.applyId}">
+                                <input type="hidden" name="path" id="path-${apply.applyId}">
+                                <input type="hidden" name="applyId" value="${apply.applyId}">
                             </div>
+                            ` : `
+                            <div class="attached">
+                                <button type="button" class="data -file-down-resume" id="uploadBtn-${apply.applyId}" onclick="document.getElementById('fileInput-${apply.applyId}').click();">이수증 업로드</button>
+                                <input type="file" name="file" id="fileInput-${apply.applyId}" style="display: none;">
+                                <input type="hidden" name="uuid" id="uuid-${apply.applyId}">
+                                <input type="hidden" name="path" id="path-${apply.applyId}">
+                                <input type="hidden" name="applyId" value="${apply.applyId}">
+                            </div>
+                            `}
                             <div class="status">
                                 <em class="txt-status">${apply.applyStatus}</em>
                                 <span class="txt-sub">미열람</span>
@@ -175,7 +193,11 @@ const showApplyList = ({applies, pagination,ongoingCount, closedCount}) =>{
                             <div class="action">
                                 <span class="date-end"></span>
                             </div>
-                            <button type="button" class="BtnType SizeM -apply-cancel write-review" data-id="${apply.applyId}">후기작성(인턴십)</button>
+                            ${apply.corporationReview ?`
+                                <button type="button" class="BtnType SizeM -apply-cancel write-review upload" data-id="${apply.applyId}" disabled>후기작성 완료</button>
+                                ` : `
+                                  <button type="button" class="BtnType SizeM -apply-cancel write-review" data-id="${apply.applyId}" > 후기작성(인턴십)</button>
+                                `}
                             <button type="button" id="reviewBtn" class="btn-history -applicant-history" data-review-id="${apply.positionerReviewId}">후기내역</button>
                         </div>
 

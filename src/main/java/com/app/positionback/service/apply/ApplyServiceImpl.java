@@ -8,6 +8,7 @@ import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.repository.apply.ApplyDAO;
 import com.app.positionback.repository.file.CertificationFileDAO;
 import com.app.positionback.repository.file.FileDAO;
+import com.app.positionback.repository.review.CorporationReviewDAO;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -32,6 +33,7 @@ public class ApplyServiceImpl implements ApplyService{
     private final ApplyDAO applyDAO;
     private final FileDAO fileDAO;
     private final CertificationFileDAO certificationFileDAO;
+    private final CorporationReviewDAO corporationReviewDAO;
 
 
     @Override
@@ -49,6 +51,7 @@ public class ApplyServiceImpl implements ApplyService{
         applies.forEach(apply -> {
             // applyId에 해당하는 파일을 가져와 설정
             apply.setFile(certificationFileDAO.getFileIdByApplyId(apply.getApplyId()).orElse(null));
+            apply.setCorporationReview(corporationReviewDAO.getCorporationReviewByApplyId(apply.getApplyId()).orElse(null));
         });
 
         applyListDTO.setApplies(applies);

@@ -109,7 +109,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <label
-                                                            for="companyName"
+                                                            for="memberName"
                                                             class="interview-write-tit-item"
                                                         >
                                                             포지셔너
@@ -274,7 +274,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <span
-                                                            class="interview-write-inpRdoSw interview-write-colorWhite"
+                                                            class="interview-write-inpRdoSw interview-write-colorWhite overall-focus"
                                                         >
                                                             <span
                                                                 class="interview-write-inOption"
@@ -283,6 +283,7 @@
                                                                         th:field="*{evaluationOverall}"
                                                                         type="radio"
                                                                         id="evaluation1"
+                                                                        name="evaluationOverall"
                                                                         value="긍정적"
                                                                 />
                                                                 <label
@@ -298,6 +299,7 @@
                                                                         th:field="*{evaluationOverall}"
                                                                         type="radio"
                                                                         id="evaluation2"
+                                                                        name="evaluationOverall"
                                                                         value="보통"
                                                                 />
                                                                 <label
@@ -313,6 +315,7 @@
                                                                         th:field="*{evaluationOverall}"
                                                                         type="radio"
                                                                         id="evaluation3"
+                                                                        name="evaluationOverall"
                                                                         value="부정적"
                                                                 />
                                                                 <label
@@ -352,7 +355,7 @@
                                                         class="interview-write-txtLeft"
                                                     >
                                                         <span
-                                                            class="interview-write-inpRdoSw interview-write-colorWhite"
+                                                            class="interview-write-inpRdoSw interview-write-colorWhite difficulty-focus"
                                                         >
                                                             <span
                                                                 class="interview-write-inOption"
@@ -452,16 +455,17 @@
                                                                     class="interview-write-emph"
                                                                 >
                                                                     현재
-                                                                    <span
+                                                                    <span id="charReviewCount"
                                                                         >00</span
                                                                     >자
                                                                 </em>
                                                                 / 최소 50자
                                                             </span>
                                                             <em
+                                                                id="error-msg-review"
                                                                 class="interview-write-msgInvalid interview-write-msgContents interview-write-hide"
-                                                                >필수
-                                                                항목입니다.</em
+                                                                style="color: red; display: none;"
+                                                                >최소 50자를 입력해주세요.</em
                                                             >
                                                         </div>
                                                     </td>
@@ -509,16 +513,17 @@
                                                                     class="interview-write-emph"
                                                                 >
                                                                     현재
-                                                                    <span
+                                                                    <span id="charTipCount"
                                                                         >00</span
                                                                     >자
                                                                 </em>
                                                                 / 최소 50자
                                                             </span>
                                                             <em
+                                                                id="error-msg-tip"
                                                                 class="interview-write-msgInvalid interview-write-msgContents interview-write-hide"
-                                                                >필수
-                                                                항목입니다.</em
+                                                                style="color: red; display: none;"
+                                                                >최소 50자를 입력해주세요.</em
                                                             >
                                                         </div>
                                                     </td>
@@ -529,6 +534,7 @@
                                 </div>
                                 <div class="interview-write-review-write">
                                     <button
+                                        id="submitBtn"
                                         type="submit"
                                         class="interview-write-btn-confirm"
                                     >
@@ -544,4 +550,77 @@
     </form>
     </body>
     <script src="/js/corporation/interview-review-write.js"></script>
+    <script>
+        const reviewTips = document.getElementById('reviewTips');
+        const reviewContents = document.getElementById('reviewContent');
+        const charTipCount = document.getElementById('charTipCount');
+        const charReviewCount = document.getElementById('charReviewCount');
+        const errorMsgTip = document.getElementById('error-msg-tip');
+        const errorMsgReview = document.getElementById('error-msg-review');
+        const difficultyOptions = document.getElementsByName("evaluationDifficulty");
+        const overallOptions = document.getElementsByName("evaluationOverall");
+        const overallFocus = document.querySelector(".overall-focus");
+        const difficultyFocus = document.querySelector(".difficulty-focus");
+
+        reviewTips.addEventListener('input', (e)=> {
+            charTipCount.textContent = e.target.value.length;
+        });
+        reviewContents.addEventListener('input', (e)=> {
+            charReviewCount.textContent = e.target.value.length;
+        });
+
+        // 제출 버튼 클릭 시 글자 수 확인
+        document.getElementById('submitBtn').addEventListener('click', (e) => {
+
+            let isDifficultySelected = false;
+            let isOverallSelected = false;
+
+            // 평가 난이도 선택 여부 확인
+            for (let option of difficultyOptions) {
+                if (option.checked) {
+                    isDifficultySelected = true;
+                    break;
+                }
+            }
+
+            // 전반적 평가 선택 여부 확인
+            for (let option of overallOptions) {
+                if (option.checked) {
+                    isOverallSelected = true;
+                    break;
+                }
+            }
+
+            // 두 라디오 그룹 중 하나라도 선택되지 않은 경우
+            if (!isDifficultySelected || !isOverallSelected) {
+                e.preventDefault();
+                alert("평가 난이도와 전반적 평가를 모두 선택해 주세요.");
+
+                // 포커스 설정: 평가 난이도가 선택되지 않은 경우에 포커스 설정
+                if (!isDifficultySelected) {
+                    difficultyFocus.focus();
+                } else if (!isOverallSelected) {
+                    overallFocus.focus();
+                }
+            }
+
+            // 글자 수가 50자 미만이면 제출 차단
+            if (reviewTips.value.length < 50) {
+                e.preventDefault(); // 제출 차단
+                reviewTips.focus();
+                errorMsgTip.style.display = 'inline'; // 오류 메시지 표시
+            } else {
+                errorMsgTip.style.display = 'none'; // 오류 메시지 숨김
+            }
+
+            // 글자 수가 50자 미만이면 제출 차단
+            if (reviewContents.value.length < 50) {
+                e.preventDefault(); // 제출 차단
+                reviewContents.focus();
+                errorMsgReview.style.display = 'inline'; // 오류 메시지 표시
+            } else {
+                errorMsgReview.style.display = 'none'; // 오류 메시지 숨김
+            }
+        });
+    </script>
 </html>

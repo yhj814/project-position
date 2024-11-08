@@ -5,6 +5,8 @@ import com.app.positionback.mapper.review.CorporationReviewMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class CorporationReviewDAO {
@@ -17,4 +19,7 @@ public class CorporationReviewDAO {
         return corporationReviewMapper.selectLastInsertId();
     }
 
+    public Optional<CorporationReviewVO> getCorporationReviewByApplyId(Long applyId) {
+        return corporationReviewMapper.selectByApplyId(applyId);
+    }
 }

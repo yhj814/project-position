@@ -167,7 +167,7 @@ button.interested-corp {
     height: 16px;
     border: 0;
     vertical-align: middle;
-    background: url(/static/images/corporation/sp_interested_corp.png) 0 1px
+    background: url(/images/corporation/sp_interested_corp.png) 0 1px
         no-repeat;
     cursor: pointer;
     overflow: hidden;
@@ -455,7 +455,7 @@ button.interested-corp {
 .TipCont.RightTop .Tail,
 .TipCont.BottomRight .Tail,
 .TipCont.LeftBottom .Tail {
-    background: url(/static/images/corporation/TipCont.TopRight-Tail.svg) 0 0
+    background: url(/images/corporation/TipCont.TopRight-Tail.svg) 0 0
         no-repeat;
 }
 .cont-introduce
@@ -476,7 +476,7 @@ button.interested-corp {
     display: flex;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/btn_infomation.svg);
+    background-image: url(/images/corporation/btn_infomation.svg);
 }
 .cont-introduce
     .favor-company
@@ -973,7 +973,7 @@ button.interested-corp {
     margin-left: 4px;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/wrap-company-view-btn-fold.svg);
+    background-image: url(/images/corporation/wrap-company-view-btn-fold.svg);
     content: "";
 }
 .cont-introduce .section .citation,
@@ -1172,10 +1172,10 @@ a {
     right: 20px;
     width: 24px;
     height: 24px;
-    background: url(/static/images/corporation/star-logo.svg) no-repeat 0 0;
+    background: url(/images/corporation/star-logo.svg) no-repeat 0 0;
 }
 .cont-introduce .list-curation-item li .newcomer-book-mark.on {
-    background-image: url(/static/images/corporation/star-on-logo.svg);
+    background-image: url(/images/corporation/star-on-logo.svg);
 }
 .cont-introduce .section .link-content-more {
     border-color: var(--gray40);
@@ -1186,7 +1186,7 @@ a {
     margin-left: 2px;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/link_content_more_after_logo.svg);
+    background-image: url(/images/corporation/link_content_more_after_logo.svg);
     content: "";
 }
 [class*="BtnType"].SizeS {
@@ -1335,7 +1335,7 @@ cite {
     margin-left: 2px;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/next_button_white.svg);
+    background-image: url(/images/corporation/next_button_white.svg);
     content: "";
 }
 /*  */
@@ -1408,7 +1408,7 @@ cite {
     margin-top: -22px;
 }
 .wrap-company-view .slider-controls .bx-next {
-    background-image: url(/static/images/corporation/slider_control_next.svg);
+    background-image: url(/images/corporation/slider_control_next.svg);
 }
 .wrap-company-view .slider-controls .bx-prev,
 .wrap-company-view .slider-controls .bx-next {
@@ -1420,7 +1420,7 @@ cite {
     left: -22px;
 }
 .wrap-company-view .slider-controls .bx-prev {
-    background-image: url(/static/images/corporation/slider_control_prev.svg);
+    background-image: url(/images/corporation/slider_control_prev.svg);
 }
 /* 뒤로가기, 앞으로 가기버튼 disabled */
 .wrap-company-view .slider-controls .bx-prev.disabled,
@@ -1447,7 +1447,7 @@ cite {
     margin-left: 4px;
     width: 24px;
     height: 24px;
-    background-image: url(/static/images/corporation/reviw_card_list.svg);
+    background-image: url(/images/corporation/reviw_card_list.svg);
     content: "";
 }
 .cont-introduce .review-card-list .review-card .review-worker.retired {
@@ -1789,7 +1789,7 @@ cite {
     margin-left: 2px;
     width: 16px;
     height: 16px;
-    background-image: url(/static/images/corporation/footer_company_info_edit_after.svg);
+    background-image: url(/images/corporation/footer_company_info_edit_after.svg);
     content: "";
 }
 .footer-company-info .btn-edit {
