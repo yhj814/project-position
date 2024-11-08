@@ -23,8 +23,10 @@ import java.util.List;
 @Mapper
 public interface AdminMapper {
     // 회원 관리
-    List<MemberDTO> selectAllMembers(@Param("pagination") Pagination pagination);
-    List<CorporationDTO> selectAllCorporationMembers(@Param("pagination") Pagination pagination);
+    public List<MemberDTO> selectAllMembers(@Param("pagination") Pagination pagination);
+    public int selectMemberTotal();
+    public List<CorporationDTO> selectAllCorporationMembers(@Param("pagination") Pagination pagination);
+    public int selectCorporationTotal();
     // 지원현황 관리
     List<ApplyDTO> selectAllApply();
     List<InterviewDTO> selectAllInterview();

@@ -9,6 +9,7 @@ import com.app.positionback.domain.inquiry.InquiryDTO;
 import com.app.positionback.domain.interview.InterviewDTO;
 import com.app.positionback.domain.interviewreview.InterviewReviewDTO;
 import com.app.positionback.domain.member.MemberDTO;
+import com.app.positionback.domain.member.MemberListDTO;
 import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.payment.PaymentDTO;
 import com.app.positionback.domain.position.PositionDTO;
@@ -19,10 +20,7 @@ import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,11 +44,26 @@ public class AdminController {
 
     // 회원 관리
     // 일반 회원 정보 조회
-    @GetMapping("/position/members")
+    @GetMapping("/position/members/{page}")
     @ResponseBody
-    public List<MemberDTO> getMembers(Pagination pagination) {
-        pagination.progress();
-        return adminService.getMembers(pagination);
+    public MemberListDTO getMembers(@PathVariable("page") Integer page, Pagination pagination) {
+//        // 정렬 조건이 비어 있으면 기본 정렬 기준을 "recent"로 설정합니다.
+//        if (pagination.getOrder() == null) {
+//            pagination.setOrder("recent");
+//        }
+//
+//        // `order` 값이 올바른지 확인하여 기본 정렬 기준으로 지정할 수도 있습니다.
+//        if (!pagination.getOrder().equals("name") &&
+//                !pagination.getOrder().equals("status") &&
+//                !pagination.getOrder().equals("recent")) {
+//            pagination.setOrder("recent"); // 예외 처리: 유효하지 않은 정렬 기준일 경우 기본값 사용
+//        }
+
+//        // 페이지네이션 계산 수행
+//        pagination.progress();
+
+        // 정렬 및 페이징 조건에 맞는 회원 목록을 조회하여 반환
+        return adminService.getMembers(page, pagination);
     }
 
     // 기업 회원 정보 조회
