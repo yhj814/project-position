@@ -4,22 +4,23 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @Setter @ToString
+@Getter
+@ToString
+@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
-@AllArgsConstructor
 public class ComplainDTO {
     @EqualsAndHashCode.Include
     private Long id;
+    private String complainTitle;
     private String complainContent;
-    private int complainCount;
     private String complainStatus;
+    private String complainType;
     private Long corporationId;
     private Long memberId;
     private String createdDate;
     private String updatedDate;
 
     public ComplainVO toVO() {
-        return new ComplainVO(id, complainContent, complainCount, complainStatus, corporationId, memberId, createdDate, updatedDate);
+        return new ComplainVO(id,complainTitle,complainContent,complainStatus,complainType,corporationId,memberId,createdDate, updatedDate);
     }
 }

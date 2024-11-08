@@ -2,44 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.positionback.mapper.apply.ApplyMapper">
     <select id="selectApplyByCorporationId">
-        select
-        c.corporation_name ,
-        n.notice_title ,
-        m.member_name ,
-        m.member_email,
-        m.member_nickname,
-        a.id ,
-        a.apply_type ,
-        a.apply_status ,
-        n.notice_career ,
-        n.notice_education ,
-        n.notice_work_start_date ,
-        n.notice_work_end_date ,
-        n.notice_work_start_time ,
-        n.notice_work_end_time ,
-        n.notice_end_date ,
-        n.notice_job_category_name
-        from
-        tbl_apply a
-        join
-        tbl_notice n on a.notice_id = n.id
-        join
-        tbl_corporation c on n.corporation_id = c.id
-        join
-        tbl_resume r on a.resume_id = r.id
-        join
-        tbl_member m on r.member_id = m.id
+        select *
+        from view_apply_list
         where
-        c.id = #{corporationId}
+        corporation_id = #{corporationId}
         <if test="pagination.status == 'closed'">
-            <![CDATA[ and a.apply_status = '면접 예정' ]]>
+            <![CDATA[ and apply_status = '면접 예정' ]]>
         </if>
         <if test="pagination.status == 'ongoing'">
-            <![CDATA[ and a.apply_status = '지원 완료' ]]>
+            <![CDATA[ and apply_status = '지원 완료' ]]>
+        </if>
+        <if test="pagination.status == 'position'">
+            <![CDATA[ and apply_status = '면접 합격' ]]>
+        </if>
+        <if test="pagination.status == 'review'">
+            <![CDATA[ and apply_status = '인턴십 완료' ]]>
         </if>
         order by
         <choose>
-            <when test="pagination.order == 'recent'.toString()">id</when>
+            <when test="pagination.order == 'recent'.toString()">apply_id</when>
             <otherwise>notice_end_date</otherwise>
         </choose>
         desc
@@ -66,12 +47,24 @@
         <if test="pagination.status == 'ongoing'">
             <![CDATA[ and a.apply_status = '지원 완료' ]]>
         </if>
+        <if test="pagination.status == 'position'">
+            <![CDATA[ and a.apply_status = '면접 합격' ]]>
+        </if>
+        <if test="pagination.status == 'review'">
+            <![CDATA[ and a.apply_status = '인턴십 완료' ]]>
+        </if>
     </select>
 
     <update id="updateApplyStatus">
         update tbl_apply
         set apply_status = #{applyStatus}
-        where id = #{id}
+        where id = #{applyId}
     </update>
+
+    <select id="selectApplyById" >
+        select *
+        from view_apply_list
+        where apply_id = #{applyId}
+    </select>
 
 </mapper>

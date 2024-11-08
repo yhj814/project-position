@@ -1,56 +1,56 @@
 // 직무직업 부분 미완성
 // 버튼 클릭 시 on 클래스 토글
-document
-    .getElementById("interview-write-selected-job")
-    .addEventListener("click", function () {
-        // 대상 요소 선택
-        const targetElement = document.querySelector(
-            ".interview-write-option-content.interview-write-job-category-section"
-        );
+// document
+//     .getElementById("interview-write-selected-job")
+//     .addEventListener("click", function () {
+//         // 대상 요소 선택
+//         const targetElement = document.querySelector(
+//             ".interview-write-option-content.interview-write-job-category-section"
+//         );
+//
+//         // on 클래스 추가
+//         targetElement.classList.toggle("on");
+//     });
 
-        // on 클래스 추가
-        targetElement.classList.toggle("on");
-    });
-
-document.getElementById("interviewDateYear").addEventListener("change", (e) => {
-    const year = this.value;
-    const monthSelect = document.getElementById("interviewDateMonth");
-    let months = [];
-
-    // 연도에 따라 월을 필터링
-    if (year === "2021") {
-        // 2021년은 11월과 12월만 가능
-        months = ["11", "12"];
-    } else if (year === "2024") {
-        // 2024년은 1월부터 10월까지만 가능
-        months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
-    } else {
-        // 2022년, 2023년은 1월부터 12월까지 가능
-        months = [
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-        ];
-    }
+// document.getElementById("interviewDateYear").addEventListener("change", (e) => {
+//     const year = this.value;
+//     const monthSelect = document.getElementById("interviewDateMonth");
+//     let months = [];
+//
+//     // 연도에 따라 월을 필터링
+//     if (year === "2021") {
+//         // 2021년은 11월과 12월만 가능
+//         months = ["11", "12"];
+//     } else if (year === "2024") {
+//         // 2024년은 1월부터 10월까지만 가능
+//         months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
+//     } else {
+//         // 2022년, 2023년은 1월부터 12월까지 가능
+//         months = [
+//             "01",
+//             "02",
+//             "03",
+//             "04",
+//             "05",
+//             "06",
+//             "07",
+//             "08",
+//             "09",
+//             "10",
+//             "11",
+//             "12",
+//         ];
+//     }
 
     // 월 선택 초기화 및 옵션 동적 생성
-    monthSelect.innerHTML = `<option value="">월 선택</option>`; // 기본 옵션 추가
-    months.forEach((month) => {
-        const option = document.createElement("option");
-        option.value = month;
-        option.text = `${month}월`;
-        monthSelect.appendChild(option);
-    });
-});
+//     monthSelect.innerHTML = `<option value="">월 선택</option>`; // 기본 옵션 추가
+//     months.forEach((month) => {
+//         const option = document.createElement("option");
+//         option.value = month;
+//         option.text = `${month}월`;
+//         monthSelect.appendChild(option);
+//     });
+// });
 
 // 직무,직업쪽 자바스크립트
 

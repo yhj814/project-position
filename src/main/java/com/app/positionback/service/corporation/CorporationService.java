@@ -16,4 +16,5 @@ public interface CorporationService {
     public int checkCorporationEmail(String corporationEmail);
     public Optional<CorporationVO> login(MemberDTO memberDTO);
     public FileDTO getCorporationFileById(Long corporationId);
+    public FileDTO getApplyFileById(Long applyId);
 }

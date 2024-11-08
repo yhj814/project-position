@@ -113,7 +113,7 @@ public class MemberServiceImpl implements MemberService {
 
         fileDAO.save(fileDTO.toVO());
         corporationFileDTO.setId(fileDAO.findLastInsertId());
-//        corporationType code로 추가
+//        corporationType code로 추가, 사업자 등록 파일
         corporationFileDTO.setCorporationFileType("code");
 
         corporationFileDAO.save(corporationFileDTO.toVO());
@@ -132,6 +132,7 @@ public class MemberServiceImpl implements MemberService {
         fileDAO.save(fileDTO.toVO());
         corporationFileDTO.setId(fileDAO.findLastInsertId());
         corporationFileDTO.setCorporationId(corporationId);
+//        로고는 code가 아니면 profile로 저장되기 때문에 아래 코드 필요 x, corporationFileMapper.xml 참고
 //        corporationFileDTO.setCorporationFileType("code");
 
         corporationFileDAO.save(corporationFileDTO.toVO());

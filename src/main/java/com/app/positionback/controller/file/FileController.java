@@ -2,8 +2,6 @@ package com.app.positionback.controller.file;
 
 import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.file.FileDTO;
-import com.app.positionback.service.file.CorporationFileService;
-import com.app.positionback.service.file.FileService;
 import com.app.positionback.service.member.MemberService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;

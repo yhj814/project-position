@@ -264,76 +264,85 @@ if (jobConfirmButton) {
 // 유효성 검사 함수
 const validateForm = () => {
     const hopeJobsList = document.querySelector(".list-task.list-hope-jobs.size-type5.selected-preview-list");
-    const noticeTitle = document.getElementById("NoticeTitle").value.trim(); // 제목 체크
-    const internshipStartDate = document.getElementById("internshipStartDate").value.trim(); // 인턴 시작일 체크
-    const internshipEndDate = document.getElementById("internshipEndDate").value.trim(); // 인턴 종료일 체크
-    const workStartTime = document.getElementById("workStartTime").value.trim(); // 근무 시작 시간 체크
-    const workEndTime = document.getElementById("workEndTime").value.trim(); // 근무 종료 시간 체크
-    const selectedCareer = document.getElementById("interview-history").value; // 경력 선택 체크
-    const selectedEducation = document.getElementById("noticeEducation").value; // 학력 선택 체크
-    const dueDate = document.getElementById("dueDate").value.trim(); // 마감일 체크
+    const noticeTitle = document.getElementById("NoticeTitle"); // 제목 체크
+    const internshipStartDate = document.getElementById("internshipStartDate"); // 인턴 시작일 체크
+    const internshipEndDate = document.getElementById("internshipEndDate"); // 인턴 종료일 체크
+    const workStartTime = document.getElementById("workStartTime"); // 근무 시작 시간 체크
+    const workEndTime = document.getElementById("workEndTime"); // 근무 종료 시간 체크
+    const selectedCareer = document.getElementById("interview-history"); // 경력 선택 체크
+    const selectedEducation = document.getElementById("noticeEducation"); // 학력 선택 체크
+    const dueDate = document.getElementById("dueDate"); // 마감일 체크
     const fileInput = document.getElementById("file"); // 파일 입력 체크
 
     // 유효성 검사 플래그
     let isValid = true;
 
     // 1. NoticeTitle이 비어 있는지 체크
-    if (!noticeTitle) {
+    if (!noticeTitle.value.trim()) {
         alert("제목을 입력해주세요."); // 알림 메시지
+        noticeTitle.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 2. 희망 직무 리스트에 <li> 항목이 없는지 체크
     if (hopeJobsList.children.length === 0) {
         alert("희망 직무를 선택해주세요."); // 알림 메시지
+        hopeJobsList.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 3. internshipStartDate가 비어 있는지 체크
-    if (!internshipStartDate) {
+    if (!internshipStartDate.value.trim()) {
         alert("인턴 시작일을 입력해주세요."); // 알림 메시지
+        internshipStartDate.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 4. internshipEndDate가 비어 있는지 체크
-    if (!internshipEndDate) {
+    if (!internshipEndDate.value.trim()) {
         alert("인턴 종료일을 입력해주세요."); // 알림 메시지
+        internshipEndDate.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 5. workStartTime이 비어 있는지 체크
-    if (!workStartTime) {
+    if (!workStartTime.value.trim()) {
         alert("근무 시작 시간을 입력해주세요."); // 알림 메시지
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 6. workEndTime이 비어 있는지 체크
-    if (!workEndTime) {
+    if (!workEndTime.value.trim()) {
         alert("근무 종료 시간을 입력해주세요."); // 알림 메시지
+        workEndTime.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 7. 경력 선택이 비어 있는지 체크
-    if (!selectedCareer) {
+    if (!selectedCareer.value) {
         alert("경력을 선택해주세요."); // 알림 메시지
+        selectedCareer.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 8. 학력 선택이 비어 있는지 체크
-    if (!selectedEducation) {
+    if (!selectedEducation.value) {
         alert("학력을 선택해주세요."); // 알림 메시지
+        selectedEducation.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 9. dueDate가 비어 있는지 체크
-    if (!dueDate) {
+    if (!dueDate.value.trim()) {
         alert("마감일을 입력해주세요."); // 알림 메시지
+        dueDate.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 
     // 10. 파일이 첨부되지 않았는지 체크
     if (!fileInput.value) {
         alert("파일을 첨부해주세요."); // 알림 메시지
+        fileInput.focus();
         return false; // 유효성 검사 실패 시 즉시 종료
     }
 

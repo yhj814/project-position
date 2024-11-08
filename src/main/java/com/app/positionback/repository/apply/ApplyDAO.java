@@ -25,4 +25,8 @@ public class ApplyDAO {
     public void updateApplyStatus(ApplyVO applyVO){
         applyMapper.updateApplyStatus(applyVO);
     }
+
+    public ApplyDTO findApplyById(Long applyId){
+        return applyMapper.selectApplyById(applyId);
+    }
 }

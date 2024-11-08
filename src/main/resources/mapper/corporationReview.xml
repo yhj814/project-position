@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.positionback.mapper.review.CorporationReviewMapper">
+    <insert id="insertCorporationReview" >
+        insert into tbl_corporation_review (review_content, review_tips, apply_id)
+        values (#{reviewContent}, #{reviewTips}, #{applyId})
+    </insert>
+
+    <!-- 마지막으로 삽입된 ID를 가져오는 쿼리 -->
+    <select id="selectLastInsertId" resultType="long">
+        select last_insert_id()
+    </select>
+
+    <select id="selectByApplyId">
+        select id, review_content, review_tips, apply_id
+        from tbl_corporation_review
+        where apply_id = #{applyId}
+    </select>
+</mapper>
+
+
