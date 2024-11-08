@@ -26,5 +26,15 @@ listBody.addEventListener("click", (e) => {
             button.classList.add("active"); // 클릭된 버튼에 active 클래스 추가
         }
     }
+    if(e.target.classList.contains("complain-btn")){
+        const applyId = e.target.closest(".complain-btn").getAttribute("data-id");
+        location.href = `/corporation/complain?id=${applyId}`;
+    }
+    if(e.target.classList.contains("write-review")){
+        const applyId = e.target.closest(".write-review").getAttribute("data-id");
+        location.href = `/corporation/position-review?id=${applyId}`;
+    }
 
 });
+
+

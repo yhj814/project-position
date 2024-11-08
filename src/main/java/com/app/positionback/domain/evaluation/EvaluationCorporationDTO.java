@@ -4,16 +4,17 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @Setter @ToString
+@Getter
+@ToString
+@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
-@AllArgsConstructor
 public class EvaluationCorporationDTO {
     @EqualsAndHashCode.Include
-    private Long id;
-    private Long corporationId;
+    private Long evaluationId;
+    private Long corporationReviewId;
 
     public EvaluationCorporationVO toVO() {
-        return new EvaluationCorporationVO(id, corporationId);
+        return new EvaluationCorporationVO(evaluationId, corporationReviewId);
     }
 }
+

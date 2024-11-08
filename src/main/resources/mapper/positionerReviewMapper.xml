@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.positionback.mapper.review.PositionReviewMapper">
+    <!--    positioner가 기업에게 작성한 리뷰 -->
+    <select id="selectPositionReviewByCorporationId">
+        select
+            pr.id ,
+            pr.positioner_review_tips,
+            pr.created_date ,
+            pr.updated_date ,
+            n.notice_title ,
+            a.apply_type ,
+            a.apply_status ,
+            m.member_name ,
+            m.member_email ,
+            e.evaluation_overall ,
+            e.evaluation_difficulty ,
+            e.evaluation_result
+        from
+            tbl_positioner_review pr
+                join
+            tbl_apply a on pr.apply_id = a.id
+                join
+            tbl_notice n on a.notice_id = n.id
+                join
+            tbl_corporation c on n.corporation_id = c.id
+                join
+            tbl_resume r on a.resume_id = r.id
+                join
+            tbl_member m on r.member_id = m.id
+                left join
+            tbl_evaluation_positioner ep on pr.id = ep.positioner_review_id
+                left join
+            tbl_evaluation e on ep.id = e.id
+        where
+            c.id = #{corporationId}
+        order by
+            pr.created_date desc
+    </select>
+
+    <select id="selectApplyReviewQuestion">
+        SELECT
+            pq.question_content,
+            pq.answer_content
+        FROM
+            tbl_positioner_question pq
+        WHERE
+            pq.positioner_review_id = #{positionerReviewId}
+    </select>
+</mapper>
+
+

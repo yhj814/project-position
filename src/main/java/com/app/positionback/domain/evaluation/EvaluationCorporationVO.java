@@ -4,15 +4,14 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter @ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class EvaluationCorporationVO {
     @EqualsAndHashCode.Include
-    private Long id;
-    private Long corporationId;
+    private Long evaluationId;
+    private Long corporationReviewId;
 }
 
-//id bigint unsigned auto_increment primary key,  # 기본 키
-//    corporation_id bigint unsigned not null ,

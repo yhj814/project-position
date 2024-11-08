@@ -49,4 +49,11 @@
                member_kakao_profile_url, member_nickname, member_kakao_email
         from tbl_member where id = #{id}
     </select>
+
+    <!-- 회원 신고 누적 횟수 증가 -->
+    <update id="incrementComplainCount">
+        update tbl_member
+        set member_complain_count = member_complain_count + 1
+        where id = #{id};
+    </update>
 </mapper>

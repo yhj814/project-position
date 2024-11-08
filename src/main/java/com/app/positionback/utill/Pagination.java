@@ -18,8 +18,12 @@ public class Pagination {
     private int total;
     private String order;
     private String status;
+    private String position;
+    private String review;
     private int ongoingCount;
     private int closedCount;
+    private int positionCount;
+    private int reviewCount;
 //        더보기 구현 시, 1개 더 가져오는 변수이다.
 //    private int moreRowcount;
 

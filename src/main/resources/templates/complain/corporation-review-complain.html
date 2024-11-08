@@ -3,23 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/css/main.css" />
         <link
             rel="stylesheet"
-            href="/static/css/customer-service-center/inquiry.css"
+            href="/css/customer-service-center/inquiry.css"
         />
         <title>기업 후기 신고 페이지</title>
     </head>
     <body>
         <div id="position-section" class="has-banner">
             <div id="position-wrap">
+
                 <div id="content">
                     <div class="wrap-title-recruit">
                         <h1 class="title-common">신고하기</h1>
                     </div>
                     <div class="help-find help-lost wrap-help">
                         <div class="cont-find">
-                            <form action="" id="write-form">
+                            <form th:action="@{/corporation/complain}" method="post" th:object="${complainDTO}" enctype="multipart/form-data" name="complainDTO">
+                                <input type="hidden" name="corporationId" th:value="${apply.corporationId}">
+                                <input type="hidden" name="memberId" th:value="${apply.memberId}">
                                 <fieldset>
                                     <p class="desc-find-type2">
                                         평일 09시 에서 17시까지 문의하신 내용은
@@ -49,7 +52,7 @@
                                                         id="help-email"
                                                         class="inp-find"
                                                         name="help-email"
-                                                        value="yhh725@naver.com"
+                                                        th:value="${apply.corporationName}"
                                                         autocomplete="off"
                                                         readonly="readonly"
                                                     />
@@ -74,6 +77,8 @@
                                                         name="help-reported-name"
                                                         id="help-reported-name"
                                                         class="inp-find"
+                                                        th:value="${apply.memberName}"
+                                                        readonly="readonly"
                                                         placeholder="피신고자 이름을 입력해주세요."
                                                     />
                                                 </span>
@@ -94,9 +99,12 @@
                                             <div class="wrap-input">
                                                 <span class="position-input2">
                                                     <select
+                                                        th:field="*{complainType}"
                                                         name="help-category"
+                                                        class="complain-type"
                                                         id="help-category"
                                                         style="width: 338px"
+                                                        required
                                                     >
                                                         <option
                                                             selected=""
@@ -105,16 +113,16 @@
                                                             선택해주세요
                                                         </option>
                                                         <!-- 복붙 -->
-                                                        <option value="">
+                                                        <option value="부적절한 내용">
                                                             부적절한 내용
                                                         </option>
-                                                        <option value="">
+                                                        <option value="허위 정보">
                                                             허위 정보
                                                         </option>
-                                                        <option value="">
+                                                        <option value="스팸/광고성 리뷰">
                                                             스팸/광고성 리뷰
                                                         </option>
-                                                        <option value="">
+                                                        <option value="개인정보 노출">
                                                             개인정보 노출
                                                         </option>
                                                     </select>
@@ -139,7 +147,9 @@
                                                         name="help-title"
                                                         id="help-title"
                                                         class="inp-find"
+                                                        th:field="*{complainTitle}"
                                                         style="width: 533px"
+                                                        required
                                                     />
                                                 </span>
                                             </div>
@@ -161,58 +171,18 @@
                                                         name="help-content"
                                                         id="help-desc"
                                                         class="inp-find textarea"
+                                                        th:field="*{complainContent}"
                                                         style="
                                                             width: 533px;
                                                             height: 120px;
                                                         "
                                                         placeholder="문의종류 선택 후 내용을 입력해주세요."
+                                                        required
                                                     ></textarea>
                                                 </span>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="wrap-lab">
-                                                <label
-                                                    for="help-upload"
-                                                    class="lab-find"
-                                                >
-                                                    파일첨부
-                                                </label>
-                                            </div>
-                                            <div class="wrap-input">
-                                                <div class="uploads">
-                                                    <span class="info-upload">
-                                                        <span
-                                                            class="txt-upload"
-                                                        ></span>
-                                                        <button
-                                                            type="button"
-                                                            class="btn-delete btn-delete"
-                                                        ></button>
-                                                    </span>
-                                                </div>
-                                                <div class="wrap-file">
-                                                    <input
-                                                        type="file"
-                                                        id="help-upload"
-                                                        class="inp-upload"
-                                                        title="파일 업로드"
-                                                        name="uploaded-file"
-                                                    />
-                                                    <label
-                                                        for="help-upload"
-                                                        class="btn-basic2 type03"
-                                                        >파일 첨부하기</label
-                                                    >
-                                                </div>
-                                                <p class="noti-inp">
-                                                    10MB 이하의 hwp, pdf, zip,
-                                                    MS Office 파일, 이미지
-                                                    파일(JPG, GIF, PNG, BMP) 만
-                                                    등록 가능합니다.
-                                                </p>
-                                            </div>
-                                        </li>
+
                                     </ul>
                                     <div class="noti-find">
                                         <h3 class="noti-title">
@@ -262,7 +232,7 @@
                                     </div>
                                     <!-- 취소 문의버튼 -->
                                     <div class="wrap-link">
-                                        <a href="">
+
                                             <button
                                                 class="btn-biggest-type03"
                                                 id="help-cancel"
@@ -270,7 +240,7 @@
                                             >
                                                 취소하기
                                             </button>
-                                        </a>
+
                                         <button
                                             type="submit"
                                             class="btn-biggest-type01"
@@ -287,5 +257,6 @@
             </div>
         </div>
     </body>
-    <script src="/static/js/customer-service-center/inquiry.js"></script>
+    <script src="/js/customer-service-center/inquiry.js"></script>
+    <script src="/js/complain/complain-event.js"></script>
 </html>

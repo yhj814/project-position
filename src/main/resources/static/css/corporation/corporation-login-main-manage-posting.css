@@ -65,9 +65,9 @@
 }
 
 /* 뒤로가기 버튼 */
-#first-tit::after {
+/*#first-tit::after {
     position: absolute;
-    /* top: calc(50% + 1px); */
+    !* top: calc(50% + 1px); *!
     z-index: 2;
     width: 10px;
     height: 10px;
@@ -76,7 +76,7 @@
     transform: translate(-50%, -50%) rotate(45deg);
     content: "";
     border-width: 0 0 3px 3px;
-}
+}*/
 .sidebar .company-info .box-logo {
     display: flex;
     margin-top: 48px;
@@ -994,9 +994,7 @@ li {
     display: block;
     color: var(--gray100);
 }
-.TipBox {
-    position: relative;
-}
+
 .col-summary .recruit .TipBox > span {
     display: inline-block;
     height: 24px;
@@ -1016,6 +1014,30 @@ li {
     background: url(/images/corporation/regist.svg);
     content: "";
 }
+
+.col-summary .attached.upload:before {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 1px;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/person/spr/input_check_radio.png) no-repeat -200px -40px;
+    content: "";
+}
+.write-review.upload:before {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 7px;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    background: url(//www.saraminimage.co.kr/sri/person/spr/input_check_radio.png) no-repeat -200px -40px;
+    content: "";
+}
+
 .col-summary .attached .data {
     display: inline-block;
     position: relative;
@@ -1075,7 +1097,7 @@ li {
     position: absolute;
 }
 .list-status .col-btns {
-    bottom: 130px;
+    bottom: 105px;
     left: 550px;
     padding: 0 132px 0 108px;
     width: 380px;
@@ -1255,6 +1277,7 @@ label {
     left: 0;
     width: 33px;
     height: 33px;
+     background-position: -40px -40px;
     content: "";
 }
 .spr-review:before {
@@ -1299,11 +1322,7 @@ label {
     height: 44px;
     background-position: -40px -80px;
 }
- .info-emoticon .review dd:before {
-    position: absolute;
-    left: 0;
-    content: "";
-}
+
  .info-view {
     padding: 9px 0;
     font-size: 15px;
@@ -1401,4 +1420,37 @@ label {
 
 .sidebar .company-navi .menu-list .btn-menu .badge-new {
     background: var(--green90);
+}
+
+.col-btns.col-btn {
+    padding: 0 89px 0 163px;
+}
+
+.-file-down-resume{
+    display:flex;
+    margin-right: 61px;
+    padding: 4px 4px 4px 6px;
+    color: var(--gray80);
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: top;
+    text-align: left;
+}
+.resume-btn:after {
+    position: absolute;
+    top: 5px;
+    right: 106px;
+    width: 16px;
+    height: 16px;
+    background: url(/images/corporation/regist.svg);
+    content: "";
+}
+
+
+.TipBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* 좌측과 우측 끝으로 요소들을 배치 */
+    margin-top: 5px;
 }

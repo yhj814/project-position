@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.positionback.mapper.complain.ComplainMapper">
+
+    <!-- 신고 등록 -->
+    <insert id="insertComplain">
+        insert into tbl_complain (complain_title, complain_content, complain_status,complain_type, corporation_id, member_id)
+        values (#{complainTitle}, #{complainContent}, '신고 대기',#{complainType}, #{corporationId}, #{memberId});
+    </insert>
+
+    <!-- 특정 회원의 신고 목록 조회 -->
+    <select id="selectComplainsByMemberId">
+        select *
+        from tbl_complain
+        where member_id = #{memberId}
+        order by created_date desc;
+    </select>
+
+    <!-- 특정 기업에 대한 신고 목록 조회 -->
+    <select id="selectComplainsByCorporationId">
+        select *
+        from tbl_complain
+        where corporation_id = #{corporationId}
+        order by created_date desc;
+    </select>
+
+    <!-- 신고 상태 업데이트 -->
+    <update id="updateComplainStatus">
+        update tbl_complain
+        set complain_status = #{complainStatus}, updated_date = current_date
+        where id = #{complainId};
+    </update>
+</mapper>
+
+
