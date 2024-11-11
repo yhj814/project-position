@@ -24,10 +24,16 @@ public class CorporationDTO {
     private String corporationCode;
     private String corporationEmployeesNumber;
     private String createdDate;
+    private int corporationReadCount;
+    private String corporationBusiness;
+    private int corporationInterestedCount;
+    private String corporationOpeningDate;
+
 
     public  CorporationVO toVO() {
         return new CorporationVO(id,corporationName,corporationAddress,corporationAddressDetail,
                 corporationType,corporationOwner,corporationEmail,corporationPassword,
-                corporationHomepage,corporationGen,corporationSales, corporationCode, corporationEmployeesNumber);
+                corporationHomepage,corporationGen,corporationSales, corporationCode, corporationEmployeesNumber,
+                corporationReadCount, corporationBusiness,corporationInterestedCount, corporationOpeningDate);
     }
 }

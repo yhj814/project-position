@@ -33,4 +33,6 @@ public interface NoticeService {
     public List<NoticeCategoryRankDTO> getNoticeCategoryRank();
 
     public FileDTO getNoticeFileById(Long noticeId);
+
+    public List<NoticeDTO> getRecentNotices(Long corporationId);
 }

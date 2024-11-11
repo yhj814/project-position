@@ -3,6 +3,7 @@ package com.app.positionback.service.notice;
 import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
 import com.app.positionback.domain.notice.*;
+import com.app.positionback.repository.apply.ApplyDAO;
 import com.app.positionback.repository.file.FileDAO;
 import com.app.positionback.repository.notice.NoticeDAO;
 import com.app.positionback.repository.notice.NoticeFileDAO;
@@ -30,6 +31,7 @@ public class NoticeServiceImpl implements NoticeService {
     private final NoticeDAO noticeDAO;
     private final NoticeFileDAO noticeFileDAO;
     private final FileDAO fileDAO;
+    private final ApplyDAO applyDAO;
 
     @Override
     public void saveNotice(NoticeVO noticeVO, String uuid, String path, MultipartFile file) throws IOException {
@@ -111,6 +113,24 @@ public class NoticeServiceImpl implements NoticeService {
     // 기업이 작성한 공고 목록 개수
     @Override
     public int getTotal(Pagination pagination,Long corporationId) {
+        Pagination ongoingPagination = new Pagination();
+        ongoingPagination.setStatus("ongoing");
+        int ongoingCount = noticeDAO.getTotal(ongoingPagination, corporationId); // ongoing 상태 개수
+
+        // closed 상태 개수 조회
+        Pagination closedPagination = new Pagination();
+        closedPagination.setStatus("closed");
+        int closedCount = noticeDAO.getTotal(closedPagination, corporationId); // closed 상태 개수
+
+        Pagination applyPagination = new Pagination();
+        applyPagination.setStatus("ongoing");
+        int applyCount = applyDAO.getTotal(applyPagination,corporationId);
+
+        // Pagination에 상태별 개수 추가
+        pagination.setOngoingCount(ongoingCount);
+        pagination.setClosedCount(closedCount);
+        pagination.setPositionCount(applyCount);
+
         return noticeDAO.getTotal(pagination,corporationId);
     }
 
@@ -123,6 +143,11 @@ public class NoticeServiceImpl implements NoticeService {
     public FileDTO getNoticeFileById(Long noticeId) {
         Long fileId = noticeFileDAO.getFileIdByNoticeId(noticeId);
         return fileDAO.findById(fileId);
+    }
+
+    @Override
+    public List<NoticeDTO> getRecentNotices(Long corporationId) {
+        return noticeDAO.findRecentNotices(corporationId);
     }
 
     private FileDTO saveAndLinkFile(MultipartFile file) throws IOException {

@@ -17,4 +17,5 @@ public interface CorporationService {
     public Optional<CorporationVO> login(MemberDTO memberDTO);
     public FileDTO getCorporationFileById(Long corporationId);
     public FileDTO getApplyFileById(Long applyId);
+    public Optional<CorporationVO> getCorporationById(Long id);
 }

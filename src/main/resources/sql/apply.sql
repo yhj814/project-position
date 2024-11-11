@@ -12,8 +12,10 @@ create table tbl_apply(
         constraint fk_apply_resume foreign key (resume_id)
             references tbl_resume(id)
 );
+
 select *
 from tbl_apply;
+
 ALTER TABLE tbl_apply
     ADD COLUMN created_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     ADD COLUMN updated_date DATETIME DEFAULT CURRENT_TIMESTAMP;

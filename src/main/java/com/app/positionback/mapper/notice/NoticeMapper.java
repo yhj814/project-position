@@ -46,4 +46,7 @@ public interface NoticeMapper {
 
     // readcount 증가
     public void updateNoticeReadcount(Long id);
+
+    // 공고 목록 최근 3개만
+    public List<NoticeDTO> selectRecentNotices(Long corporationId);
 }

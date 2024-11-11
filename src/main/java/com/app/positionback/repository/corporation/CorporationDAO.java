@@ -34,5 +34,9 @@ public class CorporationDAO {
         return corporationMapper.selectByCorporationEmailAndCorporationPassword(memberDTO);
     }
 
+    public Optional<CorporationVO> findByCorporationId(Long id){
+        return corporationMapper.selectByCorporationId(id);
+    }
+
 
 }

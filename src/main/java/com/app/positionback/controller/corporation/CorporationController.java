@@ -4,11 +4,13 @@ import com.app.positionback.domain.apply.ApplyListDTO;
 import com.app.positionback.domain.apply.ApplyVO;
 import com.app.positionback.domain.corporation.CorporationVO;
 import com.app.positionback.domain.file.FileDTO;
+import com.app.positionback.domain.notice.NoticeDTO;
 import com.app.positionback.domain.review.PositionReviewListDTO;
 import com.app.positionback.repository.apply.ApplyDAO;
 import com.app.positionback.service.apply.ApplyService;
 import com.app.positionback.service.corporation.CorporationService;
 import com.app.positionback.service.member.MemberService;
+import com.app.positionback.service.notice.NoticeService;
 import com.app.positionback.service.review.ReviewService;
 import com.app.positionback.utill.Pagination;
 import jakarta.servlet.http.HttpSession;
@@ -27,6 +29,7 @@ import java.util.List;
 public class CorporationController {
 
     private final CorporationService corporationService;
+    private final NoticeService noticeService;
     private final ApplyService applyService;
     private final ReviewService reviewService;
     private final HttpSession session;
@@ -36,8 +39,19 @@ public class CorporationController {
     public String goToMain(Long id, Model model){
         CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
         FileDTO fileDTO = corporationService.getCorporationFileById(corporationVO.getId());
+        List<NoticeDTO> noticeDTO = noticeService.getRecentNotices(corporationVO.getId());
 
+        // Pagination 객체를 생성하여 상태별 공고 개수를 조회
+        Pagination pagination = new Pagination();
+        noticeService.getTotal(pagination, corporationVO.getId());
+
+        // Pagination에서 상태별 개수 가져오기
+        model.addAttribute("ongoingCount", pagination.getOngoingCount());
+        model.addAttribute("closedCount", pagination.getClosedCount());
+        model.addAttribute("positionerCount", pagination.getPositionCount());
         model.addAttribute("file", fileDTO);
+        model.addAttribute("corporation", corporationVO);
+        model.addAttribute("notice",noticeDTO);
         return "corporation/corporation-login-main";
     }
 

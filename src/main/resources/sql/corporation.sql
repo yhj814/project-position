@@ -10,6 +10,8 @@ create table tbl_corporation(
     corporation_password varchar(255) not null,
     corporation_homepage varchar(255),
     corporation_read_count int default 0,
+    corporation_interested_count int default 0,
+    corporation_opening_date date,
     created_date datetime default current_timestamp,
     updated_date datetime default  current_timestamp,
     corporation_Gen varchar(255),#대표 번호(general number)
@@ -19,7 +21,7 @@ create table tbl_corporation(
 
 alter table tbl_corporation add(corporation_sales varchar(255) default '0');
 alter table tbl_corporation alter column corporation_sales set default 0;
-alter table tbl_corporation alter column corporation_read_count set default 0;
+alter table tbl_corporation add column corporation_opening_date date;
 alter table tbl_corporation alter column corporation_type set default '-';
 alter table tbl_corporation alter column corporation_business set default '-';
 alter table tbl_corporation drop column corporation_business;
@@ -38,6 +40,7 @@ alter table  tbl_corporation add(corporation_code varchar(255) not null);
 alter table tbl_corporation modify column corporation_read_count int default 0;
 
 select * from  tbl_corporation;
+
 select * from tbl_file;
 select * from tbl_corporation_file;
 
