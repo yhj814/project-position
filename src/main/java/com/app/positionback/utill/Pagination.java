@@ -25,13 +25,13 @@ public class Pagination {
     private int positionCount;
     private int reviewCount;
 //        더보기 구현 시, 1개 더 가져오는 변수이다.
-//    private int moreRowcount;
+    private int moreRowcount;
 
     public void progress() {
         this.page = page == null ? 1 : page;
-        this.rowCount = 5;
+//        this.rowCount = 5;
 //        더보기 구현 시, 다음 페이지의 게시글 1개를 더 가져온다.
-//        this.moreRowcount = rowCount + 1;
+        this.moreRowcount = rowCount + 1;
         this.pageCount = 10;
         this.endRow = page * rowCount;
         this.startRow = endRow - rowCount + 1;

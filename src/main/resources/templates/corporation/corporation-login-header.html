@@ -15,10 +15,8 @@
             <div class="wrap_header">
                 <h1>
                     <a
-                        href="/"
+                        href="/corporation"
                         class="bi"
-                        aria-label="사람인"
-                        data-nav-track="ga_lead|main-gnb|global_menu|ci"
                     >
                         <span class="frame"> </span>
                     </a>
@@ -28,12 +26,10 @@
                     <div
                         id="gnb_message_badge"
                         class="wrap_messenger"
-                        data-el="chat_beta"
                     >
                         <button
                             type="button"
                             class="btn_messenger"
-                            data-nav-track="ga_lead|main-gnb|global_menu|messenger"
                             onclick="window.location.href='/zf_user/messenger'"
                         >
                             메신저
@@ -43,9 +39,6 @@
                         <button
                             class="btn_member"
                             type="button"
-                            aria-label="석상훈 개인화 메뉴"
-                            aria-haspopup="true"
-                            aria-expanded="false"
                         >
                             <span class="user_photo">
                                 <svg class="img_default">
@@ -54,7 +47,7 @@
                                     ></use>
                                 </svg>
                             </span>
-                            <span class="user_name">기업이름</span>
+                            <span class="user_name" th:text="${corporation.corporationName}">기업이름</span>
 
                             <span class="img_arrow">
                                 <svg aria-hidden="true" focusable="false">
@@ -68,14 +61,12 @@
                             <div class="stat">
                                 <a
                                     href="/zf_user/member/suggest/status-list"
-                                    data-nav-track="ga_lead|main-gnb|layer_person|talent-pool"
                                 >
                                     <span>공고 지원</span>
                                     <strong class="suggest_text">000</strong>
                                 </a>
                                 <a
                                     href="/zf_user/persons/apply-status-list"
-                                    data-nav-track="ga_lead|main-gnb|layer_person|apply_list"
                                 >
                                     <span>면접 예정</span>
                                     <strong class="apply_text">000</strong>
@@ -84,29 +75,32 @@
                             <ul class="links">
                                 <li>
                                     <a
-                                        href="/zf_user/member/persons/main"
-                                        data-nav-track="ga_lead|main-gnb|layer_person|mylayer_myhome"
+                                        href="/corporation"
                                         >기업 홈</a
                                     >
                                 </li>
                                 <li>
                                     <a
-                                        href="/zf_user/resume/resume-manage"
-                                        data-nav-track="ga_lead|main-gnb|layer_person|resume-manage"
+                                        href="/corporation/corporation-login-main-write-posting"
+                                        target="_blank"
                                         >공고 등록</a
                                     >
                                 </li>
                                 <li>
                                     <a
-                                        href="/zf_user/persons/scrap-recruit"
-                                        data-nav-track="ga_lead|main-gnb|layer_person|scrap"
-                                        >공고·지원자 관리</a
+                                        href="/corporation/corporation-login-main-posting-registration"
+                                        >공고 관리</a
                                     >
                                 </li>
                                 <li>
                                     <a
-                                        href="/zf_user/jobs/read-jobs"
-                                        data-nav-track="ga_lead|main-gnb|layer_person|recent"
+                                            href="/corporation/management"
+                                    >지원자 관리</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
                                         >문의하기</a
                                     >
                                 </li>
@@ -114,15 +108,131 @@
                             <a
                                 href="/logout"
                                 class="logout"
-                                data-nav-track="ga_lead|main-gnb|layer_person|logout"
                                 >로그아웃</a
                             >
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="img_svg_layout" style="display: none">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <symbol id="svg_saramin_ci" viewBox="0 0 126 40">
+                        <g transform="translate(29 7)">
+                            <path
+                                    fill="#4876EF"
+                                    d="M22.467 19.27l-.039.023c-.288.175-1.166.708-2.76.708-1.653 0-2.602-.682-2.602-1.873 0-1.089 1.012-1.82 2.518-1.82 1.072 0 1.875.165 2.823.432l.06.016v2.513zm-7.922-8.72c0 .495.205.912.577 1.173.46.322 1.13.373 1.89.143.684-.21 1.71-.46 2.713-.46 1.921 0 2.742.65 2.742 2.17v.823l-.103-.024c-1.032-.233-1.858-.399-3.087-.399-5.274 0-5.684 3.28-5.684 4.286 0 2.24 1.53 4.634 5.823 4.634 3.352 0 5.333-1.117 5.86-1.46.481-.307.636-.597.636-1.193v-6.56c0-3.555-2.054-5.357-6.104-5.357-1.692 0-3.302.343-4.082.663-.784.308-1.181.834-1.181 1.56zM63.698 9.889l-.051-.054c-1.01-1.03-2.28-1.51-4-1.51-1.85 0-3.723.568-5.01 1.52-.517.36-.69.677-.69 1.255v10.017c0 .964.815 1.779 1.78 1.779 1.015 0 1.78-.765 1.78-1.779v-8.742l.092-.056c.274-.17 1.001-.626 2.215-.626 1.549 0 2.335.843 2.335 2.504v6.92c0 .964.815 1.779 1.78 1.779.998 0 1.78-.782 1.78-1.779v-8.742l.092-.056c.274-.17 1.001-.626 2.215-.626 1.528 0 2.335.875 2.335 2.53v6.894c0 .964.802 1.779 1.751 1.779 1.015 0 1.81-.782 1.81-1.779v-6.974c0-3.914-1.865-5.817-5.702-5.817-1.616 0-3.156.525-4.453 1.517l-.059.046zM47.529 19.27l-.039.023c-.288.175-1.164.708-2.76.708-1.654 0-2.602-.682-2.602-1.873 0-1.089 1.012-1.82 2.518-1.82 1.072 0 1.875.165 2.823.432l.06.016v2.513zm-7.922-8.72c0 .495.205.911.577 1.173.46.322 1.13.373 1.89.143.684-.21 1.71-.46 2.713-.46 1.921 0 2.742.65 2.742 2.17v.823l-.103-.024c-1.032-.233-1.858-.399-3.087-.399-5.274 0-5.684 3.28-5.684 4.286 0 2.24 1.53 4.634 5.823 4.634 3.352 0 5.333-1.117 5.86-1.46.481-.306.635-.596.635-1.193v-6.56c0-3.555-2.053-5.357-6.102-5.357-1.694 0-3.304.343-4.083.663-.784.308-1.181.833-1.181 1.56zM36.129 8.539c-.548-.131-1.464-.213-2.391-.213-3.084 0-4.853 1.649-4.853 4.525v8.388c0 .914.774 1.657 1.725 1.657.016-.002.024-.004.033-.004l.03.002h.002c1.014 0 1.801-.768 1.801-1.75v-7.62c0-1.201.504-1.8 1.54-1.83.472-.017.869.06 1.25.133.296.056.575.109.856.109 1.148 0 1.683-.965 1.683-1.617 0-.87-.595-1.501-1.676-1.78M7.806 14.497l-2.203-.44c-1.233-.27-1.758-.665-1.758-1.325 0-.382.203-1.27 2.085-1.27.78 0 1.908.264 2.624.615.893.45 1.812.371 2.344-.202.296-.332.452-.799.416-1.246-.025-.301-.145-.733-.577-1.083-.899-.73-2.774-1.22-4.667-1.22-3.454 0-5.686 1.772-5.686 4.516 0 2.572 2.217 3.668 4.076 4.134.638.16.956.216 1.325.281.264.047.538.095.961.187 1.177.274 1.7.7 1.7 1.38 0 .493-.284 1.32-2.19 1.32-1.32 0-2.748-.363-3.637-.924-.359-.224-.726-.334-1.073-.334-.488 0-.935.217-1.256.643-.492.633-.34 1.663.323 2.205.578.474 2.274 1.578 5.524 1.578 3.443 0 5.757-1.893 5.757-4.71 0-2.142-1.338-3.485-4.088-4.105M78.584 6.66c-.968 0-1.699.76-1.699 1.768v9.37c0 .958.778 1.767 1.699 1.767.953 0 1.7-.776 1.7-1.767v-9.37c0-.99-.747-1.767-1.7-1.767"
+                            />
+                            <path
+                                    fill="#4876EF"
+                                    d="M78.584 0c-1.453 0-2.549 1.059-2.549 2.462 0 1.42 1.12 2.533 2.55 2.533 1.38 0 2.548-1.16 2.548-2.533 0-1.38-1.12-2.462-2.549-2.462"
+                                    mask="url(#1f8v900bkb)"
+                            />
+                            <path
+                                    fill="#4876EF"
+                                    d="M89.736 8.326c-3.553 0-5.485 1.221-5.843 1.466-.476.323-.636.64-.636 1.255v10.07c0 .964.82 1.779 1.79 1.779 1.02 0 1.79-.765 1.79-1.779v-8.742l.038-.023c.522-.317 1.58-.659 2.75-.659 1.35 0 2.795.686 2.795 2.612v6.812c0 .964.82 1.779 1.79 1.779 1.02 0 1.79-.765 1.79-1.779v-6.974c0-3.806-2.166-5.817-6.264-5.817"
+                                    mask="url(#09ysurdxqd)"
+                            />
+                        </g>
+                        <g>
+                            <circle cx="4.5" cy="14.5" r="4.5" fill="#4876EF" />
+                            <circle
+                                    cx="16.5"
+                                    cy="14.5"
+                                    r="4.5"
+                                    fill="currentColor"
+                            />
+                            <circle
+                                    cx="4.5"
+                                    cy="26.5"
+                                    r="4.5"
+                                    fill="currentColor"
+                            />
+                            <circle cx="16.5" cy="26.5" r="4.5" fill="#00D3AB" />
+                        </g>
+                    </symbol>
+                    <symbol id="svg_gnb_profile_bracket" viewBox="0 0 10 6">
+                        <path
+                                d="M1 1L5 5L9 1"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                fill="none"
+                        />
+                    </symbol>
+                    <!-- need -->
+                    <symbol id="svg_gnb_profile_arrow" viewBox="0 0 16 16">
+                        <path
+                                fill="currentColor"
+                                d="M92 18L100 18 96 23z"
+                                transform="translate(-1976 -481) translate(120 445) translate(1768 24)"
+                        />
+                    </symbol>
+                    <!-- social -->
+                    <symbol id="svg_gnb_social1" viewBox="0 0 16 16">
+                        <path
+                                fill="#58B04B"
+                                d="M2.034 3L2 12.968 6.154 12.984 6.171 8.953 5.897 7.691 9.829 12.968 14 13 13.983 3.032 9.812 3.016 9.897 7.128 10.171 8.596 6.171 3.016z"
+                        />
+                    </symbol>
+                    <symbol id="svg_gnb_social2" viewBox="0 0 16 16">
+                        <path
+                                fill="#3C5A9A"
+                                d="M6.087 14V7.614h2.36l.352-2.489H6.087V3.536c0-.72.22-1.212 1.358-1.212h1.45V.098C8.644.068 7.783 0 6.782 0 4.69 0 3.26 1.16 3.26 3.29v1.835H.895v2.489h2.364V14h2.828z"
+                                transform="translate(3.105 1)"
+                        />
+                    </symbol>
+                    <symbol id="svg_gnb_social3" viewBox="0 0 16 16">
+                        <path
+                                fill="#4285F4"
+                                d="M11.758 6.133c0-.494-.04-.854-.126-1.227H5.999v2.226h3.306C9.24 7.686 8.88 8.52 8.08 9.08l-.011.074 1.78 1.38.124.012c1.133-1.046 1.786-2.586 1.786-4.412"
+                                transform="translate(2 2)"
+                        />
+                        <path
+                                fill="#34A853"
+                                d="M6 11.998c1.619 0 2.979-.533 3.972-1.453L8.079 9.08c-.507.353-1.187.6-2.08.6-1.586 0-2.933-1.047-3.413-2.493l-.07.006L.664 8.625l-.024.067c.986 1.96 3.013 3.306 5.36 3.306"
+                                transform="translate(2 2)"
+                        />
+                        <path
+                                fill="#FBBC05"
+                                d="M2.586 7.186c-.126-.374-.2-.774-.2-1.187 0-.413.074-.813.194-1.186l-.004-.08L.701 3.277l-.061.03C.233 4.118 0 5.032 0 5.998c0 .967.233 1.88.64 2.693l1.946-1.506"
+                                transform="translate(2 2)"
+                        />
+                        <path
+                                fill="#EB4335"
+                                d="M6 2.32c1.126 0 1.886.486 2.319.893l1.693-1.653C8.972.593 7.619 0 5.999 0 3.653 0 1.626 1.346.64 3.306l1.94 1.507C3.067 3.366 4.414 2.32 6 2.32"
+                                transform="translate(2 2)"
+                        />
+                    </symbol>
+                    <!-- 필요 -->
+                    <symbol id="svg_gnb_social4" viewBox="0 0 16 16">
+                        <path
+                                fill="#000"
+                                d="M7 .02C3.15.02.03 2.494.03 5.545c0 1.972 1.305 3.703 3.267 4.68-.107.37-.686 2.382-.709 2.54 0 0-.014.119.063.164.076.045.166.01.166.01.22-.03 2.543-1.671 2.945-1.956.402.057.816.087 1.238.087 3.85 0 6.97-2.474 6.97-5.525S10.85.02 7 .02z"
+                                transform="translate(1 2)"
+                        />
+                        <path
+                                fill="#FFF"
+                                d="M3.147 7.473c-.222 0-.403-.173-.403-.386V4.686h-.627c-.218 0-.395-.178-.395-.396 0-.218.177-.396.395-.396h2.059c.218 0 .395.178.395.396 0 .218-.177.396-.395.396h-.627v2.401c0 .213-.18.386-.402.386zm3.525-.005c-.167 0-.296-.068-.334-.178l-.2-.524H4.914l-.2.524c-.038.11-.166.178-.334.178-.088 0-.175-.019-.256-.056-.11-.051-.217-.192-.095-.574l.962-2.545c.068-.193.273-.393.535-.399.263.006.469.206.537.4l.961 2.544c.122.382.016.523-.095.574-.08.037-.167.056-.256.056zM5.927 6.05l-.401-1.147-.402 1.147h.803zM7.67 7.414c-.212 0-.385-.166-.385-.37V4.298c0-.223.184-.404.41-.404.227 0 .41.181.41.404v2.375h.855c.213 0 .386.167.386.37 0 .205-.173.371-.386.371H7.67zm2.234.054c-.222 0-.402-.181-.402-.404V4.298c0-.223.18-.404.402-.404.222 0 .402.181.402.404v.87l1.122-1.129c.058-.058.137-.09.223-.09.1 0 .201.044.277.12.07.07.112.162.118.256.006.095-.026.183-.089.246l-.916.921.99 1.319c.064.085.092.193.077.299-.015.106-.07.202-.156.267-.07.053-.155.081-.242.081-.126 0-.245-.059-.321-.16l-.943-1.257-.14.14v.883c0 .223-.18.404-.402.404z"
+                                transform="translate(1 2)"
+                        />
+                    </symbol>
+                    <symbol id="svg_gnb_social5" viewBox="0 0 16 16">
+                        <path
+                                d="M9.187 7.438C9.206 9.556 10.98 10.26 11 10.27c-.015.05-.284 1.005-.935 1.992-.563.852-1.147 1.702-2.068 1.72-.904.017-1.195-.556-2.23-.556-1.033 0-1.357.538-2.213.573-.888.035-1.565-.922-2.133-1.772C.261 10.49-.626 7.316.565 5.173 1.156 4.11 2.213 3.436 3.36 3.42c.873-.018 1.696.608 2.23.608.533 0 1.534-.752 2.586-.642.44.02 1.677.185 2.47 1.389-.063.041-1.474.892-1.46 2.664m-1.7-5.203C7.96 1.644 8.277.82 8.19 0 7.51.028 6.687.47 6.2 1.061c-.437.524-.82 1.362-.716 2.166.758.06 1.532-.4 2.004-.992"
+                                transform="translate(3 1)"
+                        />
+                    </symbol>
+                    <!-- need -->
+
+                    <symbol id="svg_gnb_member_photo" viewBox="0 0 32 32">
+                        <circle cx="16" cy="16" r="16" fill="#ccd0d6"></circle>
+                        <path stroke="#FFF" fill="#ccd0d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M25 24c0-2.21-2.015-4-4.5-4h-9C9.015 20 7 21.79 7 24"></path>
+                        <path stroke="#FFF" fill="#ccd0d6" stroke-width="1.5" d="M16 8h3.5c.276 0 .5.224.5.5V12c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4z"></path>
+                    </symbol>
+                </svg>
+            </div>
         </header>
-        <div class="img_svg_layout">
+        <!--<div class="img_svg_layout">
             <svg xmlns="http://www.w3.org/2000/svg">
                 <symbol id="svg_saramin_ci" viewBox="0 0 126 40">
                     <g transform="translate(29 7)">
@@ -167,7 +277,7 @@
                         fill="none"
                     />
                 </symbol>
-                <!-- need -->
+                &lt;!&ndash; need &ndash;&gt;
                 <symbol id="svg_gnb_profile_arrow" viewBox="0 0 16 16">
                     <path
                         fill="currentColor"
@@ -175,7 +285,7 @@
                         transform="translate(-1976 -481) translate(120 445) translate(1768 24)"
                     />
                 </symbol>
-                <!-- social -->
+                &lt;!&ndash; social &ndash;&gt;
                 <symbol id="svg_gnb_social1" viewBox="0 0 16 16">
                     <path
                         fill="#58B04B"
@@ -211,7 +321,7 @@
                         transform="translate(2 2)"
                     />
                 </symbol>
-                <!-- 필요 -->
+                &lt;!&ndash; 필요 &ndash;&gt;
                 <symbol id="svg_gnb_social4" viewBox="0 0 16 16">
                     <path
                         fill="#000"
@@ -230,26 +340,15 @@
                         transform="translate(3 1)"
                     />
                 </symbol>
-                <!-- need -->
+                &lt;!&ndash; need &ndash;&gt;
+
                 <symbol id="svg_gnb_member_photo" viewBox="0 0 32 32">
-                    <circle cx="16" cy="16" r="16" fill="#ccd0d6" />
-                    <path
-                        stroke="#FFF"
-                        fill="#ccd0d6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M25 24c0-2.21-2.015-4-4.5-4h-9C9.015 20 7 21.79 7 24"
-                    />
-                    <path
-                        stroke="#FFF"
-                        fill="#ccd0d6"
-                        stroke-width="1.5"
-                        d="M16 8h3.5c.276 0 .5.224.5.5V12c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4z"
-                    />
+                    <circle cx="16" cy="16" r="16" fill="#ccd0d6"></circle>
+                    <path stroke="#FFF" fill="#ccd0d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M25 24c0-2.21-2.015-4-4.5-4h-9C9.015 20 7 21.79 7 24"></path>
+                    <path stroke="#FFF" fill="#ccd0d6" stroke-width="1.5" d="M16 8h3.5c.276 0 .5.224.5.5V12c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4z"></path>
                 </symbol>
             </svg>
-        </div>
+        </div>-->
     </body>
     <script src="/js/corporation/corpoaration-login-header.js"></script>
 </html>

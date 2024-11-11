@@ -71,4 +71,19 @@ public class NoticeDAO {
         return noticeMapper.selectRecentNotices(corporationId);
     }
 
+    // 공고 전체 목록(더보기)
+    public List<NoticeDTO> findAll(Pagination pagination) {
+        return noticeMapper.selectAll(pagination);
+    }
+
+    // 공고 전체 개수
+    public int getAllTotal() {
+        return noticeMapper.selectAllCount();
+    }
+
+    // 공고 인기순 4개
+    public List<NoticeDTO> findTop4(){
+        return noticeMapper.selectTop4();
+    }
+
 }

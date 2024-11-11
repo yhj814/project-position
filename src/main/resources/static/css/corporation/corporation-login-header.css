@@ -89,8 +89,8 @@ article {
     display: block;
     overflow: hidden;
     width: 134px;
-    height: 34px;
-    background-image: url("/images/main/saramin.png");
+    height: 33px;
+    background-image: url("/images/my-page/position-logo-small.svg");
 }
 #header.fixed .bi .frame,
 #header.simple.bubble .bi .frame {

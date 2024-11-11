@@ -4,11 +4,14 @@ import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.domain.file.NoticeFileDTO;
 import com.app.positionback.domain.notice.*;
 import com.app.positionback.repository.apply.ApplyDAO;
+import com.app.positionback.repository.corporation.CorporationDAO;
 import com.app.positionback.repository.file.FileDAO;
 import com.app.positionback.repository.notice.NoticeDAO;
 import com.app.positionback.repository.notice.NoticeFileDAO;
+import com.app.positionback.service.corporation.CorporationService;
 import com.app.positionback.utill.Pagination;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,7 @@ import java.util.UUID;
 
 @Service
 @Primary
+@Slf4j
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class NoticeServiceImpl implements NoticeService {
@@ -32,6 +36,8 @@ public class NoticeServiceImpl implements NoticeService {
     private final NoticeFileDAO noticeFileDAO;
     private final FileDAO fileDAO;
     private final ApplyDAO applyDAO;
+    private final CorporationDAO corporationDAO;
+    private final CorporationService corporationService;
 
     @Override
     public void saveNotice(NoticeVO noticeVO, String uuid, String path, MultipartFile file) throws IOException {
@@ -126,10 +132,15 @@ public class NoticeServiceImpl implements NoticeService {
         applyPagination.setStatus("ongoing");
         int applyCount = applyDAO.getTotal(applyPagination,corporationId);
 
+        Pagination reviewPagination = new Pagination();
+        reviewPagination.setStatus("review");
+        int reviewCount = applyDAO.getTotal(reviewPagination,corporationId);
+
         // Pagination에 상태별 개수 추가
         pagination.setOngoingCount(ongoingCount);
         pagination.setClosedCount(closedCount);
         pagination.setPositionCount(applyCount);
+        pagination.setReviewCount(reviewCount);
 
         return noticeDAO.getTotal(pagination,corporationId);
     }
@@ -148,6 +159,45 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public List<NoticeDTO> getRecentNotices(Long corporationId) {
         return noticeDAO.findRecentNotices(corporationId);
+    }
+
+    @Override
+    public NoticeListDTO getAll(int page, Pagination pagination) {
+        NoticeListDTO noticeListDTO = new NoticeListDTO();
+        pagination.setPage(page);
+        pagination.setTotal(noticeDAO.getAllTotal());
+        pagination.setRowCount(12);
+        pagination.progress();
+        noticeListDTO.setPagination(pagination);
+
+        List<NoticeDTO> notices = noticeDAO.findAll(pagination);
+
+        for(NoticeDTO notice : notices) {
+            Long corporationId = notice.getCorporationId();
+            FileDTO fileDTO = corporationService.getCorporationFileById(corporationId);
+            notice.setFileDTO(fileDTO);
+        }
+
+        noticeListDTO.setNotices(notices);
+        return noticeListDTO;
+    }
+
+    @Override
+    public NoticeListDTO getTop4() {
+        NoticeListDTO noticeListDTO = new NoticeListDTO();
+
+        // 상위 4개의 공고를 가져옴
+        List<NoticeDTO> notices = noticeDAO.findTop4();
+
+        // 각 공고에 파일 정보 추가
+        for (NoticeDTO notice : notices) {
+            Long corporationId = notice.getCorporationId();
+            FileDTO fileDTO = corporationService.getCorporationFileById(corporationId);
+            notice.setFileDTO(fileDTO); // 각 공고에 파일 정보 설정
+        }
+
+        noticeListDTO.setNotices(notices); // 공고 목록을 NoticeListDTO에 설정
+        return noticeListDTO;
     }
 
     private FileDTO saveAndLinkFile(MultipartFile file) throws IOException {

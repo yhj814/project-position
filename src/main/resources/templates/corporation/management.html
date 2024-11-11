@@ -8,35 +8,52 @@
             href="/css/corporation/corporation-login-main-manage-posting.css"
         />
         <link rel="stylesheet" href="/css/main.css" />
+        <link
+                rel="stylesheet"
+                href="/css/corporation/corporation-login-header.css"
+        />
         <title>공고, 지원자 관리</title>
     </head>
     <body>
-        <div id="sri-section" class="layout-full">
+    <header th:replace="~{/corporation/corporation-login-header :: #header}"></header>
+
+    <div id="sri-section" class="layout-full">
             <div id="sri-wrap">
                 <div id="content">
                     <div class="wrap-company-view fixed">
                         <div class="sidebar recommendation">
                             <div class="scroller">
                                 <div class="company-info">
-                                    <div class="box-logo">
-                                        <img
-                                            id="쿠팡(주)의 기업로고"
-                                            alt="쿠팡(주)의 기업로고"
-                                            src="https://pds.saramin.co.kr/company/logo/202203/24/r98lvb_cr4p-2so280_logo.png"
-                                            width="170"
-                                            height="38"
-                                        />
-                                    </div>
+                                    <form id="uploadForm" th:action="@{/file/profile/upload1}" method="post" enctype="multipart/form-data">
+                                        <div class="box-logo">
+                                            <input type="hidden" name="uuid" id="uuid">
+                                            <input type="hidden" name="path" id="path">
+                                            <div class="TipBox plus">
+                                                <button type="button" class="btn-blue evtLoadExnlItem" onclick="document.getElementById('fileInput').click();">
+                                                    <svg id="plus-btn">
+                                                        <use xlink:href="#resume_plus"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <input type="file" name="file" id="fileInput" style="display: none;">
+                                            <img
+                                                    id="corporation-logo"
+                                                    src="/images/corporation/logo-default.png"
+
+                                            />
+                                        </div>
+                                    </form>
                                     <div class="box-title">
                                         <h1
-                                            class="tit-company"
-                                            title="쿠팡(주)"
+                                                class="tit-company"
+                                                title="쿠팡(주)"
+                                                th:text="${corporation.corporationName}"
                                         >
                                             쿠팡(주)<span class="txt-info"
-                                                >기업정보</span
-                                            >
+                                        >기업정보</span
+                                        >
                                         </h1>
-                                        <p class="txt-job">전자상거래 소매업</p>
+                                        <p class="txt-job" th:text="${corporation.corporationBusiness}">전자상거래 소매업</p>
                                     </div>
                                     <div class="box-btns">
                                         <!-- onclick부분 나중에 js 작업 할 때 참고하기 
@@ -870,9 +887,29 @@
                             fill="#292E41"
                     ></path>
                 </symbol>
+                <symbol id="resume_plus" viewBox="0 0 16 16">
+                    <rect x="7.25" y="2.5" width="1.5" height="11" fill="currentColor"></rect>
+                    <rect x="2.5" y="7.25" width="11" height="1.5" fill="currentColor"></rect>
+                </symbol>
             </svg>
         </div>
     </body>
+    <script th:inline="javascript">
+        // [[${session.member}]];
+        const fileDTO = [[${file}]];
+
+        const img = document.getElementById("corporation-logo");
+        const tipBox = document.querySelector(".TipBox.plus");
+
+        if (fileDTO && fileDTO.filePath && fileDTO.fileName) {
+            // 파일 정보가 존재할 경우
+            img.src = `/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+            tipBox.style.display = 'none'; // TipBox 숨기기
+        }
+
+        // img.src=`/file/display?fileName=${fileDTO.filePath}/${fileDTO.fileName}`;
+    </script>
+    <script src="/js/corporation/corpoaration-login-header.js"></script>
     <script src="/js/corporation/corporation-login-main-manage-posting.js"></script>
     <script src="/js/apply-list/apply-list-service.js"></script>
     <script src="/js/apply-list/apply-list-layout.js"></script>

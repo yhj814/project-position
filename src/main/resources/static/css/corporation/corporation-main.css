@@ -2104,7 +2104,7 @@ img {
     color: var(--blue90);
 }
 
-.TipBox svg {
+#plus-btn {
     width: 23px;
     height: 23px;
 }
