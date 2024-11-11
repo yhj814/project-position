@@ -7,3 +7,4 @@ create table tbl_inquiry_file(
                              references tbl_inquiry(id)
 );
 
+

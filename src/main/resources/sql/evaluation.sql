@@ -5,6 +5,7 @@ create table tbl_evaluation (
     evaluation_result varchar(255) default '수료'  # 결과 (기본값: 수료)
 );
 
+
 select * from tbl_evaluation;
 
 
