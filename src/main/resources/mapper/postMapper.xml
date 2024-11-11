@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.positionback.mapper.post.PostMapper">
+
+    <insert id="insert" parameterType="postVO">
+        INSERT INTO tbl_post (id, member_id, post_title, post_content, post_read_count, created_date, updated_date)
+        VALUES (#{id}, #{memberId}, #{postTitle}, #{postContent}, #{postReadCount}, current_timestamp, current_timestamp)
+    </insert>
+
+    <select id="selectById" resultType="postDTO" parameterType="Long">
+        SELECT id, member_id as memberId, post_title as postTitle, post_content as postContent,
+               post_read_count as postReadCount, created_date as createdDate, updated_date as updatedDate
+        FROM tbl_post
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="postDTO">
+        SELECT id, member_id as memberId, post_title as postTitle, post_content as postContent,
+        post_read_count as postReadCount, created_date as createdDate, updated_date as updatedDate
+        FROM tbl_post
+        <where>
+            <if test="search.keyword != null">
+                AND (post_title LIKE CONCAT('%', #{search.keyword}, '%') OR post_content LIKE CONCAT('%', #{search.keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY created_date DESC
+        LIMIT 0, 10
+    </select>
+
+    <select id="selectFilterAll" resultType="postDTO">
+        SELECT id, member_id as memberId, post_title as postTitle, post_content as postContent,
+        post_read_count as postReadCount, created_date as createdDate, updated_date as updatedDate
+        FROM tbl_post
+        <where>
+            <if test="search.keyword != null">
+                AND (post_title LIKE CONCAT('%', #{search.keyword}, '%') OR post_content LIKE CONCAT('%', #{search.keyword}, '%'))
+            </if>
+            <if test="search.filter != null">
+                AND filter_column = #{search.filter}
+            </if>
+        </where>
+        ORDER BY created_date DESC
+        limit #{pagination.startRow}, #{pagination.rowCount};
+    </select>
+
+    <select id="selectTotalWithSearch" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_post
+        <where>
+            <if test="search.keyword != null">
+                AND (post_title LIKE CONCAT('%', #{search.keyword}, '%') OR post_content LIKE CONCAT('%', #{search.keyword}, '%'))
+            </if>
+        </where>
+    </select>
+
+    <select id="selectCount" resultType="int">
+        SELECT COUNT(*) FROM tbl_post
+    </select>
+
+    <update id="update" parameterType="postVO">
+        UPDATE tbl_post
+        SET post_title = #{postTitle}, post_content = #{postContent}, post_read_count = #{postReadCount}, updated_date = current_timestamp
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM tbl_post WHERE id = #{id}
+    </delete>
+
+</mapper>
+
+
