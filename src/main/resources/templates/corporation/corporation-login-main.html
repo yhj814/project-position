@@ -12,6 +12,8 @@
                 rel="stylesheet"
                 href="/css/corporation/corporation-login-header.css"
         />
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1e0bdeafd8a8a27e472648b06cdfefc&libraries=services"></script>
+
         <title>기업 메인페이지</title>
     </head>
     <body>
@@ -46,12 +48,13 @@
                                         <h1
                                             class="tit-company"
                                             title="쿠팡(주)"
+                                            th:text="${corporation.corporationName}"
                                         >
                                             쿠팡(주)<span class="txt-info"
                                                 >기업정보</span
                                             >
                                         </h1>
-                                        <p class="txt-job">전자상거래 소매업</p>
+<!--                                        <p class="txt-job">전자상거래 소매업</p>-->
                                     </div>
                                     <div class="box-btns">
                                         <!-- onclick부분 나중에 js 작업 할 때 참고하기 
@@ -216,7 +219,7 @@
                                                 <span class="tit">조회수</span>
                                                 <div class="counting">
                                                     <sapn class="count">
-                                                        <strong class="num"
+                                                        <strong class="num" th:text="${corporation.corporationReadCount}"
                                                             >18,458</strong
                                                         >
                                                         회
@@ -229,7 +232,7 @@
                                                 >
                                                 <div class="counting">
                                                     <span class="count">
-                                                        <strong class="num"
+                                                        <strong class="num" th:text="${corporation.corporationInterestedCount}"
                                                             >413</strong
                                                         >
                                                         회
@@ -269,35 +272,38 @@
                                                     href=""
                                                     class="ga-data-layer"
                                                     title="본창이동"
+                                                    th:text="${ongoingCount}"
                                                     >0</a
                                                 >
                                             </dd>
                                         </dl>
                                         <dl>
-                                            <dt>미열람 지원자</dt>
+                                            <dt>마감된 공고</dt>
                                             <dd>
                                                 <a
                                                     href=""
                                                     class="ga-data-layer"
                                                     title="본창이동"
+                                                    th:text="${closedCount}"
                                                     >0</a
                                                 >
                                             </dd>
                                         </dl>
                                         <dl>
-                                            <dt>미등록 후기</dt>
+                                            <dt>현재 지원자 수</dt>
                                             <dd>
                                                 <a
                                                     href=""
                                                     class="ga-data-layer"
                                                     title="본창이동"
+                                                    th:text="${positionerCount}"
                                                     >0</a
                                                 >
                                             </dd>
                                         </dl>
                                     </div>
 
-                                    <div
+                                    <!--<div
                                         class="home-board-box my-benefit-wrap ga-data-layer"
                                         id="myBenefitWrap"
                                     >
@@ -314,7 +320,7 @@
                                                 10,000포인트 드려요!
                                             </p>
                                         </a>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </section>
 
@@ -327,7 +333,7 @@
                                     </h2>
                                 </div>
                                 <div class="section-content">
-                                    <div class="wrap-photo">
+                                    <!--<div class="wrap-photo">
                                         <ul class="list-thumb">
                                             <li class="hover">
                                                 <div class="thumb-inner">
@@ -375,9 +381,9 @@
                                             </li>
                                             <li class="indicator">
                                                 <div class="thumb-inner">
-                                                    <!-- <span class="cover">
+                                                    &lt;!&ndash; <span class="cover">
                                                         + 4
-                                                    </span> -->
+                                                    </span> &ndash;&gt;
                                                     <span class="frame">
                                                         <img
                                                             src="https://pds.saramin.co.kr/workenv-bg/202306/15/rwa8zx_2b1r-xr4xqm_workenv-bg.jpg/sri/resize/306x220"
@@ -484,7 +490,7 @@
                                                 </button>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div>-->
                                     <div class="area-company-infos">
                                         <ul class="company-summary">
                                             <li class="company-summary-item">
@@ -533,9 +539,12 @@
                                                 </svg>
                                                 <strong
                                                     class="company-summary-tit"
+                                                    id="company-seniority"
                                                     >업력 12년차
                                                 </strong>
-                                                <p class="company-summary-desc">
+                                                <p class="company-summary-desc"
+                                                   id="company-opening-date"
+                                                   th:text="${corporation.corporationOpeningDate}">
                                                     2013년 2월 15일 설립
                                                 </p>
                                             </li>
@@ -675,6 +684,7 @@
                                                 <div class="box-align">
                                                     <strong
                                                         class="company-summary-tit"
+                                                        th:text="${corporation.corporationEmployeesNumber} + '명'"
                                                     >
                                                         10,985 명
                                                     </strong>
@@ -780,7 +790,9 @@
                                                     </defs>
                                                 </svg>
                                                 <strong
+                                                    id="company-summary-tit"
                                                     class="company-summary-tit"
+                                                    th:text="${corporation.corporationSales}"
                                                     >30조 6,640억
                                                     300만원</strong
                                                 >
@@ -795,7 +807,7 @@
                                                     class="company-details-group"
                                                 >
                                                     <dt class="tit">업종</dt>
-                                                    <dd class="desc">
+                                                    <dd class="desc" th:text="${corporation.corporationBusiness}">
                                                         전자상거래 소매업
                                                     </dd>
                                                 </div>
@@ -805,7 +817,7 @@
                                                     <dt class="tit">
                                                         대표자명
                                                     </dt>
-                                                    <dd class="desc">
+                                                    <dd class="desc" th:text="${corporation.corporationOwner}">
                                                         강한승/박대준
                                                     </dd>
                                                 </div>
@@ -817,7 +829,8 @@
                                                     </dt>
                                                     <dd class="desc">
                                                         <a
-                                                            href="http://www.coupang.com"
+                                                            th:href="${corporation.corporationHomepage}"
+                                                            th:text="${corporation.corporationHomepage}"
                                                             target="_blank"
                                                             >http://www.coupang.com</a
                                                         >
@@ -833,6 +846,7 @@
                                                         <p
                                                             class="ellipsis"
                                                             title="전자상거래,통신판매/광고대행"
+                                                            th:text="${corporation.}"
                                                         >
                                                             전자상거래,통신판매/광고대행
                                                         </p>
@@ -844,16 +858,17 @@
                                                     <dt class="tit">주소</dt>
                                                     <dd class="desc">
                                                         <p
+                                                            id="address"
                                                             class="ellipsis"
-                                                            title="서울 송파구 송파대로 570, 18층"
+                                                            th:text="${corporation.corporationAddress} + ' ' +  ${corporation.corporationAddressDetail}"
                                                         >
                                                             서울 송파구 송파대로
                                                             570, 18층
                                                         </p>
                                                         <!-- 지도보기 하면 카카오맵으로 이동함 -->
                                                         <a
-                                                            href="http://map.kakao.com/link/map/%EC%BF%A0%ED%8C%A1%28%EC%A3%BC%29,37.51587323015464,127.09906683920855"
-                                                            class="BtnType SizeXS link-map ga-data-layer"
+                                                            href="#"
+                                                            class="btn-mapview relay-map BtnType SizeXS link-map ga-data-layer"
                                                             target="_blank"
                                                             title="새 창 열림"
                                                         >
@@ -862,7 +877,7 @@
                                                     </dd>
                                                 </div>
 
-                                                <div
+                                                <!--<div
                                                     class="company-details-group wide"
                                                 >
                                                     <dt class="tit">
@@ -876,7 +891,7 @@
                                                             동호회
                                                         </p>
                                                     </dd>
-                                                </div>
+                                                </div>-->
                                             </dl>
                                         </div>
                                         <!--  -->
@@ -953,7 +968,6 @@
                                         <li>
                                             <a
                                                 href=""
-                                                onclick="try{s_trackApply(this, 'company-info-view', 'ing-intro')}catch(e){}"
                                                 class="newcomer-link-view"
                                                 target="_blank"
                                             >
@@ -991,7 +1005,6 @@
                                                     class="position-btn-sm"
                                                     href=""
                                                     title="홈페이지 지원"
-                                                    onclick="try{s_trackApply(this, 'company-info-view', 'ing-intro');}catch(e){};"
                                                 >
                                                     <span
                                                         class="position-btn-homepage-apply"
@@ -1002,10 +1015,6 @@
                                             <!-- onclick에 on붙음 -->
                                             <button
                                                 type="button"
-                                                onclick="Saramin.btnJob('scrap', this, '', 'list')"
-                                                scraped="n"
-                                                rec_idx="48798954"
-                                                imgtype="companyinfo"
                                                 class="newcomer-book-mark like-btn btn-scrap"
                                                 title="스크랩"
                                             >
@@ -1142,21 +1151,21 @@
                                     </ul>
                                 </div>
                                 <a
-                                    href=""
+                                    href="/corporation/corporation-login-main-posting-registration"
                                     class="BtnType SizeS link-content-more ga-data-layer"
                                 >
                                     채용공고 더보기
                                 </a>
                             </section>
                             <!-- 직무 리포트 배너 -->
-                            <div class="banner-area">
+                            <!--<div class="banner-area">
                                 <a href="" class="link-banner ga-data-layer">
                                     <img
                                         src="/images/corporation/body_banner.png"
                                         alt="내 직무로 이 기업에 이직하고 싶다면?? 직무 리포트에서 확인하기"
                                     />
                                 </a>
-                            </div>
+                            </div>-->
                             <!-- 사업부문 및 직원구성 -->
                             <section class="section">
                                 <h2 class="section-tit">
@@ -1167,7 +1176,7 @@
                                         <div class="col">
                                             <span class="tit">전체 사원수</span>
                                             <span class="value">
-                                                <strong class="num"
+                                                <strong class="num" th:text="${corporation.corporationEmployeesNumber}"
                                                     >10,985</strong
                                                 >명
                                             </span>
@@ -2643,6 +2652,7 @@
     <script th:inline="javascript">
         // [[${session.member}]];
         const fileDTO = [[${file}]];
+        const notices = [[${notice}]]
 
         const img = document.getElementById("corporation-logo");
         const tipBox = document.querySelector(".TipBox");
@@ -2659,4 +2669,5 @@
     <script src="/js/corporation/corporation-main.js"></script>
     <script src="/js/corporation/main/main-service.js"></script>
     <script src="/js/corporation/main/main-layout.js"></script>
+    <script src="/js/corporation/main/main-event.js"></script>
 </html>

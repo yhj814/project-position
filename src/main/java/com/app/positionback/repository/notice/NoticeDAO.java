@@ -67,4 +67,8 @@ public class NoticeDAO {
         noticeMapper.updateNoticeReadcount(id);
     }
 
+    public List<NoticeDTO> findRecentNotices(Long corporationId) {
+        return noticeMapper.selectRecentNotices(corporationId);
+    }
+
 }

@@ -43,6 +43,10 @@ public class MemberDTO {
     private String corporationSales;
     private String corporationCode;
     private String corporationEmployeesNumber;
+    private int corporationReadCount;
+    private String corporationBusiness;
+    private int corporationInterestedCount;
+    private String corporationOpeningDate;
 
     public MemberVO toVO() {
         return new MemberVO(id, memberName,memberEmail,memberPassword,memberAddress,memberAddressDetail,memberNickname,memberStatus,

@@ -61,4 +61,9 @@ public class CorporationServiceImpl implements CorporationService {
         Optional<CertificationFileVO> file = certificationFileDAO.getFileIdByApplyId(applyId);
         return fileDAO.findById(file.get().getFileId());
     }
+
+    @Override
+    public Optional<CorporationVO> getCorporationById(Long id) {
+        return corporationDAO.findByCorporationId(id);
+    }
 }

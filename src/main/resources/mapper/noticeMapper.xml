@@ -125,4 +125,44 @@
         where id = #{id}
     </update>
 
+    <select id="selectRecentNotices" resultType="com.app.positionback.domain.notice.NoticeDTO">
+        select
+            n.id,
+            n.corporation_id,
+            n.notice_title,
+            n.notice_career,
+            n.notice_education,
+            n.notice_end_date,
+            n.notice_work_start_time,
+            n.notice_work_end_time,
+            n.notice_work_start_date,
+            n.notice_work_end_date,
+            n.notice_job_category_name,
+            n.notice_read_count,
+            c.id as corporation_id,
+            c.corporation_name,
+            c.corporation_address,
+            c.corporation_address_detail,
+            c.corporation_business,
+            c.corporation_type,
+            c.corporation_employees_number,
+            c.corporation_sales,
+            c.corporation_owner,
+            c.corporation_email,
+            c.corporation_password,
+            c.corporation_homepage,
+            c.corporation_read_count,
+            c.created_date,
+            c.updated_date,
+            c.corporation_code,
+            c.corporation_gen
+        from tbl_notice n
+                 join tbl_corporation c on n.corporation_id = c.id
+        where n.corporation_id = #{corporationId}
+        order by n.created_date desc
+            limit 3
+    </select>
+
+
+
 </mapper>

@@ -1,5 +1,5 @@
 // 카카오 맵
-document.querySelector('.btn-mapview.relay-map').addEventListener('click', function() {
+document.querySelector('.btn-mapview.relay-map').addEventListener('click', ()=> {
     // 주소 가져오기
     const addressElement = document.querySelector('.spr-jview.txt-adr span:last-child'); // 두 번째 span 요소 선택
     const address = addressElement.innerText; // 주소 텍스트 가져오기

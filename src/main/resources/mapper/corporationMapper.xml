@@ -19,7 +19,7 @@
     <select id="selectByCorporationEmailAndCorporationPassword">
         select id, corporation_name, corporation_address, corporation_address_detail, corporation_employees_number, corporation_sales,
                corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_read_count, created_date,
-               updated_date, corporation_gen, corporation_code
+               updated_date, corporation_gen, corporation_code, corporation_business, corporation_interested_count, corporation_opening_date
         from tbl_corporation
         where corporation_email = #{corporationEmail} and corporation_password = #{corporationPassword}
     </select>
@@ -27,10 +27,8 @@
     <select id="selectByCorporationId" >
         select id, corporation_name, corporation_address, corporation_address_detail, corporation_employees_number, corporation_sales,
                corporation_owner, corporation_email, corporation_password, corporation_homepage, corporation_read_count, created_date,
-               updated_date, corporation_gen, corporation_code
+               updated_date, corporation_gen, corporation_code, corporation_business, corporation_interested_count, corporation_opening_date
         from tbl_corporation
         where id = #{id}
     </select>
-
-
 </mapper>
