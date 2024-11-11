@@ -10,6 +10,7 @@ create table  tbl_notice(
     notice_work_end_time time not null , # 근무 종료 시간
     notice_end_date datetime not null,  #공고 마감일
     notice_job_category_name VARCHAR(255), # 소카 내용(직무)
+    notice_read_count int default 0,
     created_date datetime default current_timestamp,
     updated_date datetime default  current_timestamp,
     constraint fk_notice_corporation foreign key (corporation_id)

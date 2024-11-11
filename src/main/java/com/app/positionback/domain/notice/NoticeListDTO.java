@@ -1,5 +1,6 @@
 package com.app.positionback.domain.notice;
 
+import com.app.positionback.domain.file.FileDTO;
 import com.app.positionback.utill.Pagination;
 import lombok.Getter;
 import lombok.Setter;

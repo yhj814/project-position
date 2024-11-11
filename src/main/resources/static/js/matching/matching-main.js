@@ -2415,31 +2415,31 @@ Object.keys(categorys).forEach((categoryA) => {
 });
 
 // });
-const selectJobLists = document.querySelectorAll(
-    ".item-job.depth1-btn-wrapper"
-);
-console.log(selectJobLists);
-console.log(selectJobOneDepths.children);
-
-const DeepDepthElements = [...selectJobOneDepths.children];
-
-DeepDepthElements.forEach((DeepDepthElement) => {
-    console.log(DeepDepthElement.children);
-    DeepDepthElement.children.addEventListener("click", (e) => {
-        console.log(e.target);
-        viewports[2].children.forEach((child) => {
-            child.style.display = "none";
-        });
-        const blockChildren = viewports[2].children.filter(
-            (child) =>
-                child.classList.contains(`depth2-${i}`) ||
-                child.classList.contains(`depth3-${i}`)
-        );
-        blockChildren.forEach((blockChild) => {
-            blockChild.style.display = "block";
-        });
-    });
-});
+// const selectJobLists = document.querySelectorAll(
+//     ".item-job.depth1-btn-wrapper"
+// );
+// console.log(selectJobLists);
+// console.log(selectJobOneDepths.children);
+//
+// const DeepDepthElements = [...selectJobOneDepths.children];
+//
+// DeepDepthElements.forEach((DeepDepthElement) => {
+//     console.log(DeepDepthElement.children);
+//     DeepDepthElement.children.addEventListener("click", (e) => {
+//         console.log(e.target);
+//         viewports[2].children.forEach((child) => {
+//             child.style.display = "none";
+//         });
+//         const blockChildren = viewports[2].children.filter(
+//             (child) =>
+//                 child.classList.contains(`depth2-${i}`) ||
+//                 child.classList.contains(`depth3-${i}`)
+//         );
+//         blockChildren.forEach((blockChild) => {
+//             blockChild.style.display = "block";
+//         });
+//     });
+// });
 
 // selectJobOneDepths.innerHTML
 // text= `

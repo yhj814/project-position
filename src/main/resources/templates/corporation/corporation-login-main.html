@@ -31,7 +31,7 @@
                                             <input type="hidden" name="path" id="path">
                                             <div class="TipBox">
                                                 <button type="button" class="btn-blue evtLoadExnlItem" onclick="document.getElementById('fileInput').click();">
-                                                    <svg>
+                                                    <svg id="plus-btn">
                                                         <use xlink:href="#resume_plus"></use>
                                                     </svg>
                                                 </button>
@@ -54,7 +54,7 @@
                                                 >기업정보</span
                                             >
                                         </h1>
-<!--                                        <p class="txt-job">전자상거래 소매업</p>-->
+                                        <p class="txt-job" th:text="${corporation.corporationBusiness}">전자상거래 소매업</p>
                                     </div>
                                     <div class="box-btns">
                                         <!-- onclick부분 나중에 js 작업 할 때 참고하기 
@@ -103,7 +103,7 @@
                                             <button
                                                 type="button"
                                                 class="btn-menu"
-                                                onclick="location.href='/corporation/corporation-login-main-write-posting';"
+                                                onclick="window.open('/corporation/corporation-login-main-write-posting', '_blank');"
                                             >
                                                 <svg class="ico">
                                                     <use
@@ -241,14 +241,14 @@
                                             </li>
                                             <li class="favor-company-item">
                                                 <span class="tit"
-                                                    >공고 지원 횟수</span
+                                                    >인턴십 완료자</span
                                                 >
                                                 <div class="counting">
                                                     <span class="count">
-                                                        <strong class="num"
+                                                        <strong class="num" th:text="${reviewCount}"
                                                             >20,737</strong
                                                         >
-                                                        회
+                                                        명
                                                     </span>
                                                 </div>
                                             </li>
@@ -269,7 +269,7 @@
                                             <dt>진행중 공고</dt>
                                             <dd>
                                                 <a
-                                                    href=""
+                                                    href="/corporation/corporation-login-main-posting-registration"
                                                     class="ga-data-layer"
                                                     title="본창이동"
                                                     th:text="${ongoingCount}"
@@ -281,7 +281,7 @@
                                             <dt>마감된 공고</dt>
                                             <dd>
                                                 <a
-                                                    href=""
+                                                    href="/corporation/corporation-login-main-posting-registration"
                                                     class="ga-data-layer"
                                                     title="본창이동"
                                                     th:text="${closedCount}"
@@ -293,7 +293,7 @@
                                             <dt>현재 지원자 수</dt>
                                             <dd>
                                                 <a
-                                                    href=""
+                                                    href="/corporation/management"
                                                     class="ga-data-layer"
                                                     title="본창이동"
                                                     th:text="${positionerCount}"
@@ -818,7 +818,7 @@
                                                         대표자명
                                                     </dt>
                                                     <dd class="desc" th:text="${corporation.corporationOwner}">
-                                                        강한승/박대준
+                                                        강한승
                                                     </dd>
                                                 </div>
                                                 <div
@@ -836,7 +836,7 @@
                                                         >
                                                     </dd>
                                                 </div>
-                                                <div
+                                                <!--<div
                                                     class="company-details-group"
                                                 >
                                                     <dt class="tit">
@@ -846,12 +846,11 @@
                                                         <p
                                                             class="ellipsis"
                                                             title="전자상거래,통신판매/광고대행"
-                                                            th:text="${corporation.}"
                                                         >
                                                             전자상거래,통신판매/광고대행
                                                         </p>
                                                     </dd>
-                                                </div>
+                                                </div>-->
                                                 <div
                                                     class="company-details-group"
                                                 >

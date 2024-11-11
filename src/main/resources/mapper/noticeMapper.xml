@@ -163,6 +163,45 @@
             limit 3
     </select>
 
+    <select id="selectAll" resultType="com.app.positionback.domain.notice.NoticeDTO">
+        select n.id, corporation_id, notice_title,notice_career, notice_education,
+               notice_end_date, n.created_date, n.updated_date,
+               notice_work_start_date, notice_work_end_date,
+               notice_work_start_time, notice_work_end_time,
+               notice_job_category_name, c.corporation_name, c.corporation_address
+        from tbl_notice n
+        join tbl_corporation c on n.corporation_id = c.id
+        order by
+            n.created_date
+        desc
+        limit #{pagination.startRow}, #{pagination.moreRowcount}
+    </select>
+
+    <select id="selectAllCount">
+        select count(*) from tbl_notice
+    </select>
+
+    <select id="selectTop4" resultType="com.app.positionback.domain.notice.NoticeDTO">
+        select n.id,
+               corporation_id,
+               notice_title,
+               notice_career,
+               notice_education,
+               notice_end_date,
+               n.created_date,
+               n.updated_date,
+               notice_work_start_date,
+               notice_work_end_date,
+               notice_work_start_time,
+               notice_work_end_time,
+               notice_job_category_name,
+               c.corporation_name,
+               c.corporation_address
+        from tbl_notice n
+                 join tbl_corporation c on n.corporation_id = c.id
+        order by n.notice_read_count desc
+            limit 4
+    </select>
 
 
 </mapper>

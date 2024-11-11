@@ -49,6 +49,7 @@ public class CorporationController {
         model.addAttribute("ongoingCount", pagination.getOngoingCount());
         model.addAttribute("closedCount", pagination.getClosedCount());
         model.addAttribute("positionerCount", pagination.getPositionCount());
+        model.addAttribute("reviewCount", pagination.getReviewCount());
         model.addAttribute("file", fileDTO);
         model.addAttribute("corporation", corporationVO);
         model.addAttribute("notice",noticeDTO);
@@ -59,6 +60,7 @@ public class CorporationController {
     @GetMapping("/corporation/management")
     public void goToManagement(@RequestParam(required = false) Integer page, Pagination pagination, Model model){
         CorporationVO corporationVO = (CorporationVO) session.getAttribute("member");
+        FileDTO fileDTO = corporationService.getCorporationFileById(corporationVO.getId());
 //        FileDTO fileDTO = corporationService.getApplyFileById(corporationVO.getId());
         // page가 null인 경우 기본값 설정
         if (page == null) {
@@ -73,6 +75,9 @@ public class CorporationController {
 
         ApplyListDTO applyListDTO = applyService.getApplyByCorporationId(page, pagination, corporationVO.getId());
         model.addAttribute("applies", applyListDTO);
+        model.addAttribute("file", fileDTO);
+        model.addAttribute("corporation", corporationVO);
+
 
         // Pagination에서 상태별 개수 가져오기
         model.addAttribute("ongoingCount", pagination.getOngoingCount());
