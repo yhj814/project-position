@@ -1,5 +1,6 @@
 package com.app.positionback.domain.notice;
 
+import com.app.positionback.domain.file.FileDTO;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -36,6 +37,7 @@ public class NoticeDTO {
     private Long corporationReadCount;
     private String corporationCode;
     private String corporationGen; // 추가된 필드들
+    private FileDTO fileDTO;
 
     public NoticeVO toVO(){
         return new NoticeVO(id,corporationId,noticeTitle,noticeCareer,noticeEducation,noticeEndDate,createdDate,updatedDate,noticeWorkStartTime,noticeWorkEndTime,noticeWorkStartDate,noticeWorkEndDate,noticeJobCategoryName,noticeReadCount);

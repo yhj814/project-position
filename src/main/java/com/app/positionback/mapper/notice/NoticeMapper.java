@@ -46,4 +46,16 @@ public interface NoticeMapper {
 
     // readcount 증가
     public void updateNoticeReadcount(Long id);
+
+    // 공고 목록 최근 3개만
+    public List<NoticeDTO> selectRecentNotices(Long corporationId);
+
+    // 공고 전체 목록(더보기)
+    public List<NoticeDTO> selectAll(@Param("pagination") Pagination pagination);
+
+    // 공고 전체 개수
+    public int selectAllCount();
+
+    // 공고 목록 인기 4개
+    public List<NoticeDTO> selectTop4();
 }

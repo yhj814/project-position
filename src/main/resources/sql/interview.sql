@@ -10,3 +10,4 @@ create table tbl_interview(
         references tbl_resume(id)
 );
 
+

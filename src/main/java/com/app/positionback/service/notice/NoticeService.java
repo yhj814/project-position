@@ -33,4 +33,11 @@ public interface NoticeService {
     public List<NoticeCategoryRankDTO> getNoticeCategoryRank();
 
     public FileDTO getNoticeFileById(Long noticeId);
+
+    public List<NoticeDTO> getRecentNotices(Long corporationId);
+
+    //공고 전체 목록 더보기
+    public NoticeListDTO getAll(int page,Pagination pagination);
+    // 공고 인기순 4개
+    public NoticeListDTO getTop4();
 }

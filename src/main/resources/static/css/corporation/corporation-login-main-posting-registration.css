@@ -63,6 +63,7 @@
     scrollbar-width: none;
 }
 .sidebar .company-info .box-logo {
+    position: relative;
     display: flex;
     margin-top: 48px;
     width: 210px;
@@ -913,4 +914,32 @@ ol, ul, li {
     margin-right: 16px;
     padding: 0 7px 0 0px;
     width: 54px;
+}
+
+.TipBox {
+    position: relative;
+}
+#plus-btn {
+    width: 23px;
+    height: 23px;
+}
+.sidebar .company-info .box-logo .TipBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box-logo button {
+    padding: 6px 11px;
+    height: 45px;
+    border-color: var(--white);
+    border-radius: 4px;
+}
+
+.btn-blue:hover {
+    background: #eff5ffe8;
+}
+.btn-blue svg {
+    color: var(--blue90);
 }

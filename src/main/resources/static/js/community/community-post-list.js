@@ -1,27 +1,27 @@
-// 서버에서 받아올 게시글 데이터 예시 (나중에 실제 서버에서 데이터 받기)
-const posts = [
-    {
-        id: 1,
-        title: "만29세 경력 없는 신입..",
-        desc: "지방 4년제 나오고 학점은 3~3.5사이, 토목전공에 토목기사자격증 하나 있습니다...",
-        replyCount: 15,
-        viewCount: 4657,
-        author: "2ak6eeJme3dIVKy",
-        date: "4일 전",
-        isHot: true,
-    },
-    {
-        id: 2,
-        title: "퇴사사유... 어떻게 설명해야 할까요",
-        desc: "의료직군인데 전 직장에서 환자에게 폭행당했습니다...",
-        replyCount: 23,
-        viewCount: 23,
-        author: "mKjR0eteUizH8wZ",
-        date: "오늘",
-        isHot: false,
-    },
-    // 추가 게시글들...
-];
+// // 서버에서 받아올 게시글 데이터 예시 (나중에 실제 서버에서 데이터 받기)
+// const posts = [
+//     {
+//         id: 1,
+//         title: "만29세 경력 없는 신입..",
+//         desc: "지방 4년제 나오고 학점은 3~3.5사이, 토목전공에 토목기사자격증 하나 있습니다...",
+//         replyCount: 15,
+//         viewCount: 4657,
+//         author: "2ak6eeJme3dIVKy",
+//         date: "4일 전",
+//         isHot: true,
+//     },
+//     {
+//         id: 2,
+//         title: "퇴사사유... 어떻게 설명해야 할까요",
+//         desc: "의료직군인데 전 직장에서 환자에게 폭행당했습니다...",
+//         replyCount: 23,
+//         viewCount: 23,
+//         author: "mKjR0eteUizH8wZ",
+//         date: "오늘",
+//         isHot: false,
+//     },
+//     // 추가 게시글들...
+// ];
 
 // 게시글을 렌더링하는 함수
 function renderPosts(posts) {

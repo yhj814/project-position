@@ -54,6 +54,29 @@
             <![CDATA[ and a.apply_status = '인턴십 완료' ]]>
         </if>
     </select>
+    <select id="selectApplyCount">
+        select count(*)
+        from
+        tbl_apply a
+        join
+        tbl_notice n on a.notice_id = n.id
+        join
+        tbl_corporation c on n.corporation_id = c.id
+        where
+        c.id = #{corporationId}
+        <if test="pagination.status == 'closed'">
+            <![CDATA[ and a.apply_status = '면접 예정' ]]>
+        </if>
+        <if test="pagination.status == 'ongoing'">
+            <![CDATA[ and a.apply_status = '지원 완료' ]]>
+        </if>
+        <if test="pagination.status == 'position'">
+            <![CDATA[ and a.apply_status = '면접 합격' ]]>
+        </if>
+        <if test="pagination.status == 'review'">
+            <![CDATA[ and a.apply_status = '인턴십 완료' ]]>
+        </if>
+    </select>
 
     <update id="updateApplyStatus">
         update tbl_apply

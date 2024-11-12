@@ -783,8 +783,9 @@ button.interested-corp {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 594px;
+    width: 90%;
     height: 150px;
+    margin: 0 auto;
 }
 .home-board-box {
     border: 1px solid var(--gray40);
@@ -2103,7 +2104,7 @@ img {
     color: var(--blue90);
 }
 
-.TipBox svg {
+#plus-btn {
     width: 23px;
     height: 23px;
 }

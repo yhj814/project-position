@@ -17,4 +17,17 @@ public class PostVO {
     private String postReadCount;
     private String createdDate;
     private String updatedDate;
+
+    public PostDTO toDTO(){
+        PostDTO postDTO = new PostDTO();
+        postDTO.setId(id);
+        postDTO.setMemberId(memberId);
+        postDTO.setPostTitle(postTitle);
+        postDTO.setPostContent(postContent);
+        postDTO.setPostReadCount(postReadCount);
+        postDTO.setCreatedDate(createdDate);
+        postDTO.setUpdatedDate(updatedDate);
+        return postDTO;
+
+    }
 }

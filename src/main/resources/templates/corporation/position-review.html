@@ -9,11 +9,15 @@
             rel="stylesheet"
             href="/css/corporation/positioner-review-write.css"
         />
+        <link
+                rel="stylesheet"
+                href="/css/corporation/corporation-login-header.css"
+        />
     </head>
     <body>
     <form th:action="@{/corporation/position-review}" method="post" th:object="${corporationReviewDTO}" name="corporationReviewForm">
         <input type="hidden" name="applyId" th:value="${apply.applyId}">
-    <header></header>
+        <header th:replace="~{/corporation/corporation-login-header :: #header}"></header>
         <div
             id="interview-write-sri-section"
             class="interview-write-layout-full"
@@ -549,6 +553,7 @@
         </div>
     </form>
     </body>
+    <script src="/js/corporation/corpoaration-login-header.js"></script>
     <script src="/js/corporation/interview-review-write.js"></script>
     <script>
         const reviewTips = document.getElementById('reviewTips');

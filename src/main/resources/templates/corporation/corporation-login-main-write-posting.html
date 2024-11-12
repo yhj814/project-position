@@ -9,10 +9,14 @@
             rel="stylesheet"
             href="/css/corporation/corporation-login-main-write-posting.css"
         />
+        <link
+                rel="stylesheet"
+                href="/css/corporation/corporation-login-header.css"
+        />
     </head>
     <body>
-        <header></header>
-        <div
+    <header th:replace="~{/corporation/corporation-login-header :: #header}"></header>
+    <div
             id="sri-section"
             class="layout-full"
         >
@@ -981,7 +985,7 @@
             </div>
         </div>
     </body>
-
+    <script src="/js/corporation/corpoaration-login-header.js"></script>
     <script src="/js/jobcategory/category-service.js"></script>
     <script src="/js/jobcategory/category-layout.js"></script>
     <script src="/js/jobcategory/category-event.js"></script>
