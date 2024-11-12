@@ -9,11 +9,13 @@ create table  tbl_notice(
     notice_work_start_time time not null , # 근무 시작시간
     notice_work_end_time time not null , # 근무 종료 시간
     notice_end_date datetime not null,  #공고 마감일
-    notice_job_category_name VARCHAR(255), # 소카 내용(직무)
+    job_categoryC_id bigint unsigned not null,
     created_date datetime default current_timestamp,
     updated_date datetime default  current_timestamp,
     constraint fk_notice_corporation foreign key (corporation_id)
-                        references tbl_corporation(id)
+                        references tbl_corporation(id),
+    constraint fk_notice_job_categoryC foreign key (job_categoryC_id)
+        references tbl_job_categoryC(id)
 );
 
 select * from tbl_notice;

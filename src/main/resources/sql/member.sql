@@ -1,5 +1,6 @@
 create database positionback;
 use positionback;
+
 create table tbl_member(
     id bigint unsigned auto_increment primary key,
     member_name varchar(255) not null,
@@ -32,7 +33,7 @@ alter table tbl_member modify column member_password varchar(255);
 alter table tbl_member drop column member_type;
 
 
-<<<<<<< HEAD
+
 INSERT INTO tbl_member (
     member_name,
     member_phone,
@@ -75,7 +76,7 @@ INSERT INTO tbl_member (
 
 
 
-=======
+
 -- First new entry
 INSERT INTO tbl_member (
     member_name,
@@ -98,5 +99,5 @@ INSERT INTO tbl_member (
              'http://example.com/alice-profile.jpg',
              '555-123-4567'
          );
->>>>>>> newtest
+
 
