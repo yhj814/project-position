@@ -1,4 +1,4 @@
-<h1>Jimin-Position</h1>
+<h1>Project-Position</h1>
 <br>
 <h1>기업과 청년 매칭 플랫폼 - '포지션'</h1>
 
